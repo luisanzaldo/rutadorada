@@ -12,7 +12,7 @@ tags: ["Cine estadounidense"]
 
 Seahaven es el lugar más feliz del mundo. Una ciudad perfecta, de calles limpias, vecinos amables y cielos siempre despejados. Truman Burbank lleva treinta años viviendo ahí sin saber que cada esquina de su vida —su trabajo, su matrimonio, sus amigos, incluso el sol que lo alumbra— es un decorado. Que las 5.000 cámaras ocultas que lo rodean transmiten su existencia en directo las veinticuatro horas del día a una audiencia de mil millones de espectadores. Que él es el único habitante de Seahaven que no está actuando. *El show de Truman* es la historia del día en que algo en ese mundo perfecto empieza a fallar. Y de lo que ocurre cuando un hombre comienza, por primera vez en su vida, a hacerse preguntas.
 
-## Una Sátira que el Tiempo Convirtió en Profecía
+## Una sátira que el tiempo convirtió en profecía
 
 Cuando Peter Weir estrenó *The Truman Show* en 1998, el concepto de telerrealidad era todavía una curiosidad marginal. *Gran Hermano* no existía. Las redes sociales tampoco. La idea de que millones de personas pudieran seguir la vida cotidiana de un desconocido en tiempo real parecía una distopía de ciencia ficción lo suficientemente exagerada como para resultar cómica. Veintiséis años después, la película no solo no ha envejecido: se ha vuelto más real que cuando fue rodada. Vivimos en una cultura donde la exhibición voluntaria de la vida propia es moneda corriente, donde los algoritmos deciden qué vemos y qué nos emociona, y donde la frontera entre experiencia auténtica y performance para una audiencia imaginaria se ha vuelto genuinamente difusa. Weir y el guionista Andrew Niccol no hicieron una sátira; hicieron un diagnóstico.
 
@@ -35,17 +35,17 @@ Ed Harris compone a Christof, el productor ejecutivo del show, como una figura q
 </div>
 </div>
 
-## Jim Carrey Contra Sí Mismo
+## Jim Carrey contra sí mismo
 
 El gran riesgo de la película era su protagonista. Jim Carrey, en 1998, era sinónimo de comedia física desbocada, y confiarle un papel que requería contención, vulnerabilidad y una construcción emocional de largo aliento era una apuesta considerable. Carrey la gana con creces. Su Truman es un personaje construido en capas: la fachada del hombre despreocupado y bromista que el show ha moldeado, y debajo de ella, una inquietud creciente, una sed de horizonte que no sabe nombrar pero que lo empuja hacia el borde de su mundo de cartón piedra. La escena en la que Truman, por primera vez, mira directamente a una cámara oculta y sonríe con una sonrisa que ya no es la de siempre es uno de los momentos más escalofriantes de la película, y Carrey la sostiene sin una sola palabra.
 
-## La Cámara como Argumento
+## La cámara como argumento
 
 Weir y su director de fotografía Peter Biziou diseñan una gramática visual que hace visible la premisa filosófica del filme. Las lentes ojo de pez, los ángulos imposibles, los encuadres que revelan el origen televisivo de la imagen; todo el lenguaje visual de *El show de Truman* nos recuerda constantemente que estamos viendo a alguien ser visto. La película es autoconsicente sin ser pedante, y esa conciencia de la mirada es precisamente lo que la separa de una comedia de situación con pretensiones y la eleva a algo más cercano a la fábula filosófica.
 
 La banda sonora de Burkhard Dallwitz y Philip Glass —este último aportando algunos de sus motivos más reconocibles— subraya con precisión los momentos en que la realidad de Truman empieza a agrietarse, amplificando la emoción sin subrayarla en exceso.
 
-## Un Final que Todavía Resuena
+## Un final que todavía resuena
 
 El desenlace de *El show de Truman* es, en apariencia, esperanzador. Truman encuentra la puerta. Elige salir. La audiencia lo celebra y luego, inmediatamente, cambia de canal. Es en ese último gesto donde reside la verdadera mordacidad de la película: la libertad de uno es, para el resto del mundo, apenas otro momento de entretenimiento. Weir no nos deja sentirnos bien con nosotros mismos, y eso es exactamente lo que convierte a esta película en algo más que un entretenimiento brillante.
 
