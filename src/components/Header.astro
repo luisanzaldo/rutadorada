@@ -43,8 +43,10 @@ const searchablePosts = allPosts.map((post) => ({
                 >
             </a>
 
-            <!-- Nav -->
             <nav class="hidden lg:flex space-x-8">
+                <a
+                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    href={import.meta.env.BASE_URL}>Lo último</a>
                 <a
                     class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/archive?topic=Artículos`}>Artículos</a>
@@ -297,6 +299,9 @@ const searchablePosts = allPosts.map((post) => ({
         class="absolute right-0 top-0 bottom-0 w-[280px] bg-[#0b1618] border-l border-[#224249] translate-x-full transition-transform duration-300 ease-out p-6 pt-24"
     >
         <nav class="flex flex-col space-y-4">
+            <a
+                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                href={import.meta.env.BASE_URL}>Lo último</a>
             <a
                 class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/archive?topic=Artículos`}>Artículos</a

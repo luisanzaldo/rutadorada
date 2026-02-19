@@ -7,7 +7,6 @@ authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/The_Handmaiden_013.jpg?bwg=1569841492"
 category: "Artículos"
 readTime: "5 min read"
-featured: true
 tags: ["Cine coreano"]
 ---
 

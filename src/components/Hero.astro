@@ -38,15 +38,13 @@ const latestPost = allPosts.sort(
 
         <!-- CTA Buttons -->
         <div class="mt-20 flex flex-col sm:flex-row justify-center gap-10">
-            <a
-                class="group relative px-14 py-6 overflow-hidden bg-[#d97706] text-white font-black tracking-[0.3em] uppercase transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)]"
-                href={import.meta.env.BASE_URL}
+            <div
+                class="px-14 py-6 overflow-hidden bg-[#d97706] text-white font-black tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] cursor-default select-none"
             >
                 <span class="relative z-10">Lo último</span>
-                <div class="absolute inset-0 bg-white/30 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 cubic-bezier(0.85, 0, 0.15, 1)"></div>
-            </a>
+            </div>
             <a
-                class="px-14 py-6 border-2 border-white/40 hover:border-white text-white font-black tracking-[0.3em] uppercase transition-all hover:bg-white/5 backdrop-blur-lg"
+                class="px-14 py-6 border-2 border-white/40 text-white font-black tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#d97706] hover:border-[#d97706] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)]"
                 href={`${import.meta.env.BASE_URL}/archive`}
             >
                 Archivo de publicaciones

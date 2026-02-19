@@ -8,7 +8,6 @@ image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5u3m5gNlQr_qpN1JepH
 category: "Críticas"
 subCategory: "Cloud Infrastructure"
 readTime: "8 min read"
-featured: true
 tags: ["zerotrust", "cloudsec", "devops"]
 ---
 

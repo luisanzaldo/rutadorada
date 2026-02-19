@@ -6,7 +6,11 @@ import Footer from "../components/Footer.astro";
 import ArchiveCard from "../components/ArchiveCard.astro";
 
 const allPosts = await getCollection("posts");
-const topics = [...new Set(allPosts.map((post) => post.data.category))];
+const categoryOrder = ["Artículos", "Críticas", "Premios", "Trailers"];
+const topics = categoryOrder.filter(cat => allPosts.some(post => post.data.category === cat));
+// Add any other categories that might exist but aren't in the ordered list
+const otherTopics = [...new Set(allPosts.map((post) => post.data.category))].filter(cat => !categoryOrder.includes(cat));
+topics.push(...otherTopics);
 
 const formatDate = (date: Date) => {
     return date.toLocaleDateString("en-US", {
@@ -61,22 +65,33 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                                 data-topic={topic}
                             >
                                 <span class="text-white text-sm font-medium">
-                                    {topic}
+                                    {topic === "Trailers" ? "Tráilers" : topic}
                                 </span>
                             </button>
                         ))
                     }
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="text-text-muted text-sm">Sort by:</span>
+                    <span class="text-text-muted text-sm">Ordenar por:</span>
                     <button
-                        class="flex items-center gap-1 text-white text-sm font-medium hover:text-primary"
+                        class="flex items-center gap-1 text-white text-sm font-medium hover:text-primary transition-colors"
                         id="sort-toggle"
                     >
-                        <span id="sort-label">Newest</span>
-                        <span class="material-symbols-outlined text-[20px]"
-                            >expand_more</span
+                        <span id="sort-label">Más recientes</span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="text-primary"
                         >
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -198,13 +213,13 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                 const btn = document.createElement("button");
                 btn.className = `w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                     i === currentPage
-                        ? "bg-primary text-background-dark border-primary shadow-[0_0_15px_rgba(13,204,242,0.3)]"
+                        ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(217,119,6,0.3)]"
                         : "bg-background-input border-primary/20 text-white hover:bg-primary/10 hover:border-primary"
                 }`;
                 btn.textContent = i.toString();
                 btn.addEventListener("click", () => {
                     currentPage = i;
-                    renderCurrentPage();
+                    updatePagination();
                 });
                 pageNumbersContainer.appendChild(btn);
             }
@@ -308,7 +323,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
         currentSort = currentSort === "newest" ? "oldest" : "newest";
         if (sortLabel)
             sortLabel.textContent =
-                currentSort.charAt(0).toUpperCase() + currentSort.slice(1);
+                currentSort === "newest" ? "Más recientes" : "Más antiguos";
 
         const sortedItems = Array.from(archiveItems).sort((a, b) => {
             const dateA = parseInt(a.getAttribute("data-date") || "0");
@@ -326,8 +341,8 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     @reference "../styles/global.css";
 
     .topic-filter.active {
-        @apply bg-primary text-background-dark font-bold;
-        box-shadow: 0 0 15px rgba(13, 204, 242, 0.3);
+        @apply bg-primary text-white font-bold;
+        box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
     }
 
     #archive-grid {

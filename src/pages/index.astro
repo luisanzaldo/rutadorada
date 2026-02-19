@@ -10,12 +10,9 @@ import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const featuredPosts = sortedPosts.filter((post) => post.data.featured).slice(0, 5);
-const mainFeaturedPost = featuredPosts[0];
-const otherFeaturedPosts = featuredPosts.slice(1);
-
-const featuredSlugs = new Set(featuredPosts.map(p => p.slug));
-const regularPosts = sortedPosts.filter((post) => !featuredSlugs.has(post.slug));
+const latestPosts = sortedPosts.slice(0, 9);
+const mainPost = latestPosts[0];
+const otherPosts = latestPosts.slice(1);
 
 const formatDate = (date: Date) => {
 	return date.toLocaleDateString("en-US", {
@@ -43,42 +40,28 @@ const formatDate = (date: Date) => {
 
 				</div>
 
-				<!-- Featured Post -->
+				<!-- Main Latest Post -->
 				{
-					mainFeaturedPost && (
+					mainPost && (
 						<ArticleCard
 							featured={true}
-							title={mainFeaturedPost.data.title}
-							description={mainFeaturedPost.data.description}
-							image={mainFeaturedPost.data.image}
-							category={mainFeaturedPost.data.category}
-							author={mainFeaturedPost.data.author}
-							authorImage={mainFeaturedPost.data.authorImage}
-							date={formatDate(mainFeaturedPost.data.pubDate)}
-							readTime={mainFeaturedPost.data.readTime}
-							slug={mainFeaturedPost.slug}
+							title={mainPost.data.title}
+							description={mainPost.data.description}
+							image={mainPost.data.image}
+							category={mainPost.data.category}
+							author={mainPost.data.author}
+							authorImage={mainPost.data.authorImage}
+							date={formatDate(mainPost.data.pubDate)}
+							readTime={mainPost.data.readTime}
+							slug={mainPost.slug}
 						/>
 					)
 				}
 
-				<!-- Post Grid (Other Featured + Regular) -->
+				<!-- Post Grid -->
 				<div class="grid md:grid-cols-2 gap-6">
 					{
-						otherFeaturedPosts.map((post) => (
-							<ArticleCard
-								title={post.data.title}
-								description={post.data.description}
-								image={post.data.image}
-								category={post.data.category}
-								author={post.data.author}
-								date={formatDate(post.data.pubDate)}
-								readTime={post.data.readTime}
-								slug={post.slug}
-							/>
-						))
-					}
-					{
-						regularPosts.map((post) => (
+						otherPosts.map((post) => (
 							<ArticleCard
 								title={post.data.title}
 								description={post.data.description}
