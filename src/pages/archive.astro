@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import ArchiveCard from "../components/ArchiveCard.astro";
 
 const allPosts = await getCollection("posts");
-const categoryOrder = ["Artículos", "Críticas", "Premios", "Trailers"];
+const categoryOrder = ["Artículos", "Críticas", "Premios", "Tráilers"];
 const topics = categoryOrder.filter(cat => allPosts.some(post => post.data.category === cat));
 // Add any other categories that might exist but aren't in the ordered list
 const otherTopics = [...new Set(allPosts.map((post) => post.data.category))].filter(cat => !categoryOrder.includes(cat));
@@ -65,7 +65,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                                 data-topic={topic}
                             >
                                 <span class="text-white text-sm font-medium">
-                                    {topic === "Trailers" ? "Tráilers" : topic}
+                                    {topic}
                                 </span>
                             </button>
                         ))
@@ -104,7 +104,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                 {
                     allPosts.map((post) => (
                         <div
-                            class="archive-item"
+                            class="archive-item h-full"
                             data-topic={post.data.category}
                             data-date={post.data.pubDate.getTime()}
                             data-tags={
@@ -119,6 +119,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                                 date={formatDate(post.data.pubDate)}
                                 readTime={post.data.readTime}
                                 slug={post.slug}
+                                videoUrl={post.data.videoUrl}
                             />
                         </div>
                     ))

@@ -7,19 +7,22 @@ interface Props {
     date: string;
     readTime: string;
     slug: string;
+    videoUrl?: string;
 }
 
-const { title, description, image, category, date, readTime, slug } =
+const { title, description, image, category, date, readTime, slug, videoUrl } =
     Astro.props;
-const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
+const url = videoUrl || `${import.meta.env.BASE_URL}/posts/${slug}`;
+const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 
 <article
-    class="flex flex-col rounded-xl overflow-hidden bg-background-card shadow-lg hover:-translate-y-1 hover:shadow-primary/10 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
+    class="flex flex-col h-full rounded-xl overflow-hidden bg-background-card shadow-lg hover:-translate-y-1 hover:shadow-primary/10 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
 >
     <a
         href={url}
-        class="w-full h-48 bg-cover bg-center relative block"
+        class={`w-full h-48 bg-cover bg-center relative block ${triggerClass}`}
+        data-video-url={videoUrl}
         style={`background-image: url("${image}");`}
     >
         <div
@@ -33,7 +36,7 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
         </span>
     </a>
     <div class="flex flex-col flex-1 p-5 gap-3">
-        <a href={url}>
+        <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
             <h3
                 class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors"
             >
@@ -51,7 +54,8 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
             >
             <a
                 href={url}
-                class="material-symbols-outlined text-primary text-[20px] group-hover:translate-x-1 transition-transform"
+                class={`material-symbols-outlined text-primary text-[20px] group-hover:translate-x-1 transition-transform ${triggerClass}`}
+                data-video-url={videoUrl}
             >
                 arrow_forward
             </a>

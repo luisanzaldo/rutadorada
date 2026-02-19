@@ -54,6 +54,7 @@ const formatDate = (date: Date) => {
 							date={formatDate(mainPost.data.pubDate)}
 							readTime={mainPost.data.readTime}
 							slug={mainPost.slug}
+                            videoUrl={mainPost.data.videoUrl}
 						/>
 					)
 				}
@@ -71,6 +72,7 @@ const formatDate = (date: Date) => {
 								date={formatDate(post.data.pubDate)}
 								readTime={post.data.readTime}
 								slug={post.slug}
+                                videoUrl={post.data.videoUrl}
 							/>
 						))
 					}

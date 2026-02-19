@@ -1,0 +1,104 @@
+---
+---
+<dialog id="video-modal" class="bg-transparent m-auto p-0 backdrop:backdrop-blur-md backdrop:bg-black/80 w-full max-w-5xl aspect-video rounded-xl shadow-2xl overflow-hidden border border-white/10 outline-none">
+    <div class="relative w-full h-full bg-black flex flex-col items-center justify-center">
+        <!-- Close button -->
+        <button id="close-video" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors border border-white/20 shadow-lg cursor-pointer" aria-label="Cerrar video">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <!-- The player container (either iframe or video) -->
+        <div id="video-container" class="w-full h-full flex items-center justify-center bg-black relative">
+        </div>
+    </div>
+</dialog>
+
+<script>
+    function setupVideoModals() {
+        const modal = document.getElementById('video-modal') as HTMLDialogElement | null;
+        const closeBtn = document.getElementById('close-video');
+        const videoContainer = document.getElementById('video-container');
+
+        if (!modal || !closeBtn || !videoContainer) return;
+
+        // Clean up any existing listeners on close button by replacing it to avoid duplicates
+        const newCloseBtn = closeBtn.cloneNode(true);
+        if (closeBtn.parentNode) {
+            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+        }
+
+        const closeModal = () => {
+            modal.close();
+            videoContainer.innerHTML = '';
+        };
+
+        newCloseBtn.addEventListener('click', closeModal);
+
+        const onModalClick = (e: MouseEvent) => {
+            const rect = modal.getBoundingClientRect();
+            const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                                rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+            if (!isInDialog) {
+                closeModal();
+            }
+        };
+
+        // Remove and re-add just in case
+        modal.removeEventListener('click', onModalClick as EventListener);
+        modal.addEventListener('click', onModalClick as EventListener);
+
+        modal.addEventListener('close', () => {
+           videoContainer.innerHTML = '';
+        });
+
+        const triggers = document.querySelectorAll('.video-trigger');
+        triggers.forEach(trigger => {
+            // we remove any previous listeners by cloning or just tracking we assigned them
+            // since this depends on `.video-trigger`, cloning the trigger is an option but might destroy other handlers.
+            // astro:page-load handles clean state so it's usually fine
+            
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = trigger.getAttribute('data-video-url');
+                if (!url) return;
+
+                let embedUrl = url;
+                let isIframe = true;
+
+                if (url.includes('youtube.com/watch?v=')) {
+                    const videoId = new URL(url).searchParams.get('v');
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                } else if (url.includes('youtu.be/')) {
+                    const videoId = new URL(url).pathname.substring(1);
+                    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                } else if (url.trim().toLowerCase().endsWith('.mp4')) {
+                    isIframe = false;
+                }
+
+                if (isIframe) {
+                    videoContainer.innerHTML = `<iframe 
+                        src="${embedUrl}" 
+                        class="w-full h-full border-0 absolute top-0 left-0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>`;
+                } else {
+                    videoContainer.innerHTML = `<video 
+                        src="${url}" 
+                        class="w-full h-full outline-none" 
+                        controls 
+                        autoplay>
+                    </video>`;
+                }
+
+                modal.showModal();
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupVideoModals);
+    // Support Astro View Transitions if enabled
+    document.addEventListener('astro:page-load', setupVideoModals);
+</script>

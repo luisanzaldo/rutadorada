@@ -10,6 +10,7 @@ interface Props {
     readTime: string;
     featured?: boolean;
     slug?: string;
+    videoUrl?: string;
 }
 
 const {
@@ -23,9 +24,11 @@ const {
     readTime,
     featured = false,
     slug,
+    videoUrl,
 } = Astro.props;
 
-const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
+const url = videoUrl || `${import.meta.env.BASE_URL}/posts/${slug}`;
+const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 
 {
@@ -65,7 +68,7 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
                         {readTime}
                     </span>
                 </div>
-                <a href={url}>
+                <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
                     <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                         {title}
                     </h3>
@@ -92,7 +95,7 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
         </article>
     ) : (
         <article class="group flex flex-col h-full bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-white/5 hover:border-primary/50">
-            <a href={url} class="h-48 overflow-hidden relative block">
+            <a href={url} class={`h-48 overflow-hidden relative block ${triggerClass}`} data-video-url={videoUrl}>
                 <div class="absolute top-4 left-4 z-10">
                     <span class="px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-primary text-xs font-bold border border-primary/30">
                         {category}
@@ -152,7 +155,7 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
                     </svg>
                     {readTime}
                 </div>
-                <a href={url}>
+                <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
                         {title}
                     </h3>
@@ -168,7 +171,8 @@ const url = `${import.meta.env.BASE_URL}/posts/${slug}`;
                     </div>
                     <a
                         href={url}
-                        class="text-primary group-hover:translate-x-1 transition-transform"
+                        class={`text-primary group-hover:translate-x-1 transition-transform ${triggerClass}`}
+                        data-video-url={videoUrl}
                         aria-label="Read more"
                     >
                         <svg
