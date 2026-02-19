@@ -8,10 +8,14 @@ import ArticleCard from "../components/ArticleCard.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
-const featuredPost = allPosts.find((post) => post.data.featured);
-const regularPosts = allPosts
-	.filter((post) => !post.data.featured)
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPosts = sortedPosts.filter((post) => post.data.featured).slice(0, 5);
+const mainFeaturedPost = featuredPosts[0];
+const otherFeaturedPosts = featuredPosts.slice(1);
+
+const featuredSlugs = new Set(featuredPosts.map(p => p.slug));
+const regularPosts = sortedPosts.filter((post) => !featuredSlugs.has(post.slug));
 
 const formatDate = (date: Date) => {
 	return date.toLocaleDateString("en-US", {
@@ -34,50 +38,45 @@ const formatDate = (date: Date) => {
 					<h2
 						class="text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-primary pl-3"
 					>
-						Artículos destacados
+						Descubre las últimas noticias
 					</h2>
-					<a
-						class="text-sm text-primary hover:text-cyan-300 font-medium flex items-center"
-						href={`${import.meta.env.BASE_URL}archive`}
-					>
-						Ver todo <svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="14"
-							height="14"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="ml-1"
-						>
-							<path d="M5 12h14"></path>
-							<path d="m12 5 7 7-7 7"></path>
-						</svg>
-					</a>
+
 				</div>
 
 				<!-- Featured Post -->
 				{
-					featuredPost && (
+					mainFeaturedPost && (
 						<ArticleCard
 							featured={true}
-							title={featuredPost.data.title}
-							description={featuredPost.data.description}
-							image={featuredPost.data.image}
-							category={featuredPost.data.category}
-							author={featuredPost.data.author}
-							authorImage={featuredPost.data.authorImage}
-							date={formatDate(featuredPost.data.pubDate)}
-							readTime={featuredPost.data.readTime}
-							slug={featuredPost.slug}
+							title={mainFeaturedPost.data.title}
+							description={mainFeaturedPost.data.description}
+							image={mainFeaturedPost.data.image}
+							category={mainFeaturedPost.data.category}
+							author={mainFeaturedPost.data.author}
+							authorImage={mainFeaturedPost.data.authorImage}
+							date={formatDate(mainFeaturedPost.data.pubDate)}
+							readTime={mainFeaturedPost.data.readTime}
+							slug={mainFeaturedPost.slug}
 						/>
 					)
 				}
 
-				<!-- Regular Posts Grid -->
+				<!-- Post Grid (Other Featured + Regular) -->
 				<div class="grid md:grid-cols-2 gap-6">
+					{
+						otherFeaturedPosts.map((post) => (
+							<ArticleCard
+								title={post.data.title}
+								description={post.data.description}
+								image={post.data.image}
+								category={post.data.category}
+								author={post.data.author}
+								date={formatDate(post.data.pubDate)}
+								readTime={post.data.readTime}
+								slug={post.slug}
+							/>
+						))
+					}
 					{
 						regularPosts.map((post) => (
 							<ArticleCard
@@ -96,7 +95,7 @@ const formatDate = (date: Date) => {
 
 				<div class="mt-12 text-center">
 					<a
-						href={`${import.meta.env.BASE_URL}archive`}
+						href={`${import.meta.env.BASE_URL}/archive`}
 						class="inline-block px-6 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary transition-all text-sm font-medium"
 					>
 						Archivo de publicaciones

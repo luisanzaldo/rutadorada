@@ -8,6 +8,7 @@ image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDWiZO41vXi_jaq2x-IhU
 category: "Trailers"
 subCategory: "Neural Networks"
 readTime: "5 min read"
+featured: true
 tags: ["transformers", "nlp", "computervision"]
 ---
 

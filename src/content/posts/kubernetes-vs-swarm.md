@@ -8,6 +8,7 @@ image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWuzRnUHfpLFv2QjUFWf
 category: "Artículos"
 subCategory: "Orchestration"
 readTime: "6 min read"
+featured: true
 tags: ["kubernetes", "docker", "swarm", "devops"]
 ---
 

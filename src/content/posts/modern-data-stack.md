@@ -8,6 +8,7 @@ image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZRVVa2-j3KXsa1BLcYs
 category: "Premios"
 subCategory: "Data Engineering"
 readTime: "7 min read"
+featured: true
 tags: ["etl", "elt", "snowflake", "dbt"]
 ---
 

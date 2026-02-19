@@ -8,6 +8,7 @@ image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUceLHDjOnzVbPuMtlpE
 category: "Artículos"
 subCategory: "Web Performance"
 readTime: "12 min read"
+featured: true
 tags: ["astro", "performance", "frontend"]
 ---
 
