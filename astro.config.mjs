@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://luisanzaldo.github.io',
   base: '/rutadorada',
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss()]
   }
 });
