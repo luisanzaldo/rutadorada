@@ -446,16 +446,18 @@ const { slug } = Astro.props;
 
         try {
             if (isLiked) {
-                await supabase.from("likes").insert({
+                const { error } = await supabase.from("likes").insert({
                     articulo_id: articuloId,
                     user_id: user.id,
                 });
+                if (error) throw error;
             } else {
-                await supabase
+                const { error } = await supabase
                     .from("likes")
                     .delete()
                     .eq("articulo_id", articuloId)
                     .eq("user_id", user.id);
+                if (error) throw error;
             }
         } catch (err) {
             console.error("Error toggling like", err);
