@@ -346,9 +346,9 @@ const { slug } = Astro.props;
 
     async function fetchCommentsCount() {
         const { count, error } = await supabase
-            .from("comments")
+            .from("comentarios")
             .select("*", { count: "exact", head: true })
-            .eq("post_slug", slug);
+            .eq("articulo_id", slug);
 
         if (!error && count !== null) {
             commentCount = count;
