@@ -295,7 +295,6 @@ const { slug } = Astro.props;
     }
 
     // Local Storage Keys
-    const LIKED_KEY = `liked_${slug}`;
     const BOOKMARKED_KEY = `bookmarked_${slug}`;
 
     async function init() {
@@ -309,7 +308,6 @@ const { slug } = Astro.props;
 
         // Check local state for guests
         if (!user) {
-            isLiked = localStorage.getItem(LIKED_KEY) === "true";
             isBookmarked = localStorage.getItem(BOOKMARKED_KEY) === "true";
         }
 
@@ -324,10 +322,11 @@ const { slug } = Astro.props;
     }
 
     async function fetchLikes() {
+        const articuloId = "posts/" + slug;
         const { count, error } = await supabase
             .from("likes")
             .select("*", { count: "exact", head: true })
-            .eq("post_slug", slug);
+            .eq("articulo_id", articuloId);
 
         if (!error && count !== null) {
             likeCount = count;
@@ -337,7 +336,7 @@ const { slug } = Astro.props;
             const { data } = await supabase
                 .from("likes")
                 .select("*")
-                .eq("post_slug", slug)
+                .eq("articulo_id", articuloId)
                 .eq("user_id", user.id)
                 .single();
 
@@ -433,33 +432,30 @@ const { slug } = Astro.props;
     }
 
     async function toggleLike() {
+        if (!user) {
+            window.location.href = import.meta.env.BASE_URL + "/login";
+            return;
+        }
+
         const prevStatus = isLiked;
         isLiked = !isLiked;
         likeCount = isLiked ? likeCount + 1 : Math.max(0, likeCount - 1);
         updateUI();
 
-        if (!user) {
-            localStorage.setItem(LIKED_KEY, isLiked.toString());
-        }
+        const articuloId = "posts/" + slug;
 
         try {
             if (isLiked) {
                 await supabase.from("likes").insert({
-                    post_slug: slug,
-                    user_id: user?.id || null,
+                    articulo_id: articuloId,
+                    user_id: user.id,
                 });
             } else {
-                if (user) {
-                    await supabase
-                        .from("likes")
-                        .delete()
-                        .eq("post_slug", slug)
-                        .eq("user_id", user.id);
-                } else {
-                    // For guests, we can't easily delete their specific like without a session
-                    // So we just rely on local state to prevent duplicate counts from the same guest
-                    // But for now, simple insert is fine for count tracking.
-                }
+                await supabase
+                    .from("likes")
+                    .delete()
+                    .eq("articulo_id", articuloId)
+                    .eq("user_id", user.id);
             }
         } catch (err) {
             console.error("Error toggling like", err);
