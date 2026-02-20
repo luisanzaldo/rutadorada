@@ -829,7 +829,7 @@ const baseUrl = import.meta.env.BASE_URL;
         if (error) {
             console.error("Error signing out:", error.message);
         } else {
-            window.location.href = "/";
+            window.location.href = import.meta.env.BASE_URL || "/";
         }
     }
 

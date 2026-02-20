@@ -183,7 +183,7 @@ const title = "Login | RutaDorada";
             }
 
             // Success - redirect to home
-            window.location.href = "/";
+            window.location.href = import.meta.env.BASE_URL || "/";
         } catch (error: any) {
             if (errorMessage) {
                 errorMessage.textContent = error.message || "Error logging in";
@@ -203,6 +203,9 @@ const title = "Login | RutaDorada";
         try {
             const { error } = await supabase.auth.signInWithOAuth({
                 provider: 'google',
+                options: {
+                    redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`
+                }
             });
             if (error) throw error;
         } catch (error: any) {

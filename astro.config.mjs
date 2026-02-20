@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://luisanzaldo.github.io',
+  site: 'https://metarrelato.com',
   base: '/rutadorada',
   vite: {
     // @ts-ignore
