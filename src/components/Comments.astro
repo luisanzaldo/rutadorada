@@ -14,7 +14,7 @@ const { slug } = Astro.props;
     <h3
         class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2"
     >
-        Comments <span
+        Comentarios <span
             id="total-comments"
             class="text-sm font-normal text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full"
             >0</span
@@ -24,25 +24,20 @@ const { slug } = Astro.props;
     <!-- Comment Form -->
     <div id="comment-form-container" class="mb-10 hidden">
         <form id="comment-form" class="space-y-4">
-            <div id="guest-name-container" class="mb-4 hidden">
-                <input
-                    type="text"
-                    id="guest-name-input"
-                    class="w-full bg-slate-50 dark:bg-[#162a2f] text-slate-900 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-transparent focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400"
-                    placeholder="Your Name"
-                />
+            <div class="text-sm text-slate-600 dark:text-slate-400">
+                <span class="font-medium">Comentando como:</span> <span id="current-user-name" class="font-bold text-slate-900 dark:text-white"></span>
             </div>
             <textarea
                 id="comment-input"
                 class="w-full bg-slate-50 dark:bg-[#162a2f] text-slate-900 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-transparent focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400 min-h-[120px] resize-y"
-                placeholder="Write a comment..."
+                placeholder="Escribe un comentario..."
                 required></textarea>
             <div class="flex justify-end">
                 <button
                     type="submit"
                     class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all text-sm"
                 >
-                    Post Comment
+                    Enviar comentario
                 </button>
             </div>
         </form>
@@ -52,12 +47,12 @@ const { slug } = Astro.props;
         <div
             class="bg-slate-50 dark:bg-[#162a2f] p-6 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-center"
         >
-            <p class="text-slate-500 mb-4">Please login to leave a comment.</p>
+            <p class="text-slate-500 mb-4">Inicia sesión para agregar un comentario.</p>
             <a
                 href="/login"
                 class="inline-block bg-white dark:bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-                Login
+                Iniciar sesión
             </a>
         </div>
     </div>
@@ -85,10 +80,8 @@ const { slug } = Astro.props;
     const commentInput = document.getElementById(
         "comment-input",
     ) as HTMLTextAreaElement | null;
-    const guestNameContainer = document.getElementById("guest-name-container");
-    const guestNameInput = document.getElementById(
-        "guest-name-input",
-    ) as HTMLInputElement | null;
+    const guestNameContainer = null;
+    const guestNameInput = null;
     const totalComments = document.getElementById("total-comments");
     const slug = document.getElementById("comments-section")?.dataset.slug;
 
@@ -121,17 +114,17 @@ const { slug } = Astro.props;
             userRole = profile?.role || "user";
         }
 
-        // Show/Hide guest name field
+        // Show/Hide form based on login status
         if (user) {
-            guestNameContainer?.classList.add("hidden");
-            if (guestNameInput) guestNameInput.required = false;
+            commentFormContainer?.classList.remove("hidden");
+            loginToComment?.classList.add("hidden");
+            const userNameDisplay = document.getElementById("current-user-name");
+            const userName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || "Usuario";
+            if (userNameDisplay) userNameDisplay.textContent = userName;
         } else {
-            guestNameContainer?.classList.remove("hidden");
-            if (guestNameInput) guestNameInput.required = true;
+            commentFormContainer?.classList.add("hidden");
+            loginToComment?.classList.remove("hidden");
         }
-
-        commentFormContainer?.classList.remove("hidden");
-        loginToComment?.classList.add("hidden");
 
         fetchComments();
     }
@@ -139,16 +132,16 @@ const { slug } = Astro.props;
     async function fetchComments() {
         if (!slug) return;
         const { data, error, count } = await supabase
-            .from("comments")
+            .from("comentarios")
             .select("*", { count: "exact" })
-            .eq("post_slug", slug)
+            .eq("articulo_id", slug)
             .order("created_at", { ascending: false });
 
         if (error) {
             console.error("Error fetching comments:", error);
             if (commentsList) {
                 commentsList.innerHTML =
-                    '<p class="text-red-500 text-center">Error loading comments.</p>';
+                    '<p class="text-red-500 text-center">Error al cargar comentarios.</p>';
             }
             return;
         }
@@ -177,14 +170,14 @@ const { slug } = Astro.props;
         <div class="flex gap-4">
             <div class="flex-shrink-0">
              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary font-bold text-sm">
-                ${comment.user_id ? comment.user_id.slice(0, 2).toUpperCase() : comment.guest_name ? comment.guest_name.slice(0, 2).toUpperCase() : "G"}
+                ${comment.author_name ? comment.author_name.slice(0, 2).toUpperCase() : "US"}
              </div>
            </div>
            <div class="flex-1">
              <div class="flex items-center justify-between mb-1">
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-bold text-slate-700 dark:text-slate-300">
-                        ${comment.user_id ? (comment.user_id === user?.id ? "You" : "User") : comment.guest_name || "Guest"}
+                        ${comment.author_name || "Usuario"}
                     </span>
                     <span class="text-[10px] text-slate-500">${new Date(comment.created_at).toLocaleDateString()}</span>
                     ${userRole === "admin" ? '<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-bold">Admin View</span>' : ""}
@@ -193,7 +186,7 @@ const { slug } = Astro.props;
                     userRole === "admin" ||
                     (user && user.id === comment.user_id)
                         ? `
-                    <button class="delete-comment-btn p-1.5 text-slate-400 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100" data-id="${comment.id}" title="Delete comment">
+                    <button class="delete-comment-btn p-1.5 text-slate-400 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100" data-id="${comment.id}" title="Eliminar comentario">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                     </button>
                 `
@@ -201,7 +194,7 @@ const { slug } = Astro.props;
                 }
              </div>
              <div class="bg-slate-50 dark:bg-[#162a2f] p-4 rounded-xl rounded-tl-none ring-1 ring-slate-200 dark:ring-transparent">
-                <p class="text-slate-800 dark:text-slate-200 text-sm whitespace-pre-wrap">${escapeHtml(comment.content)}</p>
+                <p class="text-slate-800 dark:text-slate-200 text-sm whitespace-pre-wrap">${escapeHtml(comment.contenido || "")}</p>
              </div>
            </div>
         </div>
@@ -225,10 +218,10 @@ const { slug } = Astro.props;
     }
 
     async function deleteComment(id: string) {
-        const { error } = await supabase.from("comments").delete().eq("id", id);
+        const { error } = await supabase.from("comentarios").delete().eq("id", id);
         if (error) {
             console.error("Error deleting comment:", error);
-            alert("Error deleting comment: " + error.message);
+            alert("Error al eliminar comentario: " + error.message);
         } else {
             fetchComments();
         }
@@ -264,25 +257,24 @@ const { slug } = Astro.props;
         const originalText = submitBtn.textContent;
         submitBtn.textContent = "Posting...";
 
-        const guestName = guestNameInput?.value.trim();
-
-        if (!user && !guestName) {
-            alert("Please provide your name to post as a guest.");
+        if (!user) {
+            alert("Debes iniciar sesión para comentar.");
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             return;
         }
 
-        const { error } = await supabase.from("comments").insert({
-            post_slug: slug,
-            user_id: user?.id || null,
-            guest_name: user ? null : guestName,
-            content: content,
+        const userName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || "Usuario";
+        const { error } = await supabase.from("comentarios").insert({
+            articulo_id: slug,
+            user_id: user.id,
+            author_name: userName,
+            contenido: content,
         });
 
         if (error) {
             console.error("Error posting comment:", error);
-            alert("Error posting comment: " + error.message);
+            alert("Error al publicar comentario: " + error.message);
         } else {
             commentInput.value = "";
             fetchComments();
