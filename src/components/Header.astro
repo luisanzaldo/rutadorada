@@ -15,14 +15,14 @@ const baseUrl = import.meta.env.BASE_URL;
 <header
     class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-nav-bg border-b border-slate-200 dark:border-[#224249]"
 >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Logo -->
             <a
                 href={import.meta.env.BASE_URL}
-                class="flex-shrink-0 flex items-center space-x-3 cursor-pointer group"
+                class="flex-shrink-0 flex items-center space-x-2 sm:space-x-3 cursor-pointer group"
             >
-                <div class="relative w-9 h-9">
+                <div class="relative w-8 h-8 sm:w-9 sm:h-9">
                     <div
                         class="absolute inset-0 bg-primary/20 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300"
                     >
@@ -31,7 +31,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         class="relative w-full h-full rounded-lg bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300 transform group-hover:-translate-y-0.5"
                     >
                         <div
-                            class="grid place-items-center leading-[0.7] font-mono font-black text-[10px] pt-0.5"
+                            class="grid place-items-center leading-[0.7] font-mono font-black text-[9px] sm:text-[10px] pt-0.5"
                         >
                             <span class="tracking-tight">&lt;/</span>
                             <span class="tracking-widest ml-1">&gt;_</span>
@@ -39,7 +39,7 @@ const baseUrl = import.meta.env.BASE_URL;
                     </div>
                 </div>
                 <span
-                    class="font-display font-bold text-xl uppercase tracking-tighter text-slate-900 dark:text-white"
+                    class="font-display font-bold text-[1.15rem] sm:text-xl uppercase tracking-tighter text-slate-900 dark:text-white"
                     >Ruta<span class="text-primary">Dorada</span></span
                 >
             </a>
@@ -751,14 +751,19 @@ const baseUrl = import.meta.env.BASE_URL;
     function updateAuthUI(session: any) {
         if (!authButtons || !userMenu) return;
 
+        // Clean up previously set inline styles that may force display visibility
+        authButtons.removeAttribute("style");
+        userMenu.removeAttribute("style");
+
         if (session) {
             const user = session.user;
 
-            // Show User Menu, Hide Auth Buttons
-            authButtons.setAttribute("style", "display: none !important");
-            userMenu.setAttribute("style", "display: flex !important");
-            userMenu.classList.remove("hidden");
-            userMenu.classList.add("lg:flex");
+            // Hide Auth Buttons
+            authButtons.classList.add("hidden");
+            authButtons.classList.remove("lg:flex");
+            
+            // Show User Menu (Desktop only)
+            userMenu.classList.add("hidden", "lg:flex");
 
             // Update Email
             if (userEmail) userEmail.textContent = user.email || "";
@@ -795,14 +800,10 @@ const baseUrl = import.meta.env.BASE_URL;
             mobileAuthSection?.classList.add("hidden");
             mobileUserSection?.classList.remove("hidden");
         } else {
-            // Show Auth Buttons, Hide User Menu
-            authButtons.setAttribute("style", "display: flex !important");
-            authButtons.classList.remove("hidden");
-            authButtons.classList.add("lg:flex");
-
-            userMenu.setAttribute("style", "display: none !important");
-            userMenu.classList.add("hidden");
+            // Show Auth Buttons (Desktop only), Hide User Menu
+            authButtons.classList.add("hidden", "lg:flex");
             userMenu.classList.remove("lg:flex");
+            userMenu.classList.add("hidden");
 
             userDropdown?.classList.add("hidden");
 
