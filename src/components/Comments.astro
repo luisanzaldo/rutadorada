@@ -170,7 +170,7 @@ const { slug } = Astro.props;
         <div class="flex gap-4">
             <div class="flex-shrink-0">
              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary font-bold text-sm">
-                ${comment.author_name ? comment.author_name.slice(0, 2).toUpperCase() : "US"}
+                ${getInitials(comment.author_name)}
              </div>
            </div>
            <div class="flex-1">
@@ -238,6 +238,19 @@ const { slug } = Astro.props;
         return text.replace(/[&<>"']/g, function (m) {
             return map[m];
         });
+    }
+
+    function getInitials(name: string | null | undefined) {
+        if (!name || !name.trim()) return "US";
+        const parts = name.trim().split(/\s+/);
+        if (parts.length >= 2) {
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+        } else if (parts.length === 1 && parts[0].length >= 2) {
+            return parts[0].substring(0, 2).toUpperCase();
+        } else if (parts.length === 1 && parts[0].length === 1) {
+            return parts[0].toUpperCase();
+        }
+        return "US";
     }
 
     commentForm?.addEventListener("submit", async (e) => {
