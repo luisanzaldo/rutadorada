@@ -186,7 +186,11 @@ const title = "Login | RutaDorada";
             window.location.href = import.meta.env.BASE_URL || "/";
         } catch (error: any) {
             if (errorMessage) {
-                errorMessage.textContent = error.message || "Error logging in";
+                let msg = error.message || "Error logging in";
+                if (msg.includes("Invalid login credentials") || msg.includes("Invalid credentials")) {
+                    msg = "Datos incorrectos";
+                }
+                errorMessage.textContent = msg;
                 errorMessage.classList.remove("hidden");
             }
         } finally {
