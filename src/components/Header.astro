@@ -62,44 +62,44 @@ const baseUrl = import.meta.env.BASE_URL;
                     href={`${import.meta.env.BASE_URL}/archive?topic=Tráilers`}>Tráilers</a>
             </nav>
 
-            <!-- Search -->
-            <button
-                id="search-btn"
-                class="p-2 text-slate-500 hover:text-primary transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
-                aria-label="Search"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+            <!-- Search + Auth + Menu -->
+            <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+                <!-- Search -->
+                <button
+                    id="search-btn"
+                    class="p-2 text-slate-500 hover:text-primary transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
+                    aria-label="Search"
                 >
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </svg>
-            </button>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
 
-            <!-- Auth + Menu -->
-            <div class="flex items-center space-x-4">
                 <!-- Auth Buttons (Desktop) -->
                 <div
                     id="auth-buttons"
-                    class="hidden lg:flex items-center space-x-3"
+                    class="hidden lg:flex items-center space-x-2"
                 >
                     <a
                         href={`${import.meta.env.BASE_URL}/login`}
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-1 py-2 text-sm font-medium transition-colors"
                     >
                         Login
                     </a>
                     <a
                         href={`${import.meta.env.BASE_URL}/register`}
-                        class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors shadow-lg shadow-primary/20"
+                        class="px-3 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors shadow-lg shadow-primary/20"
                     >
                         Sign Up
                     </a>
