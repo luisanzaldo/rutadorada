@@ -11,4 +11,4 @@ tags: ["Cine estadounidense", "Tráiler"]
 videoUrl: "https://youtu.be/kx3pmGx24Tg?si=m9Aa3FBSTne6WEuC"
 ---
 
-Disfruta del increíble tráiler de *La La Land*.
+Disfruta del increíble tráiler de *La Odisea*.
