@@ -128,12 +128,18 @@ const popularByCategory = categoriesToTrack.map((cat) => {
 
     <!-- Most Popular -->
     <div
+        id="most-popular-container"
         class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
+        data-posts={JSON.stringify(
+            allPosts
+                .filter((p) => ["Artículos", "Críticas", "Premios"].includes(p.data.category))
+                .map((p) => ({ slug: p.slug, title: p.data.title, category: p.data.category }))
+        )}
     >
         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
             Más popular
         </h3>
-        <div class="space-y-4">
+        <div class="space-y-4" id="most-popular-list">
             {
                 popularByCategory.map((item, index) => (
                     <>
@@ -154,3 +160,74 @@ const popularByCategory = categoriesToTrack.map((cat) => {
         </div>
     </div>
 </aside>
+
+<script>
+    import { supabase } from "../lib/supabase";
+
+    async function updateMostPopular() {
+        const container = document.getElementById("most-popular-container");
+        const list = document.getElementById("most-popular-list");
+        if (!container || !list) return;
+
+        const postsData = container.getAttribute("data-posts");
+        if (!postsData) return;
+
+        const posts = JSON.parse(postsData);
+        const categoriesToTrack = ["Artículos", "Críticas", "Premios"];
+
+        try {
+            const { data: likesData, error } = await supabase.from("likes").select("articulo_id, created_at");
+            if (error || !likesData) return;
+
+            const popularByCategory = categoriesToTrack.map((cat) => {
+                const catPosts = posts.filter((p: any) => p.category === cat);
+
+                let mostPopularPost = null;
+                let maxLikes = -1;
+                let mostRecentLike = 0;
+
+                for (const p of catPosts) {
+                    const articuloId = "posts/" + p.slug;
+                    const postLikes = likesData.filter((l: any) => l.articulo_id === articuloId);
+                    const count = postLikes.length;
+                    const maxCreated = postLikes.reduce((max: number, l: any) => {
+                        const time = l.created_at ? new Date(l.created_at).getTime() : 0;
+                        return time > max ? time : max;
+                    }, 0);
+
+                    if (count > maxLikes || (count === maxLikes && maxCreated > mostRecentLike)) {
+                        maxLikes = count;
+                        mostRecentLike = maxCreated;
+                        mostPopularPost = p;
+                    }
+                }
+
+                return {
+                    category: cat,
+                    title: mostPopularPost?.title || "",
+                    slug: mostPopularPost?.slug || "",
+                };
+            }).filter((item) => item.slug !== "");
+
+            if (popularByCategory.length > 0) {
+                list.innerHTML = popularByCategory.map((item, index) => `
+                    <a class="group block" href="/posts/${item.slug}">
+                        <span class="text-primary text-xs font-bold uppercase mb-1 block">
+                            ${item.category}
+                        </span>
+                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">
+                            ${item.title}
+                        </h4>
+                    </a>
+                    ${index < popularByCategory.length - 1 ? '<div class="h-px bg-slate-100 dark:bg-slate-800"></div>' : ''}
+                `).join('');
+            }
+        } catch (e) {
+            console.error("Error fetching dynamic likes for most popular", e);
+        }
+    }
+
+    // Run on load and navigation
+    document.addEventListener("DOMContentLoaded", updateMostPopular);
+    document.addEventListener("astro:page-load", updateMostPopular);
+</script>
