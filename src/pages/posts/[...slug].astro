@@ -20,57 +20,15 @@ const { Content, headings } = await post.render();
 
 const allPosts = await getCollection("posts");
 
-// Scoring system for relatedness
-const relatedPostsScored = allPosts
-    .filter((p) => p.slug !== post.slug)
-    .map((p) => {
-        let score = 0;
-
-        // 1. Shared tags (Highest weight)
-        if (p.data.tags && post.data.tags) {
-            const sharedTags = p.data.tags.filter((tag) =>
-                post.data.tags.includes(tag),
-            );
-            score += sharedTags.length * 5;
-        }
-
-        // 2. Shared category
-        if (p.data.category === post.data.category) {
-            score += 3;
-        }
-
-        // 3. Shared subCategory
-        if (
-            p.data.subCategory &&
-            post.data.subCategory &&
-            p.data.subCategory === post.data.subCategory
-        ) {
-            score += 2;
-        }
-
-        return { post: p, score };
+// Get the latest 3 posts that share at least one tag
+const finalRelatedPosts = allPosts
+    .filter((p) => {
+        if (p.slug === post.slug) return false;
+        if (!p.data.tags || !post.data.tags) return false;
+        return p.data.tags.some((tag: string) => post.data.tags.includes(tag));
     })
-    .filter((item) => item.score > 0)
-    .sort(
-        (a, b) =>
-            b.score - a.score ||
-            b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf(),
-    )
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 3);
-
-// Fallback to latest posts if no related posts found
-let finalRelatedPosts = relatedPostsScored.map((item) => item.post);
-if (finalRelatedPosts.length < 3) {
-    const fallbackPosts = allPosts
-        .filter(
-            (p) =>
-                p.slug !== post.slug &&
-                !finalRelatedPosts.find((rp) => rp.slug === p.slug),
-        )
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-        .slice(0, 3 - finalRelatedPosts.length);
-    finalRelatedPosts = [...finalRelatedPosts, ...fallbackPosts];
-}
 
 const formattedRelatedPosts = finalRelatedPosts.map((p) => ({
     title: p.data.title,

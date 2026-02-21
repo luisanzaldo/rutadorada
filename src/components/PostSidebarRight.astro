@@ -21,7 +21,7 @@ const { headings, relatedPosts } = Astro.props;
             headings.length > 0 && (
                 <div class="rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-slate-100 dark:border-[#224249]">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4">
-                        Table of Contents
+                        Tabla de contenidos
                     </h3>
                     <nav class="space-y-1 relative" id="toc-nav">
                         {headings.map((heading) => (
@@ -45,7 +45,7 @@ const { headings, relatedPosts } = Astro.props;
             <h3
                 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4"
             >
-                Related Articles
+                Artículos relacionados
             </h3>
             <div class="space-y-4">
                 {
@@ -77,19 +77,19 @@ const { headings, relatedPosts } = Astro.props;
         <!-- Newsletter Widget -->
         <div class="rounded-xl bg-primary/10 p-5 border border-primary/20">
             <h4 class="text-sm font-bold text-slate-900 dark:text-white mb-2">
-                Weekly Tech Digest
+                Artículos en tu buzón
             </h4>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-4">
-                Get the latest articles delivered to your inbox every Monday.
+                Recibe los últimos artículos en tu buzón de entrada cada lunes
             </p>
             <input
                 class="w-full rounded-lg border-0 bg-white dark:bg-background-dark py-2 px-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-1 focus:ring-primary mb-2"
-                placeholder="Email address"
+                placeholder="Email"
                 type="email"
             />
             <button
                 class="w-full rounded-lg bg-primary py-2 text-xs font-bold text-[#102023] hover:bg-primary/90 transition-colors"
-                >Subscribe</button
+                >Suscríbete</button
             >
         </div>
 </aside>

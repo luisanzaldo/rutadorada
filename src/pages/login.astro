@@ -131,6 +131,7 @@ const title = "Login | RutaDorada";
                         ¿Todavía no tienes cuenta?
                         <a
                             href="/register"
+                            id="register-link"
                             class="text-primary hover:text-primary-dark font-bold hover:underline transition-colors"
                             >Regístrate</a
                         >
@@ -149,6 +150,16 @@ const title = "Login | RutaDorada";
     const passwordInput = document.getElementById(
         "password",
     ) as HTMLInputElement;
+    const registerLink = document.getElementById(
+        "register-link",
+    ) as HTMLAnchorElement | null;
+    
+    // Pass along redirect param to register page
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectParam = urlParams.get("redirect");
+    if (redirectParam && registerLink) {
+        registerLink.href = `/register?redirect=${encodeURIComponent(redirectParam)}`;
+    }
     const errorMessage = document.getElementById("error-message");
     const submitBtn = document.getElementById(
         "submit-btn",
@@ -182,8 +193,13 @@ const title = "Login | RutaDorada";
                 throw error;
             }
 
-            // Success - redirect to home
-            window.location.href = import.meta.env.BASE_URL || "/";
+            // Success - redirect directly to previous page if redirect query provided
+            const redirectUrl = new URLSearchParams(window.location.search).get("redirect");
+            if (redirectUrl) {
+                window.location.href = redirectUrl;
+            } else {
+                window.location.href = import.meta.env.BASE_URL || "/";
+            }
         } catch (error: any) {
             if (errorMessage) {
                 let msg = error.message || "Error logging in";
@@ -205,10 +221,18 @@ const title = "Login | RutaDorada";
     const googleLoginBtn = document.getElementById("google-login-btn") as HTMLButtonElement;
     googleLoginBtn?.addEventListener("click", async () => {
         try {
+            const redirectUrl = new URLSearchParams(window.location.search).get("redirect");
+            let finalRedirect = `${window.location.origin}${import.meta.env.BASE_URL}`;
+            if (redirectUrl) {
+                // Ensure redirectUrl begins with a slash or is just a path
+                let path = redirectUrl.startsWith('/') ? redirectUrl : `/${redirectUrl}`;
+                finalRedirect = `${window.location.origin}${path}`;
+            }
+
             const { error } = await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 options: {
-                    redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`
+                    redirectTo: finalRedirect
                 }
             });
             if (error) throw error;

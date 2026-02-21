@@ -50,6 +50,7 @@ const { slug } = Astro.props;
             <p class="text-slate-500 mb-4">Inicia sesión para agregar un comentario.</p>
             <a
                 href="/login"
+                id="login-redirect-link"
                 class="inline-block bg-white dark:bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
                 Iniciar sesión
@@ -124,6 +125,12 @@ const { slug } = Astro.props;
         } else {
             commentFormContainer?.classList.add("hidden");
             loginToComment?.classList.remove("hidden");
+            
+            const loginRedirectLink = document.getElementById("login-redirect-link") as HTMLAnchorElement | null;
+            if (loginRedirectLink) {
+                const basePath = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
+                loginRedirectLink.href = `${basePath}/login?redirect=${encodeURIComponent(window.location.pathname + "#comments-section")}`;
+            }
         }
 
         fetchComments();
