@@ -1,11 +1,45 @@
 ---
 import { getCollection } from "astro:content";
+import { supabase } from "../lib/supabase";
 
 const allPosts = await getCollection("posts");
 const allTags = allPosts.flatMap((post) => post.data.tags || []);
 const uniqueTags = [...new Set(allTags)];
 // Sort by frequency (simple version: show top 8)
 const trendingTags = uniqueTags.slice(0, 8);
+
+const { data: likesData } = await supabase.from("likes").select("articulo_id, created_at");
+
+const categoriesToTrack = ["Artículos", "Críticas", "Premios"];
+const popularByCategory = categoriesToTrack.map((cat) => {
+    const catPosts = allPosts.filter((p) => p.data.category === cat);
+
+    let mostPopularPost = null;
+    let maxLikes = -1;
+    let mostRecentLike = 0;
+
+    for (const p of catPosts) {
+        const articuloId = "posts/" + p.slug;
+        const postLikes = (likesData || []).filter((l) => l.articulo_id === articuloId);
+        const count = postLikes.length;
+        const maxCreated = postLikes.reduce((max, l) => {
+            const time = l.created_at ? new Date(l.created_at).getTime() : 0;
+            return time > max ? time : max;
+        }, 0);
+
+        if (count > maxLikes || (count === maxLikes && maxCreated > mostRecentLike)) {
+            maxLikes = count;
+            mostRecentLike = maxCreated;
+            mostPopularPost = p;
+        }
+    }
+
+    return {
+        category: cat,
+        title: mostPopularPost?.data.title || "",
+        slug: mostPopularPost?.slug || "",
+    };
+}).filter((item) => item.slug !== "");
 ---
 
 <aside class="lg:w-1/3 space-y-8 lg:mt-16">
@@ -97,26 +131,13 @@ const trendingTags = uniqueTags.slice(0, 8);
         class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
     >
         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
-            Most Popular
+            Más popular
         </h3>
         <div class="space-y-4">
             {
-                [
-                    {
-                        category: "Artículos",
-                        title: "10 CSS Tricks You Wish You Knew Sooner",
-                    },
-                    {
-                        category: "Críticas",
-                        title: "How to Negotiate Your Salary as a Senior Engineer",
-                    },
-                    {
-                        category: "Tráilers",
-                        title: "Building a Chatbot with OpenAI API in 15 Minutes",
-                    },
-                ].map((item, index) => (
+                popularByCategory.map((item, index) => (
                     <>
-                        <a class="group block" href="#">
+                        <a class="group block" href={`/posts/${item.slug}`}>
                             <span class="text-primary text-xs font-bold uppercase mb-1 block">
                                 {item.category}
                             </span>
@@ -124,7 +145,7 @@ const trendingTags = uniqueTags.slice(0, 8);
                                 {item.title}
                             </h4>
                         </a>
-                        {index < 2 && (
+                        {index < popularByCategory.length - 1 && (
                             <div class="h-px bg-slate-100 dark:bg-slate-800" />
                         )}
                     </>
