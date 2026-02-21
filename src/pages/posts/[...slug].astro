@@ -40,6 +40,8 @@ const formattedRelatedPosts = finalRelatedPosts.map((p) => ({
     readTime: p.data.readTime,
     image: p.data.image,
     slug: p.slug,
+    category: p.data.category,
+    videoUrl: p.data.videoUrl,
 }));
 
 const formatDate = (date: Date) => {
