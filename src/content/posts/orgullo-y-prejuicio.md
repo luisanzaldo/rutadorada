@@ -48,5 +48,3 @@ La banda sonora de Dario Marianelli —el mismo compositor que después haría l
 La fotografía de Roman Osin aprovecha la luz natural con una maestría que dota a cada escena de una temporalidad concreta: el amanecer brumoso en el que Darcy confiesa su amor por primera vez, la hora dorada de los campos abiertos en los que Lizzy pasea su turbación, la oscuridad cálida de las velas en los interiores nocturnos. Cada momento del día tiene su equivalente emocional, y la película los usa con una precisión que rara vez se ve en el cine de época.
 
 *Orgullo y Prejuicio* es, a fin de cuentas, una película sobre el coste de tener criterio propio en un mundo que premia la conformidad. Sobre lo difícil que es ver a alguien con claridad cuando el orgullo enturbia la mirada. Y sobre la gracia particular de equivocarse y ser lo suficientemente honesto como para admitirlo. Austen no podría haber pedido mejor intérprete en celuloide.
-
-> "Hay pocas cosas más valientes que cambiar de opinión cuando la realidad te demuestra que estabas equivocado. Y pocas más difíciles cuando el orgullo va por delante."

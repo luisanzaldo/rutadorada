@@ -47,4 +47,3 @@ Sin revelar sus detalles, el desenlace de *La La Land* es uno de los más valien
 
 *La La Land* ganó seis Premios Óscar, incluyendo Mejor Director para Chazelle, que se convirtió en el más joven en obtener ese galardón. Pero su valor no reside en los premios sino en su capacidad de provocar, en el mismo instante, una sonrisa y un nudo en el estómago.
 
-> "Las personas que aman lo imposible son las únicas capaces de lograrlo. Y también las únicas que saben, mejor que nadie, lo que cuesta."

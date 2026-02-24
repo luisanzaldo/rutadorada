@@ -49,4 +49,3 @@ Timothée Chalamet, por su parte, repite nominación al Mejor Actor por *Marty S
 
 Con *Sinners* como favorita indiscutible pero con una competencia sólida y variada, la 98ª edición de los Premios Oscar se perfila como una de las más disputadas en categorías técnicas e interpretativas de los últimos años. La ceremonia del 15 de marzo resolverá si el dominio de Ryan Coogler en las nominaciones se traduce en estatuillas, o si alguno de los demás títulos en liza logra dar la sorpresa en la noche más larga de Hollywood.
 
-> "Dieciséis nominaciones no son solo un récord: son un veredicto de la industria sobre el tipo de cine que merece ser celebrado."

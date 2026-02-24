@@ -46,5 +46,3 @@ Frente a él, Ofelia encarna una forma de resistencia que el cine rara vez celeb
 La criatura del fauno y el Hombre Pálido fueron diseñadas y encarnadas por Doug Jones con un trabajo físico de una expresividad extraordinaria. La banda sonora de Javier Navarrete, construida alrededor de una nana que regresa como leit motiv a lo largo del filme, es uno de los trabajos más emotivos de la música de cine de los últimos veinte años. La dirección de arte, el vestuario y los efectos prácticos —Del Toro siempre ha preferido lo táctil a lo digital— dotan al mundo fantástico de una textura física que lo hace tangible y, por tanto, creíble.
 
 *El laberinto del fauno* ganó tres Premios Óscar y es, a día de hoy, una de las películas en lengua no inglesa más valoradas de su generación. Su grandeza reside en haber creado un cuento de hadas que no miente a los niños ni condesciente con los adultos, sino que habla a ambos de lo mismo: de la necesidad urgente e irrenunciable de creer en algo.
-
-> "Obedecer por miedo no es valentía. Elegir por amor, aunque cueste todo, sí lo es."

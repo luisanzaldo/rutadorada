@@ -8,6 +8,11 @@ image: "https://film-grab.com/wp-content/uploads/2013/10/02.jpg"
 category: "Críticas"
 readTime: "6 min read"
 tags: ["Cine estadounidense"]
+fichaTecnica:
+  sinopsis: "Truman Burbank lleva una vida perfecta en un pueblo perfecto que, sin él saberlo, es un inmenso estudio de televisión. Ha sido el protagonista de un reality show las 24 horas del día, todos los días de su vida."
+  director: "Peter Weir"
+  cast: "Jim Carrey, Ed Harris, Laura Linney, Noah Emmerich, Natascha McElhone"
+  duracion: "103 min"
 ---
 
 Seahaven es el lugar más feliz del mundo. Una ciudad perfecta, de calles limpias, vecinos amables y cielos siempre despejados. Truman Burbank lleva treinta años viviendo ahí sin saber que cada esquina de su vida —su trabajo, su matrimonio, sus amigos, incluso el sol que lo alumbra— es un decorado. Que las 5.000 cámaras ocultas que lo rodean transmiten su existencia en directo las veinticuatro horas del día a una audiencia de mil millones de espectadores. Que él es el único habitante de Seahaven que no está actuando. *El show de Truman* es la historia del día en que algo en ese mundo perfecto empieza a fallar. Y de lo que ocurre cuando un hombre comienza, por primera vez en su vida, a hacerse preguntas.
@@ -51,4 +56,29 @@ El desenlace de *El show de Truman* es, en apariencia, esperanzador. Truman encu
 
 *El show de Truman* es una obra que ha mejorado con el tiempo porque el tiempo le ha dado la razón. Verla hoy es una experiencia doblemente incómoda: como retrato de Truman y como espejo en el que reconocemos, con más claridad de la que quisiéramos, nuestra propia silueta.
 
-> "Todo lo que ves en la pantalla es real. Excepto Truman. Truman es el único que no sabe que está actuando."
+## El atajo
+
+<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="flex items-start gap-4">
+<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    </svg>
+</div>
+<div>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">Lo bueno</h4>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+La increíble capacidad de la película para adelantarse a la cultura actual, junto a una brillante y contenida actuación de Jim Carrey.
+</p>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">Lo malo</h4>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+El final no resuelve todas las dudas sobre el funcionamiento de Seahaven o las consecuencias legales y éticas tras la decisión de Truman.
+</p>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">Curiosidades</h4>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+Existe un trastorno psicológico real (reconocido tras el estreno) llamado "El síndrome de Truman", donde las personas tienen el delirio de creer que sus vidas son un reality show transmitido al mundo.
+</p>
+</div>
+</div>
+</div>

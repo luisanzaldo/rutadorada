@@ -206,7 +206,7 @@ const formatDate = (date: Date) => {
                     </div>
 
                     <div
-                        class="mt-12 pt-8 border-t border-slate-200 dark:border-[#224249]"
+                        class="mt-12 pt-8"
                     >
                         <div
                             class="flex flex-col sm:flex-row justify-end items-center gap-6"
@@ -278,6 +278,8 @@ const formatDate = (date: Date) => {
                     <PostSidebarRight
                         headings={headings}
                         relatedPosts={formattedRelatedPosts}
+                        category={post.data.category}
+                        fichaTecnica={post.data.fichaTecnica}
                     />
                 </div>
             </div>

@@ -47,5 +47,3 @@ Keira Knightley compone a Cecilia con una elegancia contenida que hace aún más
 La fotografía de Seamus McGarvey, la banda sonora de Dario Marianelli —con su célebre uso de la máquina de escribir como instrumento percusivo— y el diseño de producción de Sarah Greenwood componen un universo visual y sonoro que pocos filmes de época logran igualar.
 
 *Atonement* es, en definitiva, una película que duele de la manera correcta: con inteligencia, con belleza y con la dignidad de no mirar hacia otro lado ante las consecuencias de sus propios actos.
-
-> "Escribir fue su crimen y su castigo. La ficción, el único lugar donde la expiación es posible, y también el lugar donde se vuelve, al fin, imposible."

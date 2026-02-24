@@ -45,5 +45,3 @@ Esto convierte a la película en una obra radicalmente feminista dentro de su pr
 Visualmente, el filme es una obra de orfebrería. La fotografía de Chung Chung-hoon —colaborador habitual de Park— transita con fluidez entre la frialdad arquitectónica de la mansión japonesa y la calidez clandestina de los espacios donde las protagonistas se encuentran a solas. El vestuario, la dirección de arte y la banda sonora de Cho Young-wuk componen un universo estético de una coherencia aplastante.
 
 *La Doncella* es, en definitiva, una película que se disfruta en múltiples capas: como thriller de engaños, como historia de amor, como crítica al patriarcado y al colonialismo, y como ejercicio de virtuosismo cinematográfico. Park Chan-wook no hace concesiones: exige atención, recompensa la paciencia y deja al espectador con la sensación de haber presenciado algo verdaderamente singular.
-
-> "En un mundo construido sobre el engaño, la única verdad que sobrevive es la que dos personas eligen crear juntas."
