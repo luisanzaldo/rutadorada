@@ -16,10 +16,9 @@ const title = "Mis Favoritos | RutaDorada";
             <h1
                 class="text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-3"
             >
-                <span class="material-icons text-primary">bookmark</span>
-                My Favorites
+                Mis favoritos
             </h1>
-            <p class="text-slate-500 mt-2">Articles you've saved for later.</p>
+            <p class="text-slate-500 mt-2">Artículos que has guardado para más tarde.</p>
         </div>
 
         <div
@@ -28,7 +27,7 @@ const title = "Mis Favoritos | RutaDorada";
         >
             <!-- Posts will be injected here -->
             <div class="col-span-full py-20 text-center animate-pulse">
-                <p class="text-slate-400">Loading your favorites...</p>
+                <p class="text-slate-400">Cargando tus favoritos...</p>
             </div>
         </div>
 
@@ -36,20 +35,20 @@ const title = "Mis Favoritos | RutaDorada";
             <div
                 class="w-20 h-20 bg-slate-100 dark:bg-[#162a2f] rounded-full flex items-center justify-center mx-auto mb-4"
             >
-                <span class="material-icons text-slate-400 text-3xl"
-                    >bookmark_border</span
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
             </div>
             <h2 class="text-xl font-bold text-slate-700 dark:text-slate-300">
-                No favorites saved
+                Aún no tienes favoritos
             </h2>
             <p class="text-slate-500 mt-2">
-                Save articles you want to read later and they will appear here!
+                ¡Guarda los artículos que quieras leer más tarde y aparecerán aquí!
             </p>
             <a
-                href="/archive"
+                href={`${import.meta.env.BASE_URL}/archive`}
                 class="mt-6 inline-block px-6 py-2 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-all"
-                >Explore Articles</a
+                >Explorar artículos</a
             >
         </div>
     </main>
@@ -68,13 +67,13 @@ const title = "Mis Favoritos | RutaDorada";
             } = await supabase.auth.getSession();
 
             if (!session) {
-                window.location.href = "/login";
+                window.location.href = import.meta.env.BASE_URL + "/login";
                 return;
             }
 
             const { data: favorites, error } = await supabase
-                .from("bookmarks")
-                .select("post_slug")
+                .from("favoritos")
+                .select("articulo_id")
                 .eq("user_id", session.user.id)
                 .order("created_at", { ascending: false });
 
@@ -92,14 +91,19 @@ const title = "Mis Favoritos | RutaDorada";
 
             favoritesGrid.innerHTML = favorites
                 .map(
-                    (fav) => `
-                <a href="/posts/${fav.post_slug}" class="group bg-white dark:bg-[#162a2f] border border-slate-200 dark:border-[#224249] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-6">
+                    (fav) => {
+                        const slug = fav.articulo_id.replace(/^posts\//, '');
+                        return `
+                <a href="${import.meta.env.BASE_URL}/posts/${slug}" class="group bg-white dark:bg-[#162a2f] border border-slate-200 dark:border-[#224249] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-bold text-primary uppercase tracking-widest">Saved Article</span>
-                        <span class="material-icons text-primary/40 group-hover:text-primary transition-colors">arrow_forward</span>
+                        <span class="text-xs font-bold text-primary uppercase tracking-widest">Artículo guardado</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary/40 group-hover:text-primary transition-colors">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mb-2 truncate">
-                        ${fav.post_slug
+                        ${slug
                             .split("-")
                             .map(
                                 (word) =>
@@ -108,10 +112,9 @@ const title = "Mis Favoritos | RutaDorada";
                             )
                             .join(" ")}
                     </h3>
-                    <p class="text-sm text-slate-500 line-clamp-2">Continue reading this saved piece.</p>
+                    <p class="text-sm text-slate-500 line-clamp-2">Continúa leyendo este artículo guardado.</p>
                 </a>
-            `,
-                )
+            `})
                 .join("");
         }
 

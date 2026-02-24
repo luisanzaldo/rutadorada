@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import { getCollection } from "astro:content";
 
-const title = "Mis Likes | RutaDorada";
+const title = "Mis likes | RutaDorada";
 ---
 
 <Layout title={title}>
@@ -18,18 +18,17 @@ const title = "Mis Likes | RutaDorada";
             <h1
                 class="text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-3"
             >
-                <span class="material-icons text-primary">thumb_up</span>
-                My Liked Posts
+                Mis likes
             </h1>
             <p class="text-slate-500 mt-2">
-                Articles you've shown some love to.
+                Artículos que te han gustado.
             </p>
         </div>
 
         <div id="likes-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Posts will be injected here -->
             <div class="col-span-full py-20 text-center animate-pulse">
-                <p class="text-slate-400">Loading your likes...</p>
+                <p class="text-slate-400">Cargando tus likes...</p>
             </div>
         </div>
 
@@ -37,20 +36,23 @@ const title = "Mis Likes | RutaDorada";
             <div
                 class="w-20 h-20 bg-slate-100 dark:bg-[#162a2f] rounded-full flex items-center justify-center mx-auto mb-4"
             >
-                <span class="material-icons text-slate-400 text-3xl"
-                    >sentiment_dissatisfied</span
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                    <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                    <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                </svg>
             </div>
             <h2 class="text-xl font-bold text-slate-700 dark:text-slate-300">
-                No liked posts yet
+                Aún no tienes likes
             </h2>
             <p class="text-slate-500 mt-2">
-                Start exploring and show some love to your favorite articles!
+                ¡Empieza a explorar y dale me gusta a tus artículos favoritos!
             </p>
             <a
                 href="/archive"
                 class="mt-6 inline-block px-6 py-2 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-all"
-                >Browse Articles</a
+                >Explorar artículos</a
             >
         </div>
     </main>
@@ -109,8 +111,11 @@ const title = "Mis Likes | RutaDorada";
                         return `
                 <a href="${import.meta.env.BASE_URL}/posts/${slug}" class="group bg-white dark:bg-[#162a2f] border border-slate-200 dark:border-[#224249] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-bold text-primary uppercase tracking-widest">Article</span>
-                        <span class="material-icons text-primary/40 group-hover:text-primary transition-colors">arrow_forward</span>
+                        <span class="text-xs font-bold text-primary uppercase tracking-widest">Artículo</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary/40 group-hover:text-primary transition-colors">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mb-2 truncate">
                         ${slug
@@ -122,7 +127,7 @@ const title = "Mis Likes | RutaDorada";
                             )
                             .join(" ")}
                     </h3>
-                    <p class="text-sm text-slate-500 line-clamp-2">Click to revisit this article.</p>
+                    <p class="text-sm text-slate-500 line-clamp-2">Haz clic para volver a leer este artículo.</p>
                 </a>
             `})
                 .join("");
