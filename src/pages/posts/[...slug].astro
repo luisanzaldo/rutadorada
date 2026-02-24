@@ -247,13 +247,6 @@ const formatDate = (date: Date) => {
                                         >
                                     </button>
                                     <button
-                                        class="size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:bg-[#1877F2] hover:text-white transition-all share-btn"
-                                        aria-label="Compartir en Facebook"
-                                        data-network="facebook"
-                                    >
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                                    </button>
-                                    <button
                                         class="relative size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white transition-all share-btn"
                                         aria-label="Compartir en Instagram"
                                         data-network="instagram"
@@ -388,18 +381,6 @@ const formatDate = (date: Date) => {
                             `whatsapp://send?text=${title}%20-%20${url}`,
                             `https://api.whatsapp.com/send?text=${title}%20-%20${url}`
                         );
-                        break;
-                    case 'facebook':
-                        const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                        const isAndroidFB = /Android/i.test(navigator.userAgent);
-                        // Al usar HTTPS dentro del intent, forzamos a Facebook a procesarlo como un enlace 
-                        // web soportado, lo cual abrirá su navegador interno donde la sesión del usuario SÍ está activa,
-                        // en iOS simplemente usamos la URL directa para activar sus "Universal Links".
-                        const fbApp = isAndroidFB 
-                            ? `intent://www.facebook.com/sharer/sharer.php?u=${url}#Intent;package=com.facebook.katana;scheme=https;end`
-                            : fbShareUrl;
-                        
-                        openWithFallback(fbApp, fbShareUrl);
                         break;
                     case 'instagram':
                         // Copiamos el enlace silenciosamente para poder pegarlo en el DM
