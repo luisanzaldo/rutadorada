@@ -401,20 +401,13 @@ const formatDate = (date: Date) => {
                         );
                         break;
                     case 'instagram':
-                        navigator.clipboard.writeText(rawUrl).then(() => {
-                            const tooltip = btn.querySelector('.ig-tooltip') as HTMLElement;
-                            if (tooltip) {
-                                tooltip.style.opacity = '1';
-                                setTimeout(() => tooltip.style.opacity = '0', 2000);
-                            }
-                            setTimeout(() => {
-                                const isAndroidIG = /Android/i.test(navigator.userAgent);
-                                const igApp = isAndroidIG
-                                    ? `intent://direct-inbox#Intent;package=com.instagram.android;scheme=instagram;end`
-                                    : `instagram://direct-inbox`;
-                                openWithFallback(igApp, `https://www.instagram.com/direct/inbox/`);
-                            }, 500);
-                        });
+                        const isAndroidIG = /Android/i.test(navigator.userAgent);
+                        // Deep link to create a new direct message or open camera to start sharing
+                        const igApp = isAndroidIG
+                            ? `intent://camera#Intent;package=com.instagram.android;scheme=instagram;end`
+                            : `instagram://camera`;
+                        
+                        openWithFallback(igApp, `https://www.instagram.com/`);
                         break;
                     case 'copy':
                         navigator.clipboard.writeText(rawUrl).then(() => {
