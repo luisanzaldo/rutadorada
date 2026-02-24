@@ -174,9 +174,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 <script>
     const topicButtons = document.querySelectorAll(".topic-filter");
     const archiveGrid = document.getElementById("archive-grid");
-    const archiveItems = document.querySelectorAll(
-        ".archive-item",
-    ) as NodeListOf<HTMLElement>;
+    const getArchiveItems = () => document.querySelectorAll(".archive-item") as NodeListOf<HTMLElement>;
     const sortToggle = document.getElementById("sort-toggle");
     const sortLabel = document.getElementById("sort-label");
 
@@ -193,7 +191,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     const itemsPerPage = 6;
 
     // Filtered items based on topic and tag
-    let filteredItems: HTMLElement[] = Array.from(archiveItems);
+    let filteredItems: HTMLElement[] = Array.from(getArchiveItems());
 
     const updatePagination = () => {
         const totalPages = Math.ceil(filteredItems.length / itemsPerPage) || 1;
@@ -239,7 +237,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
         if (archiveGrid) archiveGrid.style.opacity = "0";
 
         setTimeout(() => {
-            archiveItems.forEach((item) => (item.style.display = "none"));
+            getArchiveItems().forEach((item) => (item.style.display = "none"));
 
             filteredItems.forEach((item, index) => {
                 if (index >= start && index < end) {
@@ -266,7 +264,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
         });
 
         // Filter items
-        filteredItems = Array.from(archiveItems).filter((item) => {
+        filteredItems = Array.from(getArchiveItems()).filter((item) => {
             if (tag) {
                 const itemTags =
                     item.getAttribute("data-tags")?.split(",") || [];
@@ -322,7 +320,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
             sortLabel.textContent =
                 currentSort === "newest" ? "Más recientes" : "Más antiguos";
 
-        const sortedItems = Array.from(archiveItems).sort((a, b) => {
+        const sortedItems = Array.from(getArchiveItems()).sort((a, b) => {
             const dateA = parseInt(a.getAttribute("data-date") || "0");
             const dateB = parseInt(b.getAttribute("data-date") || "0");
             return currentSort === "newest" ? dateB - dateA : dateA - dateB;
