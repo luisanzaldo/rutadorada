@@ -349,13 +349,12 @@ const { slug } = Astro.props;
     async function fetchBookmarkStatus() {
         const articuloId = "posts/" + slug;
         
-        const { count, error } = await supabase
-            .from("favoritos")
-            .select("*", { count: "exact", head: true })
-            .eq("articulo_id", articuloId);
+        const { data: count, error } = await supabase.rpc("get_bookmark_count", {
+            p_articulo_id: articuloId,
+        });
 
         if (!error && count !== null) {
-            bookmarkCount = count;
+            bookmarkCount = Number(count);
         }
 
         if (user) {
