@@ -146,15 +146,28 @@
                         );
                         break;
                     case 'instagram':
-                        try { navigator.clipboard.writeText(rawUrl); } catch(e) {}
                         const isAndroidIG = /Android/i.test(navigator.userAgent);
-                        const igApp = isAndroidIG
-                            ? `intent://direct-inbox#Intent;package=com.instagram.android;scheme=instagram;end`
-                            : `instagram://direct-inbox`;
-                        if (isMobile) {
-                            window.location.href = igApp;
+                        if (isAndroidIG) {
+                            // Usar el Intent nativo de Android de "Compartir" (SEND) dirigido específicamente a Instagram
+                            // Esto invoca la misma pantalla de "Compartir enlace" que usa el sistema operativo.
+                            const intentUrl = `intent://share/#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=${url};package=com.instagram.android;scheme=intent;end`;
+                            window.location.href = intentUrl;
                         } else {
-                            window.open('https://www.instagram.com/direct/inbox/', 'share_popup', 'width=600,height=500,noopener,noreferrer');
+                            // iOS y escritorio: Instagram no tiene URL scheme oficial para auto-completar DMs desde la web.
+                            // Copiamos al portapapeles y mandamos a la bandeja para que el usuario pegue.
+                            try { navigator.clipboard.writeText(rawUrl); } catch(e) {}
+                            if (isMobile) {
+                                window.location.href = 'instagram://direct-inbox';
+                            } else {
+                                window.open('https://www.instagram.com/direct/inbox/', 'share_popup', 'width=600,height=500,noopener,noreferrer');
+                            }
+                            
+                            // Mostrar pista visual sutil de copia
+                            const tooltip = newBtn.querySelector('.ig-tooltip') as HTMLElement;
+                            if (tooltip) {
+                                tooltip.style.opacity = '1';
+                                setTimeout(() => tooltip.style.opacity = '0', 2000);
+                            }
                         }
                         break;
                 }
