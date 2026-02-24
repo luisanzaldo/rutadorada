@@ -95,6 +95,7 @@ const { slug } = Astro.props;
                 ></path>
             </svg>
         </div>
+        <span class="text-xs font-bold -mt-2" id="bookmark-count-desktop">--</span>
     </button>
 
     <div class="w-8 h-[1px] bg-slate-200 dark:bg-slate-700 my-2"></div>
@@ -201,6 +202,7 @@ const { slug } = Astro.props;
                 <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"
                 ></path>
             </svg>
+            <span class="text-[10px] font-medium" id="bookmark-count-mobile">--</span>
         </button>
         <button
             class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary active:text-primary"
@@ -253,8 +255,10 @@ const { slug } = Astro.props;
     const bookmarkIconDesktop = document.getElementById(
         "bookmark-icon-desktop",
     );
+    const bookmarkCountDesktop = document.getElementById("bookmark-count-desktop");
     const bookmarkBtnMobile = document.getElementById("bookmark-btn-mobile");
     const bookmarkIconMobile = document.getElementById("bookmark-icon-mobile");
+    const bookmarkCountMobile = document.getElementById("bookmark-count-mobile");
 
     // Scroll to comments
     const scrollToComments = () => {
@@ -269,6 +273,7 @@ const { slug } = Astro.props;
     // State
     let likeCount = 0;
     let commentCount = 0;
+    let bookmarkCount = 0;
     let isLiked = false;
     let isBookmarked = false;
     let user: any = null;
@@ -342,8 +347,18 @@ const { slug } = Astro.props;
     }
 
     async function fetchBookmarkStatus() {
+        const articuloId = "posts/" + slug;
+        
+        const { count, error } = await supabase
+            .from("favoritos")
+            .select("*", { count: "exact", head: true })
+            .eq("articulo_id", articuloId);
+
+        if (!error && count !== null) {
+            bookmarkCount = count;
+        }
+
         if (user) {
-            const articuloId = "posts/" + slug;
             const { data } = await supabase
                 .from("favoritos")
                 .select("*")
@@ -386,6 +401,10 @@ const { slug } = Astro.props;
             commentCountMobile.textContent = commentCountText;
 
         // Bookmarks UI
+        const bookmarkCountText = formatCount(bookmarkCount);
+        if (bookmarkCountDesktop) bookmarkCountDesktop.textContent = bookmarkCountText;
+        if (bookmarkCountMobile) bookmarkCountMobile.textContent = bookmarkCountText;
+
         const updateBookmarkIcon = (icon: HTMLElement | null) => {
             if (!icon) return;
             // icon.style.fontVariationSettings = `'FILL' ${isBookmarked ? 1 : 0}, 'wght' 300`;
@@ -446,6 +465,7 @@ const { slug } = Astro.props;
 
         const prevStatus = isBookmarked;
         isBookmarked = !isBookmarked;
+        bookmarkCount = isBookmarked ? bookmarkCount + 1 : Math.max(0, bookmarkCount - 1);
         updateUI();
 
         const articuloId = "posts/" + slug;
@@ -468,6 +488,7 @@ const { slug } = Astro.props;
         } catch (err) {
             console.error("Error toggling bookmark", err);
             isBookmarked = prevStatus;
+            bookmarkCount = isBookmarked ? bookmarkCount + 1 : Math.max(0, bookmarkCount - 1);
             updateUI();
         }
     }
