@@ -401,13 +401,20 @@ const formatDate = (date: Date) => {
                         );
                         break;
                     case 'instagram':
-                        const isAndroidIG = /Android/i.test(navigator.userAgent);
-                        // Deep link to create a new direct message or open camera to start sharing
-                        const igApp = isAndroidIG
-                            ? `intent://camera#Intent;package=com.instagram.android;scheme=instagram;end`
-                            : `instagram://camera`;
+                        // Copiamos el enlace silenciosamente para poder pegarlo en el DM
+                        try { navigator.clipboard.writeText(rawUrl); } catch(e) {}
                         
-                        openWithFallback(igApp, `https://www.instagram.com/`);
+                        const isAndroidIG = /Android/i.test(navigator.userAgent);
+                        const igApp = isAndroidIG
+                            ? `intent://direct-inbox#Intent;package=com.instagram.android;scheme=instagram;end`
+                            : `instagram://direct-inbox`;
+                        
+                        if (isMobile) {
+                            // Abre la app nativa en móviles manteniendo la página actual de RutaDorada intacta
+                            window.location.href = igApp;
+                        } else {
+                            window.open('https://www.instagram.com/direct/inbox/', 'share_popup', 'width=600,height=500,noopener,noreferrer');
+                        }
                         break;
                     case 'copy':
                         navigator.clipboard.writeText(rawUrl).then(() => {
