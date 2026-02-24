@@ -324,7 +324,7 @@ const { slug } = Astro.props;
                 .select("*")
                 .eq("articulo_id", articuloId)
                 .eq("user_id", user.id)
-                .single();
+                .maybeSingle();
 
             if (data) isLiked = true;
         }
@@ -349,7 +349,7 @@ const { slug } = Astro.props;
                 .select("*")
                 .eq("articulo_id", articuloId)
                 .eq("user_id", user.id)
-                .single();
+                .maybeSingle();
 
             if (data) isBookmarked = true;
         }
