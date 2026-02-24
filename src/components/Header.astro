@@ -8,6 +8,7 @@ const searchablePosts = allPosts.map((post) => ({
     slug: post.slug,
     category: post.data.category,
     tags: post.data.tags || [],
+    body: post.body,
 }));
 const baseUrl = import.meta.env.BASE_URL;
 ---
@@ -495,7 +496,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 <input
                     type="text"
                     id="search-input"
-                    placeholder="Search articles, tags, categories..."
+                    placeholder="Buscar artículos, categorías, contenido..."
                     class="w-full bg-[#162a2f] text-white pl-12 pr-4 py-3 rounded-xl border border-transparent focus:border-primary/30 focus:ring-1 focus:ring-primary/20 outline-none placeholder:text-slate-500 font-medium"
                     autocomplete="off"
                 />
@@ -530,7 +531,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                     </svg>
-                    <p>Start typing to search articles...</p>
+                    <p>Empieza a escribir para buscar artículos...</p>
                 </div>
             </div>
 
@@ -538,8 +539,8 @@ const baseUrl = import.meta.env.BASE_URL;
             <div
                 class="bg-[#162a2f] px-4 py-2 border-t border-[#224249] flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest font-bold"
             >
-                <span>Search results list</span>
-                <span id="results-count">0 articles found</span>
+                <span>Lista de resultados</span>
+                <span id="results-count">0 artículos encontrados</span>
             </div>
         </div>
     </div>
@@ -586,7 +587,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                     </svg>
-                        <p>Start typing to search articles...</p>
+                        <p>Empieza a escribir para buscar artículos...</p>
                     </div>
                 `;
             } else {
@@ -609,20 +610,20 @@ const baseUrl = import.meta.env.BASE_URL;
                         <line x1="9" x2="9.01" y1="9" y2="9"></line>
                         <line x1="15" x2="15.01" y1="9" y2="9"></line>
                     </svg>
-                        <p>No results found for "${searchInput.value}"</p>
+                        <p>No se encontraron resultados para "${searchInput.value}"</p>
                     </div>
                 `;
             }
-            resultsCount.textContent = "0 articles found";
+            resultsCount.textContent = "0 artículos encontrados";
             return;
         }
 
-        resultsCount.textContent = `${results.length} article${results.length === 1 ? "" : "s"} found`;
+        resultsCount.textContent = `${results.length} artículo${results.length === 1 ? "" : "s"} encontrado${results.length === 1 ? "" : "s"}`;
 
         searchResults.innerHTML = results
             .map(
                 (post) => `
-            <a href={`${baseUrl}/posts/${post.slug}`} class="flex flex-col p-4 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20 transition-all group">
+            <a href="${baseUrl}/posts/${post.slug}" class="flex flex-col p-4 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20 transition-all group">
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-bold text-primary uppercase tracking-widest">${post.category}</span>
                 </div>
@@ -644,7 +645,7 @@ const baseUrl = import.meta.env.BASE_URL;
         const words = query.split(/\s+/);
         const results = searchablePosts.filter((post) => {
             const searchStr =
-                `${post.title} ${post.description} ${post.category} ${post.tags.join(" ")}`.toLowerCase();
+                `${post.title} ${post.description} ${post.category} ${(post.tags || []).join(" ")} ${post.body || ""}`.toLowerCase();
             return words.every((word) => searchStr.includes(word));
         });
 
