@@ -390,15 +390,16 @@ const formatDate = (date: Date) => {
                         );
                         break;
                     case 'facebook':
+                        const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
                         const isAndroidFB = /Android/i.test(navigator.userAgent);
+                        // Al usar HTTPS dentro del intent, forzamos a Facebook a procesarlo como un enlace 
+                        // web soportado, lo cual abrirá su navegador interno donde la sesión del usuario SÍ está activa,
+                        // en iOS simplemente usamos la URL directa para activar sus "Universal Links".
                         const fbApp = isAndroidFB 
-                            ? `intent://share/?link=${url}#Intent;package=com.facebook.katana;scheme=fb;end`
-                            : `fb://share/?link=${url}`;
+                            ? `intent://www.facebook.com/sharer/sharer.php?u=${url}#Intent;package=com.facebook.katana;scheme=https;end`
+                            : fbShareUrl;
                         
-                        openWithFallback(
-                            fbApp,
-                            `https://www.facebook.com/sharer/sharer.php?u=${url}`
-                        );
+                        openWithFallback(fbApp, fbShareUrl);
                         break;
                     case 'instagram':
                         // Copiamos el enlace silenciosamente para poder pegarlo en el DM
