@@ -8,9 +8,10 @@ interface Props {
     readTime: string;
     slug: string;
     videoUrl?: string;
+    tags?: string[];
 }
 
-const { title, description, image, category, date, readTime, slug, videoUrl } =
+const { title, description, image, category, date, readTime, slug, videoUrl, tags } =
     Astro.props;
 const url = videoUrl || `${import.meta.env.BASE_URL}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
@@ -29,11 +30,19 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             class="absolute inset-0 bg-gradient-to-t from-background-card to-transparent opacity-80"
         >
         </div>
-        <span
-            class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-md text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20"
-        >
-            {category}
-        </span>
+        <div class="absolute top-3 left-3 flex flex-wrap gap-2">
+            {tags && tags.length > 0 ? (
+                tags.slice(0, 1).map((tag) => (
+                    <span class="bg-background-dark/80 backdrop-blur-md text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">
+                        {tag}
+                    </span>
+                ))
+            ) : (
+                <span class="bg-background-dark/80 backdrop-blur-md text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">
+                    {category}
+                </span>
+            )}
+        </div>
     </a>
     <div class="flex flex-col flex-1 p-5 gap-3">
         <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>

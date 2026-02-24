@@ -7,9 +7,9 @@ import ArchiveCard from "../components/ArchiveCard.astro";
 
 const allPosts = (await getCollection("posts")).filter(p => p.data.category === "Premios");
 
-const allTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))].filter(tag => tag.toLowerCase().includes("premio"));
+const allTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
 const topics = allTags.map(tag => ({
-    label: tag.replace(/^Premios?\s+/i, ""),
+    label: tag,
     value: tag
 }));
 
@@ -121,6 +121,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                                 readTime={post.data.readTime}
                                 slug={post.slug}
                                 videoUrl={post.data.videoUrl}
+                                tags={post.data.tags}
                             />
                         </div>
                     ))
