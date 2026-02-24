@@ -7,7 +7,7 @@ authorImage: ""
 image: "https://hotbook.mx/wp-content/uploads/2023/03/conoce-a-los-ganadores-de-los-premios-oscar-2023.jpg"
 category: "Premios"
 readTime: "5 min read"
-tags: ["Premios Oscar"]
+tags: ["Oscar"]
 ---
 
 El 22 de enero de 2026, la Academia de Artes y Ciencias Cinematográficas de Hollywood anunció las nominaciones para la 98ª edición de los Premios Oscar. La ceremonia, conducida por Conan O'Brien por segundo año consecutivo, se celebrará el próximo 15 de marzo en el Dolby Theatre de Los Ángeles. Y si las nominaciones sirven de presagio, la noche promete ser histórica: por primera vez en la historia de los galardones, una sola película ha conseguido acumular 16 candidaturas, superando el récord de 14 que compartían títulos tan emblemáticos como *Titanic*, *All About Eve* y la propia *La La Land*.
