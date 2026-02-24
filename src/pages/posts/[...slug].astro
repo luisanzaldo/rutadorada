@@ -354,40 +354,70 @@ const formatDate = (date: Date) => {
         shareButtons.forEach(btn => {
             btn.addEventListener("click", () => {
                 const network = btn.getAttribute("data-network");
-                const url = encodeURIComponent(window.location.href);
+                const rawUrl = window.location.origin + window.location.pathname;
+                const url = encodeURIComponent(rawUrl);
                 const title = encodeURIComponent(document.title);
-                let shareUrl = '';
+                
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                
+                const openWithFallback = (appUrl: string, webUrl: string) => {
+                    if (isMobile) {
+                        try {
+                            window.location.href = appUrl;
+                        } catch(e) {}
+                        
+                        setTimeout(() => {
+                            if (document.visibilityState !== 'hidden') {
+                                window.location.href = webUrl;
+                            }
+                        }, 800);
+                    } else {
+                        window.open(webUrl, 'share_popup', 'width=600,height=500,noopener,noreferrer');
+                    }
+                };
 
                 switch(network) {
                     case 'x':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+                        openWithFallback(
+                            `twitter://post?message=${title}%20${url}`,
+                            `https://twitter.com/intent/tweet?url=${url}&text=${title}`
+                        );
                         break;
                     case 'whatsapp':
-                        shareUrl = `https://api.whatsapp.com/send?text=${title} - ${url}`;
-                        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+                        openWithFallback(
+                            `whatsapp://send?text=${title}%20-%20${url}`,
+                            `https://api.whatsapp.com/send?text=${title}%20-%20${url}`
+                        );
                         break;
                     case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+                        const isAndroidFB = /Android/i.test(navigator.userAgent);
+                        const fbApp = isAndroidFB 
+                            ? `intent://share/?link=${url}#Intent;package=com.facebook.katana;scheme=fb;end`
+                            : `fb://share/?link=${url}`;
+                        
+                        openWithFallback(
+                            fbApp,
+                            `https://www.facebook.com/sharer/sharer.php?u=${url}`
+                        );
                         break;
                     case 'instagram':
-                        // Instagram doesn't have a direct share link to DM, best approach is copying
-                        // the link and redirecting them to their Instagram Direct inbox
-                        navigator.clipboard.writeText(window.location.href).then(() => {
+                        navigator.clipboard.writeText(rawUrl).then(() => {
                             const tooltip = btn.querySelector('.ig-tooltip') as HTMLElement;
                             if (tooltip) {
                                 tooltip.style.opacity = '1';
                                 setTimeout(() => tooltip.style.opacity = '0', 2000);
                             }
-                            // Un pequeño retraso para que el usuario pueda ver que se copió
                             setTimeout(() => {
-                                window.open('https://www.instagram.com/direct/inbox/', '_blank', 'noopener,noreferrer');
-                            }, 1000);
+                                const isAndroidIG = /Android/i.test(navigator.userAgent);
+                                const igApp = isAndroidIG
+                                    ? `intent://direct-inbox#Intent;package=com.instagram.android;scheme=instagram;end`
+                                    : `instagram://direct-inbox`;
+                                openWithFallback(igApp, `https://www.instagram.com/direct/inbox/`);
+                            }, 500);
                         });
                         break;
                     case 'copy':
-                        navigator.clipboard.writeText(window.location.href).then(() => {
+                        navigator.clipboard.writeText(rawUrl).then(() => {
                             const tooltip = btn.querySelector('.copy-tooltip') as HTMLElement;
                             if (tooltip) {
                                 tooltip.style.opacity = '1';
