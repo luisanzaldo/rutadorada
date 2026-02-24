@@ -40,5 +40,15 @@ const {
 	>
 		<slot />
 		<VideoModal />
+		<script>
+			// Evitar que el navegador restaure la posición del scroll al recargar
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+			// Asegurar que la página empiece siempre desde arriba a menos que haya un hash de sección
+			if (!window.location.hash) {
+				window.scrollTo(0, 0);
+			}
+		</script>
 	</body>
 </html>

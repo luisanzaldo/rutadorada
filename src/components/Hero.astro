@@ -38,11 +38,12 @@ const latestPost = allPosts.sort(
 
         <!-- CTA Buttons -->
         <div class="mt-20 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
-            <div
-                class="px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#d97706] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] cursor-default select-none text-sm sm:text-base text-center"
+            <a
+                class="block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#d97706] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] transition-all hover:scale-105 active:scale-95 text-sm sm:text-base text-center"
+                href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/#lo-ultimo`}
             >
                 <span class="relative z-10">Lo último</span>
-            </div>
+            </a>
             <a
                 class="px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#d97706] hover:border-[#d97706] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] text-sm sm:text-base text-center"
                 href={`${import.meta.env.BASE_URL}/archive`}

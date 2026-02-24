@@ -7,7 +7,7 @@ authorImage: ""
 image: "https://images.mubicdn.net/images/film/411498/cache-1051744-1764004841/image-w1280.jpg?size=800x"
 category: "Tráilers"
 readTime: "2 min"
-tags: ["Cine brasileño", "Tráiler"]
+tags: ["Mubi"]
 videoUrl: "https://youtu.be/YxvymcujX14?si=HFvRHLP9o3_-5Zfl"
 ---
 

@@ -255,8 +255,8 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
         // Update active states
         topicButtons.forEach((btn) => {
-            const btnTag = btn.getAttribute("data-tag");
-            const activeTagVal = tag || "all";
+            const btnTag = btn.getAttribute("data-tag")?.toLowerCase() || "";
+            const activeTagVal = (tag || "all").toLowerCase();
             if (btnTag === activeTagVal) {
                 btn.classList.add("active");
             } else {
@@ -309,7 +309,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
             applyFilter("all", tagVal === "all" ? null : tagVal);
 
             let newUrl =
-                tagVal === "all" ? window.location.pathname : `?tag=${tagVal}`;
+                tagVal === "all" ? window.location.pathname : `?tag=${tagVal?.toLowerCase() || ''}`;
             window.history.pushState({ tag: tagVal }, "", newUrl);
         });
     });

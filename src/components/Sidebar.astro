@@ -3,10 +3,36 @@ import { getCollection } from "astro:content";
 import { supabase } from "../lib/supabase";
 
 const allPosts = await getCollection("posts");
-const allTags = allPosts.flatMap((post) => post.data.tags || []);
-const uniqueTags = [...new Set(allTags)];
+
+const tagCategoryMap = new Map<string, string>();
+allPosts.forEach(post => {
+    const category = post.data.category;
+    (post.data.tags || []).forEach(tag => {
+        if (!tagCategoryMap.has(tag)) {
+            tagCategoryMap.set(tag, category);
+        }
+    });
+});
+
+const uniqueTags = Array.from(tagCategoryMap.keys());
 // Sort by frequency (simple version: show top 8)
-const trendingTags = uniqueTags.slice(0, 8);
+const trendingTags = uniqueTags.slice(0, 8).map(tag => ({
+    name: tag,
+    category: tagCategoryMap.get(tag) as string
+}));
+
+const getCategoryUrl = (category: string) => {
+    let path = "";
+    switch (category) {
+        case "Artículos": path = "/articulos"; break;
+        case "Críticas": path = "/criticas"; break;
+        case "Premios": path = "/premios"; break;
+        case "Tráilers": path = "/trailers"; break;
+        default: path = "/archive"; break;
+    }
+    const base = import.meta.env.BASE_URL;
+    return `${base === '/' ? '' : base}${path}`;
+};
 
 const { data: likesData } = await supabase.from("likes").select("articulo_id, created_at");
 
@@ -89,9 +115,9 @@ const popularByCategory = categoriesToTrack.map((cat) => {
                 trendingTags.map((tag) => (
                     <a
                         class="px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-primary hover:text-white transition-colors capitalize"
-                        href={`/archive?tag=${tag.toLowerCase()}`}
+                        href={`${getCategoryUrl(tag.category)}?tag=${tag.name.toLowerCase()}`}
                     >
-                        #{tag}
+                        #{tag.name}
                     </a>
                 ))
             }
@@ -143,7 +169,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
             {
                 popularByCategory.map((item, index) => (
                     <>
-                        <a class="group block" href={`/posts/${item.slug}`}>
+                        <a class="group block" href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/posts/${item.slug}`}>
                             <span class="text-primary text-xs font-bold uppercase mb-1 block">
                                 {item.category}
                             </span>
@@ -209,9 +235,10 @@ const popularByCategory = categoriesToTrack.map((cat) => {
                 };
             }).filter((item) => item.slug !== "");
 
+            const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             if (popularByCategory.length > 0) {
                 list.innerHTML = popularByCategory.map((item, index) => `
-                    <a class="group block" href="/posts/${item.slug}">
+                    <a class="group block" href="${baseUrl}/posts/${item.slug}">
                         <span class="text-primary text-xs font-bold uppercase mb-1 block">
                             ${item.category}
                         </span>

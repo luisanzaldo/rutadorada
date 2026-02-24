@@ -7,6 +7,12 @@ import ArchiveCard from "../components/ArchiveCard.astro";
 
 const allPosts = (await getCollection("posts")).filter(p => p.data.category === "Críticas");
 
+const allTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+const topics = allTags.map(tag => ({
+    label: tag,
+    value: tag
+}));
+
 const formatDate = (date: Date) => {
     return date.toLocaleDateString("en-US", {
         year: "numeric",
@@ -49,10 +55,22 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                 <div class="flex gap-2 flex-wrap" id="topic-filters">
                     <button
                         class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-input hover:bg-primary text-slate-300 hover:text-white border border-transparent px-4 transition-all group active"
-                        data-topic="all"
+                        data-tag="all"
                     >
                         <span class="text-sm font-medium">Todas las críticas</span>
                     </button>
+                    {
+                        topics.map((topic) => (
+                            <button
+                                class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-input hover:bg-primary text-slate-300 hover:text-white border border-transparent px-4 transition-all group"
+                                data-tag={topic.value}
+                            >
+                                <span class="text-sm font-medium">
+                                    {topic.label}
+                                </span>
+                            </button>
+                        ))
+                    }
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-text-muted text-sm">Ordenar por:</span>
@@ -233,14 +251,13 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     };
 
     const applyFilter = (topic: string | null, tag: string | null = null) => {
-        if (!topic) topic = "all";
-        currentTopic = topic;
         currentTag = tag;
 
         // Update active states
         topicButtons.forEach((btn) => {
-            const btnTopic = btn.getAttribute("data-topic");
-            if (btnTopic === topic) {
+            const btnTag = btn.getAttribute("data-tag")?.toLowerCase() || "";
+            const activeTagVal = (tag || "all").toLowerCase();
+            if (btnTag === activeTagVal) {
                 btn.classList.add("active");
             } else {
                 btn.classList.remove("active");
@@ -249,16 +266,13 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
         // Filter items
         filteredItems = Array.from(getArchiveItems()).filter((item) => {
-            const matchesTopic =
-                topic === "all" || item.getAttribute("data-topic") === topic;
-
             if (tag) {
                 const itemTags =
                     item.getAttribute("data-tags")?.split(",") || [];
-                return matchesTopic && itemTags.includes(tag.toLowerCase());
+                return itemTags.includes(tag.toLowerCase());
             }
 
-            return matchesTopic;
+            return true;
         });
 
         currentPage = 1;
@@ -291,15 +305,12 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     // Topic Filtering Click Events
     topicButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const topic = button.getAttribute("data-topic");
-            applyFilter(topic, currentTag);
+            const tagVal = button.getAttribute("data-tag");
+            applyFilter("all", tagVal === "all" ? null : tagVal);
 
             let newUrl =
-                topic === "all" ? window.location.pathname : `?topic=${topic}`;
-            if (currentTag) {
-                newUrl += (topic === "all" ? "?" : "&") + `tag=${currentTag}`;
-            }
-            window.history.pushState({ topic, tag: currentTag }, "", newUrl);
+                tagVal === "all" ? window.location.pathname : `?tag=${tagVal?.toLowerCase() || ''}`;
+            window.history.pushState({ tag: tagVal }, "", newUrl);
         });
     });
 
