@@ -21,10 +21,10 @@ Seahaven es el lugar más feliz del mundo. Una ciudad perfecta, de calles limpia
 
 Cuando Peter Weir estrenó *The Truman Show* en 1998, el concepto de telerrealidad era todavía una curiosidad marginal. *Gran Hermano* no existía. Las redes sociales tampoco. La idea de que millones de personas pudieran seguir la vida cotidiana de un desconocido en tiempo real parecía una distopía de ciencia ficción lo suficientemente exagerada como para resultar cómica. Veintiséis años después, la película no solo no ha envejecido: se ha vuelto más real que cuando fue rodada. Vivimos en una cultura donde la exhibición voluntaria de la vida propia es moneda corriente, donde los algoritmos deciden qué vemos y qué nos emociona, y donde la frontera entre experiencia auténtica y performance para una audiencia imaginaria se ha vuelto genuinamente difusa. Weir y el guionista Andrew Niccol no hicieron una sátira; hicieron un diagnóstico.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="2"></circle>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
@@ -58,10 +58,10 @@ El desenlace de *El show de Truman* es, en apariencia, esperanzador. Truman encu
 
 ## El atajo
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

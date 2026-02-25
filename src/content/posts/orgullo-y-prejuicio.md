@@ -18,10 +18,10 @@ La primera decisión que distingue a esta versión de cualquier adaptación ante
 
 Esta decisión no es un capricho estético: es una toma de posición narrativa. Al mostrar la precariedad real de la familia Bennet —cinco hijas sin fortuna, una madre ansiosa, un padre cínico y resignado—, Wright convierte el matrimonio no en un asunto romántico sino en una cuestión de supervivencia. Lo que en otras adaptaciones puede parecer una comedia de enredos sentimentales adquiere aquí una urgencia que Austen nunca abandonó en su prosa.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
     </svg>

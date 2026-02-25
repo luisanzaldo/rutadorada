@@ -18,7 +18,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 
 <article
-    class="flex flex-col h-full rounded-xl overflow-hidden bg-background-card shadow-lg hover:-translate-y-1 hover:shadow-primary/10 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
+    class="flex flex-col h-full rounded-xl overflow-hidden bg-background-card shadow-lg hover:-translate-y-1 hover:shadow-[#D4AF37]/10 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-[#D4AF37]/20"
 >
     <a
         href={url}
@@ -47,7 +47,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
     <div class="flex flex-col flex-1 p-5 gap-3">
         <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
             <h3
-                class="text-white text-xl font-bold leading-tight group-hover:text-primary transition-colors"
+                class="text-white text-xl font-bold leading-tight group-hover:text-[#D4AF37] transition-colors"
             >
                 {title}
             </h3>
@@ -63,7 +63,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             >
             <a
                 href={url}
-                class={`material-symbols-outlined text-primary text-[20px] group-hover:translate-x-1 transition-transform ${triggerClass}`}
+                class={`material-symbols-outlined text-[#D4AF37] text-[20px] group-hover:translate-x-1 transition-transform ${triggerClass}`}
                 data-video-url={videoUrl}
             >
                 arrow_forward

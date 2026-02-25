@@ -16,10 +16,10 @@ Corea del Sur, 1930. Una joven carterista llamada Sookee es contratada como donc
 
 *La Doncella* (*아가씨*, Agassi, 2016) es la adaptación que Park Chan-wook realizó de la novela *Fingersmith* de Sarah Waters, trasladando la historia de la Inglaterra victoriana a la Corea colonial bajo dominio japonés. Esta decisión no es menor: el contexto histórico añade una capa de opresión política y cultural que impregna cada relación de poder dentro del filme. Hablar el idioma del colonizador, reproducir sus rituales, vivir atrapada en su arquitectura y en sus libros prohibidos; la mansión de Hideko funciona como una metáfora de la dominación hecha espacio físico.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
         <circle cx="12" cy="12" r="3"></circle>

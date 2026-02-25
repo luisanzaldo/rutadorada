@@ -69,7 +69,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
                     </span>
                 </div>
                 <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
-                    <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                    <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
                         {title}
                     </h3>
                 </a>
@@ -94,7 +94,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             </div>
         </article>
     ) : (
-        <article class="group flex flex-col h-full bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-white/5 hover:border-primary/50">
+        <article class="group flex flex-col h-full bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-white/5 hover:border-[#D4AF37]/50">
             <a href={url} class={`h-48 overflow-hidden relative block ${triggerClass}`} data-video-url={videoUrl}>
                 <div class="absolute top-4 left-4 z-10">
                     <span class="px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-primary text-xs font-bold border border-primary/30">
@@ -156,7 +156,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
                     {readTime}
                 </div>
                 <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[#D4AF37] transition-colors leading-tight">
                         {title}
                     </h3>
                 </a>
@@ -171,7 +171,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
                     </div>
                     <a
                         href={url}
-                        class={`text-primary group-hover:translate-x-1 transition-transform ${triggerClass}`}
+                        class={`text-[#D4AF37] group-hover:translate-x-1 transition-transform ${triggerClass}`}
                         data-video-url={videoUrl}
                         aria-label="Read more"
                     >

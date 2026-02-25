@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #d97706;
+  --color-primary: #D4AF37;
   /* Warm Gold/Amber */
   --color-background-light: #fafaf9;
   /* Stone 50 (Warm Cream) */
@@ -82,13 +82,13 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #d97706;
+    background: #D4AF37;
   }
 }
 
 @layer utilities {
   .hero-pattern {
-    background-image: radial-gradient(#d97706 1px, transparent 1px);
+    background-image: radial-gradient(#D4AF37 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: linear-gradient(to bottom,
         rgba(0, 0, 0, 0.4) 0%,

@@ -74,7 +74,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
         class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
     >
         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
-            Sobre ruta<span class="text-primary">dorada</span>
+            Sobre ruta<span class="text-[#D4AF37]">dorada</span>
         </h3>
         <p
             class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed"
@@ -83,19 +83,19 @@ const popularByCategory = categoriesToTrack.map((cat) => {
         </p>
         <div class="flex gap-3">
             <a
-                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-[#102023] transition-colors"
                 href="#"
             >
                 <span class="text-xs font-bold">X</span>
             </a>
             <a
-                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-[#102023] transition-colors"
                 href="#"
             >
                 <span class="text-xs font-bold">Fb</span>
             </a>
             <a
-                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-[#102023] transition-colors"
                 href="#"
             >
                 <span class="text-xs font-bold">Ig</span>
@@ -114,7 +114,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
             {
                 trendingTags.map((tag) => (
                     <a
-                        class="px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-primary hover:text-white transition-colors capitalize"
+                        class="px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-primary hover:text-[#102023] transition-colors capitalize"
                         href={`${getCategoryUrl(tag.category)}?tag=${tag.name.toLowerCase()}`}
                     >
                         #{tag.name}
@@ -145,7 +145,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
                 type="email"
             />
             <button
-                class="w-full bg-primary hover:bg-cyan-400 text-background-dark font-bold py-2 rounded text-sm transition-colors shadow-lg shadow-primary/20"
+                class="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-background-dark font-bold py-2 rounded text-sm transition-colors shadow-lg shadow-[#D4AF37]/20"
             >
                 Suscríbete
             </button>
@@ -170,10 +170,10 @@ const popularByCategory = categoriesToTrack.map((cat) => {
                 popularByCategory.map((item, index) => (
                     <>
                         <a class="group block" href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/posts/${item.slug}`}>
-                            <span class="text-primary text-xs font-bold uppercase mb-1 block">
+                            <span class="text-[#D4AF37] text-xs font-bold uppercase mb-1 block">
                                 {item.category}
                             </span>
-                            <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">
+                            <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#D4AF37] transition-colors">
                                 {item.title}
                             </h4>
                         </a>
@@ -239,10 +239,10 @@ const popularByCategory = categoriesToTrack.map((cat) => {
             if (popularByCategory.length > 0) {
                 list.innerHTML = popularByCategory.map((item, index) => `
                     <a class="group block" href="${baseUrl}/posts/${item.slug}">
-                        <span class="text-primary text-xs font-bold uppercase mb-1 block">
+                        <span class="text-[#D4AF37] text-xs font-bold uppercase mb-1 block">
                             ${item.category}
                         </span>
-                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">
+                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#D4AF37] transition-colors">
                             ${item.title}
                         </h4>
                     </a>

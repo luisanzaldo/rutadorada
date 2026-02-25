@@ -23,37 +23,31 @@ const baseUrl = import.meta.env.BASE_URL;
                 href={import.meta.env.BASE_URL}
                 class="flex-shrink-0 flex items-center space-x-2 sm:space-x-3 cursor-pointer group"
             >
-                <div class="relative w-[27px] h-[27px] sm:w-[30px] sm:h-[30px] flex items-center justify-center">
-                    <img
-                        src={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/images/Logo-RutaDorada.svg`}
-                        alt="Ruta Dorada Logo"
-                        class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                </div>
+
                 <span
                     class="font-display font-bold text-[1.15rem] sm:text-xl uppercase tracking-tighter text-slate-900 dark:text-white"
-                    >Ruta<span class="text-primary">Dorada</span></span
+                    >Ruta<span class="text-[#D4AF37]">Dorada</span></span
                 >
             </a>
 
             <nav class="hidden lg:flex space-x-8">
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={import.meta.env.BASE_URL}>Lo último</a>
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/articulos`}>Artículos</a>
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/criticas`}>Críticas</a>
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/premios`}>Premios</a>
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/trailers`}>Tráilers</a>
                 <a
-                    class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${import.meta.env.BASE_URL}/archive`}>Archivo</a>
             </nav>
 
@@ -62,7 +56,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 <!-- Search -->
                 <button
                     id="search-btn"
-                    class="p-2 text-slate-500 hover:text-primary transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
+                    class="p-2 text-slate-500 hover:text-[#D4AF37] transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
                     aria-label="Search"
                 >
                     <svg
@@ -88,13 +82,13 @@ const baseUrl = import.meta.env.BASE_URL;
                 >
                     <a
                         href={`${import.meta.env.BASE_URL}/login`}
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary px-1 py-2 text-sm font-medium transition-colors"
+                        class="text-slate-600 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] px-1 py-2 text-sm font-medium transition-colors"
                     >
                         Login
                     </a>
                     <a
                         href={`${import.meta.env.BASE_URL}/register`}
-                        class="px-3 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors shadow-lg shadow-primary/20"
+                        class="px-3 py-2 text-sm font-medium text-[#102023] bg-primary hover:bg-primary/90 rounded-lg transition-colors shadow-lg shadow-primary/20"
                     >
                         Registro
                     </a>
@@ -107,7 +101,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         class="flex items-center gap-2 p-1 rounded-full hover:bg-slate-100 dark:hover:bg-[#162a2f] transition-colors group"
                     >
                         <div
-                            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm overflow-hidden border-2 border-transparent group-hover:border-primary/50 transition-all"
+                            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[#102023] font-bold text-sm overflow-hidden border-2 border-transparent group-hover:border-primary/50 transition-all"
                         >
                             <span id="user-initials">U</span>
                             <img
@@ -129,7 +123,7 @@ const baseUrl = import.meta.env.BASE_URL;
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="text-slate-400 group-hover:text-primary transition-colors"
+                            class="text-slate-400 group-hover:text-[#D4AF37] transition-colors"
                         >
                             <path d="m6 9 6 6 6-6"></path>
                         </svg>
@@ -157,7 +151,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         </div>
                         <a
                             href={`${import.meta.env.BASE_URL}/settings`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-primary transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +177,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         </div>
                         <a
                             href={`${import.meta.env.BASE_URL}/my-likes`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-primary transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +199,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         </a>
                         <a
                             href={`${import.meta.env.BASE_URL}/my-favorites`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-primary transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +251,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 <!-- Mobile Menu Button -->
                 <button
                     id="mobile-menu-btn"
-                    class="lg:hidden p-2 text-slate-500 hover:text-primary transition-colors hover:bg-primary/10 rounded-lg group"
+                    class="lg:hidden p-2 text-slate-500 hover:text-[#D4AF37] transition-colors hover:bg-primary/10 rounded-lg group"
                     aria-label="Toggle Menu"
                 >
                     <div class="w-6 h-5 relative flex flex-col justify-between">
@@ -296,39 +290,39 @@ const baseUrl = import.meta.env.BASE_URL;
     >
         <nav class="flex flex-col space-y-4">
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={import.meta.env.BASE_URL}>Lo último</a>
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/articulos`}>Artículos</a
             >
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/criticas`}>Críticas</a
             >
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/premios`}>Premios</a
             >
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/trailers`}>Tráilers</a
             >
             <a
-                class="text-slate-300 hover:text-primary text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
                 href={`${import.meta.env.BASE_URL}/archive`}>Archivo</a
             >
 
             <div id="mobile-auth-section" class="pt-4 flex flex-col space-y-3">
                 <a
                     href={`${import.meta.env.BASE_URL}/login`}
-                    class="w-full text-center py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-primary transition-colors"
+                    class="w-full text-center py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
                 >
                     Login
                 </a>
                 <a
                     href={`${import.meta.env.BASE_URL}/register`}
-                    class="w-full text-center py-2 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
+                    class="w-full text-center py-2 rounded-lg bg-primary text-[#102023] font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                 >
                     Registro
                 </a>
@@ -340,7 +334,7 @@ const baseUrl = import.meta.env.BASE_URL;
             >
                 <a
                     href={`${import.meta.env.BASE_URL}/settings`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-primary transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -362,7 +356,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 </a>
                 <a
                     href={`${import.meta.env.BASE_URL}/my-likes`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-primary transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -384,7 +378,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 </a>
                 <a
                     href={`${import.meta.env.BASE_URL}/my-favorites`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-primary transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -436,19 +430,19 @@ const baseUrl = import.meta.env.BASE_URL;
             </p>
             <div class="flex gap-4">
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
                     href="#"
                 >
                     <span class="text-sm font-bold">X</span>
                 </a>
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
                     href="#"
                 >
                     <span class="text-sm font-bold">GH</span>
                 </a>
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
                     href="#"
                 >
                     <span class="text-sm font-bold">IN</span>
@@ -625,7 +619,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-bold text-primary uppercase tracking-widest">${post.category}</span>
                 </div>
-                <h4 class="text-slate-100 font-bold group-hover:text-primary transition-colors">${post.title}</h4>
+                <h4 class="text-slate-100 font-bold group-hover:text-[#D4AF37] transition-colors">${post.title}</h4>
                 <p class="text-sm text-slate-500 line-clamp-1 mt-1">${post.description}</p>
             </a>
         `,

@@ -16,10 +16,10 @@ España, 1944. La guerra civil ha terminado, pero para muchos el horror apenas c
 
 Guillermo del Toro construye *El laberinto del fauno* (2006) sobre una dualidad visual y narrativa rigurosa. El mundo real de la posguerra española está fotografiado en tonos fríos, verdes y grises, con una luz dura que no perdona ni embellece. El mundo fantástico de Ofelia, en cambio, vive en ocres, dorados y rojos profundos, una paleta cálida que paradójicamente alberga criaturas tan inquietantes como el Hombre Pálido, uno de los monstruos más memorables de la historia del cine de terror. Del Toro invierte la lógica habitual: el mundo real es el verdaderamente aterrador, y la fantasía, aunque peligrosa, es el único lugar donde la justicia y el significado todavía existen.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path>
         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>

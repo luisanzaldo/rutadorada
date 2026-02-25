@@ -16,10 +16,10 @@ Los Ángeles. Una ciudad construida sobre el mito de que los sueños se hacen re
 
 Damien Chazelle construye *La La Land* (2016) como un homenaje consciente y apasionado al musical clásico de Hollywood, el de Minnelli, Donen y Kelly, y al mismo tiempo lo interroga desde adentro. La película adopta sus convenciones —la ruptura espontánea en canción, la coreografía como expresión emocional, los colores saturados como estado de ánimo— pero las usa para contar una historia que aquellos musicales nunca se habrían atrevido a contar: una en la que el amor romántico y la realización personal no son fuerzas complementarias sino, en ocasiones, irreconciliables.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 18V5l12-2v13"></path>
         <circle cx="6" cy="18" r="3"></circle>

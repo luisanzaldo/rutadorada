@@ -16,10 +16,10 @@ El 22 de enero de 2026, la Academia de Artes y Ciencias Cinematográficas de Hol
 
 *Sinners*, la ambiciosa película de terror de Ryan Coogler ambientada en el Mississippi de los años treinta, se convierte en la gran protagonista de esta temporada de premios. El filme protagonizado por Michael B. Jordan —quien interpreta a dos hermanos gemelos que regresan a su ciudad natal para enfrentarse a una oscura presencia sobrenatural— acumula candidaturas en prácticamente todas las categorías, incluyendo Mejor Película, Mejor Director, Mejor Actor para Jordan, Mejor Actriz de Reparto para Wunmi Mosaku y Mejor Actor de Reparto para Delroy Lindo. Coogler también opta al premio al Mejor Guión Original, y el filme aspira además a reconocimientos técnicos en cinematografía, diseño de producción, vestuario, montaje, sonido, efectos visuales, maquillaje y banda sonora.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

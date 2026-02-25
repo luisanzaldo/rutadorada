@@ -16,10 +16,10 @@ Inglaterra, verano de 1935. En la mansión de los Tallis, el calor aplaca los cu
 
 *Expiación* (*Atonement*, 2007) es la adaptación que Joe Wright realizó de la aclamada novela homónima de Ian McEwan, y constituye uno de los ejercicios más logrados de traducción literaria al lenguaje cinematográfico de los últimos veinte años. Wright no se limita a ilustrar el texto: lo reinterpreta con una inteligencia formal que encuentra en la imagen equivalentes visuales para los recursos narrativos de McEwan. El punto de vista subjetivo, la ambigüedad de la percepción, la memoria como construcción interesada; todo ello encuentra en la cámara un vehículo tan preciso como la prosa.
 
-<div class="my-8 rounded-xl border border-primary/20 bg-primary/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-primary"></div>
+<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-primary/20 p-2 text-primary shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 20h9"></path>
         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
