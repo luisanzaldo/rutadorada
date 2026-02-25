@@ -259,6 +259,10 @@ const { slug } = Astro.props;
     const bookmarkBtnMobile = document.getElementById("bookmark-btn-mobile");
     const bookmarkIconMobile = document.getElementById("bookmark-icon-mobile");
     const bookmarkCountMobile = document.getElementById("bookmark-count-mobile");
+    
+    // Top Mobile Bookmark Elements
+    const bookmarkBtnMobileTop = document.getElementById("bookmark-btn-mobile-top");
+    const bookmarkIconMobileTop = document.getElementById("bookmark-icon-mobile-top");
 
     // Scroll to comments
     const scrollToComments = () => {
@@ -417,6 +421,7 @@ const { slug } = Astro.props;
         };
         updateBookmarkIcon(bookmarkIconDesktop);
         updateBookmarkIcon(bookmarkIconMobile);
+        updateBookmarkIcon(bookmarkIconMobileTop);
     }
 
     async function toggleLike() {
@@ -497,6 +502,7 @@ const { slug } = Astro.props;
 
     bookmarkBtnDesktop?.addEventListener("click", toggleBookmark);
     bookmarkBtnMobile?.addEventListener("click", toggleBookmark);
+    bookmarkBtnMobileTop?.addEventListener("click", toggleBookmark);
 
     init();
 </script>
