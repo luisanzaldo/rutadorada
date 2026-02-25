@@ -116,7 +116,13 @@
                 const network = newBtn.getAttribute("data-network");
                 const rawUrl = window.location.origin + window.location.pathname;
                 const url = encodeURIComponent(rawUrl);
-                const title = encodeURIComponent(document.title);
+                const titleText = document.title.split('|')[0].trim();
+                const title = encodeURIComponent(titleText);
+                
+                const metaDesc = document.querySelector('meta[name="description"]');
+                const descText = metaDesc ? metaDesc.getAttribute("content") : "";
+                const desc = encodeURIComponent(descText ? `\n\n${descText}` : "");
+
                 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 
                 const openWithFallback = (appUrl: string, webUrl: string) => {
@@ -135,14 +141,14 @@
                 switch(network) {
                     case 'x':
                         openWithFallback(
-                            `twitter://post?message=${title}%20${url}`,
-                            `https://twitter.com/intent/tweet?url=${url}&text=${title}`
+                            `twitter://post?message=${title}${desc}%0A%0A${url}`,
+                            `https://twitter.com/intent/tweet?url=${url}&text=${title}${desc}`
                         );
                         break;
                     case 'whatsapp':
                         openWithFallback(
-                            `whatsapp://send?text=${title}%20-%20${url}`,
-                            `https://api.whatsapp.com/send?text=${title}%20-%20${url}`
+                            `whatsapp://send?text=${title}${desc}%0A%0A${url}`,
+                            `https://api.whatsapp.com/send?text=${title}${desc}%0A%0A${url}`
                         );
                         break;
                     case 'instagram':
