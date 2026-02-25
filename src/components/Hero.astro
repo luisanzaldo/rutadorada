@@ -187,27 +187,29 @@ const latestPost = allPosts.sort(
     document.addEventListener('DOMContentLoaded', () => {
         const badge = document.getElementById('film-badge');
         const road = document.getElementById('film-road-container');
+        let touchTimeout;
+        let isTouchDevice = false;
         
         if (badge && road) {
-            // Desktop hover
+            // Mobile touch (tap to activate for 8s)
+            badge.addEventListener('touchstart', () => {
+                isTouchDevice = true;
+                road.classList.add('active');
+                
+                clearTimeout(touchTimeout);
+                touchTimeout = setTimeout(() => {
+                    road.classList.remove('active');
+                }, 8000);
+            }, { passive: true });
+
+            // Desktop hover (only trigger if not a touch device)
             badge.addEventListener('mouseenter', () => {
+                if (isTouchDevice) return;
                 road.classList.add('active');
             });
             
             badge.addEventListener('mouseleave', () => {
-                road.classList.remove('active');
-            });
-
-            // Mobile touch
-            badge.addEventListener('touchstart', () => {
-                road.classList.add('active');
-            }, { passive: true });
-            
-            badge.addEventListener('touchend', () => {
-                road.classList.remove('active');
-            });
-
-            badge.addEventListener('touchcancel', () => {
+                if (isTouchDevice) return;
                 road.classList.remove('active');
             });
         }
