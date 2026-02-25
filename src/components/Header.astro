@@ -711,18 +711,18 @@ const baseUrl = import.meta.env.BASE_URL;
                 mobileMenuBackdrop?.classList.add("opacity-100");
                 mobileMenuContent?.classList.remove("translate-x-full");
                 // Animate bars to X
-                bar1?.classList.add("rotate-45", "translate-y-2");
+                bar1?.classList.add("rotate-45", "translate-y-[9px]");
                 bar2?.classList.add("opacity-0", "scale-0");
-                bar3?.classList.add("-rotate-45", "-translate-y-2");
+                bar3?.classList.add("-rotate-45", "-translate-y-[9px]");
             }, 10);
             document.body.style.overflow = "hidden";
         } else {
             mobileMenuBackdrop?.classList.remove("opacity-100");
             mobileMenuContent?.classList.add("translate-x-full");
             // Animate bars back
-            bar1?.classList.remove("rotate-45", "translate-y-2");
+            bar1?.classList.remove("rotate-45", "translate-y-[9px]");
             bar2?.classList.remove("opacity-0", "scale-0");
-            bar3?.classList.remove("-rotate-45", "-translate-y-2");
+            bar3?.classList.remove("-rotate-45", "-translate-y-[9px]");
 
             setTimeout(() => {
                 mobileMenu?.classList.add("hidden");
