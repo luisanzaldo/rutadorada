@@ -17,21 +17,34 @@ const latestPost = allPosts.sort(
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-20 bg-[url('https://www.transparenttextures.com/patterns/film-grain.png')]"></div>
     </div>
 
+    <!-- Film Road Animation Container -->
+    <div id="film-road-container" class="absolute inset-0 z-10 pointer-events-none overflow-hidden opacity-0 transition-opacity duration-700">
+        <div class="film-road-surface">
+            <div class="film-road-holes"></div>
+            <div class="film-road-fade"></div>
+            <!-- Light streaks -->
+            <div class="film-light-streak"></div>
+            <div class="film-light-streak"></div>
+            <div class="film-light-streak"></div>
+            <div class="film-light-streak" style="left: 50%; animation-delay: 2s; animation-duration: 3s;"></div>
+        </div>
+    </div>
+
     <!-- Theatrical Accent Lines -->
-    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d97706]/60 to-transparent z-20"></div>
-    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d97706]/60 to-transparent z-20"></div>
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent z-20"></div>
+    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent z-20"></div>
 
     <div class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <!-- Badge -->
-        <div class="inline-flex items-center px-6 py-2 rounded-full border border-[#d97706]/40 bg-[#d97706]/10 text-[#d97706] text-[11px] font-black uppercase tracking-[0.4em] mb-12 animate-fade-in shadow-[0_0_25px_rgba(217,119,6,0.15)]">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#d97706] mr-3 animate-pulse"></span>
+        <div id="film-badge" class="inline-flex cursor-pointer items-center px-6 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#D4AF37] text-[11px] font-black uppercase tracking-[0.4em] mb-12 animate-fade-in shadow-[0_0_25px_rgba(212,175,55,0.15)] transition-all duration-300 hover:scale-105 hover:bg-[#D4AF37]/20 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mr-3 animate-pulse"></span>
             Ruta Dorada Films
         </div>
 
         <!-- Main Heading -->
         <h1 class="text-[2.2rem] sm:text-6xl md:text-[8rem] font-black tracking-tighter mb-10 leading-[1.1] sm:leading-[0.9] uppercase select-none">
             Celebremos <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-[#d97706] via-amber-200 to-white drop-shadow-2xl">
+            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-[#D4AF37] via-[#f7e5a9] to-white drop-shadow-2xl">
                 el cine juntos
             </span>
         </h1>
@@ -39,13 +52,13 @@ const latestPost = allPosts.sort(
         <!-- CTA Buttons -->
         <div class="mt-20 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
             <a
-                class="block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#d97706] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] transition-all hover:scale-105 active:scale-95 text-sm sm:text-base text-center"
+                class="block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#D4AF37] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] transition-all hover:scale-105 active:scale-95 text-sm sm:text-base text-center"
                 href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/#lo-ultimo`}
             >
                 <span class="relative z-10">Lo último</span>
             </a>
             <a
-                class="px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#d97706] hover:border-[#d97706] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(217,119,6,0.6)] text-sm sm:text-base text-center"
+                class="px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] text-sm sm:text-base text-center"
                 href={`${import.meta.env.BASE_URL}/archive`}
             >
                 Archivo de publicaciones
@@ -70,4 +83,133 @@ const latestPost = allPosts.sort(
         0%, 100% { transform: translate(-50%, 0); }
         50% { transform: translate(-50%, 10px); }
     }
+
+    /* Cinematic Film Road Animation */
+    #film-road-container {
+        perspective: 1000px;
+    }
+
+    #film-road-container.active {
+        opacity: 1;
+    }
+
+    .film-road-surface {
+        position: absolute;
+        bottom: -20vh;
+        left: 50%;
+        width: 600px;
+        height: 150vh;
+        margin-left: -300px;
+        transform-origin: bottom center;
+        transform: rotateX(75deg) translateY(0);
+        background: #0c0a09;
+        border-left: 2px solid #D4AF37;
+        border-right: 2px solid #D4AF37;
+        box-shadow: 0 0 100px rgba(212, 175, 55, 0.4), inset 0 0 60px rgba(212, 175, 55, 0.3);
+        overflow: hidden;
+        transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    #film-road-container.active .film-road-surface {
+        transform: rotateX(60deg) translateY(-20px) scale(1.05);
+    }
+
+    .film-road-holes {
+        position: absolute;
+        top: -100px;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        background-image: 
+            repeating-linear-gradient(to bottom, transparent 0, transparent 24px, #0c0a09 24px, #0c0a09 48px),
+            repeating-linear-gradient(to bottom, transparent 0, transparent 24px, #0c0a09 24px, #0c0a09 48px),
+            linear-gradient(to right, #D4AF37 0px, #D4AF37 40px, transparent 40px, transparent calc(100% - 40px), #D4AF37 calc(100% - 40px), #D4AF37 100%);
+        background-size: 24px 100%, 24px 100%, 100% 100%;
+        background-position: 8px 0, calc(100% - 8px) 0, center;
+        background-repeat: no-repeat;
+        transform: translateY(0);
+    }
+
+    /* Only animate when active to save resources */
+    #film-road-container.active .film-road-holes {
+        animation: road-scroll 1.5s linear infinite;
+    }
+
+    .film-road-fade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, transparent 40%, #0c0a09 90%);
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .film-light-streak {
+        position: absolute;
+        bottom: 0;
+        width: 2px;
+        height: 15vh;
+        background: #D4AF37;
+        box-shadow: 0 0 20px #D4AF37, 0 0 40px #D4AF37;
+        transform-origin: bottom;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    #film-road-container.active .film-light-streak {
+        animation: streak-fly 2s ease-in infinite;
+    }
+
+    .film-light-streak:nth-child(3) {
+        left: 30%;
+        animation-delay: 0.5s;
+        animation-duration: 2.5s;
+    }
+
+    .film-light-streak:nth-child(4) {
+        left: 70%;
+        animation-delay: 1.2s;
+        animation-duration: 1.8s;
+    }
+
+    @keyframes road-scroll {
+        0% { transform: translateY(-48px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes streak-fly {
+        0% { transform: translateY(0) scaleY(1); opacity: 0; }
+        10% { opacity: 1; }
+        100% { transform: translateY(-150vh) scaleY(4); opacity: 0; }
+    }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const badge = document.getElementById('film-badge');
+        const road = document.getElementById('film-road-container');
+        
+        if (badge && road) {
+            // Desktop hover
+            badge.addEventListener('mouseenter', () => {
+                road.classList.add('active');
+            });
+            
+            badge.addEventListener('mouseleave', () => {
+                road.classList.remove('active');
+            });
+
+            // Mobile touch
+            badge.addEventListener('touchstart', () => {
+                road.classList.add('active');
+            }, { passive: true });
+            
+            badge.addEventListener('touchend', () => {
+                road.classList.remove('active');
+            });
+
+            badge.addEventListener('touchcancel', () => {
+                road.classList.remove('active');
+            });
+        }
+    });
+</script>
