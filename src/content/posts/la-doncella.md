@@ -3,7 +3,6 @@ title: "La Doncella: Traición, Deseo y Arte del Engaño en el Cine de Park Chan
 description: "Un análisis de 'La Doncella' (2016), la obra maestra de Park Chan-wook que reescribe el thriller erótico con capas de engaño, erotismo y una mirada feminista devastadora."
 pubDate: 2026-02-18
 author: "Moncho"
-authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/The_Handmaiden_013.jpg?bwg=1569841492"
 category: "Artículos"
 fuente:
