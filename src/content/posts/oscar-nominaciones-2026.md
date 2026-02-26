@@ -3,7 +3,6 @@ title: "Premios Oscar 2026: Sinners Rompe Récords y Domina las Nominaciones de 
 description: "La película de terror de Ryan Coogler logra 16 nominaciones, la cifra más alta en la historia de los Academy Awards, superando marcas históricas de clásicos como Titanic y La La Land. Repasamos las grandes candidaturas de una edición que promete ser memorable."
 pubDate: 2026-02-18
 author: "Moncho"
-authorImage: ""
 image: "https://hotbook.mx/wp-content/uploads/2023/03/conoce-a-los-ganadores-de-los-premios-oscar-2023.jpg"
 category: "Premios"
 readTime: "5 min read"
