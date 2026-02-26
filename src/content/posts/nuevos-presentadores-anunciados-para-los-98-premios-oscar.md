@@ -1,5 +1,5 @@
 ---
-title: "Nuevos presentadores anunciados para los 98º premios oscar"
+title: "Nuevos presentadores anunciados para los 98º Premios Oscar"
 description: "Descubre quiénes presentarán en los Oscar 2026 y todos los detalles del evento."
 pubDate: 2026-02-26
 author: "Moncho"
