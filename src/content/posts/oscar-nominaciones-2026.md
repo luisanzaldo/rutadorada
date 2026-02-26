@@ -5,6 +5,9 @@ pubDate: 2026-02-18
 author: "Moncho"
 image: "https://hotbook.mx/wp-content/uploads/2023/03/conoce-a-los-ganadores-de-los-premios-oscar-2023.jpg"
 category: "Premios"
+fuente:
+  nombre: "Redacción"
+  url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
 tags: ["Oscar"]
 ---

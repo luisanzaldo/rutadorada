@@ -21,6 +21,10 @@ const posts = defineCollection({
             cast: z.string(),
             duracion: z.string(),
         }).optional(),
+        fuente: z.object({
+            nombre: z.string(),
+            url: z.string()
+        }).optional(),
     }),
 });
 

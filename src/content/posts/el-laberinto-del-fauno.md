@@ -6,6 +6,9 @@ author: "Moncho"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2015/07/36-800.jpg"
 category: "Artículos"
+fuente:
+  nombre: "Redacción"
+  url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
 tags: ["Cine español"]
 ---

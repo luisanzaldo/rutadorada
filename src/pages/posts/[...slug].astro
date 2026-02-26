@@ -213,6 +213,22 @@ const formatDate = (date: Date) => {
                     </div>
 
                     {
+                        (post.data.category === "Artículos" || post.data.category === "Premios") && post.data.fuente && (
+                            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-[#224249] text-sm text-slate-500 dark:text-slate-400">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">Fuente:</span>
+                                <a
+                                    href={post.data.fuente.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-primary hover:underline ml-1"
+                                >
+                                    {post.data.fuente.nombre}
+                                </a>
+                            </div>
+                        )
+                    }
+
+                    {
                         post.data.category === "Críticas" && post.data.fichaTecnica && (
                             <div class="mt-12 lg:hidden rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-slate-100 dark:border-[#224249]">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4">

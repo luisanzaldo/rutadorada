@@ -6,6 +6,9 @@ author: "Moncho"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/lalal029.jpg?bwg=1551286196"
 category: "Artículos"
+fuente:
+  nombre: "Redacción"
+  url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
 tags: ["Cine estadounidense"]
 ---

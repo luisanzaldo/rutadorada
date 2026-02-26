@@ -6,6 +6,9 @@ author: "Moncho"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2015/01/14-102.jpg"
 category: "Artículos"
+fuente:
+  nombre: "Redacción"
+  url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
 tags: ["Cine británico"]
 ---

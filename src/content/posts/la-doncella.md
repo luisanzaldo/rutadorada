@@ -6,6 +6,9 @@ author: "Moncho"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/The_Handmaiden_013.jpg?bwg=1569841492"
 category: "Artículos"
+fuente:
+  nombre: "Redacción"
+  url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
 tags: ["Cine coreano"]
 ---
