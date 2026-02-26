@@ -13,7 +13,8 @@ interface Props {
 
 const { title, description, image, category, date, readTime, slug, videoUrl, tags } =
     Astro.props;
-const url = videoUrl || `${import.meta.env.BASE_URL}/posts/${slug}`;
+const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const url = videoUrl || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 

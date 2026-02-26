@@ -59,7 +59,7 @@ const latestPost = allPosts.sort(
             </a>
             <a
                 class="px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] text-sm sm:text-base text-center"
-                href={`${import.meta.env.BASE_URL}/archive`}
+                href={`${import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL}/archive`}
             >
                 Archivo de publicaciones
             </a>

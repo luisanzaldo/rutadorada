@@ -101,6 +101,7 @@ const title = "Mis likes | RutaDorada";
 
         function renderLikes(likes) {
             if (!likesGrid) return;
+            const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
             // Note: In a production Astro app, you'd likely create an API endpoint
             // to fetch post metadata for a list of slugs.
@@ -109,7 +110,7 @@ const title = "Mis likes | RutaDorada";
                     (like) => {
                         const slug = like.articulo_id.replace(/^posts\//, '');
                         return `
-                <a href="${import.meta.env.BASE_URL}/posts/${slug}" class="group bg-white dark:bg-[#162a2f] border border-slate-200 dark:border-[#224249] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-6">
+                <a href="${baseUrl}/posts/${slug}" class="group bg-white dark:bg-[#162a2f] border border-slate-200 dark:border-[#224249] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold text-primary uppercase tracking-widest">Artículo</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary/40 group-hover:text-primary transition-colors">
