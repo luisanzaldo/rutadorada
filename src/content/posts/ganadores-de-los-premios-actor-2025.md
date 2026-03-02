@@ -1,6 +1,6 @@
 ---
-title: "Ganadores de los premios actor 2025"
-description: "Descubre los ganadores de los Premios Actor 2025 en cine y televisión."
+title: "Ganadores de los Actor Awards 2025"
+description: "Descubre los ganadores de los Actor Awards 2025 en cine y televisión."
 pubDate: 2026-03-02T23:50:33.109Z
 author: "Moncho"
 image: "https://m.media-amazon.com/images/M/MV5BM2QxZWExNWUtNDdmNC00YTIxLWJiNWEtOTZkNDFmMjY1MzkzXkEyXkFqcGdeQXZ3ZXNsZXk@._V1_.jpg"
@@ -12,7 +12,7 @@ readTime: "5 min read"
 tags: ["Actor Awards"]
 ---
 
-Los Premios Actor (ACTOR), presentados por SAG-AFTRA (anteriormente conocidos como los Premios del Gremio de Actores de Cine - SAG) han anunciado sus ganadores por las mejores actuaciones en cine y televisión para 2025. Aquí están los ganadores de este año...
+Los Actor Awards (ACTOR), presentados por SAG-AFTRA (anteriormente conocidos como los Premios del Gremio de Actores de Cine - SAG) han anunciado sus ganadores por las mejores actuaciones en cine y televisión para 2025. Aquí están los ganadores de este año...
 
 **ACTUACIÓN DESTACADA DE UN ELENCO EN UNA PELÍCULA**  
 Frankenstein  
