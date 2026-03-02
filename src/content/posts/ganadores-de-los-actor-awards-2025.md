@@ -12,7 +12,7 @@ readTime: "5 min read"
 tags: ["Actor Awards"]
 ---
 
-Los Actor Awards (ACTOR), presentados por SAG-AFTRA (anteriormente conocidos como los Premios del Gremio de Actores de Pantalla – SAG) han anunciado sus ganadores para lo mejor en actuación cinematográfica y televisiva de 2025. Aquí están los ganadores de este año...
+Los Actor Awards (ACTOR), presentados por SAG-AFTRA, han anunciado sus ganadores para lo mejor en actuación cinematográfica y televisiva de 2025. Aquí están los ganadores de este año...
 
 ## Actuación destacada de un elenco en una película
 Frankenstein  
