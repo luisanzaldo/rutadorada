@@ -30,6 +30,7 @@ const {
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 const url = videoUrl || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
+const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
 ---
 
 {
@@ -38,7 +39,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 pointer-events-none" />
             <div class="aspect-w-16 aspect-h-9 h-[28rem] sm:h-96 md:h-[32rem] w-full relative">
                 <img
-                    src={image}
+                    src={finalImage}
                     alt={title}
                     class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
@@ -103,7 +104,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
                     </span>
                 </div>
                 <img
-                    src={image}
+                    src={finalImage}
                     alt={title}
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"

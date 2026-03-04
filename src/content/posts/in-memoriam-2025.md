@@ -4,7 +4,7 @@ description: "Un recorrido por las grandes figuras del cine mundial que nos deja
 pubDate: 2026-03-03T00:26:13.842Z
 author: "Moncho"
 authorImage: ""
-image: "/images/posts/in-memoriam-2025.png"
+image: "/images/posts/in-memoriam-2025.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
@@ -13,7 +13,6 @@ readTime: "5 min read"
 tags: ["In Memoriam"]
 ---
 
-# In Memoriam 2025
 ## El último adiós a los gigantes: El cine se despide de sus leyendas
 
 El séptimo arte atraviesa una de sus etapas más melancólicas. Entre 2025 y los primeros meses de 2026, el firmamento de Hollywood y del cine internacional ha visto apagarse a algunas de sus estrellas más brillantes. No es algo que no haya sucedido en años anteriores, pero particularmente este periodo ha sido muy doloroso con la partida de numerosas figuras que marcaron la historia del cine mundial. No solo hemos perdido actores y actrices que definieron épocas enteras con su carisma, sino también a directores visionarios que reescribieron las reglas de la narrativa visual, dejando atrás un legado artístico que seguirá inspirando a generaciones de cineastas, intérpretes y espectadores. La partida de estas figuras marca el fin de una era dorada, dejando a la industria con la tarea de honrar un legado que vivirá por siempre en el celuloide. He aquí solamente algunos nombres.
