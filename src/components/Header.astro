@@ -287,7 +287,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     <!-- Menu Content -->
     <div
         id="mobile-menu-content"
-        class="absolute right-0 top-0 bottom-0 w-[280px] bg-[#0b1618] border-l border-[#224249] translate-x-full transition-transform duration-300 ease-out p-6 pt-24"
+        class="absolute right-0 top-0 bottom-0 w-[280px] bg-[#0b1618] border-l border-[#224249] translate-x-full transition-transform duration-300 ease-out p-6 pt-24 overflow-y-auto custom-scrollbar"
     >
         <nav class="flex flex-col space-y-4">
             <a
@@ -701,6 +701,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 bar2?.classList.add("opacity-0", "scale-0");
                 bar3?.classList.add("-rotate-45", "-translate-y-[9px]");
             }, 10);
+            document.documentElement.style.overflow = "hidden";
             document.body.style.overflow = "hidden";
         } else {
             mobileMenuBackdrop?.classList.remove("opacity-100");
@@ -713,6 +714,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
             setTimeout(() => {
                 mobileMenu?.classList.add("hidden");
             }, 300);
+            document.documentElement.style.overflow = "";
             document.body.style.overflow = "";
         }
     }
