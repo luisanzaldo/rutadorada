@@ -7,6 +7,7 @@ import PostSidebarLeft from "../../components/PostSidebarLeft.astro";
 import PostSidebarRight from "../../components/PostSidebarRight.astro";
 import Comments from "../../components/Comments.astro";
 import ShareModal from "../../components/ShareModal.astro";
+import Speedometer from "../../components/Speedometer.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -276,6 +277,12 @@ const finalImage = post.data.image ? (post.data.image.startsWith('/') ? `${baseU
                                     </div>
                                 </div>
                             </div>
+                        )
+                    }
+
+                    {
+                        post.data.category === "Críticas" && post.data.rating !== undefined && (
+                            <Speedometer rating={post.data.rating} />
                         )
                     }
 

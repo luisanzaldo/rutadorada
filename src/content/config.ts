@@ -7,6 +7,7 @@ const posts = defineCollection({
         description: z.string(),
         pubDate: z.date(),
         author: z.string(),
+        rating: z.number().min(0).max(100).optional(),
         letterboxd: z.string().url().optional(),
         authorImage: z.string().optional(),
         image: z.string(),
