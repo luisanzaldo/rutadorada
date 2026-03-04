@@ -11,7 +11,7 @@ fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
 readTime: "5 min read"
-tags: ["Cine español"]
+tags: ["Cine mexicano"]
 ---
 
 España, 1944. La guerra civil ha terminado, pero para muchos el horror apenas comienza. Ofelia, una niña de once años devoradora de cuentos de hadas, viaja con su madre embarazada al puesto militar donde manda el capitán Vidal, su nuevo padrastro: un hombre frío, metódico y cruel que encarna con precisión quirúrgica la maquinaria del fascismo. En ese lugar inhóspito, rodeada de violencia real y de adultos que han perdido toda capacidad de asombro, Ofelia descubre un laberinto antiguo habitado por un fauno que le revela su verdadera identidad: es la princesa de un reino subterráneo, y debe superar tres pruebas para regresar a él. *El laberinto del fauno* es la historia de esa doble vida. Y de la pregunta que la atraviesa de principio a fin: ¿cuál de los dos mundos es real?

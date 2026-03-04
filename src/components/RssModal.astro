@@ -1,0 +1,151 @@
+---
+const feedUrl = "https://www.rutadoradafilms.com/rss.xml";
+const feedlyUrl = `https://feedly.com/i/subscription/feed/${encodeURIComponent(feedUrl)}`;
+const inoreaderUrl = `https://www.inoreader.com/?add_feed=${encodeURIComponent(feedUrl)}`;
+---
+
+<div id="rss-modal" class="fixed inset-0 z-[100] hidden items-center justify-center pointer-events-none">
+    <div id="rss-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity pointer-events-auto"></div>
+    
+    <div id="rss-modal-content" class="relative w-[calc(100%-2rem)] max-w-md bg-white dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl shadow-2xl p-6 sm:p-8 m-4 transform scale-95 opacity-0 transition-all pointer-events-auto">
+        
+        <button id="rss-close-btn" class="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors" aria-label="Cerrar modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="mb-5 flex justify-center">
+            <div class="w-14 h-14 bg-[#FF6600]/10 rounded-2xl flex items-center justify-center text-[#FF6600]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9"></path>
+                    <path d="M4 4a16 16 0 0 1 16 16"></path>
+                    <circle cx="5" cy="19" r="1"></circle>
+                </svg>
+            </div>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white text-center mb-2">Suscripción RSS</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm text-center mb-6 leading-relaxed">
+            Suscríbete para recibir las noticias en tu lector favorito en cuanto se publiquen.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-[#162a2f] rounded-xl p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent mb-6">
+            <input type="text" readonly value={feedUrl} class="bg-transparent text-sm text-slate-600 dark:text-slate-300 w-full outline-none pl-2 truncate" id="rss-url-input" aria-label="URL del Feed RSS" />
+            <button id="rss-copy-btn" class="shrink-0 bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1.5 rounded-lg text-sm font-bold transition-colors flex items-center gap-1.5" aria-label="Copiar URL">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="rss-copy-text">Copiar</span>
+            </button>
+        </div>
+
+        <div class="space-y-3">
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Abrir en lector de feeds</p>
+            <div class="grid grid-cols-2 gap-3">
+                <a href={feedlyUrl} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-white dark:bg-background-dark hover:border-[#2bb24c] dark:hover:border-[#2bb24c] hover:bg-slate-50 dark:hover:bg-[#162a2f] transition-all group">
+                    <span class="font-bold text-slate-700 dark:text-slate-200 group-hover:text-[#2bb24c] dark:group-hover:text-[#2bb24c] transition-colors">Feedly</span>
+                </a>
+                <a href={inoreaderUrl} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-white dark:bg-background-dark hover:border-[#0073e6] dark:hover:border-[#0073e6] hover:bg-slate-50 dark:hover:bg-[#162a2f] transition-all group">
+                    <span class="font-bold text-slate-700 dark:text-slate-200 group-hover:text-[#0073e6] dark:group-hover:text-[#0073e6] transition-colors">Inoreader</span>
+                </a>
+            </div>
+            
+            <div class="pt-4 text-center">
+                <a href="/rss.xml" target="_blank" class="text-xs font-medium text-slate-500 hover:text-primary transition-colors inline-flex items-center gap-1">
+                    <span>Ver archivo fuente (XML)</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const rssModal = document.getElementById('rss-modal');
+    const rssBackdrop = document.getElementById('rss-backdrop');
+    const rssContent = document.getElementById('rss-modal-content');
+    const rssCloseBtn = document.getElementById('rss-close-btn');
+    const rssCopyBtn = document.getElementById('rss-copy-btn');
+    const rssCopyText = document.getElementById('rss-copy-text');
+    const rssUrlInput = document.getElementById('rss-url-input');
+
+    const rssTriggerButtons = document.querySelectorAll('.rss-trigger');
+
+    function openRssModal(e) {
+        if(e) e.preventDefault();
+        
+        rssModal?.classList.remove('hidden');
+        rssModal?.classList.add('flex');
+        
+        // Disable scroll
+        document.body.style.overflow = 'hidden';
+        
+        // Animate in
+        setTimeout(() => {
+            rssBackdrop?.classList.remove('opacity-0');
+            rssContent?.classList.remove('scale-95', 'opacity-0');
+            rssContent?.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+
+    function closeRssModal() {
+        // Animate out
+        rssBackdrop?.classList.add('opacity-0');
+        rssContent?.classList.remove('scale-100', 'opacity-100');
+        rssContent?.classList.add('scale-95', 'opacity-0');
+        
+        // Hide after animation
+        setTimeout(() => {
+            rssModal?.classList.add('hidden');
+            rssModal?.classList.remove('flex');
+            
+            // Re-enable scroll
+            document.body.style.overflow = '';
+            
+            // Reset copy button
+            if (rssCopyText) rssCopyText.textContent = 'Copiar';
+        }, 300);
+    }
+
+    // Event listeners
+    if (rssTriggerButtons.length > 0) {
+        rssTriggerButtons.forEach(btn => btn.addEventListener('click', openRssModal));
+    }
+
+    if (rssCloseBtn) {
+        rssCloseBtn.addEventListener('click', closeRssModal);
+    }
+
+    if (rssBackdrop) {
+        rssBackdrop.addEventListener('click', closeRssModal);
+    }
+
+    // Close on escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && rssModal && !rssModal.classList.contains('hidden')) {
+            closeRssModal();
+        }
+    });
+
+    // Copy to clipboard
+    if (rssCopyBtn && rssUrlInput) {
+        rssCopyBtn.addEventListener('click', async () => {
+            try {
+                // @ts-ignore
+                await navigator.clipboard.writeText(rssUrlInput.value);
+                if (rssCopyText) rssCopyText.textContent = '¡Copiado!';
+                
+                setTimeout(() => {
+                    if (rssCopyText) rssCopyText.textContent = 'Copiar';
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar: ', err);
+            }
+        });
+    }
+</script>

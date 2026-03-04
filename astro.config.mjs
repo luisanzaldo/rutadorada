@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://rutadoradafilms.com',
+  site: 'https://www.rutadoradafilms.com',
   vite: {
     // @ts-ignore
     plugins: [tailwindcss()]
