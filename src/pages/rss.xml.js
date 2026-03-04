@@ -23,7 +23,7 @@ export async function GET(context) {
                     description: post.data.description,
                     pubDate: post.data.pubDate,
                     link: `/posts/${post.slug}/`,
-                    customData: imageUrl ? `<enclosure url="${imageUrl}" type="image/jpeg" />` : '',
+                    customData: imageUrl ? `<enclosure url="${imageUrl}" length="0" type="image/jpeg" />` : '',
                 };
             }),
         customData: `<language>es</language>`,
