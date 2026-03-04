@@ -1,7 +1,7 @@
 ---
 const feedUrl = "https://www.rutadoradafilms.com/rss.xml";
-const feedlyUrl = `https://feedly.com/i/subscription/feed/${encodeURIComponent(feedUrl)}`;
-const inoreaderUrl = `https://www.inoreader.com/?add_feed=${encodeURIComponent(feedUrl)}`;
+const feedlyUrl = `https://feedly.com/i/subscription/feed/${feedUrl}`;
+const inoreaderUrl = `https://www.inoreader.com/?add_feed=${feedUrl}`;
 ---
 
 <div id="rss-modal" class="fixed inset-0 z-[100] hidden items-center justify-center pointer-events-none">
