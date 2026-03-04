@@ -3,6 +3,7 @@ title: "El Show de Truman: Vivir en Directo Dentro de la Mentira Perfecta"
 description: "Una crítica de 'El show de Truman' (1998), la película de Peter Weir que anticipó con asombrosa lucidez la era de la telerrealidad, las redes sociales y la vigilancia permanente, envuelta en una comedia que esconde en su interior una de las reflexiones más perturbadoras sobre la libertad y la identidad del cine moderno."
 pubDate: 2026-02-18
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2013/10/02.jpg"
 category: "Críticas"

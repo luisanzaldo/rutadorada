@@ -3,6 +3,7 @@ title: "El Laberinto del Fauno: La Fantasía como Último Refugio ante el Horror
 description: "Un análisis de 'El laberinto del fauno' (2006), la obra maestra de Guillermo del Toro que entrelaza la brutalidad de la España franquista con un mundo fantástico de una belleza oscura e inquietante, preguntando hasta qué punto la imaginación puede salvarnos de la realidad."
 pubDate: 2026-02-10
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2015/07/36-800.jpg"
 category: "Artículos"

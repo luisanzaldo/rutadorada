@@ -3,6 +3,7 @@ title: "Orgullo y Prejuicio: La Mirada Más Honesta que el Cine le Ha Dado a Jan
 description: "Un análisis de 'Orgullo y Prejuicio' (2005), la adaptación de Joe Wright que devuelve a Elizabeth Bennet y Darcy al barro, al frío y a la urgencia emocional de la novela de Austen, despojando la historia de toda pátina decorativa para revelar lo que siempre fue: un retrato implacable del amor, el orgullo y las jaulas invisibles que la sociedad construye alrededor de las mujeres."
 pubDate: 2026-02-01
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/Pride__Prejudice_002.jpg?bwg=1569601081"
 category: "Artículos"

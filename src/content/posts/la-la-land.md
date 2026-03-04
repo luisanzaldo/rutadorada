@@ -3,6 +3,7 @@ title: "La La Land: El Sueño, el Amor y el Precio de Elegir"
 description: "Un análisis de 'La La Land' (2016), el musical de Damien Chazelle que reimagina Hollywood desde adentro: una carta de amor al arte, a los sueños imposibles y a las relaciones que nos transforman aunque no duren para siempre."
 pubDate: 2026-02-11
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/photo-gallery/lalal029.jpg?bwg=1551286196"
 category: "Artículos"

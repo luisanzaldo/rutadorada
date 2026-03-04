@@ -3,6 +3,7 @@ title: "Nuevos presentadores anunciados para los Premios Oscar 2026"
 description: "Descubre quiénes serán los presentadores de la 98ª edición de los Premios de la Academia."
 pubDate: 2026-02-26T23:32:52.853Z
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 image: "https://pymstatic.com/83126/conversions/frases-javier-bardem-small-16_9_webp.webp"
 category: "Premios"
 fuente:

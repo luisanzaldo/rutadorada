@@ -3,6 +3,7 @@ title: "Hamnet: Una mirada al dolor familiar de Shakespeare"
 description: "Descubre cómo 'Hamnet' retrata la vida de Shakespeare y el impacto de la pérdida en su familia."
 pubDate: 2026-02-26
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 image: "https://media.revistagq.com/photos/697347573dfd94e88a02a95c/master/w_1600%2Cc_limit/hamnet2.jpg"
 category: "Artículos"
 fuente:

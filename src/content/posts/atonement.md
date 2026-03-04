@@ -3,6 +3,7 @@ title: "Atonement: La Culpa, la Memoria y el Poder Devastador de una Mentira"
 description: "Un análisis de 'Expiación' (2007), la obra de Joe Wright que convierte la literatura en imagen con una elegancia sin igual, explorando cómo una mentira de infancia puede destruir vidas enteras y cómo la escritura intenta —en vano— reparar lo irreparable."
 pubDate: 2026-02-13
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2015/01/14-102.jpg"
 category: "Artículos"

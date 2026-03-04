@@ -3,6 +3,7 @@ title: "Ganadores de los Actor Awards 2025"
 description: "Descubre quiénes fueron los ganadores de los Actor Awards 2025 en cine y televisión."
 pubDate: 2026-03-03T00:26:12.842Z
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 image: "https://i0.wp.com/awardswatch.com/wp-content/uploads/2026/03/shutterstock_editorial_ActorMainShow_16706944md-scaled.jpg?resize=720%2C380&ssl=1"
 category: "Screen Actors Guild Awards"
 fuente:

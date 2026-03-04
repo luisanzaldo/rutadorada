@@ -3,6 +3,7 @@ title: "El último adiós a los gigantes: El cine se despide de sus leyendas"
 description: "Un recorrido por las grandes figuras del cine mundial que nos dejaron entre 2025 y 2026: actores, actrices y directores visionarios cuyo legado ha marcado para siempre la historia del séptimo arte."
 pubDate: 2026-03-03T00:26:13.842Z
 author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "/images/posts/in-memoriam-2025.jpg"
 category: "Artículos"
