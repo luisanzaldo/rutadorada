@@ -282,24 +282,17 @@ import Footer from "../components/Footer.astro";
                 const { data: { user } } = await supabase.auth.getUser();
                 if (!user) throw new Error("No hay una sesión activa");
 
-                console.log("DELETE_PROCESS: anonymizing user data via RPC");
+                console.log("DELETE_PROCESS: executing handle_user_deletion via RPC");
                 const { error: rpcError } = await supabase.rpc("handle_user_deletion", { 
                     p_user_id: user.id 
                 });
 
                 if (rpcError) throw rpcError;
 
-                console.log("DELETE_PROCESS: deleting user from auth");
-                const { error: authError } = await supabase.auth.deleteUser();
-                
-                if (authError) {
-                    console.warn("Auth delete failed or not permitted, trying sign out only:", authError);
-                }
-
                 localStorage.clear();
                 sessionStorage.clear();
                 await supabase.auth.signOut();
-                window.location.href = "/";
+                window.location.href = "https://www.rutadoradafilms.com";
             } catch (err: any) {
                 console.error("DELETE_ERROR:", err);
                 alert("Hubo un problema al eliminar la cuenta. Por favor intenta de nuevo.");
