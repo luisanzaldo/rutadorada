@@ -25,21 +25,16 @@ const title = "Confirmar Cuenta | RutaDorada";
                 </div>
 
                 <!-- Success State -->
-                <div id="success-state" class="hidden py-4">
-                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 dark:bg-green-900/30 mb-6">
+                <div id="success-state" class="hidden py-10">
+                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 dark:bg-green-900/30 mb-6 transition-transform duration-500 scale-110">
                         <svg class="h-10 w-10 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h1 class="font-display font-bold text-3xl text-slate-900 dark:text-white mb-4">
-                        ¡Cuenta Confirmada!
+                    <h1 class="font-display font-bold text-3xl text-slate-900 dark:text-white">
+                        ¡Cuenta confirmada!
                     </h1>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-8 leading-relaxed">
-                        Tu dirección de correo electrónico ha sido verificada con éxito. Ya puedes acceder a todas las funciones de tu cuenta en Ruta Dorada.
-                    </p>
-                    <a href="/login" class="inline-flex justify-center items-center w-full bg-primary hover:bg-primary/90 text-[#102023] font-bold py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200">
-                        Iniciar Sesión
-                    </a>
+                    <p class="text-slate-500 text-sm mt-4 animate-pulse">Redirigiendo al inicio...</p>
                 </div>
 
                 <!-- Neutral/Direct Access State -->
@@ -95,10 +90,10 @@ const title = "Confirmar Cuenta | RutaDorada";
                     window.history.replaceState(null, "", window.location.pathname + window.location.search);
                 }
                 
-                // Redirigir al home después de 2 segundos para que vean el mensaje de éxito
+                // Redirigir al home después de un momento para que vean el mensaje de éxito
                 setTimeout(() => {
                     window.location.href = '/';
-                }, 2000);
+                }, 1200);
             } else {
                 if (neutralState) neutralState.classList.remove("hidden");
             }
