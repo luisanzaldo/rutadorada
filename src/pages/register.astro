@@ -275,13 +275,12 @@ const title = "Sign Up | RutaDorada";
                 throw error;
             }
 
-            // Success - redirect directly to previous page if redirect query provided
-            const redirectUrl = new URLSearchParams(window.location.search).get("redirect");
-            if (redirectUrl) {
-                window.location.href = redirectUrl;
-            } else {
-                window.location.href = import.meta.env.BASE_URL || "/";
+            // Mostrar mensaje de éxito con el correo proporcionado por el usuario
+            if (successMessage) {
+                successMessage.textContent = `¡Casi listo! Te enviamos un enlace de confirmación al correo ${email}. Haz clic en él para activar tu cuenta. Si no lo ves, revisa tu carpeta de spam.`;
+                successMessage.classList.remove("hidden");
             }
+            form?.reset();
         } catch (error: any) {
             if (errorMessage) {
                 errorMessage.textContent = error.message || "Error registering";
