@@ -8,7 +8,7 @@ authorImage: ""
 image: "https://film-grab.com/wp-content/uploads/2013/10/02.jpg"
 category: "Críticas"
 readTime: "6 min read"
-rating: 90
+rating: 100
 tags: ["Estrenos"]
 fichaTecnica:
   sinopsis: "Truman Burbank lleva una vida perfecta en un pueblo perfecto que, sin él saberlo, es un inmenso estudio de televisión. Ha sido el protagonista de un reality show las 24 horas del día, todos los días de su vida."
