@@ -53,7 +53,7 @@ const title = "Confirmar Cuenta | RutaDorada";
                         Confirmación de Cuenta
                     </h1>
                     <p class="text-slate-600 dark:text-slate-300 text-sm mb-8 leading-relaxed">
-                        Para activar tu cuenta, por favor haz clic en el enlace seguro que te enviamos a tu correo electrónico al momento de registrarte.
+                        No detectamos una cuenta recién confirmada. Es posible que tu enlace de confirmación haya expirado o ya hayas activado tu cuenta anteriormente.
                     </p>
                     <div class="flex flex-col gap-3">
                         <a href="/login" class="inline-flex justify-center items-center w-full bg-primary hover:bg-primary/90 text-[#102023] font-bold py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-200">
@@ -79,22 +79,18 @@ const title = "Confirmar Cuenta | RutaDorada";
         const neutralState = document.getElementById("neutral-state");
 
         try {
-            // Guardamos el hash de la URL antes de que pueda ser procesado o borrado
-            const hashStr = window.location.hash || "";
-            
-            // Supabase client automáticamente intenta establecer la sesión si viene en el hash
-            const { data: { session } } = await supabase.auth.getSession();
+            // Supabase client automáticamente intenta establecer la sesión 
+            // tras redirigir del correo
+            const { data: { session }, error } = await supabase.auth.getSession();
 
             if (loadingState) {
                 loadingState.classList.add("hidden");
             }
 
-            // Consideramos éxito si hay un token explícito en el hash o si ya existe una sesión activa
-            const isConfirmationSuccess = hashStr.includes("access_token") || hashStr.includes("type=signup") || session;
-
-            if (isConfirmationSuccess) {
+            // Consideramos éxito si existe una sesión activa
+            if (session) {
                 if (successState) successState.classList.remove("hidden");
-                // Opcional: limpiar el fragmento de la URL por seguridad y estética después de procesar
+                // Limpiamos los tokens mágicos de la URL
                 if (window.location.hash) {
                     window.history.replaceState(null, "", window.location.pathname + window.location.search);
                 }

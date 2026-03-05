@@ -26,7 +26,7 @@ const title = "Sign Up | RutaDorada";
             <div
                 class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 shadow-2xl backdrop-blur-sm"
             >
-                <div class="text-center mb-8">
+                <div class="text-center mb-8" id="register-header">
                     <h1
                         class="font-display font-bold text-3xl text-slate-900 dark:text-white mb-2"
                     >
@@ -123,11 +123,6 @@ const title = "Sign Up | RutaDorada";
                         class="hidden text-red-500 text-sm text-center bg-red-500/10 p-2 rounded-lg border border-red-500/20"
                     >
                     </div>
-                    <div
-                        id="success-message"
-                        class="hidden text-green-500 text-sm text-center bg-green-500/10 p-2 rounded-lg border border-green-500/20"
-                    >
-                    </div>
 
                     <button
                         type="submit"
@@ -174,7 +169,13 @@ const title = "Sign Up | RutaDorada";
                     </div>
                 </form>
 
-                <div class="mt-8 text-center">
+                <div
+                    id="success-message"
+                    class="hidden text-green-500 text-md text-center bg-green-500/10 p-6 rounded-xl border border-green-500/20 leading-relaxed font-medium"
+                >
+                </div>
+
+                <div class="mt-8 text-center" id="register-footer">
                     <p class="text-sm text-slate-500">
                         ¿Ya tienes una cuenta?
                         <a
@@ -282,6 +283,12 @@ const title = "Sign Up | RutaDorada";
                 successMessage.classList.remove("hidden");
             }
             form?.classList.add("hidden");
+            
+            const registerHeader = document.getElementById("register-header");
+            const registerFooter = document.getElementById("register-footer");
+            if (registerHeader) registerHeader.classList.add("hidden");
+            if (registerFooter) registerFooter.classList.add("hidden");
+
         } catch (error: any) {
             if (errorMessage) {
                 errorMessage.textContent = "Hubo un problema al registrarte. Intenta de nuevo.";
