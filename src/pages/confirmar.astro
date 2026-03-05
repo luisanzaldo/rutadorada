@@ -18,7 +18,7 @@ const title = "Confirmar Cuenta | RutaDorada";
             <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 shadow-2xl backdrop-blur-sm text-center">
                 
                 <!-- Loading State -->
-                <div id="loading-state" class="py-8">
+                <div id="loading-state" class="hidden py-8">
                     <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-primary border-t-transparent mb-4"></div>
                     <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white">Verificando...</h2>
                     <p class="text-slate-500 text-sm mt-2">Por favor espera un momento.</p>
@@ -73,18 +73,26 @@ const title = "Confirmar Cuenta | RutaDorada";
         const successState = document.getElementById("success-state");
         const neutralState = document.getElementById("neutral-state");
 
+        // Decidir qué mostrar inicialmente antes de llamar a la API
+        // Si hay un hash, es probable que estemos confirmando (verificando)
+        // Si no hay hash, es una redirección directa tras registro (neutral)
+        if (window.location.hash) {
+            loadingState?.classList.remove("hidden");
+        } else {
+            neutralState?.classList.remove("hidden");
+        }
+
         try {
             // Supabase client automáticamente intenta establecer la sesión 
             // tras redirigir del correo
             const { data: { session }, error } = await supabase.auth.getSession();
 
-            if (loadingState) {
-                loadingState.classList.add("hidden");
-            }
-
             // Consideramos éxito si existe una sesión activa
             if (session) {
-                if (successState) successState.classList.remove("hidden");
+                loadingState?.classList.add("hidden");
+                neutralState?.classList.add("hidden");
+                successState?.classList.remove("hidden");
+                
                 // Limpiamos los tokens mágicos de la URL
                 if (window.location.hash) {
                     window.history.replaceState(null, "", window.location.pathname + window.location.search);
@@ -94,8 +102,10 @@ const title = "Confirmar Cuenta | RutaDorada";
                 setTimeout(() => {
                     window.location.href = '/';
                 }, 1200);
-            } else {
-                if (neutralState) neutralState.classList.remove("hidden");
+            } else if (window.location.hash) {
+                // Si había hash pero no se logró la sesión (error o expirado)
+                loadingState?.classList.add("hidden");
+                neutralState?.classList.remove("hidden");
             }
         } catch (error) {
             console.error("Error validando la sesión:", error);
