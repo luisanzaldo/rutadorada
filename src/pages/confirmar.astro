@@ -94,6 +94,11 @@ const title = "Confirmar Cuenta | RutaDorada";
                 if (window.location.hash) {
                     window.history.replaceState(null, "", window.location.pathname + window.location.search);
                 }
+                
+                // Redirigir al home después de 2 segundos para que vean el mensaje de éxito
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
             } else {
                 if (neutralState) neutralState.classList.remove("hidden");
             }
@@ -102,5 +107,12 @@ const title = "Confirmar Cuenta | RutaDorada";
             if (loadingState) loadingState.classList.add("hidden");
             if (neutralState) neutralState.classList.remove("hidden");
         }
+
+        // Escuchar cambios en la sesión (por ejemplo, cuando confirman en otra pestaña)
+        supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_IN' && session) {
+                window.location.href = '/';
+            }
+        });
     });
 </script>
