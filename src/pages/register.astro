@@ -265,6 +265,7 @@ const title = "Sign Up | RutaDorada";
                 email,
                 password,
                 options: {
+                    emailRedirectTo: 'https://www.rutadoradafilms.com/confirmar',
                     data: {
                         full_name: name,
                     },
@@ -277,13 +278,13 @@ const title = "Sign Up | RutaDorada";
 
             // Mostrar mensaje de éxito con el correo proporcionado por el usuario
             if (successMessage) {
-                successMessage.textContent = `¡Casi listo! Te enviamos un enlace de confirmación al correo ${email}. Haz clic en él para activar tu cuenta. Si no lo ves, revisa tu carpeta de spam.`;
+                successMessage.textContent = `¡Casi listo! Te enviamos un enlace de confirmación a ${email}. Haz clic en él para activar tu cuenta. Si no lo ves, revisa tu carpeta de spam.`;
                 successMessage.classList.remove("hidden");
             }
-            form?.reset();
+            form?.classList.add("hidden");
         } catch (error: any) {
             if (errorMessage) {
-                errorMessage.textContent = error.message || "Error registering";
+                errorMessage.textContent = "Hubo un problema al registrarte. Intenta de nuevo.";
                 errorMessage.classList.remove("hidden");
             }
         } finally {
