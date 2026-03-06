@@ -170,7 +170,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                                 ></path>
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                            Account Settings
+                            Configuración
                         </a>
                         <div
                             class="h-[1px] bg-slate-100 dark:bg-[#224249] my-1"
@@ -244,7 +244,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                                 <polyline points="16 17 21 12 16 7"></polyline>
                                 <line x1="21" x2="9" y1="12" y2="12"></line>
                             </svg>
-                            Logout
+                            Cerrar sesión
                         </button>
                     </div>
                 </div>
@@ -331,8 +331,25 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 
             <div
                 id="mobile-user-section"
-                class="hidden pt-4 flex flex-col space-y-3"
+                class="hidden pt-4 flex flex-col space-y-4"
             >
+                <!-- User Profile Summary in Mobile -->
+                <div class="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-[#102023] font-bold text-lg overflow-hidden border-2 border-white/10 shadow-lg">
+                        <span id="mobile-user-initials">U</span>
+                        <img
+                            id="mobile-user-avatar"
+                            src=""
+                            alt="Profile"
+                            class="hidden w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="flex-1 overflow-hidden">
+                        <p class="text-xs text-slate-500 uppercase font-black tracking-widest">Cuenta</p>
+                        <p id="mobile-user-email" class="text-sm font-medium text-white truncate">usuario@ejemplo.com</p>
+                    </div>
+                </div>
+
                 <a
                     href={`${baseUrl}/settings`}
                     class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
@@ -353,7 +370,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         ></path>
                         <circle cx="12" cy="12" r="3"></circle>
                     </svg>
-                    Account Settings
+                    Configuración
                 </a>
                 <a
                     href={`${baseUrl}/my-likes`}
@@ -418,7 +435,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         <polyline points="16 17 21 12 16 7"></polyline>
                         <line x1="21" x2="9" y1="12" y2="12"></line>
                     </svg>
-                    Logout
+                    Cerrar sesión
                 </button>
             </div>
         </nav>
@@ -743,6 +760,9 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     const mobileAuthSection = document.getElementById("mobile-auth-section");
     const mobileUserSection = document.getElementById("mobile-user-section");
     const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
+    const mobileUserEmail = document.getElementById("mobile-user-email");
+    const mobileUserInitials = document.getElementById("mobile-user-initials");
+    const mobileUserAvatar = document.getElementById("mobile-user-avatar");
 
     function updateAuthUI(session: any) {
         if (!authButtons || !userMenu) return;
@@ -778,19 +798,31 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                     initials = user.email.slice(0, 2).toUpperCase();
                 }
                 if (userInitials) userInitials.textContent = initials;
+                if (mobileUserInitials) mobileUserInitials.textContent = initials;
             } catch (err) {
                 // Ignore errors
             }
 
             // Update Avatar
             if (user.user_metadata?.avatar_url) {
-                userAvatar?.setAttribute("src", user.user_metadata.avatar_url);
+                const avatarUrl = user.user_metadata.avatar_url;
+                userAvatar?.setAttribute("src", avatarUrl);
                 userAvatar?.classList.remove("hidden");
                 userInitials?.classList.add("hidden");
+                
+                mobileUserAvatar?.setAttribute("src", avatarUrl);
+                mobileUserAvatar?.classList.remove("hidden");
+                mobileUserInitials?.classList.add("hidden");
             } else {
                 userAvatar?.classList.add("hidden");
                 userInitials?.classList.remove("hidden");
+                
+                mobileUserAvatar?.classList.add("hidden");
+                mobileUserInitials?.classList.remove("hidden");
             }
+
+            // Update mobile email
+            if (mobileUserEmail) mobileUserEmail.textContent = user.email || "";
 
             // Mobile sections
             mobileAuthSection?.classList.add("hidden");
