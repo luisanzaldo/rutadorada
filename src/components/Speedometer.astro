@@ -9,19 +9,19 @@ const { rating } = Astro.props;
 const arcRotation = (rating / 100) * 240 - 120;
 ---
 
-<div class="flex flex-col items-center justify-center mt-16 mb-8 py-10 px-4 bg-[#D4AF37]/5 rounded-3xl border border-[#D4AF37]/20 relative overflow-hidden">
-    <div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="flex flex-col items-center justify-center mt-16 mb-10 py-12 px-6 bg-[#D4AF37]/5 rounded-[2.5rem] border border-[#D4AF37]/20 relative overflow-hidden">
+    <div class="absolute top-0 left-0 h-full w-2 bg-[#D4AF37]"></div>
     
     <div class="text-center mb-6 relative z-10">
-        <h3 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white uppercase tracking-widest">
+        <h3 class="text-2xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white uppercase tracking-[0.2em]">
             Calificación
         </h3>
-        <p class="text-xs sm:text-sm text-[#D4AF37] uppercase tracking-widest font-bold mt-2">
-            Ruta Dorada Score
+        <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] font-black mt-3">
+            Ruta<span class="text-[#D4AF37]">Dorada</span> Score
         </p>
     </div>
     
-    <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+    <div class="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] flex items-center justify-center">
         <!-- SVG Speedometer Graphic -->
         <svg class="w-full h-full drop-shadow-2xl" viewBox="0 0 200 200">
             <defs>
@@ -80,9 +80,9 @@ const arcRotation = (rating / 100) * 240 - 120;
 
             <!-- Digital readout -->
             <!-- Digital readout -->
-            <rect x="75" y="135" width="50" height="24" rx="4" fill="#000000" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1" />
-            <text x="100" y="152" fill="url(#goldGradient)" font-size="16" font-family="monospace" font-weight="900" text-anchor="middle" filter="url(#glow)">{rating}</text>
-            <text x="100" y="172" fill="#D4AF37" stroke-opacity="0.8" font-size="7" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="2">RATING</text>
+            <rect x="68" y="132" width="64" height="30" rx="5" fill="#000000" stroke="#D4AF37" stroke-opacity="0.6" stroke-width="1.5" />
+            <text x="100" y="154" fill="url(#goldGradient)" font-size="22" font-family="monospace" font-weight="900" text-anchor="middle" filter="url(#glow)">{rating}</text>
+            <text x="100" y="178" fill="#D4AF37" stroke-opacity="0.9" font-size="9" font-family="sans-serif" font-weight="black" text-anchor="middle" letter-spacing="3">RATING</text>
 
             <!-- The needle group (this rotates dynamically based on rating) -->
             <g transform={`rotate(${arcRotation}, 100, 100)`}>
