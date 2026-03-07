@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import remarkOembed from 'remark-oembed';
+
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
-  markdown: {
-    remarkPlugins: [remarkOembed],
-  },
+
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
+  integrations: [mdx()]
 });
