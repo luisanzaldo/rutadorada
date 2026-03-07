@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import remarkEmbedder from '@remark-embedder/core';
-import oembedTransformer from '@remark-embedder/transformer-oembed';
 
 export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
   markdown: {
     remarkPlugins: [
-      [remarkEmbedder, { transformers: [oembedTransformer] }]
+      async () => {
+        const { default: remarkEmbedder } = await import('@remark-embedder/core');
+        const { default: oembedTransformer } = await import('@remark-embedder/transformer-oembed');
+        return remarkEmbedder.default({ transformers: [oembedTransformer] });
+      }
     ],
   },
   vite: {
