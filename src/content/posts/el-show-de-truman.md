@@ -19,6 +19,8 @@ fichaTecnica:
 
 Seahaven es el lugar más feliz del mundo. Una ciudad perfecta, de calles limpias, vecinos amables y cielos siempre despejados. Truman Burbank lleva treinta años viviendo ahí sin saber que cada esquina de su vida —su trabajo, su matrimonio, sus amigos, incluso el sol que lo alumbra— es un decorado. Que las 5.000 cámaras ocultas que lo rodean transmiten su existencia en directo las veinticuatro horas del día a una audiencia de mil millones de espectadores. Que él es el único habitante de Seahaven que no está actuando. *El show de Truman* es la historia del día en que algo en ese mundo perfecto empieza a fallar. Y de lo que ocurre cuando un hombre comienza, por primera vez en su vida, a hacerse preguntas.
 
+https://www.youtube.com/watch?si=HUuEcS_uwjR2RW74&v=2AYHrIZnsVM&feature=youtu.be
+
 ## Una sátira que el tiempo convirtió en profecía
 
 Cuando Peter Weir estrenó *The Truman Show* en 1998, el concepto de telerrealidad era todavía una curiosidad marginal. *Gran Hermano* no existía. Las redes sociales tampoco. La idea de que millones de personas pudieran seguir la vida cotidiana de un desconocido en tiempo real parecía una distopía de ciencia ficción lo suficientemente exagerada como para resultar cómica. Veintiséis años después, la película no solo no ha envejecido: se ha vuelto más real que cuando fue rodada. Vivimos en una cultura donde la exhibición voluntaria de la vida propia es moneda corriente, donde los algoritmos deciden qué vemos y qué nos emociona, y donde la frontera entre experiencia auténtica y performance para una audiencia imaginaria se ha vuelto genuinamente difusa. Weir y el guionista Andrew Niccol no hicieron una sátira; hicieron un diagnóstico.
