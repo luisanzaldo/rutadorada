@@ -865,13 +865,19 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     logoutBtn?.addEventListener("click", handleLogout);
     mobileLogoutBtn?.addEventListener("click", handleLogout);
 
+    // On the reset-password page, don't update auth UI — the recovery session is temporary
+    const isResetPasswordPage = window.location.pathname.replace(/\/$/, '') === '/reset-password';
+
     // Listen for Auth Changes
     supabase.auth.onAuthStateChange((event, session) => {
+        if (isResetPasswordPage) return;
         updateAuthUI(session);
     });
 
     // Initial check
-    supabase.auth.getSession().then(({ data: { session } }) => {
-        updateAuthUI(session);
-    });
+    if (!isResetPasswordPage) {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            updateAuthUI(session);
+        });
+    }
 </script>
