@@ -16,6 +16,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
       signInWithPassword: async () => ({ data: null, error: new Error('Not configured') }),
       signUp: async () => ({ data: null, error: new Error('Not configured') }),
       signInWithOAuth: async () => ({ data: null, error: new Error('Not configured') }),
+      resetPasswordForEmail: async () => ({ data: null, error: new Error('Not configured') }),
+      updateUser: async () => ({ data: null, error: new Error('Not configured') }),
     }
   } as any;
 } else {
