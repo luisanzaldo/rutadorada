@@ -12,6 +12,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
     auth: {
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => { } } } }),
       getUser: async () => ({ data: { user: null }, error: null }),
+      getSession: async () => ({ data: { session: null }, error: null }),
+      setSession: async () => ({ data: { session: null }, error: null }),
       signOut: async () => ({ error: null }),
       signInWithPassword: async () => ({ data: null, error: new Error('Not configured') }),
       signUp: async () => ({ data: null, error: new Error('Not configured') }),
