@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: El Día de la Revelación"
-description: "Descubre la emoción y el drama en el nuevo tráiler de 'Nombre de la película'. ¡No te pierdas el adelanto más esperado del año!"
+description: "Descubre la emoción en el nuevo tráiler de 'El Día de la Revelación'."
 pubDate: 2026-03-12T20:25:35.845Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
