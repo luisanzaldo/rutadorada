@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const title = "Términos y Condiciones de Uso | RutaDorada";
+---
+
+<Layout title={title}>
+    <Header />
+    <main class="flex-grow relative overflow-hidden py-20 px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div
+                class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm"
+            >
+                <div class="mb-10 text-center">
+                    <h1 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white mb-4">
+                        Términos y Condiciones de Uso
+                    </h1>
+                    <p class="text-primary font-bold tracking-widest uppercase text-sm">
+                        Ruta Dorada Films
+                    </p>
+                </div>
+
+                <div class="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-8">
+                    
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">1. Introducción y Aceptación de los Términos</h2>
+                        <p>
+                            Bienvenido/a a Ruta Dorada Films. Al acceder y navegar por nuestro sitio web, aceptas cumplir con los presentes Términos y Condiciones de Uso. Si no estás de acuerdo con alguna de las políticas aquí descritas, te invitamos a no utilizar nuestros servicios ni interactuar en nuestra plataforma.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">2. Registro y Cuentas de Usuario</h2>
+                        <p>
+                            Para interactuar con la comunidad, dejar comentarios o acceder a funciones exclusivas de Ruta Dorada Films, es necesario tener una cuenta. Nuestro sitio utiliza un sistema de autenticación seguro gestionado a través de Supabase, lo que te permite iniciar sesión de forma rápida y directa. Eres responsable de mantener la confidencialidad de tu sesión y de todas las actividades que ocurran bajo tu perfil.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3. Normas de Conducta y Prohibición de Discurso de Odio</h2>
+                        <p>
+                            En Ruta Dorada Films fomentamos una comunidad cinematográfica basada en el respeto mutuo, el debate sano y la inclusión. Queda estrictamente prohibido el uso de la sección de comentarios, foros o cualquier espacio interactivo del sitio para emitir discurso de odio.
+                        </p>
+                        <p class="mt-4">
+                            No se tolerará bajo ninguna circunstancia ninguna expresión, lenguaje o contenido que promueva la violencia, discrimine, incite al odio, acose o denigre a individuos o grupos por motivos de:
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li><strong>Raza, etnia o nacionalidad.</strong></li>
+                            <li><strong>Género o identidad de género.</strong></li>
+                            <li><strong>Orientación sexual.</strong></li>
+                            <li><strong>Discapacidad o condición médica.</strong></li>
+                            <li><strong>Religión o creencias.</strong></li>
+                            <li><strong>Cualquier otra característica sistémica o personal.</strong></li>
+                        </ul>
+                        <p class="mt-4 font-medium text-red-500 dark:text-red-400">
+                            <strong>Cualquier infracción a esta norma resultará en la eliminación inmediata del comentario y conllevará la suspensión o cancelación permanente de la cuenta del usuario infractor, a total discreción de los administradores, sin necesidad de previo aviso.</strong>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">4. Propiedad Intelectual</h2>
+                        <p>
+                            Todo el contenido original publicado en Ruta Dorada Films, incluyendo textos, artículos, críticas, diseño gráfico, logotipos e imágenes, está protegido por las leyes de propiedad intelectual. No está permitida su reproducción, distribución o uso con fines comerciales sin la autorización previa y por escrito de los propietarios del sitio.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">5. Enlaces a Terceros</h2>
+                        <p>
+                            Nuestro sitio puede contener enlaces a páginas web o servicios de terceros. Ruta Dorada Films no tiene control sobre el contenido, las políticas de privacidad o las prácticas de estos sitios externos, por lo que no asumimos ninguna responsabilidad derivada de su uso o acceso.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">6. Limitación de Responsabilidad</h2>
+                        <p>
+                            La información, reseñas y opiniones cinematográficas compartidas en esta página se proporcionan únicamente con fines informativos y de entretenimiento. Ruta Dorada Films no garantiza que el sitio esté permanentemente libre de errores o interrupciones, y no se hace responsable por cualquier daño directo o indirecto derivado del uso o la incapacidad de uso de la plataforma.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">7. Modificaciones de los Términos</h2>
+                        <p>
+                            Nos reservamos el derecho de actualizar, modificar o reemplazar estos Términos y Condiciones en cualquier momento. Te recomendamos revisar esta página periódicamente para estar al tanto de cualquier cambio. El uso continuo del sitio tras la publicación de modificaciones constituye tu aceptación de las mismas.
+                        </p>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</Layout>
