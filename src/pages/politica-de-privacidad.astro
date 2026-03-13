@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const title = "Política de Privacidad | RutaDorada";
+---
+
+<Layout title={title}>
+    <Header />
+    <main class="flex-grow relative overflow-hidden py-20 px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div
+                class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm"
+            >
+                <div class="mb-10 text-center">
+                    <h1 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white mb-4">
+                        AVISO DE PRIVACIDAD
+                    </h1>
+                    <p class="text-primary font-bold tracking-widest uppercase text-sm">
+                        Ruta Dorada Films — Sitio Web de Cine
+                    </p>
+                </div>
+
+                <div class="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-8">
+                    
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">I. Identidad y Domicilio del Responsable</h2>
+                        <p>
+                            Ruta Dorada Films, con domicilio en Coyoacán, Ciudad de México, México, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">II. Datos Personales que se Recaban</h2>
+                        <p>
+                            Para las finalidades señaladas en el presente aviso, recabaremos los siguientes datos personales de los usuarios registrados en nuestro sitio web:
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li>Nombre de usuario</li>
+                            <li>Correo electrónico</li>
+                            <li>Comentarios publicados en el sitio</li>
+                            <li>Artículos a los que ha dado "me gusta" (likes)</li>
+                            <li>Artículos guardados en su perfil</li>
+                        </ul>
+                        <p class="mt-4 font-medium text-slate-800 dark:text-slate-200">
+                            Le informamos que no recabamos datos personales sensibles para las finalidades descritas en este aviso.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">III. Finalidades del Tratamiento</h2>
+                        
+                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-2">Finalidades primarias — necesarias para el servicio:</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li>Crear y administrar su cuenta de usuario</li>
+                            <li>Personalizar su experiencia, incluyendo el guardado de artículos y el registro de sus preferencias</li>
+                            <li>Gestionar y publicar los comentarios que realice sobre el contenido del sitio</li>
+                            <li>Dar seguimiento y atender solicitudes, quejas o aclaraciones</li>
+                        </ul>
+
+                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-6 mb-2">Finalidades secundarias — adicionales, para ofrecerle una mejor experiencia:</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li>Elaborar estadísticas e informes internos sobre preferencias de contenido cinematográfico</li>
+                            <li>Mejorar el contenido del sitio con base en las interacciones de los usuarios</li>
+                            <li>Enviar información sobre nuevas reseñas, artículos o noticias de cine que puedan ser de su interés</li>
+                        </ul>
+
+                        <p class="mt-4 bg-slate-100 dark:bg-[#162a2f] p-4 rounded-xl text-sm border border-slate-200 dark:border-[#224249]">
+                            Si no desea que sus datos sean tratados para las finalidades secundarias, puede manifestarlo enviando un correo a <a href="mailto:rutadoradafilms@gmail.com" class="text-primary hover:underline font-bold">rutadoradafilms@gmail.com</a> con el asunto: "Oposición a finalidades secundarias". La negativa no será motivo para negarle el acceso al servicio.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">IV. Transferencias de Datos Personales</h2>
+                        <p>
+                            Sus datos personales no serán transferidos a terceros sin su consentimiento previo, salvo en los casos previstos en el artículo 37 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">V. Derechos ARCO</h2>
+                        <p>
+                            Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales. Para ejercer cualquiera de estos derechos, envíe una solicitud a:
+                        </p>
+                        <p class="mt-2 font-bold text-slate-800 dark:text-slate-200">
+                            Correo electrónico: <a href="mailto:rutadoradafilms@gmail.com" class="text-primary hover:underline font-bold">rutadoradafilms@gmail.com</a>
+                        </p>
+                        <p class="mt-4">
+                            Su solicitud debe incluir: nombre completo, correo electrónico con el que se registró, y una descripción clara de los datos y el derecho que desea ejercer.
+                        </p>
+                        <p class="mt-2">
+                            Ruta Dorada Films tendrá veinte días hábiles para responder a su solicitud, plazo que podrá ampliarse por una sola vez por igual período cuando las circunstancias del caso lo justifiquen.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">VI. Revocación del Consentimiento</h2>
+                        <p>
+                            Usted puede revocar el consentimiento otorgado para el tratamiento de sus datos personales siguiendo el mismo procedimiento descrito para el ejercicio de los derechos ARCO. Tenga en cuenta que en algunos casos no podremos atender su solicitud de forma inmediata por obligaciones legales vigentes.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">VII. Uso de Cookies y Tecnologías de Rastreo</h2>
+                        <p>
+                            Nuestro sitio web utiliza cookies para mejorar su experiencia:
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li><strong>Cookies de sesión:</strong> necesarias para el funcionamiento del sitio y la gestión de su cuenta</li>
+                            <li><strong>Cookies de preferencias:</strong> para recordar sus artículos guardados y configuraciones</li>
+                            <li><strong>Cookies analíticas:</strong> para obtener estadísticas de uso y mejorar el sitio</li>
+                        </ul>
+                        <p class="mt-4">
+                            Puede deshabilitarlas desde la configuración de su navegador.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">VIII. Cambios al Aviso de Privacidad</h2>
+                        <p>
+                            Cualquier modificación a este aviso será publicada en nuestro sitio web. Le recomendamos consultarlo periódicamente para estar al tanto de posibles actualizaciones derivadas de cambios legales o en nuestros servicios.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">IX. Autoridad Competente</h2>
+                        <p>
+                            Si considera que sus derechos en materia de protección de datos personales han sido vulnerados, puede interponer una queja ante el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI) en: <a href="https://home.inai.org.mx/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-bold">www.inai.org.mx</a>
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-slate-200 dark:border-[#224249] text-center text-sm text-slate-500 font-medium">
+                    Última actualización: Marzo de 2026 — Ruta Dorada Films
+                </div>
+
+            </div>
+        </div>
+    </main>
+</Layout>
