@@ -8,8 +8,8 @@ authorImage: ""
 image: "https://www.hollywoodreporter.com/wp-content/uploads/2025/08/1-7.jpg?w=1296&h=730&crop=1"
 category: "Premios"
 fuente:
-  nombre: "Next Best Picture"
-  url: "https://nextbestpicture.com/"
+  nombre: "The Hollywood Reporter"
+  url: "https://www.hollywoodreporter.com/"
 readTime: "3 min read"
 tags: ["Razzie"]
 ---
@@ -34,7 +34,7 @@ La lista completa de los ganadores de los 46° premios Razzie es:
 
 Peor Película
 
-- **The Electric State**
+- The Electric State
 - Hurry Up Tomorrow
 - Disney’s Snow White (2025)
 - Star Trek: Section 31
