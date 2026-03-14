@@ -11,7 +11,7 @@ fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
 readTime: "4 min read"
-rating: 98
+rating: 95
 tags: ["Hollywood"]
 fichaTecnica:
   sinopsis: "Una mujer amnésica sobrevive a un accidente en Mulholland Drive y se refugia con una aspirante a actriz, desencadenando un viaje onírico."
