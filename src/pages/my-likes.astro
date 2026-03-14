@@ -6,6 +6,10 @@ import ArticleCard from "../components/ArticleCard.astro";
 import { getCollection } from "astro:content";
 
 const title = "Mis likes | RutaDorada";
+
+// Get all currently valid slugs to avoid showing deleted posts that still have 'likes' in Supabase
+const allPosts = await getCollection("posts");
+const validSlugs = allPosts.map(p => `posts/${p.slug}`);
 ---
 
 <Layout title={title}>
@@ -25,7 +29,7 @@ const title = "Mis likes | RutaDorada";
             </p>
         </div>
 
-        <div id="likes-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="likes-grid" data-valid-slugs={JSON.stringify(validSlugs)} class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Posts will be injected here -->
             <div class="col-span-full py-20 text-center animate-pulse">
                 <p class="text-slate-400">Cargando tus likes...</p>
@@ -50,7 +54,7 @@ const title = "Mis likes | RutaDorada";
                 ¡Empieza a explorar y dale me gusta a tus artículos favoritos!
             </p>
             <a
-                href="/archive"
+                href={`${import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL}/archive`}
                 class="mt-6 inline-block px-6 py-2 bg-primary text-[#102023] rounded-full font-bold hover:bg-primary/90 transition-all"
                 >Explorar artículos</a
             >
@@ -61,12 +65,6 @@ const title = "Mis likes | RutaDorada";
 
     <script>
         import { supabase } from "../lib/supabase";
-
-        // This is a bit tricky with Static Site Generation
-        // We need to fetch the slugs from Supabase and then match them with content
-        // Since we can't use getCollection in client-side script directly,
-        // we'll fetch the post data from a pre-defined JSON or just render placeholders
-        // For simplicity, we'll fetch slugs and redirect/link to them.
 
         const likesGrid = document.getElementById("likes-grid");
         const noLikes = document.getElementById("no-likes");
@@ -88,24 +86,24 @@ const title = "Mis likes | RutaDorada";
                 .eq("user_id", session.user.id)
                 .order("created_at", { ascending: false });
 
-            if (error || !likes || likes.length === 0) {
+            // Ensure we do not show posts that have been deleted locally
+            const validSlugsStr = likesGrid?.getAttribute("data-valid-slugs");
+            const validSlugs = validSlugsStr ? JSON.parse(validSlugsStr) : [];
+            const filteredLikes = likes ? likes.filter(like => validSlugs.includes(like.articulo_id)) : [];
+
+            if (error || filteredLikes.length === 0) {
                 if (likesGrid) likesGrid.classList.add("hidden");
                 if (noLikes) noLikes.classList.remove("hidden");
                 return;
             }
 
-            // In a real app, we'd fetch post metadata (title, desc, image)
-            // For now, we'll render simple cards or handle it via a search index
-            // Let's at least show the slugs for now, or fetch from a JSON we create
-            renderLikes(likes);
+            renderLikes(filteredLikes);
         }
 
         function renderLikes(likes) {
             if (!likesGrid) return;
             const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
-            // Note: In a production Astro app, you'd likely create an API endpoint
-            // to fetch post metadata for a list of slugs.
             likesGrid.innerHTML = likes
                 .map(
                     (like) => {

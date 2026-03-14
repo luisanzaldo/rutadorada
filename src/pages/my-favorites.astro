@@ -2,8 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
 
 const title = "Mis Favoritos | RutaDorada";
+
+// Get all currently valid slugs to avoid showing deleted posts that still have 'favorites' in Supabase
+const allPosts = await getCollection("posts");
+const validSlugs = allPosts.map(p => `posts/${p.slug}`);
 ---
 
 <Layout title={title}>
@@ -23,6 +28,7 @@ const title = "Mis Favoritos | RutaDorada";
 
         <div
             id="favorites-grid"
+            data-valid-slugs={JSON.stringify(validSlugs)}
             class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
             <!-- Posts will be injected here -->
@@ -78,13 +84,18 @@ const title = "Mis Favoritos | RutaDorada";
                 .eq("user_id", session.user.id)
                 .order("created_at", { ascending: false });
 
-            if (error || !favorites || favorites.length === 0) {
+            // Ensure we do not show posts that have been deleted locally
+            const validSlugsStr = favoritesGrid?.getAttribute("data-valid-slugs");
+            const validSlugs = validSlugsStr ? JSON.parse(validSlugsStr) : [];
+            const filteredFavorites = favorites ? favorites.filter(fav => validSlugs.includes(fav.articulo_id)) : [];
+
+            if (error || filteredFavorites.length === 0) {
                 if (favoritesGrid) favoritesGrid.classList.add("hidden");
                 if (noFavorites) noFavorites.classList.remove("hidden");
                 return;
             }
 
-            renderFavorites(favorites);
+            renderFavorites(filteredFavorites);
         }
 
         function renderFavorites(favorites) {
