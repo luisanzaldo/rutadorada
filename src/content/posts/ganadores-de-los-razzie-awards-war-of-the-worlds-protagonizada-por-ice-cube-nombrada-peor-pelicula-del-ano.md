@@ -1,5 +1,5 @@
 ---
-title: "Ganadores de los Razzie Awards: 'war of the Worlds' protagonizada por Ice Cube nombrada peor película del año"
+title: "Ganadores de los Razzie Awards: 'War of the Worlds' protagonizada por Ice Cube nombrada peor película del año"
 description: "Descubre los ganadores de los Razzie Awards, donde 'War of the Worlds' se lleva el premio a Peor Película de 2025."
 pubDate: 2026-03-14T05:06:13.281Z
 author: "Moncho"
