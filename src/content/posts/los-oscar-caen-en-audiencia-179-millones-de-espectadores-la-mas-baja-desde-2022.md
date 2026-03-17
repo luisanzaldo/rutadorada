@@ -54,6 +54,6 @@ Este descenso en la audiencia marca la primera caída en cinco años. En 2021, l
 
 Disney mantendrá los derechos de transmisión de los Oscar en ABC y Hulu hasta 2028, antes de que el nuevo acuerdo de la Academia con YouTube entre en vigor para la ceremonia 101 en 2029, con derechos asegurados hasta al menos 2033.
 
-**Un Anfitrión Bien Recibido**
+**Un anfitrión bien recibido**
 
 Conan O'Brien, en su segundo año consecutivo como anfitrión de los Oscar, recibió grandes elogios. Rob Mills de Walt Disney Television comentó a *Variety* que el puesto sigue siendo suyo, si el comediante desea continuar.

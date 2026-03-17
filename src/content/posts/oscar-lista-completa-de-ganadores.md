@@ -214,7 +214,7 @@ Mejor Cortometraje Documental
 
 
 
-- **All the Empty Rooms** (Netflix); Joshua Seftel y Conall Jones (**GANADOR**)
+- **All the Empty Rooms (Netflix); Joshua Seftel y Conall Jones (GANADOR)**
 - Armed Only With a Camera: The Life and Death of Brent Renaud (HBO); Craig Renaud y Juan Arredondo
 - Children No More: “Were and Are Gone” (Sky); Hilla Medalia y Sheila Nevins
 - The Devil Is Busy (HBO); Christalyn Hampton y Geeta Gandbhir
@@ -247,7 +247,7 @@ Mejor Maquillaje y Peluquería
 
 
 
-- **Frankenstein** (Netflix); Mike Hill, Jordan Samuel y Cliona Furey (**GANADOR**)
+- **Frankenstein (Netflix); Mike Hill, Jordan Samuel y Cliona Furey (GANADOR)**
 - Kokuho (GKIDS); Kyoko Toyokawa, Naomi Hibino y Tadashi Nishimatsu
 - Sinners (Warner Bros.); Ken Diaz, Mike Fontaine y Shunika Terry
 - The Smashing Machine (A24); Kazu Hiro, Glen Griffin y Bjoern Rehbein
@@ -280,7 +280,7 @@ Mejor Diseño de Producción
 
 
 
-- **Frankenstein** (Netflix); Diseño de Producción: Tamara Deverell; Decoración de Set: Shane Vieau (**GANADOR**)
+- **Frankenstein (Netflix); Diseño de Producción: Tamara Deverell; Decoración de Set: Shane Vieau (GANADOR)**
 - Hamnet (Focus Features); Diseño de Producción: Fiona Crombie; Decoración de Set: Alice Felton
 - Marty Supreme (A24); Diseño de Producción: Jack Fisk; Decoración de Set: Adam Willis
 - One Battle After Another (Warner Bros.); Diseño de Producción: Florencia Martin; Decoración de Set: Anthony Carlino
@@ -291,7 +291,7 @@ Mejor Sonido
 
 
 
-- **F1** (Apple) Gareth John, Al Nelson, Gwendolyn Yates Whittle, Gary A. Rizzo y Juan Peralta (**GANADOR**)
+- **F1 (Apple) Gareth John, Al Nelson, Gwendolyn Yates Whittle, Gary A. Rizzo y Juan Peralta (GANADOR)**
 - Frankenstein (Netflix) Greg Chapman, Nathan Robitaille, Nelson Ferreira, Christian Cooke y Brad Zoern
 - One Battle After Another (Warner Bros.); José Antonio García, Christopher Scarabosio y Tony Villaflor
 - Sinners (Warner Bros.); Chris Welcker, Benjamin A. Burtt, Felipe Pacheco, Brandon Proctor y Steve Boeddeker
@@ -302,7 +302,7 @@ Mejores Efectos Visuales
 
 
 
-- **Avatar: Fire and Ash** (Walt Disney); Joe Letteri, Richard Baneham, Eric Saindon y Daniel Barrett (**GANADOR**)
+- **Avatar: Fire and Ash (Walt Disney); Joe Letteri, Richard Baneham, Eric Saindon y Daniel Barrett (GANADOR)**
 - F1 (Apple); Ryan Tudhope, Nicolas Chevallier, Robert Harrington y Keith Dawson
 - Jurassic World Rebirth (Universal); David Vickery, Stephen Aplin, Charmaine Chan y Neil Corbould
 - The Lost Bus (Apple); Charlie Noble, David Zaretti, Russell Bowen y Brandon K. McLaughlin
