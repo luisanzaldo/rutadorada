@@ -20,6 +20,15 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
+      - name: Cache downloaded post images
+        uses: actions/cache@v4
+        with:
+          path: public/images/posts
+          key: post-images-${{ hashFiles('src/content/posts/**') }}
+          restore-keys: |
+            post-images-
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         env:
