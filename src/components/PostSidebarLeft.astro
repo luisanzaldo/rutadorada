@@ -230,7 +230,7 @@ const { slug } = Astro.props;
 </div>
 
 <script>
-    import { supabase } from "../lib/supabase";
+    let supabase: any;
 
     const slug = document.getElementById("like-btn-desktop")?.dataset.slug;
 
@@ -425,6 +425,7 @@ const { slug } = Astro.props;
     }
 
     async function toggleLike() {
+        if (!supabase) return;
         if (!user) {
             const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             window.location.href = `${basePath}/login?redirect=${encodeURIComponent(window.location.pathname)}`;
@@ -463,6 +464,7 @@ const { slug } = Astro.props;
     }
 
     async function toggleBookmark() {
+        if (!supabase) return;
         if (!user) {
             const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             window.location.href = `${basePath}/login?redirect=${encodeURIComponent(window.location.pathname)}`;
@@ -506,5 +508,15 @@ const { slug } = Astro.props;
     bookmarkBtnMobile?.addEventListener("click", toggleBookmark);
     bookmarkBtnMobileTop?.addEventListener("click", toggleBookmark);
 
-    init();
+    const loadSupabase = async () => {
+        const module = await import("../lib/supabase");
+        supabase = module.supabase;
+        await init();
+    };
+
+    if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(loadSupabase);
+    } else {
+        setTimeout(loadSupabase, 200);
+    }
 </script>

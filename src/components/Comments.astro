@@ -68,7 +68,7 @@ const { slug } = Astro.props;
 </section>
 
 <script>
-    import { supabase } from "../lib/supabase";
+    let supabase: any;
 
     const commentsList = document.getElementById("comments-list");
     const commentFormContainer = document.getElementById(
@@ -225,6 +225,7 @@ const { slug } = Astro.props;
     }
 
     async function deleteComment(id: string) {
+        if (!supabase) return;
         const { error } = await supabase.from("comentarios").delete().eq("id", id);
         if (error) {
             console.error("Error deleting comment:", error);
@@ -263,6 +264,7 @@ const { slug } = Astro.props;
     commentForm?.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        if (!supabase) return;
         if (!commentInput || !commentForm) return;
 
         const content = commentInput.value.trim();
@@ -304,5 +306,15 @@ const { slug } = Astro.props;
         submitBtn.textContent = originalText;
     });
 
-    init();
+    const loadSupabase = async () => {
+        const module = await import("../lib/supabase");
+        supabase = module.supabase;
+        await init();
+    };
+
+    if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(loadSupabase);
+    } else {
+        setTimeout(loadSupabase, 200);
+    }
 </script>
