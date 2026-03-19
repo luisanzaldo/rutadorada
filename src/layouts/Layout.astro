@@ -49,11 +49,18 @@ const {
 		<link rel="preload" href="/fonts/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 		<link rel="preload" href="/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 		
+		<style>
+		  @font-face {
+		    font-family: 'Cinzel';
+		    src: url('/fonts/cinzel-latin-wght-normal.woff2') format('woff2');
+		    font-weight: 400 900;
+		    font-style: normal;
+		    font-display: swap;
+		  }
+		</style>
+		
 		<!-- Preconnects -->
-		<link rel="preconnect" href="https://sqdkehchegqpecuuohjw.supabase.co" />
-		<link rel="preconnect" href="https://www.hollywoodreporter.com" crossorigin />
-		<link rel="preconnect" href="https://variety.com" crossorigin />
-		<link rel="preconnect" href="https://www.transparenttextures.com" crossorigin />
+		<link rel="preconnect" href="https://www.transparenttextures.com" crossorigin="anonymous" />
 	</head>
 	<body
 		class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300 font-body min-h-screen flex flex-col"
