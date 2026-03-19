@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 interface Props {
     title: string;
     description: string;
@@ -28,12 +27,9 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
         class={`w-full h-48 relative block overflow-hidden ${triggerClass}`}
         data-video-url={videoUrl}
     >
-        <Image
+        <img
             src={finalImage}
             alt={title}
-            width={800}
-            height={450}
-            format="webp"
             class="absolute inset-0 w-full h-full object-cover z-0"
             loading="lazy"
             decoding="async"

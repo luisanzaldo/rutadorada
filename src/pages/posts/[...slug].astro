@@ -8,7 +8,6 @@ import PostSidebarRight from "../../components/PostSidebarRight.astro";
 import Comments from "../../components/Comments.astro";
 import ShareModal from "../../components/ShareModal.astro";
 import Speedometer from "../../components/Speedometer.astro";
-import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -216,12 +215,9 @@ const finalImage = post.data.image ? (post.data.image.startsWith('/') ? `${baseU
                     {
                         post.data.category !== "Tráilers" && finalImage && (
                             <div class="relative w-full rounded-2xl overflow-hidden mb-12 shadow-[0_20px_50px_-15px_rgba(217,119,6,0.3)] border border-slate-200 dark:border-white/10 group">
-                                <Image
+                                <img
                                     src={finalImage}
                                     alt={`Portada de ${post.data.title}`}
-                                    width={1280}
-                                    height={500}
-                                    format="webp"
                                     class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-1000 group-hover:scale-105"
                                     loading="eager"
                                     fetchpriority="high"
