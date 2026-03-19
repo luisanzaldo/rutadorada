@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
@@ -25,15 +24,10 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 class="flex-shrink-0 flex items-center space-x-2 sm:space-x-3 cursor-pointer group"
             >
 
-                <Image
+                <img
                     src={`${baseUrl}/images/RutaDorada-web.png`}
                     alt="Ruta Dorada"
                     class="h-[40px] sm:h-[48px] w-auto"
-                    width={200}
-                    height={48}
-                    format="webp"
-                    loading="eager"
-                    fetchpriority="high"
                 />
             </a>
 
