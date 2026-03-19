@@ -211,16 +211,20 @@ const getCategoryUrl = (category: string) => {
     }
 
     const loadSupabaseAndUpdate = async () => {
+        if (supabase) return;
         const module = await import("../lib/supabase");
         supabase = module.supabase;
         await updateMostPopular();
     };
 
-    if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(loadSupabaseAndUpdate);
-    } else {
-        setTimeout(loadSupabaseAndUpdate, 200);
-    }
+    const interactionEvents = ["mouseenter", "scroll", "touchstart", "click", "keydown"];
+    
+    const onUserInteraction = () => {
+        interactionEvents.forEach((e) => document.removeEventListener(e, onUserInteraction));
+        loadSupabaseAndUpdate();
+    };
+
+    interactionEvents.forEach((e) => document.addEventListener(e, onUserInteraction, { once: true }));
 
     document.addEventListener("astro:page-load", () => {
         if (!supabase) {

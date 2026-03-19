@@ -509,14 +509,18 @@ const { slug } = Astro.props;
     bookmarkBtnMobileTop?.addEventListener("click", toggleBookmark);
 
     const loadSupabase = async () => {
+        if (supabase) return;
         const module = await import("../lib/supabase");
         supabase = module.supabase;
         await init();
     };
 
-    if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(loadSupabase);
-    } else {
-        setTimeout(loadSupabase, 200);
-    }
+    const interactionEvents = ["mouseenter", "scroll", "touchstart", "click", "keydown"];
+    
+    const onUserInteraction = () => {
+        interactionEvents.forEach((e) => document.removeEventListener(e, onUserInteraction));
+        loadSupabase();
+    };
+
+    interactionEvents.forEach((e) => document.addEventListener(e, onUserInteraction, { once: true }));
 </script>

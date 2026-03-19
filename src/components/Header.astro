@@ -870,6 +870,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     const isResetPasswordPage = window.location.pathname.replace(/\/$/, '') === '/reset-password';
 
     const loadSupabaseAuth = async () => {
+        if (supabase) return;
         const module = await import("../lib/supabase");
         supabase = module.supabase;
 
@@ -887,9 +888,12 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
         }
     };
 
-    if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(loadSupabaseAuth);
-    } else {
-        setTimeout(loadSupabaseAuth, 200);
-    }
+    const interactionEvents = ["mouseenter", "scroll", "touchstart", "click", "keydown"];
+    
+    const onUserInteraction = () => {
+        interactionEvents.forEach((e) => document.removeEventListener(e, onUserInteraction));
+        loadSupabaseAuth();
+    };
+
+    interactionEvents.forEach((e) => document.addEventListener(e, onUserInteraction, { once: true }));
 </script>
