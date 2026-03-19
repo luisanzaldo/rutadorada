@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
     title: string;
     description: string;
@@ -38,11 +40,15 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
         <article class="group relative bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-white/5 mb-8">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 pointer-events-none" />
             <div class="aspect-w-16 aspect-h-9 h-[28rem] sm:h-96 md:h-[32rem] w-full relative">
-                <img
+                <Image
                     src={finalImage}
                     alt={title}
+                    width={1280}
+                    height={720}
+                    format="webp"
                     class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
+                    loading="eager"
+                    fetchpriority="high"
                     decoding="async"
                 />
             </div>
@@ -103,9 +109,12 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                         {category}
                     </span>
                 </div>
-                <img
+                <Image
                     src={finalImage}
                     alt={title}
+                    width={800}
+                    height={450}
+                    format="webp"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                     decoding="async"

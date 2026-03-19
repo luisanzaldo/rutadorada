@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
     title: string;
     description: string;
@@ -16,6 +17,7 @@ const { title, description, image, category, date, readTime, slug, videoUrl, tag
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 const url = videoUrl || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
+const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
 ---
 
 <article
@@ -23,15 +25,24 @@ const triggerClass = videoUrl ? "video-trigger" : "";
 >
     <a
         href={url}
-        class={`w-full h-48 bg-cover bg-center relative block ${triggerClass}`}
+        class={`w-full h-48 relative block overflow-hidden ${triggerClass}`}
         data-video-url={videoUrl}
-        style={`background-image: url("${image}");`}
     >
+        <Image
+            src={finalImage}
+            alt={title}
+            width={800}
+            height={450}
+            format="webp"
+            class="absolute inset-0 w-full h-full object-cover z-0"
+            loading="lazy"
+            decoding="async"
+        />
         <div
-            class="absolute inset-0 bg-gradient-to-t from-background-card to-transparent opacity-80"
+            class="absolute inset-0 bg-gradient-to-t from-background-card to-transparent opacity-80 z-10 pointer-events-none"
         >
         </div>
-        <div class="absolute top-3 left-3 flex flex-wrap gap-2">
+        <div class="absolute top-3 left-3 flex flex-wrap gap-2 z-20">
             {tags && tags.length > 0 ? (
                 tags.slice(0, 1).map((tag) => (
                     <span class="bg-background-dark/80 backdrop-blur-md text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">
