@@ -5,7 +5,7 @@ pubDate: 2026-03-18T19:34:11.908Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/03/cannes-collage-H-2026.jpg?w=1296&h=730&crop=1"
+image: "/images/posts/cannes-2026-las-peliculas-que-podrian-sorprender.webp"
 category: "Premios"
 fuente:
   nombre: "Hollywood Reporter"

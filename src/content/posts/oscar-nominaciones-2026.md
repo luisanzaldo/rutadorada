@@ -4,7 +4,7 @@ description: "La película de terror de Ryan Coogler logra 16 nominaciones, la c
 pubDate: 2026-02-18
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://hotbook.mx/wp-content/uploads/2023/03/conoce-a-los-ganadores-de-los-premios-oscar-2023.jpg"
+image: "/images/posts/oscar-nominaciones-2026.webp"
 category: "Premios"
 fuente:
   nombre: "Redacción"

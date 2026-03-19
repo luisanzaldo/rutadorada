@@ -5,7 +5,7 @@ pubDate: 2026-03-14T05:06:13.281Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2025/08/1-7.jpg?w=1296&h=730&crop=1"
+image: "/images/posts/ganadores-de-los-razzie-awards-war-of-the-worlds-protagonizada-por-ice-cube-nombrada-peor-pelicula-del-ano.webp"
 category: "Premios"
 fuente:
   nombre: "The Hollywood Reporter"

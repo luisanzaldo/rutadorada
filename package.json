@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/download-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -15,6 +16,9 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
+    "gray-matter": "^4.0.3",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

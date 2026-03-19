@@ -4,7 +4,7 @@ description: "Descubre quiénes serán los presentadores de la 98ª edición de 
 pubDate: 2026-02-26T23:32:52.853Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://pymstatic.com/83126/conversions/frases-javier-bardem-small-16_9_webp.webp"
+image: "/images/posts/nuevos-presentadores-anunciados-para-los-premios-oscar-2026.webp"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

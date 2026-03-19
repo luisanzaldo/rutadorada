@@ -5,7 +5,7 @@ pubDate: 2026-03-15T18:15:19.227Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/03/Hoppers-Reminders-Of-Him-Hamnet-3-shot.jpg?w=1024"
+image: "/images/posts/estrenos-de-taquilla-hoppers-y-reminders-of-him-dominan-el-mundo.webp"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

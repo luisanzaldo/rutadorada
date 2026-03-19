@@ -5,7 +5,7 @@ pubDate: 2026-03-12T20:25:35.845Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://es.hollywoodreporter.com/wp-content/uploads/2025/12/Mira-el-avance-de-El-dia-de-la-revelacion-la-nueva-cinta-de-Steven-Spielberg.jpg"
+image: "/images/posts/trailer-el-dia-de-la-revelacion-1773347207744.webp"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

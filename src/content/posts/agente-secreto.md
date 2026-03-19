@@ -5,7 +5,7 @@ pubDate: 2026-02-20
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://images.mubicdn.net/images/film/411498/cache-1051744-1764004841/image-w1280.jpg?size=800x"
+image: "/images/posts/agente-secreto.webp"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Mubi"]

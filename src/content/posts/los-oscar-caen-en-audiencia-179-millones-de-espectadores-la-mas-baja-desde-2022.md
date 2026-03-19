@@ -5,7 +5,7 @@ pubDate: 2026-03-17T23:32:09.151Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/03/Conan.jpg?crop=0px%2C0px%2C1920px%2C1080px&resize=1000%2C563"
+image: "/images/posts/los-oscar-caen-en-audiencia-179-millones-de-espectadores-la-mas-baja-desde-2022.webp"
 category: "Premios"
 fuente:
   nombre: "Variety"

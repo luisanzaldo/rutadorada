@@ -5,7 +5,7 @@ pubDate: 2026-03-12T00:17:51.507Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://img.youtube.com/vi/HQeQyson7mc/maxresdefault.jpg"
+image: "/images/posts/trailer-toy-story-5.webp"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

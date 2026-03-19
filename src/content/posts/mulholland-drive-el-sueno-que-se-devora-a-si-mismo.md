@@ -5,7 +5,7 @@ pubDate: 2026-03-10T21:42:42.858Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://es.rollingstone.com/wp-content/uploads/2025/04/Critica-Mulholland-Drive-min.jpg"
+image: "/images/posts/mulholland-drive-el-sueno-que-se-devora-a-si-mismo.webp"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

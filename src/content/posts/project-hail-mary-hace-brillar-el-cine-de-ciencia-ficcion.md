@@ -5,7 +5,7 @@ pubDate: 2026-03-19T05:53:24.783Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://images-1.bluntmag.com.au/uploads/2025/07/project-hail-mary.jpg"
+image: "/images/posts/project-hail-mary-hace-brillar-el-cine-de-ciencia-ficcion.webp"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

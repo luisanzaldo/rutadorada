@@ -5,7 +5,7 @@ pubDate: 2026-03-17T17:29:17.344Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://img.youtube.com/vi/QfA9qu0V6po/maxresdefault.jpg"
+image: "/images/posts/trailer-dune-parte-tres.webp"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Warner Bros"]
