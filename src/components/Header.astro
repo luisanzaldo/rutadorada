@@ -746,7 +746,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 
 <script>
     // Auth State Handling
-    import { supabase } from "../lib/supabase";
+    let supabase: any;
 
     const authButtons = document.getElementById("auth-buttons");
     const userMenu = document.getElementById("user-menu");
@@ -854,6 +854,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 
     // Logout
     async function handleLogout() {
+        if (!supabase) return;
         const { error } = await supabase.auth.signOut();
         if (error) {
             console.error("Error signing out:", error.message);
@@ -868,16 +869,27 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     // On the reset-password page, don't update auth UI — the recovery session is temporary
     const isResetPasswordPage = window.location.pathname.replace(/\/$/, '') === '/reset-password';
 
-    // Listen for Auth Changes
-    supabase.auth.onAuthStateChange((event, session) => {
-        if (isResetPasswordPage) return;
-        updateAuthUI(session);
-    });
+    const loadSupabaseAuth = async () => {
+        const module = await import("../lib/supabase");
+        supabase = module.supabase;
 
-    // Initial check
-    if (!isResetPasswordPage) {
-        supabase.auth.getSession().then(({ data: { session } }) => {
+        // Listen for Auth Changes
+        supabase.auth.onAuthStateChange((event: any, session: any) => {
+            if (isResetPasswordPage) return;
             updateAuthUI(session);
         });
+
+        // Initial check
+        if (!isResetPasswordPage) {
+            supabase.auth.getSession().then(({ data: { session } }: any) => {
+                updateAuthUI(session);
+            });
+        }
+    };
+
+    if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(loadSupabaseAuth);
+    } else {
+        setTimeout(loadSupabaseAuth, 200);
     }
 </script>

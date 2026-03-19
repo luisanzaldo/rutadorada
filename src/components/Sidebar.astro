@@ -188,7 +188,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
 </aside>
 
 <script>
-    import { supabase } from "../lib/supabase";
+    let supabase: any;
 
     async function updateMostPopular() {
         const container = document.getElementById("most-popular-container");
@@ -202,6 +202,7 @@ const popularByCategory = categoriesToTrack.map((cat) => {
         const categoriesToTrack = ["Artículos", "Críticas", "Premios"];
 
         try {
+            if (!supabase) return;
             const { data: likesData, error } = await supabase.from("likes").select("articulo_id, created_at");
             if (error || !likesData) return;
 
@@ -254,7 +255,23 @@ const popularByCategory = categoriesToTrack.map((cat) => {
         }
     }
 
-    // Run on load and navigation
-    document.addEventListener("DOMContentLoaded", updateMostPopular);
-    document.addEventListener("astro:page-load", updateMostPopular);
+    const loadSupabaseAndUpdate = async () => {
+        const module = await import("../lib/supabase");
+        supabase = module.supabase;
+        await updateMostPopular();
+    };
+
+    if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(loadSupabaseAndUpdate);
+    } else {
+        setTimeout(loadSupabaseAndUpdate, 200);
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        if (!supabase) {
+            loadSupabaseAndUpdate();
+        } else {
+            updateMostPopular();
+        }
+    });
 </script>
