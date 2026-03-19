@@ -7,7 +7,10 @@ export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      modulePreload: false
+    }
   },
 
   integrations: [mdx()]

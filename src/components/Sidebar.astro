@@ -1,7 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { supabase } from "../lib/supabase";
-
 const allPosts = await getCollection("posts");
 
 const tagCategoryMap = new Map<string, string>();
@@ -34,38 +32,7 @@ const getCategoryUrl = (category: string) => {
     return `${base === '/' ? '' : base}${path}`;
 };
 
-const { data: likesData } = await supabase.from("likes").select("articulo_id, created_at");
 
-const categoriesToTrack = ["Artículos", "Críticas", "Premios"];
-const popularByCategory = categoriesToTrack.map((cat) => {
-    const catPosts = allPosts.filter((p) => p.data.category === cat);
-
-    let mostPopularPost = null;
-    let maxLikes = -1;
-    let mostRecentLike = 0;
-
-    for (const p of catPosts) {
-        const articuloId = "posts/" + p.slug;
-        const postLikes = (likesData || []).filter((l) => l.articulo_id === articuloId);
-        const count = postLikes.length;
-        const maxCreated = postLikes.reduce((max, l) => {
-            const time = l.created_at ? new Date(l.created_at).getTime() : 0;
-            return time > max ? time : max;
-        }, 0);
-
-        if (count > maxLikes || (count === maxLikes && maxCreated > mostRecentLike)) {
-            maxLikes = count;
-            mostRecentLike = maxCreated;
-            mostPopularPost = p;
-        }
-    }
-
-    return {
-        category: cat,
-        title: mostPopularPost?.data.title || "",
-        slug: mostPopularPost?.slug || "",
-    };
-}).filter((item) => item.slug !== "");
 ---
 
 <aside class="lg:w-1/3 space-y-8 lg:mt-16">
@@ -166,23 +133,11 @@ const popularByCategory = categoriesToTrack.map((cat) => {
             Más popular
         </h3>
         <div class="space-y-4" id="most-popular-list">
-            {
-                popularByCategory.map((item, index) => (
-                    <>
-                        <a class="group block" href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/posts/${item.slug}`}>
-                            <span class="text-[#D4AF37] text-xs font-bold uppercase mb-1 block">
-                                {item.category}
-                            </span>
-                            <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#D4AF37] transition-colors">
-                                {item.title}
-                            </h4>
-                        </a>
-                        {index < popularByCategory.length - 1 && (
-                            <div class="h-px bg-slate-100 dark:bg-slate-800" />
-                        )}
-                    </>
-                ))
-            }
+            <div class="animate-pulse space-y-3">
+              <div class="h-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              <div class="h-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              <div class="h-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            </div>
         </div>
     </div>
 </aside>
