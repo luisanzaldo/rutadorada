@@ -61,19 +61,32 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                     <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4">
                         Tabla de contenidos
                     </h3>
-                    <nav class="space-y-1 relative" id="toc-nav">
-                        {headings.map((heading) => (
-                            <a
-                                href={`#${heading.slug}`}
-                                data-slug={heading.slug}
-                                class={`toc-link block pl-6 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all py-1.5`}
-                            >
-                                {heading.text}
-                            </a>
-                        ))}
-                        <!-- Active Indicator -->
-                        <div id="toc-indicator" class="absolute left-0 w-0.5 bg-primary transition-all duration-300 hidden"></div>
-                    </nav>
+                    <div class="relative w-full">
+                        <nav class="space-y-1 relative max-h-[50vh] overflow-y-auto pr-2 pb-4" id="toc-nav" style="scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent;">
+                            {headings.map((heading) => (
+                                <a
+                                    href={`#${heading.slug}`}
+                                    data-slug={heading.slug}
+                                    class={`toc-link block pl-6 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all py-1.5`}
+                                >
+                                    {heading.text}
+                                </a>
+                            ))}
+                            <!-- Active Indicator -->
+                            <div id="toc-indicator" class="absolute left-0 w-0.5 bg-primary transition-all duration-300 hidden"></div>
+                        </nav>
+                        
+                        <!-- Scroll action button -->
+                        <button 
+                            id="toc-scroll-down" 
+                            class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white dark:bg-[#162a2f] w-7 h-7 rounded-full shadow border border-slate-200 dark:border-[#224249] flex items-center justify-center text-primary hover:scale-110 transition-all opacity-0 pointer-events-none z-10"
+                            aria-label="Ver más contenidos"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             )
         }
@@ -161,6 +174,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
     const tocLinks = document.querySelectorAll('.toc-link');
     const indicator = document.getElementById('toc-indicator');
     const nav = document.getElementById('toc-nav');
+    const scrollBtn = document.getElementById('toc-scroll-down');
 
     let activeId = '';
 
@@ -183,13 +197,22 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
             tocLinks.forEach(link => link.classList.remove('text-primary', 'dark:text-primary', 'font-bold'));
             activeLink.classList.add('text-primary', 'dark:text-primary', 'font-bold');
             
-            // Move indicator
-            const linkRect = activeLink.getBoundingClientRect();
-            const navRect = nav.getBoundingClientRect();
+            const linkTop = activeLink.offsetTop;
+            const linkHeight = activeLink.offsetHeight;
             
             indicator.style.display = 'block';
-            indicator.style.top = `${linkRect.top - navRect.top}px`;
-            indicator.style.height = `${linkRect.height}px`;
+            indicator.style.top = `${linkTop}px`;
+            indicator.style.height = `${linkHeight}px`;
+
+            // Scroll nav if needed (so active link is visible)
+            const navScrollTop = nav.scrollTop;
+            const navHeight = nav.clientHeight;
+            if (Math.abs((linkTop + linkHeight / 2) - (navScrollTop + navHeight / 2)) > navHeight / 3) {
+                nav.scrollTo({
+                    top: linkTop - navHeight / 2 + linkHeight / 2,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
 
@@ -224,6 +247,33 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
             updateActiveLink();
         }
     }, { passive: true });
+
+    function checkTocScroll() {
+        if (!nav || !scrollBtn) return;
+        
+        const canScroll = nav.scrollHeight > nav.clientHeight;
+        const notAtBottom = Math.ceil(nav.scrollTop + nav.clientHeight) < nav.scrollHeight - 2;
+        
+        if (canScroll && notAtBottom) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.pointerEvents = 'auto';
+        } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.pointerEvents = 'none';
+        }
+    }
+
+    if (nav) {
+        nav.addEventListener('scroll', checkTocScroll, { passive: true });
+        window.addEventListener('resize', checkTocScroll);
+        setTimeout(checkTocScroll, 100);
+    }
+
+    if (scrollBtn && nav) {
+        scrollBtn.addEventListener('click', () => {
+            nav.scrollBy({ top: nav.clientHeight / 2, behavior: 'smooth' });
+        });
+    }
 </script>
 
 <style>
