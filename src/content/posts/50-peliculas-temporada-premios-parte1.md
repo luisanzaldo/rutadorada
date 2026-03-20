@@ -11,7 +11,7 @@ fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
 readTime: "10 min read"
-tags: ["Oscar"]
+tags: ["Temporada de Premios"]
 ---
 
 La ceremonía de la edición 98 de los Oscar aconteció el pasado domingo 15 de marzo y con esta la carrera de premios del año 2025 finalizó. Y por si no fue suficiente hablar de ello tras estos seis meses extenuantes, he aquí la lista de las películas que ya empiezan a sonar fuerte para la carrera del Oscar de la edición 99.

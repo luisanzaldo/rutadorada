@@ -2,10 +2,10 @@
 title: "50 películas que pueden competir en la temporada de premios 2026 - Parte 2"
 description: "Descubre las películas que podrían dominar la temporada de premios 2026, desde biopics hasta épicas de ciencia ficción."
 pubDate: 2026-03-20T20:53:21.600Z
-author: "Luis Anzaldo"
-letterboxd: "https://boxd.it/82ej9"
+author: "Moncho"
+letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/the-odyssey-3-2.jpg"
+image: "/portada-50-peliculas-p2.webp"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
@@ -13,8 +13,6 @@ fuente:
 readTime: "15 min read"
 tags: ["Temporada de Premios"]
 ---
-
-## 50 películas que pueden competir en la temporada de premios 2026 - Parte 2
 
 Continuamos con la lista de las películas que se perfilan como protagonistas de la próxima temporada de premios: desde aquellas que tendrán su estreno directo en salas de cine, pasando por las que probablemente debuten en Cannes o los festivales de otoño, hasta las que podrían llegar a la edición número 99 de los Premios Oscar.
 
