@@ -83,6 +83,9 @@ const title = "Panel de Administración | RutaDorada";
             try {
                 const response = await fetch('/api/auth/logout', {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                 });
 
                 const result = await response.json();
