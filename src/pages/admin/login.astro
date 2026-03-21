@@ -1,9 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
-import { USERS } from "../../lib/users";
-import { createSession, getSession } from "../../lib/auth";
-import bcrypt from "bcryptjs";
+import { getSession } from "../../lib/auth";
 
 export const prerender = false;
 
@@ -15,47 +13,7 @@ if (session) {
     return Astro.redirect("/admin");
 }
 
-// 3. Manejar el POST del formulario
-if (Astro.request.method === "POST") {
-    try {
-        const formData = await Astro.request.formData();
-        const username = formData.get("username")?.toString();
-        const password = formData.get("password")?.toString();
-
-        if (username && password) {
-            const user = USERS.find((u) => u.username === username);
-
-            if (user) {
-                const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
-
-                if (isPasswordCorrect) {
-                    // Credenciales correctas: Crear sesión
-                    const token = await createSession(user.username);
-
-                    // Guardar en cookie
-                    Astro.cookies.set("session", token, {
-                        path: "/",
-                        httpOnly: true,
-                        secure: true,
-                        sameSite: "strict",
-                        maxAge: 60 * 60 * 24 * 7, // 7 días
-                    });
-
-                    return Astro.redirect("/admin");
-                } else {
-                    error = "Contraseña incorrecta";
-                }
-            } else {
-                error = "Usuario no encontrado";
-            }
-        } else {
-            error = "Por favor, completa todos los campos";
-        }
-    } catch (e) {
-        error = "Ocurrió un error al procesar el inicio de sesión";
-    }
-}
-
+// 2. Título de la página
 const title = "Admin Login | RutaDorada";
 ---
 
@@ -96,12 +54,7 @@ const title = "Admin Login | RutaDorada";
                     </p>
                 </div>
 
-                <form 
-                    method="POST" 
-                    action="/admin/login" 
-                    enctype="application/x-www-form-urlencoded" 
-                    class="space-y-6"
-                >
+                <form id="login-form" class="space-y-6">
                     <div>
                         <label
                             for="username"
@@ -136,16 +89,11 @@ const title = "Admin Login | RutaDorada";
                         />
                     </div>
 
-                    {error && (
-                        <div
-                            class="text-red-500 text-sm text-center bg-red-500/10 p-2 rounded-lg border border-red-500/20 animate-pulse"
-                        >
-                            {error}
-                        </div>
-                    )}
+                    <div id="error-message" class="hidden text-red-500 text-sm text-center bg-red-500/10 p-2 rounded-lg border border-red-500/20 animate-pulse"></div>
 
                     <button
                         type="submit"
+                        id="login-button"
                         class="w-full bg-primary hover:bg-primary/90 text-[#102023] font-bold py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200"
                     >
                         Acceder al Panel
@@ -160,4 +108,62 @@ const title = "Admin Login | RutaDorada";
             </div>
         </div>
     </main>
+
+    <script>
+        const loginForm = document.getElementById('login-form') as HTMLFormElement;
+        const errorDiv = document.getElementById('error-message');
+        const loginButton = document.getElementById('login-button') as HTMLButtonElement;
+
+        loginForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (errorDiv) {
+                errorDiv.classList.add('hidden');
+                errorDiv.textContent = '';
+            }
+            
+            if (loginButton) {
+                loginButton.disabled = true;
+                loginButton.textContent = 'Autenticando...';
+            }
+
+            try {
+                const formData = new FormData(loginForm);
+                const data = Object.fromEntries(formData.entries());
+
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = '/admin';
+                } else {
+                    if (errorDiv) {
+                        errorDiv.textContent = result.error || 'Credenciales incorrectas';
+                        errorDiv.classList.remove('hidden');
+                    }
+                    if (loginButton) {
+                        loginButton.disabled = false;
+                        loginButton.textContent = 'Acceder al Panel';
+                    }
+                }
+            } catch (error) {
+                console.error('Error al iniciar sesión:', error);
+                if (errorDiv) {
+                    errorDiv.textContent = 'Ocurrió un error en la conexión';
+                    errorDiv.classList.remove('hidden');
+                }
+                if (loginButton) {
+                    loginButton.disabled = false;
+                    loginButton.textContent = 'Acceder al Panel';
+                }
+            }
+        });
+    </script>
 </Layout>

@@ -17,20 +17,6 @@ if (!session) {
 // 2. Obtener los datos del usuario logueado
 const user = USERS.find((u) => u.username === session.username);
 
-// 3. Manejar el cierre de sesión mediante un POST
-if (Astro.request.method === "POST") {
-    try {
-        const formData = await Astro.request.formData();
-        if (formData.get("action") === "logout") {
-            // Eliminar la cookie de sesión
-            Astro.cookies.delete("session", { path: "/" });
-            return Astro.redirect("/admin/login");
-        }
-    } catch (e) {
-        // Manejar errores silenciosamente por ahora
-    }
-}
-
 const title = "Panel de Administración | RutaDorada";
 ---
 
@@ -61,18 +47,15 @@ const title = "Panel de Administración | RutaDorada";
                     </div>
                 </div>
 
-                <form method="POST" action="/admin" enctype="application/x-www-form-urlencoded">
-                    <input type="hidden" name="action" value="logout" />
-                    <button 
-                        type="submit"
-                        class="px-5 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest border border-red-500/20 transition-all flex items-center gap-2 group"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                        </svg>
-                        Cerrar sesión
-                    </button>
-                </form>
+                <button 
+                    id="logout-button"
+                    class="px-5 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest border border-red-500/20 transition-all flex items-center gap-2 group"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Cerrar sesión
+                </button>
             </div>
 
             <!-- Espacio para futura funcionalidad -->
@@ -87,4 +70,40 @@ const title = "Panel de Administración | RutaDorada";
             </div>
         </div>
     </main>
+
+    <script>
+        const logoutButton = document.getElementById('logout-button');
+
+        logoutButton?.addEventListener('click', async () => {
+            if (logoutButton instanceof HTMLButtonElement) {
+                logoutButton.disabled = true;
+                logoutButton.textContent = 'Cerrando sesión...';
+            }
+
+            try {
+                const response = await fetch('/api/auth/logout', {
+                    method: 'POST',
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = '/admin/login';
+                } else {
+                    alert('Error al cerrar sesión');
+                    if (logoutButton instanceof HTMLButtonElement) {
+                        logoutButton.disabled = false;
+                        logoutButton.textContent = 'Cerrar sesión';
+                    }
+                }
+            } catch (error) {
+                console.error('Error al cerrar sesión:', error);
+                alert('Ocurrió un error en la conexión');
+                if (logoutButton instanceof HTMLButtonElement) {
+                    logoutButton.disabled = false;
+                    logoutButton.textContent = 'Cerrar sesión';
+                }
+            }
+        });
+    </script>
 </Layout>
