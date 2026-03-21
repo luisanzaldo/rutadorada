@@ -4,7 +4,7 @@ description: "Descubre quiénes fueron los ganadores de los Actor Awards 2025 en
 pubDate: 2026-03-03T00:26:12.842Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/ganadores-de-los-actor-awards-2025.webp"
+image: "/images/posts/ganadores-de-los-actor-awards-2025.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

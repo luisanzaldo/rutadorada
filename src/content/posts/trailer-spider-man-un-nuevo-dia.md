@@ -5,7 +5,7 @@ pubDate: 2026-03-18T12:54:26.517Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-spider-man-un-nuevo-dia.webp"
+image: "/images/posts/trailer-spider-man-un-nuevo-dia.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

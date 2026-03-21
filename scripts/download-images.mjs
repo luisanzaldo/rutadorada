@@ -27,8 +27,8 @@ async function processPosts() {
     // Solo procesa si la imagen existe y es una URL externa (http o https)
     if (image && image.startsWith('http')) {
       const slug = file.replace(/\.(md|mdx)$/, '');
-      const newImagePath = `/images/posts/${slug}.webp`;
-      const localImagePath = path.join(imagesDir, `${slug}.webp`);
+      const newImagePath = `/images/posts/${slug}.jpg`;
+      const localImagePath = path.join(imagesDir, `${slug}.jpg`);
 
       try {
         let fileExists = false;
@@ -53,7 +53,7 @@ async function processPosts() {
 
           await sharp(buffer)
             .resize(1280, 720, { fit: 'cover', withoutEnlargement: true })
-            .webp({ quality: 82 })
+            .jpeg({ quality: 85, mozjpeg: true })
             .toFile(localImagePath);
           
           downloadedCount++;

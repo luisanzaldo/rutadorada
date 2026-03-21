@@ -5,7 +5,7 @@ pubDate: 2026-03-17T23:32:09.151Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/los-oscar-caen-en-audiencia-179-millones-de-espectadores-la-mas-baja-desde-2022.webp"
+image: "/images/posts/los-oscar-caen-en-audiencia-179-millones-de-espectadores-la-mas-baja-desde-2022.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

@@ -5,7 +5,7 @@ pubDate: 2026-02-19
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-la-odisea.webp"
+image: "/images/posts/trailer-la-odisea.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

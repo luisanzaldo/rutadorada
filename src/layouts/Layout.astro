@@ -14,6 +14,11 @@ const {
 	description = "Sigue la carrera de premios del séptimo arte y lee los análisis que tenemos para ti.",
 	image = "/images/RutaDorada-web.png",
 } = Astro.props;
+
+// Ensure absolute URL for social images
+const socialImageURL = image.startsWith('http') 
+	? image 
+	: new URL(image, Astro.site || Astro.url).href;
 ---
 
 <!doctype html>
@@ -36,14 +41,15 @@ const {
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:image:alt" content={title} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		<meta property="twitter:image" content={socialImageURL} />
 
 		<!-- Fonts & Icons (Migrated to self-hosted) -->
 		<link rel="preload" href="/fonts/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />

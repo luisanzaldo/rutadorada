@@ -5,7 +5,7 @@ pubDate: 2026-03-15T18:15:19.227Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/estrenos-de-taquilla-hoppers-y-reminders-of-him-dominan-el-mundo.webp"
+image: "/images/posts/estrenos-de-taquilla-hoppers-y-reminders-of-him-dominan-el-mundo.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

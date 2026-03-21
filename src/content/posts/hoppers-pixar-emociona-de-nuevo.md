@@ -5,7 +5,7 @@ pubDate: 2026-03-11T00:02:06.615Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/hoppers-pixar-emociona-de-nuevo.webp"
+image: "/images/posts/hoppers-pixar-emociona-de-nuevo.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

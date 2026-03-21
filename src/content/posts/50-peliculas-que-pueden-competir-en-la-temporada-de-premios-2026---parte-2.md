@@ -5,7 +5,7 @@ pubDate: 2026-03-20T20:53:21.600Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/portada-50-peliculas-p2.webp"
+image: "/portada-50-peliculas-p2.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
@@ -54,7 +54,7 @@ Tras el arrollador éxito global de la obra de teatro original, la adaptación c
 ## **Project Hail Mary**
 Con el historial reciente de la Academia, donde casi cada año una película estrenada fuera de la temporada alta logra colarse en la categoría de Mejor Película, **Project Hail Mary** (Proyecto Fin del Mundo) se perfila como la gran candidata para romper esquemas este 2026. Tras una década dedicados principalmente a la producción de éxitos como el universo **Spider-Verse**, la dupla conformada por **Phil Lord** y **Chris Miller** regresa a la silla de dirección de acción real con una ambiciosa adaptación del bestseller de **Andy Weir**, respaldada por un presupuesto masivo de 200 millones de dólares de Amazon MGM. Protagonizada por **Ryan Gosling** como el astronauta **Ryland Grace**, la cinta combina el optimismo científico y el humor característicos de **The Martian** con una escala visual épica, diseñada por el director de fotografía **Greig Fraser**. Su estreno mundial es hoy 20 de marzo y cuenta con críticas excepcionales que alaban tanto su rigor técnico (incluyendo el uso de efectos prácticos y marionetas para el alienígena **Rocky**) como su corazón emocional. Esta odisea espacial no solo apunta a ser un éxito de taquilla rotundo, sino que podría finalmente llevar a **Lord** y **Miller** a competir en las categorías principales de los Oscar, demostrando que la ciencia ficción de alto concepto aún puede ser profundamente humana.
 
-![Project Hail Mary](https://d32qys9a6wm9no.cloudfront.net/images/movies/backdrop/YNGjzETfdysf7JSvC9SyjciqRSzm9BHP_1280x720.webp)
+![Project Hail Mary](https://d32qys9a6wm9no.cloudfront.net/images/movies/backdrop/YNGjzETfdysf7JSvC9SyjciqRSzm9BHP_1280x720.jpg)
 
 ## **Saturn Return**
 La dupla creativa conformada por **Greg Kwedar** y **Clint Bentley** se ha consolidado como una de las más fascinantes del cine contemporáneo, tras encadenar éxitos críticos como **Sing Sing** y la reciente nominada a Mejor Película **Train Dreams**. Ahora, bajo la dirección de **Kwedar**, presentan **Saturn Return**, un drama romántico rodado en Chicago que captura la evolución emocional de una pareja de novios universitarios a lo largo de una década de transición hacia la madurez. Protagonizada por **Will Poulter** y la ganadora del Emmy **Rachel Brosnahan**, la cinta se perfila como el vehículo ideal para que ambos actores logren sus primeras nominaciones al Oscar, apoyados en un guion que explora con sensibilidad las pruebas del tiempo y las ambiciones truncadas. Aunque el proyecto aún busca estudio para su distribución, se espera que su estreno en los festivales de otoño de 2026 genere una guerra de ofertas similar a la de sus trabajos previos, planteando la posibilidad de un tercer triunfo consecutivo en la temporada de premios para este dúo que ha redefinido el drama independiente estadounidense.

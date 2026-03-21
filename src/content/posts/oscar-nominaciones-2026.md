@@ -4,7 +4,7 @@ description: "La película de terror de Ryan Coogler logra 16 nominaciones, la c
 pubDate: 2026-02-18
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/oscar-nominaciones-2026.webp"
+image: "/images/posts/oscar-nominaciones-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

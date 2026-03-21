@@ -5,7 +5,7 @@ pubDate: 2026-03-16T08:36:57.044Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/oscar-lista-completa-de-ganadores.webp"
+image: "/images/posts/oscar-lista-completa-de-ganadores.jpg"
 category: "Premios"
 fuente:
   nombre: "Hollywood Reporter"

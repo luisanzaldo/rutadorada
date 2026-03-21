@@ -5,7 +5,7 @@ pubDate: 2026-03-10T21:42:42.858Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/mulholland-drive-el-sueno-que-se-devora-a-si-mismo.webp"
+image: "/images/posts/mulholland-drive-el-sueno-que-se-devora-a-si-mismo.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

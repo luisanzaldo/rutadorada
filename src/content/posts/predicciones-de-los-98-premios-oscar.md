@@ -5,7 +5,7 @@ pubDate: 2026-03-13T22:58:33.246Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/predicciones-de-los-98-premios-oscar.webp"
+image: "/images/posts/predicciones-de-los-98-premios-oscar.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

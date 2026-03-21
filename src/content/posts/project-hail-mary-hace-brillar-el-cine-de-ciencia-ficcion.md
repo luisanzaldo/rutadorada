@@ -5,7 +5,7 @@ pubDate: 2026-03-19T05:53:24.783Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/project-hail-mary-hace-brillar-el-cine-de-ciencia-ficcion.webp"
+image: "/images/posts/project-hail-mary-hace-brillar-el-cine-de-ciencia-ficcion.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"
