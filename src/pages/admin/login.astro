@@ -1,0 +1,158 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import { USERS } from "../../lib/users";
+import { createSession, getSession } from "../../lib/auth";
+import bcrypt from "bcryptjs";
+
+export const prerender = false;
+
+let error = "";
+
+// 1. Verificar si ya tiene sesión activa
+const session = await getSession(Astro.request);
+if (session) {
+    return Astro.redirect("/admin");
+}
+
+// 3. Manejar el POST del formulario
+if (Astro.request.method === "POST") {
+    try {
+        const formData = await Astro.request.formData();
+        const username = formData.get("username")?.toString();
+        const password = formData.get("password")?.toString();
+
+        if (username && password) {
+            const user = USERS.find((u) => u.username === username);
+
+            if (user) {
+                const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
+
+                if (isPasswordCorrect) {
+                    // Credenciales correctas: Crear sesión
+                    const token = await createSession(user.username);
+
+                    // Guardar en cookie
+                    Astro.cookies.set("session", token, {
+                        path: "/",
+                        httpOnly: true,
+                        secure: true,
+                        sameSite: "strict",
+                        maxAge: 60 * 60 * 24 * 7, // 7 días
+                    });
+
+                    return Astro.redirect("/admin");
+                } else {
+                    error = "Contraseña incorrecta";
+                }
+            } else {
+                error = "Usuario no encontrado";
+            }
+        } else {
+            error = "Por favor, completa todos los campos";
+        }
+    } catch (e) {
+        error = "Ocurrió un error al procesar el inicio de sesión";
+    }
+}
+
+const title = "Admin Login | RutaDorada";
+---
+
+<Layout title={title}>
+    <Header />
+    <main
+        class="flex-grow grid place-items-center relative overflow-hidden py-20 px-4"
+    >
+        <!-- Background Elements (Coherente con login.astro) -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+        </div>
+
+        <div class="w-full max-w-md relative z-10">
+            <div
+                class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 shadow-2xl backdrop-blur-sm"
+            >
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 border border-primary/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h1
+                        class="font-display font-bold text-3xl text-slate-900 dark:text-white mb-2"
+                    >
+                        Panel de Administración
+                    </h1>
+                    <p class="text-slate-500 text-sm">
+                        Ingresa tus credenciales maestras
+                    </p>
+                </div>
+
+                <form method="POST" class="space-y-6">
+                    <div>
+                        <label
+                            for="username"
+                            class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2"
+                            >Usuario</label
+                        >
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            required
+                            class="w-full bg-slate-50 dark:bg-[#162a2f] text-slate-900 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-transparent focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400"
+                            placeholder="Tu usuario"
+                        />
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label
+                                for="password"
+                                class="block text-xs font-bold text-slate-500 uppercase tracking-widest"
+                                >Contraseña</label
+                            >
+                        </div>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            class="w-full bg-slate-50 dark:bg-[#162a2f] text-slate-900 dark:text-white px-4 py-3 rounded-xl border border-slate-200 dark:border-transparent focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400"
+                            placeholder="••••••••"
+                        />
+                    </div>
+
+                    {error && (
+                        <div
+                            class="text-red-500 text-sm text-center bg-red-500/10 p-2 rounded-lg border border-red-500/20 animate-pulse"
+                        >
+                            {error}
+                        </div>
+                    )}
+
+                    <button
+                        type="submit"
+                        class="w-full bg-primary hover:bg-primary/90 text-[#102023] font-bold py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200"
+                    >
+                        Acceder al Panel
+                    </button>
+                    
+                    <div class="text-center pt-2">
+                        <a href="/" class="text-xs text-slate-400 hover:text-primary transition-colors">
+                            ← Volver al sitio principal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</Layout>
