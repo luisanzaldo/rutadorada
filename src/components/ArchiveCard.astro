@@ -19,11 +19,11 @@ const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 
 <article
-    class="flex flex-col h-full rounded-xl overflow-hidden bg-background-card shadow-lg hover:-translate-y-1 hover:shadow-[#D4AF37]/10 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-[#D4AF37]/20"
+    class="archive-card-container relative flex flex-col h-full rounded-xl overflow-hidden bg-background-card shadow-lg transition-all duration-300 border border-transparent"
 >
     <a
         href={url}
-        class={`w-full h-48 bg-cover bg-center relative block ${triggerClass}`}
+        class={`w-full h-48 bg-cover bg-center relative block ${triggerClass} z-10`}
         data-video-url={videoUrl}
         style={`background-image: url("${image}");`}
     >
@@ -46,9 +46,9 @@ const triggerClass = videoUrl ? "video-trigger" : "";
         </div>
     </a>
     <div class="flex flex-col flex-1 p-5 gap-3">
-        <a href={url} class={`video-trigger-link ${triggerClass}`} data-video-url={videoUrl}>
+        <a href={url} class={`video-trigger-link ${triggerClass} after:absolute after:inset-0 after:z-20`} data-video-url={videoUrl}>
             <h3
-                class="text-white text-xl font-bold leading-tight group-hover:text-[#D4AF37] transition-colors"
+                class="archive-title text-white text-xl font-bold leading-tight transition-colors"
             >
                 {title}
             </h3>
@@ -57,18 +57,45 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             {description}
         </p>
         <div
-            class="mt-auto pt-4 flex items-center justify-between border-t border-[#224249]/50"
+            class="mt-auto pt-4 flex items-center justify-between border-t border-[#224249]/50 relative z-30"
         >
             <span class="text-text-muted text-xs font-mono"
                 >{date} • {readTime}</span
             >
-            <a
-                href={url}
-                class={`material-symbols-outlined text-[#D4AF37] text-[20px] group-hover:translate-x-1 transition-transform ${triggerClass}`}
-                data-video-url={videoUrl}
+            <div
+                class={`archive-arrow material-symbols-outlined text-[#D4AF37] text-[20px] transition-transform`}
             >
                 arrow_forward
-            </a>
+            </div>
         </div>
     </div>
 </article>
+
+<style>
+    /* Prevent hover effects on touch devices to avoid double-tap requirement on iOS */
+    @media (hover: hover) {
+        .archive-card-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.1), 0 10px 10px -5px rgba(212, 175, 55, 0.04);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .archive-card-container:hover .archive-title {
+            color: #D4AF37;
+        }
+
+        .archive-card-container:hover .archive-arrow {
+            transform: translateX(4px);
+        }
+    }
+
+    /* Base styles for transitions */
+    .archive-title {
+        transition: color 0.3s ease;
+    }
+
+    .archive-arrow {
+        transition: transform 0.3s ease;
+    }
+</style>
+

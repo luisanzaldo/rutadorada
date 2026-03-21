@@ -36,7 +36,7 @@ const latestPost = allPosts.sort(
 
     <div class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <!-- Badge -->
-        <div id="film-badge" class="inline-flex cursor-pointer items-center px-6 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#D4AF37] text-[11px] font-black uppercase tracking-[0.4em] mb-12 animate-fade-in shadow-[0_0_25px_rgba(212,175,55,0.15)] transition-all duration-300 hover:scale-105 hover:bg-[#D4AF37]/20 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]">
+        <div id="film-badge" class="inline-flex cursor-pointer items-center px-6 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#D4AF37] text-[11px] font-black uppercase tracking-[0.4em] mb-12 animate-fade-in shadow-[0_0_25px_rgba(212,175,55,0.15)] transition-all duration-300">
             <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mr-3 animate-pulse"></span>
             Ruta Dorada Films
         </div>
@@ -52,13 +52,13 @@ const latestPost = allPosts.sort(
         <!-- CTA Buttons -->
         <div class="mt-20 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
             <a
-                class="block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#D4AF37] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] transition-all hover:scale-105 active:scale-95 text-sm sm:text-base text-center"
+                class="hero-cta-button block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#D4AF37] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] transition-all active:scale-95 text-sm sm:text-base text-center"
                 href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/#lo-ultimo`}
             >
                 <span class="relative z-10">Lo último</span>
             </a>
             <a
-                class="px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-105 active:scale-95 hover:shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] text-sm sm:text-base text-center"
+                class="hero-cta-secondary px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg active:scale-95 text-sm sm:text-base text-center"
                 href={`${import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL}/archive`}
             >
                 Archivo de publicaciones
@@ -69,7 +69,24 @@ const latestPost = allPosts.sort(
 </section>
 
 <style>
+    @media (hover: hover) {
+        .hero-cta-button:hover {
+            transform: scale(1.05);
+        }
+        .hero-cta-secondary:hover {
+            background-color: #D4AF37;
+            border-color: #D4AF37;
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px -15px rgba(212, 175, 55, 0.6);
+        }
+        #film-badge:hover {
+            transform: scale(1.05);
+            background-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+    }
     @keyframes fade-in {
+
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
     }
