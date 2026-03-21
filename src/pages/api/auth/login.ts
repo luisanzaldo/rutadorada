@@ -3,8 +3,19 @@ import { USERS } from '../../../lib/users';
 import { createSession } from '../../../lib/auth';
 import bcrypt from 'bcryptjs';
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request, cookies }) => {
     try {
+        // En Vercel, el header Content-Type debe ser application/json
+        const contentType = request.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            return new Response(
+                JSON.stringify({ success: false, error: 'Content-Type debe ser application/json' }), 
+                { status: 400, headers: { 'Content-Type': 'application/json' } }
+            );
+        }
+
         const body = await request.json();
         const username = body.username;
         const password = body.password;
