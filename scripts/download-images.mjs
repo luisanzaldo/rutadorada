@@ -57,12 +57,12 @@ async function processPosts() {
             const response = await fetch(image);
             if (!response.ok) throw new Error(`HTTP Status ${response.status}`);
             buffer = Buffer.from(await response.arrayBuffer());
-          } else if (image.startsWith('/images/posts/')) {
-            // Si la imagen ya es local, la usamos como base para generar la móvil si falta
+          } else if (image.startsWith('/')) {
+            // Si la imagen es local (como en / o /images/posts/), la usamos de base
             try {
-              buffer = await fs.readFile(localImagePath);
+              buffer = await fs.readFile(path.join(process.cwd(), 'public', image));
             } catch (e) {
-              console.log(`⏭️  No se pudo leer imagen local para ${slug}: ${e.message}`);
+              console.log(`⏭️  No se pudo leer imagen local ruta ${image} para ${slug}: ${e.message}`);
               continue;
             }
           } else {
@@ -92,7 +92,7 @@ async function processPosts() {
         }
 
         // Actualizamos el string usando regex para preservar todo el frontmatter
-        if (image.startsWith('http')) {
+        if (image.startsWith('http') || (image.startsWith('/') && !image.startsWith('/images/posts/'))) {
             const escapedUrl = image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const regex = new RegExp(`(image:\\s*["']?)${escapedUrl}(["']?)`, 'g');
             

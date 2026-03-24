@@ -5,7 +5,7 @@ pubDate: 2026-03-20T20:53:21.600Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/portada-50-peliculas-p2.jpg"
+image: "/images/posts/50-peliculas-que-pueden-competir-en-la-temporada-de-premios-2026---parte-2.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

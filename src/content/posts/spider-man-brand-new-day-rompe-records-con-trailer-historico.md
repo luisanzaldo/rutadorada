@@ -5,7 +5,7 @@ pubDate: 2026-03-24T18:28:40.369Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://static0.srcdn.com/wordpress/wp-content/uploads/2026/03/spider-man-vs-the-hand-in-spider-man-brand-new-day-trailer.jpg?q=49&fit=crop&w=825&dpr=2"
+image: "/images/posts/spider-man-brand-new-day-rompe-records-con-trailer-historico.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

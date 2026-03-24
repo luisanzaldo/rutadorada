@@ -5,8 +5,8 @@ pubDate: 2026-03-19T14:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/portada-50-peliculas.jpg"
-category: "Premios"
+image: "/images/posts/50-peliculas-temporada-premios-parte1.jpg"
+category: "Artículos"
 fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
