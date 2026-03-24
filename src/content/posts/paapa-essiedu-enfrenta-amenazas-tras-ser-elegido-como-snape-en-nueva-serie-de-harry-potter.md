@@ -5,7 +5,7 @@ pubDate: 2026-03-22T03:08:33.129Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://areajugones.sport.es/wp-content/uploads/2025/03/essiedu-snape-1560x880.jpg.webp"
+image: "/images/posts/paapa-essiedu-enfrenta-amenazas-tras-ser-elegido-como-snape-en-nueva-serie-de-harry-potter.jpg"
 category: "Artículos"
 fuente:
   nombre: "Hollywood Reporter"

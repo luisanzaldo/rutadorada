@@ -24,50 +24,83 @@ async function processPosts() {
 
     const { image } = parsed.data;
 
-    // Solo procesa si la imagen existe y es una URL externa (http o https)
-    if (image && image.startsWith('http')) {
+    // Solo procesa si la imagen existe
+    if (image) {
       const slug = file.replace(/\.(md|mdx)$/, '');
       const newImagePath = `/images/posts/${slug}.jpg`;
       const localImagePath = path.join(imagesDir, `${slug}.jpg`);
+      const mobileImagePath = path.join(imagesDir, `${slug}-mobile.jpg`);
 
       try {
-        let fileExists = false;
+        let mobileNeedsCreation = false;
+        let desktopNeedsCreation = false;
+
         try {
           await fs.access(localImagePath);
-          fileExists = true;
         } catch {
-          // Archivo no existe, se procederá a descarga
+          desktopNeedsCreation = true;
         }
 
-        if (fileExists) {
-          skippedCount++;
-        } else {
-          console.log(`📥 Descargando imagen para: ${slug}...`);
-          const response = await fetch(image);
-          if (!response.ok) {
-            throw new Error(`HTTP Status ${response.status}: no se pudo descargar la imagen.`);
+        try {
+          await fs.access(mobileImagePath);
+        } catch {
+          mobileNeedsCreation = true;
+        }
+
+        // Si falta alguna versión...
+        if (desktopNeedsCreation || mobileNeedsCreation) {
+          let buffer;
+
+          // 1. Obtener el buffer (de URL externa o de archivo local si existe)
+          if (image.startsWith('http')) {
+            console.log(`📥 Descargando imagen para: ${slug}...`);
+            const response = await fetch(image);
+            if (!response.ok) throw new Error(`HTTP Status ${response.status}`);
+            buffer = Buffer.from(await response.arrayBuffer());
+          } else if (image.startsWith('/images/posts/')) {
+            // Si la imagen ya es local, la usamos como base para generar la móvil si falta
+            try {
+              buffer = await fs.readFile(localImagePath);
+            } catch (e) {
+              console.log(`⏭️  No se pudo leer imagen local para ${slug}: ${e.message}`);
+              continue;
+            }
+          } else {
+            continue; // Otro tipo de imagen no soportada
+          }
+
+          // 2. Generar versión Escritorio si falta
+          if (desktopNeedsCreation) {
+            await sharp(buffer)
+              .resize(1280, 720, { fit: 'cover', withoutEnlargement: true })
+              .jpeg({ quality: 85, mozjpeg: true })
+              .toFile(localImagePath);
+          }
+
+          // 3. Generar versión Móvil si falta
+          if (mobileNeedsCreation) {
+            console.log(`📱 Generando versión móvil para: ${slug}...`);
+            await sharp(buffer)
+              .resize(600, 338, { fit: 'cover', withoutEnlargement: true })
+              .jpeg({ quality: 85, mozjpeg: true })
+              .toFile(mobileImagePath);
           }
           
-          const arrayBuffer = await response.arrayBuffer();
-          const buffer = Buffer.from(arrayBuffer);
-
-          await sharp(buffer)
-            .resize(1280, 720, { fit: 'cover', withoutEnlargement: true })
-            .jpeg({ quality: 85, mozjpeg: true })
-            .toFile(localImagePath);
-          
           downloadedCount++;
+        } else {
+          skippedCount++;
         }
 
-        // Actualizamos el string usando regex para preservar todo el frontmatter y evitar reescritura
-        const escapedUrl = image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(image:\\s*["']?)${escapedUrl}(["']?)`, 'g');
-        
-        if (regex.test(content)) {
-          const newContent = content.replace(regex, `$1${newImagePath}$2`);
-          await fs.writeFile(filePath, newContent, 'utf-8');
+        // Actualizamos el string usando regex para preservar todo el frontmatter
+        if (image.startsWith('http')) {
+            const escapedUrl = image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(image:\\s*["']?)${escapedUrl}(["']?)`, 'g');
+            
+            if (regex.test(content)) {
+                const newContent = content.replace(regex, `$1${newImagePath}$2`);
+                await fs.writeFile(filePath, newContent, 'utf-8');
+            }
         }
-
       } catch (error) {
         console.error(`❌ Error procesando la imagen de "${slug}":`, error.message);
         failedCount++;

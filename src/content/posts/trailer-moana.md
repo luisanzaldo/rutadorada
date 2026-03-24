@@ -5,7 +5,7 @@ pubDate: 2026-03-23T16:23:46.100Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://img.youtube.com/vi/B_wpLKJE1f8/maxresdefault.jpg"
+image: "/images/posts/trailer-moana.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]
