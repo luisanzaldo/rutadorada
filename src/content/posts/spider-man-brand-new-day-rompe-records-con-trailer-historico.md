@@ -16,7 +16,7 @@ tags: ["Próximos estrenos"]
 
 ## Un nuevo hito para Spider-man
 
-La nueva película de Spider-Man, titulada **'Spider-Man: Brand New Day'**, sigue haciendo historia. Sony lanzó el tráiler de esta última aventura protagonizada por Tom Holland el pasado 17 de mayo, y en tan solo cuatro días alcanzó la asombrosa cifra de 1,000 millones de visualizaciones, convirtiéndose en el primer tráiler de película en lograr este hito monumental. Actualmente, cuenta con 1,100 millones de visitas, según WaveMetrix, consolidándose como el tráiler más visto de la historia del cine.
+La nueva película de Spider-Man, titulada **'Spider-Man: Brand New Day'**, sigue haciendo historia. Sony lanzó el tráiler de esta última aventura protagonizada por Tom Holland el pasado 17 de marzo, y en tan solo cuatro días alcanzó la asombrosa cifra de 1,000 millones de visualizaciones, convirtiéndose en el primer tráiler de película en lograr este hito monumental. Actualmente, cuenta con 1,100 millones de visitas, según WaveMetrix, consolidándose como el tráiler más visto de la historia del cine.
 
 ## Un inicio arrollador
 
