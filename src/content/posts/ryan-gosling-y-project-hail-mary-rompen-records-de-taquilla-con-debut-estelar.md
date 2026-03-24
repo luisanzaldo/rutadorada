@@ -1,7 +1,7 @@
 ---
 title: "Ryan Gosling y 'Project Hail Mary' rompen récords de taquilla con debut estelar"
 description: "El estreno de 'Project Hail Mary' de Ryan Gosling marca un récord en taquilla para Amazon MGM con $80.5 millones."
-pubDate: 2026-03-22T15:16:45.430Z
+pubDate: 2026-03-24T00:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
