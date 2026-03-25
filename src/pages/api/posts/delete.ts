@@ -87,7 +87,17 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // 6. Respuesta Exitosa
+    // 6. Disparar Deploy Hook de Vercel (Opcional)
+    const VERCEL_DEPLOY_HOOK = import.meta.env.VERCEL_DEPLOY_HOOK;
+    if (VERCEL_DEPLOY_HOOK) {
+      fetch(VERCEL_DEPLOY_HOOK).catch(err => {
+        console.error("Error al disparar Vercel Deploy Hook:", err);
+      });
+    } else {
+      console.warn("VERCEL_DEPLOY_HOOK no está configurado.");
+    }
+
+    // 7. Respuesta Exitosa
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
