@@ -1,3 +1,3 @@
 {
-  "ignoreCommand": "git diff HEAD^ HEAD --name-only | grep -qvE 'rss-state\\.json'"
+  "ignoreCommand": "if [ \"$(git diff HEAD^ HEAD --name-only)\" = \"rss-state.json\" ]; then exit 0; else exit 1; fi"
 }
