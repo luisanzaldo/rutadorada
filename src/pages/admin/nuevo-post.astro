@@ -58,7 +58,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             </div>
 
             <!-- Formulario Principal -->
-            <form class="space-y-8" id="nuevo-post-form">
+            <form class="space-y-8" id="nuevo-post-form" data-author={user?.displayName} data-letterboxd={user?.letterboxdUrl}>
                 
                 <!-- Sección 1: Información Principal -->
                 <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
@@ -302,11 +302,11 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     </a>
                     
                     <button 
-                        type="button"
-                        class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-[#0b1618] font-bold shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+                        id="submit-btn" type="submit"
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-[#0b1618] font-bold shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        <span class="material-symbols-outlined text-[20px]">public</span>
-                        Publicar artículo
+                        <span id="btn-icon" class="material-symbols-outlined text-[20px]">public</span>
+                        <span id="btn-text">Publicar artículo</span>
                     </button>
                 </div>
             </form>
@@ -521,19 +521,108 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 else btn.classList.remove('tiptap-btn-active');
             }
 
-            // Manejar validación y submit temporal (enviar alerta a la plataforma)
-            form?.addEventListener('submit', (e) => {
+            // Manejar validación y submit a la API real
+            form?.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                
+                const titleInput = document.getElementById('title') as HTMLInputElement;
+                const descInput = document.getElementById('description') as HTMLTextAreaElement;
+                const catInput = document.getElementById('category') as HTMLSelectElement;
                 const content = inputContent.value;
-                if (!content || content.trim() === '') {
-                    alert('El contenido del artículo está vacío. Por favor escribe algo.');
+
+                if (!titleInput.value || !descInput.value || !catInput.value || !content || content.trim() === '') {
+                    alert('Por favor, llena todos los campos obligatorios (Título, Descripción, Categoría y Contenido).');
                     return;
                 }
+
+                // UI Loading State
+                const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+                const btnText = document.getElementById('btn-text');
+                const btnIcon = document.getElementById('btn-icon');
                 
-                console.log('--- OUTPUT DE TIPTAP CONVERTIDO A MARKDOWN ---');
-                console.log(`Tipo de archivo resultante: ${fileExtInput.value}`);
-                console.log(content);
-                alert(`¡Texto convertido! Extensión: ${fileExtInput.value}. Revisa la consola.`);
+                if (submitBtn) submitBtn.disabled = true;
+                if (btnText) btnText.textContent = 'Publicando...';
+                if (btnIcon) btnIcon.textContent = 'hourglass_empty';
+
+                try {
+                    // Recopilar tags (separar por comas y limpiar espacios)
+                    const tagsInput = (document.getElementById('tags') as HTMLInputElement).value;
+                    const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : [];
+                    
+                    // Fuente
+                    const sourceName = (document.getElementById('sourceName') as HTMLInputElement).value;
+                    const sourceUrl = (document.getElementById('sourceUrl') as HTMLInputElement).value;
+                    const fuente = (sourceName || sourceUrl) ? { nombre: sourceName, url: sourceUrl } : undefined;
+
+                    // Calcular readTime asumiendo 200 palabras por min
+                    const plainText = editor.getText();
+                    const wordCount = plainText.trim().split(/\s+/).length || 1;
+                    const readTimeMins = Math.max(1, Math.ceil(wordCount / 200));
+                    const readTime = `${readTimeMins} min read`;
+
+                    // Lógica imagen de Portada (Subida Local vs URL)
+                    let finalImageUrl = mainImageUrl.value || '';
+                    if (mainImageFile.files && mainImageFile.files[0]) {
+                        const formData = new FormData();
+                        formData.append('image', mainImageFile.files[0]);
+                        
+                        // Llamar a la futura API de subida de imágenes
+                        const uploadRes = await fetch('/api/posts/upload-image', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (uploadRes.ok) {
+                            const uploadData = await uploadRes.json();
+                            finalImageUrl = uploadData.url; // Asumimos que la API retorna un json con { url: '...' }
+                        } else {
+                            const errData = await uploadRes.json().catch(() => ({}));
+                            console.error("Upload API Error:", errData);
+                            throw new Error(`No se pudo subir la imagen. Motivo: ${errData.error || 'Desconocido'}`);
+                        }
+                    }
+
+                    // Construir JSON
+                    const payload = {
+                        title: titleInput.value,
+                        description: descInput.value,
+                        pubDate: new Date().toISOString(),
+                        author: form.dataset.author || 'Redacción',
+                        letterboxd: form.dataset.letterboxd || '',
+                        image: finalImageUrl,
+                        category: catInput.value,
+                        tags,
+                        fuente,
+                        readTime,
+                        content,
+                        fileExtension: fileExtInput.value || '.md'
+                    };
+
+                    // Enviar al API
+                    const publishRes = await fetch('/api/posts/publish', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await publishRes.json();
+                    
+                    if (result.success) {
+                        alert('¡El artículo ha sido publicado exitosamente!');
+                        setTimeout(() => {
+                            window.location.href = '/admin';
+                        }, 2000);
+                    } else {
+                        throw new Error(result.error || 'Error desconocido por parte de GitHub.');
+                    }
+                    
+                } catch (error: any) {
+                    console.error("Error al publicar:", error);
+                    alert(`Error de plataforma: ${error.message}`);
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (btnText) btnText.textContent = 'Publicar artículo';
+                    if (btnIcon) btnIcon.textContent = 'public';
+                }
             });
 
             // --- Lógica Modales Media ---
