@@ -7,7 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "/images/posts/trailer-toy-story-5.jpg"
 category: "Tráilers"
-readTime: "2 min"
+readTime: "1 min"
 tags: ["Cines"]
 videoUrl: "https://www.youtube.com/watch?v=HQeQyson7mc"
 ---
