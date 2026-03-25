@@ -8,7 +8,7 @@ authorImage: ""
 image: "/images/posts/agente-secreto.jpg"
 category: "Tráilers"
 readTime: "2 min"
-tags: ["Mubi"]
+tags: ["Estrenos"]
 videoUrl: "https://youtu.be/YxvymcujX14?si=HFvRHLP9o3_-5Zfl"
 ---
 
