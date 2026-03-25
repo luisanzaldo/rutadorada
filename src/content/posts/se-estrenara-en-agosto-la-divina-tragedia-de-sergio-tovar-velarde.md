@@ -10,7 +10,7 @@ fuente:
   nombre: "Animal Político"
   url: "https://www.grupoanimal.mx"
 readTime: "1 min read"
-tags: ["Estrenos"]
+tags: ["Cine Mexicano"]
 ---
 
 ### Estreno internacional en Boston
