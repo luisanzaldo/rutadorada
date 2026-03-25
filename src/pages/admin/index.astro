@@ -103,7 +103,7 @@ const title = "Panel de Administración | RutaDorada";
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {paginatedPosts.map((post) => (
-                        <div class="group flex flex-col bg-white/5 dark:bg-[#162a2f]/30 border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
+                        <div class="group flex flex-col bg-white/5 dark:bg-[#162a2f]/30 border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={post.data.title}>
                             
                             <!-- Cover Image Area -->
                             <div class="relative w-full aspect-video bg-slate-100 dark:bg-[#0b1618] overflow-hidden rounded-t-2xl">
@@ -146,12 +146,12 @@ const title = "Panel de Administración | RutaDorada";
                                     
                                     <!-- Botones de Acción directos -->
                                     <div class="flex items-center gap-1.5 flex-shrink-0">
-                                        <button class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#224249] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" title="Editar">
+                                        <button class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#224249] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 btn-edit" title="Editar">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>
                                         </button>
-                                        <button class="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50" title="Eliminar">
+                                        <button class="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 btn-delete" title="Eliminar">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                             </svg>
@@ -206,11 +206,47 @@ const title = "Panel de Administración | RutaDorada";
                 )}
             </div>
         </div>
+
+        <!-- Modal de Confirmación de Eliminación -->
+        <div id="delete-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
+            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 max-w-md w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 modal-content">
+                <div class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </div>
+                
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white text-center mb-4">Confirmar eliminación</h3>
+                <p id="delete-modal-message" class="text-slate-500 dark:text-slate-400 text-center mb-8"></p>
+                
+                <div class="flex items-center gap-4">
+                    <button id="cancel-delete" class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+                        Cancelar
+                    </button>
+                    <button id="confirm-delete" class="flex-1 py-3 px-4 rounded-xl bg-red-600 text-white font-bold text-sm hover:bg-red-700 transition-all shadow-[0_0_15px_rgba(220,38,38,0.3)]">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notificación de Éxito -->
+        <div id="toast-success" class="fixed bottom-6 right-6 z-[110] hidden bg-green-500 text-white px-6 py-3 rounded-xl font-bold shadow-xl animate-bounce-short">
+            Post eliminado con éxito
+        </div>
     </main>
 
     <script>
         const logoutButton = document.getElementById('logout-button');
+        const deleteModal = document.getElementById('delete-modal');
+        const confirmDeleteBtn = document.getElementById('confirm-delete');
+        const cancelDeleteBtn = document.getElementById('cancel-delete');
+        const deleteModalMessage = document.getElementById('delete-modal-message');
+        const toastSuccess = document.getElementById('toast-success');
 
+        let currentPostToDelete: { filename: string, element: HTMLElement } | null = null;
+
+        // Logout logic
         logoutButton?.addEventListener('click', async () => {
             if (logoutButton instanceof HTMLButtonElement) {
                 logoutButton.disabled = true;
@@ -246,6 +282,88 @@ const title = "Panel de Administración | RutaDorada";
             }
         });
 
+        // Delete logic
+        function openDeleteModal(filename: string, title: string, element: HTMLElement) {
+            currentPostToDelete = { filename, element };
+            if (deleteModalMessage) {
+                deleteModalMessage.innerHTML = `¿Estás seguro de que deseas eliminar el artículo: <strong class="text-slate-900 dark:text-white">${title}</strong>? Esta acción no se puede deshacer.`;
+            }
+            deleteModal?.classList.remove('hidden');
+            deleteModal?.classList.add('flex');
+            
+            // Animation triggers
+            setTimeout(() => {
+                const content = deleteModal?.querySelector('.modal-content');
+                content?.classList.remove('scale-95', 'opacity-0');
+                content?.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
 
+        function closeDeleteModal() {
+            const content = deleteModal?.querySelector('.modal-content');
+            content?.classList.add('scale-95', 'opacity-0');
+            content?.classList.remove('scale-100', 'opacity-100');
+            
+            setTimeout(() => {
+                deleteModal?.classList.add('hidden');
+                deleteModal?.classList.remove('flex');
+                currentPostToDelete = null;
+            }, 300);
+        }
+
+        cancelDeleteBtn?.addEventListener('click', closeDeleteModal);
+
+        confirmDeleteBtn?.addEventListener('click', async () => {
+            if (!currentPostToDelete) return;
+
+            const originalBtnText = confirmDeleteBtn.textContent;
+            if (confirmDeleteBtn instanceof HTMLButtonElement) {
+                confirmDeleteBtn.disabled = true;
+                confirmDeleteBtn.textContent = 'Eliminando...';
+            }
+
+            try {
+                const response = await fetch('/api/posts/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filename: currentPostToDelete.filename })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success! Remove from DOM
+                    currentPostToDelete.element.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        currentPostToDelete?.element.remove();
+                        toastSuccess?.classList.remove('hidden');
+                        setTimeout(() => toastSuccess?.classList.add('hidden'), 3000);
+                    }, 300);
+                    closeDeleteModal();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Error al borrar:', error);
+                alert('Ocurrió un error en la conexión');
+            } finally {
+                if (confirmDeleteBtn instanceof HTMLButtonElement) {
+                    confirmDeleteBtn.disabled = false;
+                    confirmDeleteBtn.textContent = originalBtnText;
+                }
+            }
+        });
+
+        // Delegates delete clicks
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = btn.closest('.group') as HTMLElement;
+                const filename = card?.dataset.filename;
+                const title = card?.dataset.title;
+                if (filename && title) {
+                    openDeleteModal(filename, title, card);
+                }
+            });
+        });
     </script>
 </Layout>
