@@ -52,4 +52,4 @@ Con más de 70 películas en su carrera, el actor de 72 años ha mantenido una d
 
 Hace casi tres décadas, Travolta escribió e ilustró un libro para su hijo, basado en sus recuerdos de infancia y aventuras aéreas. La historia sigue a Jeff, un joven entusiasta de los aviones, y su madre en una travesía inolvidable hacia Hollywood, transformando un vuelo ordinario en una experiencia mágica. El filme es una producción de JTP Films Inc y Kids At Play, con Travolta, Jason Berger y Amy Laslett en la producción.
 
-El Festival de Cannes 2026 se celebrará del 12 al 23 de mayo. ¿Estás emocionado por el evento? ¿Qué películas esperas que se anuncien el 9 de abril? Comparte tus expectativas en los comentarios o en nuestra cuenta de X.
+El Festival de Cannes 2026 se celebrará del 12 al 23 de mayo. ¿Estás emocionado por el evento? ¿Qué películas esperas que se anuncien el 9 de abril? Comparte tus expectativas en los comentarios.
