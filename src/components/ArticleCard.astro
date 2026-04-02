@@ -39,16 +39,13 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
             <a href={url} class={`video-trigger-link ${triggerClass} block w-full h-full relative z-20`} data-video-url={videoUrl}>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 pointer-events-none" />
                 <div class="aspect-w-16 aspect-h-9 h-[28rem] sm:h-96 md:h-[32rem] w-full relative">
-                    <picture>
-                        <source srcset={finalImage.replace('.jpg', '-mobile.jpg')} media="(max-width: 640px)" />
-                        <img
-                            src={finalImage}
-                        alt={title}
-                            class="article-image object-cover w-full h-full"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </picture>
+                    <img
+    src={finalImage}
+    alt={title}
+    class="article-image object-cover w-full h-full"
+    loading="lazy"
+    decoding="async"
+/>
                 </div>
                 <div class="absolute bottom-0 left-0 p-5 sm:p-6 md:p-8 z-20 w-full">
                     <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -96,16 +93,13 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                             {category}
                         </span>
                     </div>
-                    <picture>
-                        <source srcset={finalImage.replace('.jpg', '-mobile.jpg')} media="(max-width: 640px)" />
-                        <img
-                            src={finalImage}
-                        alt={title}
-                            class="article-image w-full h-full object-cover"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </picture>
+                    <img
+    src={finalImage}
+    alt={title}
+    class="article-image w-full h-full object-cover"
+    loading="lazy"
+    decoding="async"
+/>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-3">
