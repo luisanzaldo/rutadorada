@@ -5,7 +5,7 @@ pubDate: 2026-03-24T18:28:40.369Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.europeanfilmawards.eu/wp-content/uploads/2024/09/pic_1472657686_7c94ae4410101110a7953dcfe2303dd2-1024x492.webp"
+image: "/images/posts/spider-man-brand-new-day-rompe-records-con-trailer-historico.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
