@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:41:33.205Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/04/MCDDAGI_EC014-H-2026.jpg?w=1296&h=730&crop=1"
+image: "https://share.google/6sixbMkhDgfdotj9S"
 category: "Artículos"
 fuente:
   nombre: "Hollywood Reporter"
