@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:41:33.205Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://share.google/6sixbMkhDgfdotj9S"
+image: "https://m.media-amazon.com/images/S/pv-target-images/95ffbd6d631945eecd74cf2006ef193dfed4be7e596a2eb045d372872b86deac.jpg"
 category: "Artículos"
 fuente:
   nombre: "Hollywood Reporter"
