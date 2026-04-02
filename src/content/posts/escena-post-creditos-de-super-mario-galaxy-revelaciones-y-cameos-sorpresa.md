@@ -22,7 +22,7 @@ La película 'The Super Mario Galaxy' sigue la tendencia de su predecesora al in
 
 Una de las primeras sorpresas fue la inclusión de Glen Powell dando voz al piloto Fox McCloud de 'Star Fox' en la secuela. Fox, quien también es un personaje destacado en la serie de luchas 'Super Smash Bros.', se encuentra con Mario, Luigi, Peach y Yoshi cuando están varados en el espacio. Les ofrece su nave Arwing para ayudarlos y se une a la batalla contra Bowser y Bowser Jr., incluso tiene su propio flashback.
 
-## Surpresas en la escena post-créditos
+## Sorpresas en la escena post-créditos
 
 En la primera escena post-créditos, vemos a Fox McCloud y un Toad llegando a una prisión desértica donde Bowser y su hijo han sido derrotados. La música de 'Star Fox' acompaña esta breve escena, dejando a muchos fans con la esperanza de un futuro filme de 'Star Fox' o un posible crossover con 'Super Smash Bros.'.
 

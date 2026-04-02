@@ -52,4 +52,4 @@ Pathé estará a cargo de la distribución en Francia, Benelux, Suiza y África 
 
 ## ¿qué esperas de 'ally'?
 
-¿Te emociona el estreno de 'Ally'? ¿Cuál es tu película favorita de Bong Joon Ho? ¿Cómo crees que su estilo se adaptará a la animación? Déjanos tus comentarios en la sección de abajo o en nuestra cuenta de X.
+¿Te emociona el estreno de 'Ally'? ¿Cuál es tu película favorita de Bong Joon Ho? ¿Cómo crees que su estilo se adaptará a la animación? Déjanos tus comentarios en la sección de abajo.
