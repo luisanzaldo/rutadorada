@@ -4,7 +4,7 @@ description: "Conoce nuestras recomendaciones para ver en estas fechas de Pascua
 pubDate: 2026-04-03T07:04:13.814Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.infofamilialibre.com/media/k2/items/cache/5709ab37f70d899bd3794356bcaad57a_XL.jpg"
+image: "/images/posts/semanasanta.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
