@@ -1,16 +1,15 @@
 ---
 title: "Bong Joon Ho Presenta 'Ally', Su Primera Película Animada"
 description: "Bong Joon Ho muestra el primer vistazo de 'Ally', su debut en el cine animado. Estreno mundial planeado para 2027."
-pubDate: 2026-04-02T17:35:19.148Z
-author: "Moncho"
-letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
+pubDate: 2026-04-06T20:33:20.790Z
+author: ""
+letterboxd: ""
 image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/04/Ally-scaled.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"
   url: "https://nextbestpicture.com/"
-readTime: "6 min read"
+readTime: "3 min read"
 tags: ["Próximamente"]
 ---
 
@@ -22,23 +21,9 @@ El aclamado cineasta Bong Joon Ho, ganador del Oscar, ha revelado el primer vist
 
 La trama gira en torno a 'Ally', un encantador calamarcito que habita en las profundidades del Océano Pacífico Sur. Ally sueña con ver el sol algún día y ser parte de un documental de vida marina. Sin embargo, su mundo cambia drásticamente cuando un misterioso avión se hunde en el océano, amenazando su pacífica existencia. Con la ayuda de sus diversos y leales amigos, Ally emprende un viaje extraordinario hacia la superficie. Inspirada por criaturas marinas reales, la película aborda temas de amistad y valentía, mostrando cómo los encuentros entre humanos y criaturas del mar transforman ambos mundos. Con impresionantes paisajes submarinos y emocionantes secuencias de acción, esta aventura familiar mezcla humor y emoción.
 
+#### El Éxito de 'Parasite'
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
-<div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-    </svg>
-</div>
-<div>
-<h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">El Éxito de 'Parasite'</h4>
-<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
 El aclamado director surcoreano Bong Joon Ho hizo historia con 'Parasite' al ganar tanto Mejor Película como Mejor Película Internacional en los Oscar.
-</p>
-</div>
-</div>
-</div>
 
 ## El legado de Bong Joon Ho
 
@@ -52,4 +37,4 @@ Pathé estará a cargo de la distribución en Francia, Benelux, Suiza y África 
 
 ## ¿qué esperas de 'ally'?
 
-¿Te emociona el estreno de 'Ally'? ¿Cuál es tu película favorita de Bong Joon Ho? ¿Cómo crees que su estilo se adaptará a la animación? Déjanos tus comentarios en la sección de abajo.
+¿Te emociona el estreno de 'Ally'? ¿Cuál es tu película favorita de Bong Joon Ho? ¿Cómo crees que su estilo se adaptará a la animación? Déjanos tus comentarios en la sección de más abajo.
