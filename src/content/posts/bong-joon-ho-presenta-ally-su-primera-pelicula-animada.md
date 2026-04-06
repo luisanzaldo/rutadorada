@@ -1,7 +1,7 @@
 ---
 title: "Bong Joon Ho Presenta 'Ally', Su Primera Película Animada"
 description: "Bong Joon Ho muestra el primer vistazo de 'Ally', su debut en el cine animado. Estreno mundial planeado para 2027."
-pubDate: 2026-03-06T20:45:25.884Z
+pubDate: 2026-04-05T20:45:25.884Z
 author: ""
 letterboxd: ""
 image: "/images/posts/bong-joon-ho-presenta-ally-su-primera-pelicula-animada.jpg"
