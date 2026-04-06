@@ -276,6 +276,19 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                             
                             <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
                             
+                            <!-- Rating Blocks -->
+                            <button type="button" id="btn-good-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-green-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto positivo">
+                                <span class="material-symbols-outlined text-[20px]">schedule</span>
+                            </button>
+                            <button type="button" id="btn-regular-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-orange-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto regular">
+                                <span class="material-symbols-outlined text-[20px]">schedule</span>
+                            </button>
+                            <button type="button" id="btn-bad-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-red-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto negativo">
+                                <span class="material-symbols-outlined text-[20px]">schedule</span>
+                            </button>
+                            
+                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+                            
                             <!-- Heading Buttons -->
                             <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Título principal">
                                 <span class="text-[15px]">H1</span>
@@ -398,6 +411,34 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 </div>
             </div>
         </div>
+
+        <!-- Modal Puntos (Bueno/Regular/Malo) -->
+        <div id="modal-point" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-point-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h4 id="point-modal-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <svg id="point-modal-icon" xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a10 10 0 1 0 10 10'/><path d='M12 6v6l4 2'/></svg>
+                        <span>Agregar punto</span>
+                    </h4>
+                    <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Título del bloque</label>
+                        <input type="text" id="point-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. Actuaciones sobresalientes" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del bloque</label>
+                        <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
+                    </div>
+                    <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg capitalize">
+                        Insertar punto
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
 </Layout>
 
@@ -500,6 +541,11 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
     .ProseMirror div[data-type="curiosity"] .material-symbols-outlined {
         color: #D4AF37 !important;
     }
+
+    /* Colores para bloques de valoración */
+    .ProseMirror div[data-type="good"] .material-symbols-outlined { color: #22c55e !important; }
+    .ProseMirror div[data-type="regular"] .material-symbols-outlined { color: #f97316 !important; }
+    .ProseMirror div[data-type="bad"] .material-symbols-outlined { color: #ef4444 !important; }
 </style>
 
 <script>
@@ -509,7 +555,6 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
     import Youtube from '@tiptap/extension-youtube';
     import Underline from '@tiptap/extension-underline';
     import { Markdown } from 'tiptap-markdown';
-
     // Extensión personalizada para el bloque de Curiosidad
     const Curiosity = Node.create({
         name: 'curiosity',
@@ -521,19 +566,6 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             return [
                 {
                     tag: 'div[data-type="curiosity"]',
-                },
-                {
-                    // Alternativa para detectar bloques existentes por sus clases de borde dorado
-                    tag: 'div',
-                    getAttrs: node => {
-                        const className = (node as HTMLElement).className || '';
-                        const hasGoldSpec = className.includes('D4AF37');
-                        const hasStructure = (node as HTMLElement).querySelector('h4') && (node as HTMLElement).querySelector('p');
-                        if (hasGoldSpec && hasStructure) {
-                            return {};
-                        }
-                        return false;
-                    },
                 },
             ]
         },
@@ -568,6 +600,66 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         },
     });
 
+    // Nodo para bloques de valoración (Bueno/Regular/Malo)
+    const Point = Node.create({
+        name: 'point',
+        group: 'block',
+        selectable: true,
+        draggable: true,
+        atom: true,
+        addAttributes() {
+            return {
+                type: { 
+                    default: 'good',
+                    parseHTML: element => element.getAttribute('data-type')
+                },
+                title: { 
+                    default: '',
+                    parseHTML: element => element.querySelector('h4')?.innerText || '',
+                },
+                content: { 
+                    default: '',
+                    parseHTML: element => element.querySelector('p')?.innerText || '',
+                },
+            }
+        },
+        parseHTML() {
+            return [
+                { tag: 'div[data-type="good"]', getAttrs: () => ({ type: 'good' }) },
+                { tag: 'div[data-type="regular"]', getAttrs: () => ({ type: 'regular' }) },
+                { tag: 'div[data-type="bad"]', getAttrs: () => ({ type: 'bad' }) },
+            ]
+        },
+        renderHTML({ HTMLAttributes }) {
+            const { type, title, content } = HTMLAttributes;
+            const colors = {
+                good: '#22c55e',
+                regular: '#f97316',
+                bad: '#ef4444'
+            };
+            const color = (colors as any)[type] || '#22c55e';
+            
+            return [
+                'div', 
+                { 
+                    'data-type': type, 
+                    class: 'my-8 rounded-xl border p-6 relative overflow-hidden',
+                    style: `border-color: ${color}33; background-color: ${color}0D;` // 20% alpha border, 5% alpha bg
+                },
+                ['div', { class: 'absolute top-0 left-0 h-full w-1', style: `background-color: ${color}` }],
+                ['div', { class: 'flex items-start gap-4' },
+                    ['div', { class: 'rounded-full p-2 shrink-0 flex items-center justify-center', style: `background-color: ${color}33` },
+                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'schedule']
+                    ],
+                    ['div', {},
+                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
+                        ['p', { class: 'text-slate-600 dark:text-slate-300 text-sm leading-relaxed' }, content]
+                    ]
+                ]
+            ];
+        },
+    });
+
     // Para evitar ejecución prematura en Astro e hidratar correctamente el script del lado del cliente
     document.addEventListener("DOMContentLoaded", () => {
         const editorElement = document.getElementById('tiptap-editor');
@@ -579,9 +671,17 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         const modalImage = document.getElementById('modal-image');
         const modalYoutube = document.getElementById('modal-youtube');
         const modalCuriosity = document.getElementById('modal-curiosity');
+        const modalPoint = document.getElementById('modal-point');
         const modalImageContent = document.getElementById('modal-image-content');
         const modalYoutubeContent = document.getElementById('modal-youtube-content');
         const modalCuriosityContent = document.getElementById('modal-curiosity-content');
+        const modalPointContent = document.getElementById('modal-point-content');
+        
+        // Configuración dinámica modal puntos
+        const pointModalTitle = document.getElementById('point-modal-title');
+        const pointModalIcon = document.getElementById('point-modal-icon');
+        const btnInsertPoint = document.getElementById('btn-insert-point');
+        let currentPointType = 'good';
         
         // Referencias para comportamiento especial de Tráilers
         const categorySelect = document.getElementById('category') as HTMLSelectElement;
@@ -642,7 +742,8 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     Markdown.configure({
                         html: true,
                     }),
-                    Curiosity
+                    Curiosity,
+                    Point
                 ],
                 content: '<p></p>',
                 editorProps: {
@@ -837,6 +938,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 closeModal(modalImage, modalImageContent);
                 closeModal(modalYoutube, modalYoutubeContent);
                 closeModal(modalCuriosity, modalCuriosityContent);
+                closeModal(modalPoint, modalPointContent);
             }));
 
             document.getElementById('btn-curiosity-modal')?.addEventListener('click', () => {
@@ -860,6 +962,68 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     if (titleInput) titleInput.value = '';
                     if (contentInput) contentInput.value = '';
                     closeModal(modalCuriosity, modalCuriosityContent);
+                } else {
+                    alert("Por favor llena ambos campos (Título y Contenido).");
+                }
+            });
+
+            // Botones para abrir Modal Puntos
+            const setupPointButton = (id: string, type: string, title: string, color: string) => {
+                const btn = document.getElementById(id);
+                btn?.addEventListener('click', () => {
+                    currentPointType = type;
+                    
+                    // Configurar título por defecto según el tipo
+                    const pointTitleInput = document.getElementById('point-title') as HTMLInputElement;
+                    if (pointTitleInput) {
+                        const defaultTitles: Record<string, string> = {
+                            good: 'Lo bueno',
+                            regular: 'Lo regular',
+                            bad: 'Lo malo'
+                        };
+                        pointTitleInput.value = defaultTitles[type] || '';
+                    }
+
+                    if (pointModalTitle) {
+                        (pointModalTitle.querySelector('span') as HTMLElement).textContent = title;
+                    }
+                    if (pointModalIcon) {
+                        pointModalIcon.style.color = color;
+                    }
+                    if (btnInsertPoint) {
+                        btnInsertPoint.style.backgroundColor = color;
+                        btnInsertPoint.textContent = `Insertar punto ${type === 'good' ? 'positivo' : type === 'regular' ? 'regular' : 'negativo'}`;
+                    }
+                    
+                    openModal(modalPoint, modalPointContent);
+                });
+            };
+
+            setupPointButton('btn-good-modal', 'good', 'Agregar punto positivo', '#22c55e');
+            setupPointButton('btn-regular-modal', 'regular', 'Agregar punto regular', '#f97316');
+            setupPointButton('btn-bad-modal', 'bad', 'Agregar punto negativo', '#ef4444');
+
+            // Lógica de inserción de puntos
+            btnInsertPoint?.addEventListener('click', () => {
+                const titleInput = document.getElementById('point-title') as HTMLInputElement;
+                const contentInput = document.getElementById('point-content') as HTMLTextAreaElement;
+                const title = titleInput?.value;
+                const content = contentInput?.value;
+
+                if (title && content) {
+                    editor.commands.insertContent({
+                        type: 'point',
+                        attrs: {
+                            type: currentPointType,
+                            title,
+                            content
+                        }
+                    });
+
+                    // Reset y cerrar
+                    if (titleInput) titleInput.value = '';
+                    if (contentInput) contentInput.value = '';
+                    closeModal(modalPoint, modalPointContent);
                 } else {
                     alert("Por favor llena ambos campos (Título y Contenido).");
                 }
