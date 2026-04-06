@@ -6,11 +6,13 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "/images/posts/trailer-la-odisea.jpg"
 category: "Tráilers"
-videoUrl: "https://youtu.be/1rnQu-NRXbQ?si=2EV_YEPN-uKpl9hE"
+videoUrl: "https://youtu.be/kx3pmGx24Tg?si=m9Aa3FBSTne6WEuC"
 readTime: "1 min read"
 tags: ["Cines"]
 ---
 
 
+
 Disfruta del increíble tráiler de *La Odisea*.
+
 
