@@ -30,24 +30,6 @@ Con un presupuesto de producción de $110 millones, “The Super Mario Galaxy Mo
 
 “Los niños aman la película,” señala Gross, añadiendo que “las películas familiares están liderando la industria ahora.”
 
-
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
-<div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-    </svg>
-</div>
-<div>
-<h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">Zach Galifianakis en el Mundo de la Jardinería</h4>
-<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-El carismático Zach Galifianakis será el anfitrión de un nuevo programa de jardinería en Netflix, donde mostrará su peculiar estilo en el mundo de las plantas.
-</p>
-</div>
-</div>
-</div>
-
 ## Otras estrenos del fin de semana
 
 Mientras “The Super Mario Galaxy Movie” dominaba las listas de taquilla, no fue el único estreno del fin de semana. La comedia oscura de A24 “The Drama”, protagonizada por Zendaya y Robert Pattinson, arrancó con fuerza al recaudar $14.4 millones en 3,087 pantallas. Esto supera a la exitosa “Materialists” de A24 ($11.3 millones) y se alinea con el último filme de Zendaya, “Challengers” ($15 millones en su estreno), que atrajo a un público similar a “The Drama.”

@@ -445,14 +445,61 @@ const sourceUrl = postData.fuente?.url || "";
         aspect-ratio: 16 / 9;
         border-radius: 0.75rem;
         margin: 1.5rem auto;
+        border: none;
+    }
+
+    /* Estilos explícitos para el bloque de Curiosidad dentro del editor (Tailwind fallback) */
+    .ProseMirror div[data-type="curiosity"] {
+        margin: 2rem 0;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        background-color: rgba(212, 175, 55, 0.05);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ProseMirror div[data-type="curiosity"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 4px;
+        background-color: #D4AF37;
+    }
+
+    .ProseMirror div[data-type="curiosity"] h4 {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: #0f172a !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        font-size: 1.125rem;
+    }
+
+    .dark .ProseMirror div[data-type="curiosity"] h4 {
+        color: #ffffff !important;
+    }
+
+    .ProseMirror div[data-type="curiosity"] p {
+        margin: 0 !important;
+        color: #475569 !important;
+        font-size: 0.875rem;
+        line-height: 1.625;
+    }
+
+    .dark .ProseMirror div[data-type="curiosity"] p {
+        color: #cbd5e1 !important;
     }
 </style>
 
 <script>
-    import { Editor, Node, mergeAttributes } from '@tiptap/core';
+    import { Editor, Node } from '@tiptap/core';
     import StarterKit from '@tiptap/starter-kit';
     import Image from '@tiptap/extension-image';
     import Youtube from '@tiptap/extension-youtube';
+    import Underline from '@tiptap/extension-underline';
     import { Markdown } from 'tiptap-markdown';
 
     // Extensión personalizada para el bloque de Curiosidad
@@ -531,10 +578,15 @@ const sourceUrl = postData.fuente?.url || "";
             const editor = new Editor({
                 element: editorElement,
                 extensions: [
-                    StarterKit,
+                    StarterKit.configure({
+                        hardBreak: false, // Forzar uso explícito si fuera necesario, pero StarterKit ya lo trae
+                    }),
                     Image,
                     Youtube.configure({ inline: false }),
-                    Markdown,
+                    Underline,
+                    Markdown.configure({
+                        html: true, // Permitir etiquetas HTML dentro del Markdown
+                    }),
                     Curiosity
                 ],
                 editorProps: {
