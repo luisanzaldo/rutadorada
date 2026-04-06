@@ -1,15 +1,16 @@
 ---
 title: "Tráiler: La Odisea"
 description: "Tráiler oficial de La Odisea: Una épica de acción mitológica filmada alrededor del mundo."
-pubDate: 2026-02-19
+pubDate: 2026-02-19T00:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "/images/posts/trailer-la-odisea.jpg"
 category: "Tráilers"
-readTime: "2 min"
+videoUrl: "https://youtu.be/1rnQu-NRXbQ?si=2EV_YEPN-uKpl9hE"
+readTime: "1 min read"
 tags: ["Cines"]
-videoUrl: "https://youtu.be/kx3pmGx24Tg?si=m9Aa3FBSTne6WEuC"
 ---
 
+
 Disfruta del increíble tráiler de *La Odisea*.
+
