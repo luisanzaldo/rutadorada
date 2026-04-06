@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:18:17.726Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mario_galaxy2.svg/1280px-Mario_galaxy2.svg.png"
+image: "/images/posts/escena-post-creditos-de-super-mario-galaxy-revelaciones-y-cameos-sorpresa.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

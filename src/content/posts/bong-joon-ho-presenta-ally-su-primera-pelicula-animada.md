@@ -4,7 +4,7 @@ description: "Bong Joon Ho muestra el primer vistazo de 'Ally', su debut en el c
 pubDate: 2026-04-06T20:33:20.790Z
 author: ""
 letterboxd: ""
-image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/04/Ally-scaled.jpg"
+image: "/images/posts/bong-joon-ho-presenta-ally-su-primera-pelicula-animada.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

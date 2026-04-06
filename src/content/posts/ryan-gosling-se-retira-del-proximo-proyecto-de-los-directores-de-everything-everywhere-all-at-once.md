@@ -5,7 +5,7 @@ pubDate: 2026-04-03T03:30:54.880Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2024/04/GettyImages-1998837557.jpg"
+image: "/images/posts/ryan-gosling-se-retira-del-proximo-proyecto-de-los-directores-de-everything-everywhere-all-at-once.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

@@ -5,7 +5,7 @@ pubDate: 2026-03-25T19:31:33.709Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://img.youtube.com/vi/_N7r5luRkbg/maxresdefault.jpg"
+image: "/images/posts/trailer-harry-potter-y-la-piedra-filosofal.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["TV"]

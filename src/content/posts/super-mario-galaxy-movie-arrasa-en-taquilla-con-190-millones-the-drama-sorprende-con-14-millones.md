@@ -5,7 +5,7 @@ pubDate: 2026-04-05T14:53:53.078Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://media.gq.com.mx/photos/6918d422b058d033a0f13933/16:9/w_2208,h_1242,c_limit/Mario%20y%20Peach%20buena%20(1).jpg"
+image: "/images/posts/super-mario-galaxy-movie-arrasa-en-taquilla-con-190-millones-the-drama-sorprende-con-14-millones.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

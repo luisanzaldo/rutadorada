@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:38:44.972Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/04/Propeller-One-Way-Coach-1024x512.jpg"
+image: "/images/posts/el-debut-como-director-de-john-travolta-se-estrenara-en-cannes-2026.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"
