@@ -309,6 +309,9 @@ const sourceUrl = postData.fuente?.url || "";
                             <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video">
                                 <span class="material-symbols-outlined text-[20px]">smart_display</span>
                             </button>
+                            <button type="button" id="btn-curiosity-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Bloque de Curiosidad">
+                                <span class="material-symbols-outlined text-[20px]">star</span>
+                            </button>
                             
                             <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
                             
@@ -384,6 +387,33 @@ const sourceUrl = postData.fuente?.url || "";
                 </div>
             </div>
         </div>
+
+        <!-- Modal Curiosidad -->
+        <div id="modal-curiosity" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">auto_awesome</span> Bloque de Curiosidad
+                    </h4>
+                    <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Título del recuadro</label>
+                        <input type="text" id="curiosity-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. La Magia de Cannes" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del recuadro</label>
+                        <textarea id="curiosity-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto de la curiosidad aquí..."></textarea>
+                    </div>
+                    <button type="button" id="btn-insert-curiosity" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(212,175,55,0.3)]">
+                        Insertar bloque
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
 </Layout>
 
@@ -419,11 +449,58 @@ const sourceUrl = postData.fuente?.url || "";
 </style>
 
 <script>
-    import { Editor } from '@tiptap/core';
+    import { Editor, Node, mergeAttributes } from '@tiptap/core';
     import StarterKit from '@tiptap/starter-kit';
     import Image from '@tiptap/extension-image';
     import Youtube from '@tiptap/extension-youtube';
     import { Markdown } from 'tiptap-markdown';
+
+    // Extensión personalizada para el bloque de Curiosidad
+    const Curiosity = Node.create({
+        name: 'curiosity',
+        group: 'block',
+        content: 'inline*',
+        selectable: true,
+        draggable: true,
+        atom: true,
+        addAttributes() {
+            return {
+                title: { default: '' },
+                content: { default: '' },
+            }
+        },
+        parseHTML() {
+            return [
+                {
+                    tag: 'div[data-type="curiosity"]',
+                    getAttrs: node => {
+                        const title = (node as HTMLElement).querySelector('h4')?.innerText || '';
+                        const content = (node as HTMLElement).querySelector('p')?.innerText || '';
+                        return { title, content };
+                    },
+                },
+            ]
+        },
+        renderHTML({ HTMLAttributes }) {
+            const { title, content } = HTMLAttributes;
+            return [
+                'div', 
+                { 'data-type': 'curiosity', class: 'my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden' },
+                ['div', { class: 'absolute top-0 left-0 h-full w-1 bg-[#D4AF37]' }],
+                ['div', { class: 'flex items-start gap-4' },
+                    ['div', { class: 'rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center' },
+                        ['svg', { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' },
+                            ['polygon', { points: '12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2' }]
+                        ]
+                    ],
+                    ['div', {},
+                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display' }, title],
+                        ['p', { class: 'text-slate-600 dark:text-slate-300 text-sm leading-relaxed' }, content]
+                    ]
+                ]
+            ];
+        },
+    });
 
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById('editar-post-form');
@@ -457,7 +534,8 @@ const sourceUrl = postData.fuente?.url || "";
                     StarterKit,
                     Image,
                     Youtube.configure({ inline: false }),
-                    Markdown
+                    Markdown,
+                    Curiosity
                 ],
                 editorProps: {
                     attributes: {
@@ -527,11 +605,37 @@ const sourceUrl = postData.fuente?.url || "";
             document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', () => {
                 document.getElementById('modal-image-content').classList.add('scale-95', 'opacity-0');
                 document.getElementById('modal-youtube-content').classList.add('scale-95', 'opacity-0');
+                document.getElementById('modal-curiosity-content').classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
                     document.getElementById('modal-image').classList.add('hidden');
                     document.getElementById('modal-youtube').classList.add('hidden');
+                    document.getElementById('modal-curiosity').classList.add('hidden');
                 }, 200);
             }));
+
+            document.getElementById('btn-curiosity-modal')?.addEventListener('click', () => {
+                document.getElementById('modal-curiosity').classList.remove('hidden');
+                setTimeout(() => document.getElementById('modal-curiosity-content').classList.remove('scale-95', 'opacity-0'), 10);
+            });
+
+            // Insertar Curiosidad
+            document.getElementById('btn-insert-curiosity')?.addEventListener('click', () => {
+                const titleInput = document.getElementById('curiosity-title') as HTMLInputElement;
+                const contentInput = document.getElementById('curiosity-content') as HTMLTextAreaElement;
+                const title = titleInput?.value;
+                const content = contentInput?.value;
+
+                if (title && content) {
+                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${content}</p></div></div></div>`;
+                    editor.commands.insertContent(html);
+                    
+                    if (titleInput) titleInput.value = '';
+                    if (contentInput) contentInput.value = '';
+                    document.querySelectorAll('.btn-close-modal')[0].click(); // Cerrar modal logic
+                } else {
+                    alert("Llena título y contenido.");
+                }
+            });
 
             document.getElementById('btn-insert-image')?.addEventListener('click', () => {
                 const url = document.getElementById('tiptap-img-url').value;
