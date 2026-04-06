@@ -124,6 +124,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     <option value="Artículos">Artículos</option>
                                     <option value="Premios">Premios</option>
                                     <option value="Críticas">Críticas</option>
+                                    <option value="Tráilers">Tráilers</option>
                                 </select>
                                 <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 material-symbols-outlined">expand_more</span>
                             </div>
@@ -152,7 +153,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     <!-- Columna Derecha: Fuente original -->
                     <div class="space-y-6">
                         <!-- Nombre de la Fuente -->
-                        <div class="space-y-2">
+                        <div class="space-y-2" id="sourceNameContainer">
                             <label for="sourceName" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
                                 Nombre de la fuente <span class="text-xs font-normal text-slate-500">(Opcional)</span>
                             </label>
@@ -166,8 +167,8 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         </div>
                         
                         <!-- URL de la Fuente -->
-                        <div class="space-y-2">
-                            <label for="sourceUrl" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                        <div class="space-y-2" id="sourceUrlContainer">
+                            <label for="sourceUrl" id="sourceUrlLabel" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
                                 Enlace de la fuente <span class="text-xs font-normal text-slate-500">(Opcional)</span>
                             </label>
                             <div class="relative flex items-center">
@@ -582,6 +583,37 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         const modalYoutubeContent = document.getElementById('modal-youtube-content');
         const modalCuriosityContent = document.getElementById('modal-curiosity-content');
         
+        // Referencias para comportamiento especial de Tráilers
+        const categorySelect = document.getElementById('category') as HTMLSelectElement;
+        const sourceNameContainer = document.getElementById('sourceNameContainer');
+        const sourceUrlContainer = document.getElementById('sourceUrlContainer');
+        const sourceUrlLabel = document.getElementById('sourceUrlLabel');
+        const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
+
+        if (categorySelect) {
+            categorySelect.addEventListener('change', () => {
+                const isTrailer = categorySelect.value === 'Tráilers';
+                
+                if (isTrailer) {
+                    // Comportamiento Tráilers
+                    if (sourceNameContainer) sourceNameContainer.classList.add('hidden');
+                    if (sourceUrlLabel) sourceUrlLabel.innerHTML = 'Enlace de YouTube <span class="text-xs font-bold text-red-500">*</span>';
+                    if (sourceUrlInput) {
+                        sourceUrlInput.required = true;
+                        sourceUrlInput.placeholder = 'https://youtu.be/...';
+                    }
+                } else {
+                    // Restaurar original
+                    if (sourceNameContainer) sourceNameContainer.classList.remove('hidden');
+                    if (sourceUrlLabel) sourceUrlLabel.innerHTML = 'Enlace de la fuente <span class="text-xs font-normal text-slate-500">(Opcional)</span>';
+                    if (sourceUrlInput) {
+                        sourceUrlInput.required = false;
+                        sourceUrlInput.placeholder = '';
+                    }
+                }
+            });
+        }
+        
         // Referencias Preview Portada Global
         const mainImageUrl = document.getElementById('imageUrl') as HTMLInputElement;
         const mainImageFile = document.getElementById('imageFile') as HTMLInputElement;
@@ -689,13 +721,26 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
                 try {
                     // Recopilar tags (separar por comas y limpiar espacios)
+                    // Recopilar tags (separar por comas y limpiar espacios)
                     const tagsInput = (document.getElementById('tags') as HTMLInputElement).value;
                     const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : [];
                     
-                    // Fuente
-                    const sourceName = (document.getElementById('sourceName') as HTMLInputElement).value;
-                    const sourceUrl = (document.getElementById('sourceUrl') as HTMLInputElement).value;
-                    const fuente = (sourceName || sourceUrl) ? { nombre: sourceName, url: sourceUrl } : undefined;
+                    // Fuente y Video
+                    const sourceNameInput = document.getElementById('sourceName') as HTMLInputElement;
+                    const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
+                    const category = catInput.value;
+                    
+                    let fuente = undefined;
+                    let videoUrl = undefined;
+
+                    if (category === 'Tráilers') {
+                        videoUrl = sourceUrlInput.value;
+                        // No enviamos fuente para trailers (se oculta el campo nombre)
+                    } else {
+                        const sName = sourceNameInput.value;
+                        const sUrl = sourceUrlInput.value;
+                        fuente = (sName || sUrl) ? { nombre: sName, url: sUrl } : undefined;
+                    }
 
                     // Calcular readTime asumiendo 200 palabras por min
                     const plainText = editor.getText();
@@ -733,9 +778,10 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         author: form.dataset.author || 'Redacción',
                         letterboxd: form.dataset.letterboxd || '',
                         image: finalImageUrl,
-                        category: catInput.value,
+                        category,
                         tags,
                         fuente,
+                        videoUrl,
                         readTime,
                         content,
                         fileExtension: fileExtInput.value || '.md'

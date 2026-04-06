@@ -39,6 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
       readTime, 
       content, 
       fileExtension,
+      videoUrl,
       sha, // Opcional: Para actualizaciones
       filename // Opcional: Nombre de archivo original
     } = data;
@@ -72,6 +73,12 @@ export const POST: APIRoute = async ({ request }) => {
     
     const fuenteName = fuente?.nombre ? fuente.nombre.replace(/"/g, '\\"') : "Redacción";
     const fuenteUrl = fuente?.url || "https://www.rutadoradafilms.com";
+    
+    // Solo agregar fuente si no es un tráiler o si tiene datos explícitos
+    const videoUrlLine = videoUrl ? `videoUrl: "${videoUrl.replace(/"/g, '\\"')}"` : "";
+    const sourceBlock = category !== 'Tráilers' ? `fuente:
+  nombre: "${fuenteName}"
+  url: "${fuenteUrl}"` : "";
 
     const yamlContent = `---
 title: "${safeTitle}"
@@ -81,10 +88,7 @@ author: "${safeAuthor}"
 letterboxd: "${safeLetterboxd}"
 image: "${safeImage}"
 category: "${category}"
-fuente:
-  nombre: "${fuenteName}"
-  url: "${fuenteUrl}"
-readTime: "${readTime || '3 min read'}"
+${sourceBlock ? sourceBlock + '\n' : ''}${videoUrlLine ? videoUrlLine + '\n' : ''}readTime: "${readTime || '3 min read'}"
 tags: ${JSON.stringify(Array.isArray(tags) ? tags : [])}
 ---
 
