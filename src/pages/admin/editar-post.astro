@@ -1,0 +1,613 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import { getSession } from "../../lib/auth";
+import { USERS } from "../../lib/users";
+import matter from "gray-matter";
+
+export const prerender = false;
+
+// 1. Verificar la sesión usando getSession
+const session = await getSession(Astro.request);
+
+// Si no hay sesión válida, redirigir automáticamente al login
+if (!session) {
+    return Astro.redirect("/admin/login");
+}
+
+// 2. Obtener los datos del usuario logueado
+const user = USERS.find((u) => u.username === session.username);
+
+// 3. Obtener el filename desde el parámetro de búsqueda ?filename=...
+const url = new URL(Astro.request.url);
+const filename = url.searchParams.get("filename");
+
+if (!filename) {
+    return Astro.redirect("/admin");
+}
+
+// 4. Obtener contenido del archivo desde GitHub API
+const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+const GITHUB_REPO = import.meta.env.GITHUB_REPO;
+
+let postData: any = {};
+let fileSha = "";
+let initialMarkdown = "";
+let errorLoading = false;
+
+try {
+    const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/src/content/posts/${filename}`;
+    const response = await fetch(githubUrl, {
+        headers: {
+            "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "Accept": "application/vnd.github.v3+json",
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status}`);
+    }
+
+    const json = await response.json();
+    fileSha = json.sha;
+    
+    // Decodificar Base64 (UTF-8 compatible)
+    const rawContent = Buffer.from(json.content, "base64").toString("utf-8");
+    
+    // Parsear frontmatter
+    const { data, content } = matter(rawContent);
+    postData = data;
+    initialMarkdown = content;
+} catch (err) {
+    console.error("Error loading post from GitHub:", err);
+    errorLoading = true;
+    return Astro.redirect("/admin?error=load_failed");
+}
+
+const title = "Editar Post | Panel Admin RutaDorada";
+
+// Helper para pre-rellenar tags
+const tagsString = postData.tags ? (Array.isArray(postData.tags) ? postData.tags.join(", ") : postData.tags) : "";
+
+// Helper para pre-rellenar fuente
+const sourceName = postData.fuente?.nombre || "";
+const sourceUrl = postData.fuente?.url || "";
+---
+
+<Layout title={title}>
+    <Header />
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        <!-- Background Elements para coherencia visual -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
+            <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
+        </div>
+
+        <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm relative z-10">
+            
+            <!-- Encabezado de la página -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-slate-100 dark:border-[#224249] pb-6">
+                <div>
+                    <h1 class="font-display font-bold text-3xl text-slate-900 dark:text-white flex items-center gap-3">
+                        <a href="/admin" class="flex items-center text-slate-400 hover:text-primary transition-colors hover:-translate-x-1" title="Volver al Panel">
+                            <span class="material-symbols-outlined text-[28px]">arrow_back</span>
+                        </a>
+                        Editar artículo
+                    </h1>
+                    <p class="text-slate-500 text-sm mt-3 sm:ml-[42px] flex items-center gap-2">
+                        <span>Autor:</span> 
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#162a2f] border border-[#224249] text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <span class="font-medium text-xs tracking-wide">{postData.author || user?.displayName}</span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Formulario Principal -->
+            <form class="space-y-8" id="editar-post-form" data-sha={fileSha} data-filename={filename}>
+                
+                <!-- Sección 1: Información Principal -->
+                <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
+                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[18px]">info</span>
+                        Datos Principales
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="md:col-span-2 space-y-2">
+                            <label for="title" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Título del post *
+                            </label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                required
+                                value={postData.title}
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-lg"
+                                placeholder="Escribe el título aquí..."
+                            />
+                        </div>
+
+                        <div class="md:col-span-2 space-y-2">
+                            <label for="description" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Descripción / Resumen *
+                            </label>
+                            <textarea
+                                id="description"
+                                name="description"
+                                required
+                                rows="3"
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium resize-none leading-relaxed"
+                                placeholder="Un breve resumen..."
+                            >{postData.description}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Metadata y Categorización -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <label for="category" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Categoría *
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                                    <span class="material-symbols-outlined text-[18px]">category</span>
+                                </span>
+                                <select
+                                    id="category"
+                                    name="category"
+                                    required
+                                    class="w-full pl-11 pr-10 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium appearance-none cursor-pointer"
+                                >
+                                    <option value="Artículos" selected={postData.category === "Artículos"}>Artículos</option>
+                                    <option value="Premios" selected={postData.category === "Premios"}>Premios</option>
+                                    <option value="Críticas" selected={postData.category === "Críticas"}>Críticas</option>
+                                    <option value="Tráilers" selected={postData.category === "Tráilers"}>Tráilers</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="tags" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Etiquetas (Tags)
+                            </label>
+                            <div class="relative flex items-center">
+                                <span class="absolute left-4 text-slate-400 pointer-events-none">
+                                    <span class="material-symbols-outlined text-[18px]">sell</span>
+                                </span>
+                                <input
+                                    type="text"
+                                    id="tags"
+                                    name="tags"
+                                    value={tagsString}
+                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                    placeholder="Ej. Oscar, Cannes..."
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <label for="sourceName" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Nombre de la fuente
+                            </label>
+                            <input
+                                type="text"
+                                id="sourceName"
+                                name="sourceName"
+                                value={sourceName}
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label for="sourceUrl" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+                                Enlace de la fuente
+                            </label>
+                            <div class="relative flex items-center">
+                                <span class="absolute left-4 text-slate-400 pointer-events-none">
+                                    <span class="material-symbols-outlined text-[18px]">link</span>
+                                </span>
+                                <input
+                                    type="url"
+                                    id="sourceUrl"
+                                    name="sourceUrl"
+                                    value={sourceUrl}
+                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-100 dark:border-[#224249]/50" />
+
+                <!-- Sección 3: Área visual (Imagen Header) -->
+                <div class="space-y-4 bg-slate-50/50 dark:bg-[#162a2f]/10 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
+                    <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-[20px] text-primary">broken_image</span>
+                        Imagen Principal (Portada)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="w-full space-y-2">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide">Vincular por URL externa</label>
+                            <input
+                                type="url"
+                                id="imageUrl"
+                                name="imageUrl"
+                                value={postData.image}
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-sm"
+                                placeholder="Pega el enlace web de la imagen aquí..."
+                            />
+                        </div>
+
+                        <div class="w-full space-y-2 mt-2 md:mt-0">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide">O subir archivo local</label>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="imageFile" class="flex flex-col items-center justify-center w-full h-[50px] border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-xl cursor-pointer bg-slate-50 dark:bg-[#0b1618] dark:hover:bg-[#162a2f] hover:bg-slate-100 transition-colors group">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">cloud_upload</span>
+                                        <span class="text-sm text-slate-500 dark:text-slate-400 font-medium group-hover:text-slate-600 dark:group-hover:text-slate-200 transition-colors">Examinar computadora...</span>
+                                    </div>
+                                    <input id="imageFile" type="file" accept="image/*" class="hidden" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenedor de Previsualización de Portada -->
+                    <div id="coverPreviewContainer" class={postData.image ? "mt-6 w-full flex flex-col items-center justify-center p-4 bg-slate-50 dark:bg-[#0b1618]/50 border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-2xl relative overflow-hidden transition-all" : "hidden mt-6 w-full flex-col items-center justify-center p-4 bg-slate-50 dark:bg-[#0b1618]/50 border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-2xl relative overflow-hidden transition-all"}>
+                        <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Previsualización de Portada</span>
+                        <img id="coverPreviewImage" src={postData.image || ""} alt="Previsualización" class={postData.image ? "max-h-[300px] w-auto rounded-xl object-contain shadow-md" : "max-h-[300px] w-auto rounded-xl object-contain shadow-md hidden"} />
+                        <div id="coverPreviewError" class="hidden flex-col items-center gap-2 text-red-500/80 p-6 text-center">
+                            <span class="material-symbols-outlined text-[32px]">broken_image</span>
+                            <span class="text-sm font-semibold">No se pudo cargar la imagen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-100 dark:border-[#224249]/50" />
+
+                <!-- Sección 4: Área del Editor Enriquecido -->
+                <div class="space-y-4">
+                    <label class="block text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[20px] text-primary">edit_note</span>
+                        Contenido del Artículo
+                    </label>
+
+                    <!-- TIPTAP EDITOR -->
+                    <div class="w-full rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
+                        
+                        <!-- Toolbar (idéntica a nuevo-post.astro) -->
+                        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-[#162a2f]/50 border-b border-slate-200 dark:border-[#224249]">
+                            <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita">
+                                <span class="font-serif font-black text-lg">N</span>
+                            </button>
+                            <button type="button" data-tiptap-btn="italic" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic" title="Itálica">
+                                <span class="font-serif font-black text-lg">I</span>
+                            </button>
+                            <button type="button" data-tiptap-btn="underline" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none underline" title="Subrayado">
+                                <span class="font-serif font-black text-lg">U</span>
+                            </button>
+                            
+                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+                            
+                            <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
+                                <span class="material-symbols-outlined text-[20px]">image</span>
+                            </button>
+                            <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video">
+                                <span class="material-symbols-outlined text-[20px]">smart_display</span>
+                            </button>
+                            
+                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+                            
+                            <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="H1">
+                                <span class="text-[15px]">H1</span>
+                            </button>
+                            <button type="button" data-tiptap-btn="h2" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="H2">
+                                <span class="text-sm">H2</span>
+                            </button>
+                            <button type="button" data-tiptap-btn="h3" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="H3">
+                                <span class="text-[12px]">H3</span>
+                            </button>
+                        </div>
+
+                        <!-- Escritura Area -->
+                        <div id="tiptap-editor" class="p-6 prose prose-slate dark:prose-invert max-w-none text-slate-900 dark:text-slate-200 min-h-[400px] outline-none bg-transparent prose-headings:font-display prose-headings:font-bold prose-a:text-primary prose-strong:text-primary prose-a:no-underline hover:prose-a:underline"></div>
+                        <input type="hidden" name="contentMarkdown" id="contentMarkdown">
+                        <input type="hidden" name="fileExtension" id="fileExtension" value={filename.endsWith('.mdx') ? '.mdx' : '.md'}>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción (Submit) -->
+                <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 sm:gap-4 pt-8 mt-12 border-t border-slate-100 dark:border-[#224249]">
+                    <a 
+                        href="/admin" 
+                        class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-[#162a2f] transition-all flex items-center justify-center gap-2"
+                    >
+                        Cancelar
+                    </a>
+                    
+                    <button 
+                        id="submit-btn" type="submit"
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-[#0b1618] font-bold shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                    >
+                        <span id="btn-icon" class="material-symbols-outlined text-[20px]">save</span>
+                        <span id="btn-text">Guardar cambios</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modales idénticos a nuevo-post.astro -->
+        <div id="modal-image" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-image-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">image</span> Insertar Imagen
+                    </h4>
+                    <button type="button" class="btn-close-modal text-slate-400">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white" placeholder="https://..." />
+                    <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold">Insertar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-youtube" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-youtube-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#FF0000]">smart_display</span> Video de YouTube
+                    </h4>
+                    <button type="button" class="btn-close-modal text-slate-400">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <input type="url" id="tiptap-yt-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white" placeholder="https://..." />
+                    <button type="button" id="btn-insert-youtube" class="w-full py-3 rounded-xl bg-primary text-[#0b1618] font-bold">Incrustar video</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style is:global>
+    .ProseMirror {
+        outline: none;
+        min-height: 400px;
+        caret-color: #D4AF37;
+    }
+    .tiptap-btn-active {
+        background-color: #e2e8f0 !important;
+        color: #0f172a !important;
+    }
+    .dark .tiptap-btn-active {
+        background-color: #0b1618 !important; 
+        color: #D4AF37 !important;
+    }
+    .ProseMirror strong, .ProseMirror b {
+        color: #D4AF37 !important;
+    }
+    .ProseMirror img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        margin: 1.5rem auto;
+    }
+    .ProseMirror iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 0.75rem;
+        margin: 1.5rem auto;
+    }
+</style>
+
+<script define:vars={{ initialMarkdown }}>
+    import { Editor } from '@tiptap/core';
+    import StarterKit from '@tiptap/starter-kit';
+    import Underline from '@tiptap/extension-underline';
+    import Image from '@tiptap/extension-image';
+    import Youtube from '@tiptap/extension-youtube';
+    import { Markdown } from 'tiptap-markdown';
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const editorElement = document.getElementById('tiptap-editor');
+        const inputContent = document.getElementById('contentMarkdown');
+        const form = document.getElementById('editar-post-form');
+        const fileExtInput = document.getElementById('fileExtension');
+        
+        const mainImageUrl = document.getElementById('imageUrl');
+        const mainImageFile = document.getElementById('imageFile');
+        const coverPreviewContainer = document.getElementById('coverPreviewContainer');
+        const coverPreviewImage = document.getElementById('coverPreviewImage');
+        const coverPreviewError = document.getElementById('coverPreviewError');
+
+        if (editorElement) {
+            const btns = {
+                bold: document.querySelector('[data-tiptap-btn="bold"]'),
+                italic: document.querySelector('[data-tiptap-btn="italic"]'),
+                underline: document.querySelector('[data-tiptap-btn="underline"]'),
+                h1: document.querySelector('[data-tiptap-btn="h1"]'),
+                h2: document.querySelector('[data-tiptap-btn="h2"]'),
+                h3: document.querySelector('[data-tiptap-btn="h3"]'),
+            };
+
+            const editor = new Editor({
+                element: editorElement,
+                extensions: [
+                    StarterKit,
+                    Underline,
+                    Image,
+                    Youtube.configure({ inline: false }),
+                    Markdown
+                ],
+                editorProps: {
+                    attributes: {
+                        class: 'focus:outline-none',
+                    },
+                },
+                onUpdate: ({ editor }) => {
+                    const mdText = editor.storage.markdown.getMarkdown();
+                    if (inputContent) inputContent.value = mdText;
+                    
+                    if (fileExtInput) {
+                        if (editor.getHTML().includes('<iframe') || mdText.includes('<iframe')) {
+                            fileExtInput.value = '.mdx';
+                        } else {
+                            fileExtInput.value = '.md';
+                        }
+                    }
+                    updateActiveButtons(editor);
+                },
+                onSelectionUpdate: ({ editor }) => {
+                    updateActiveButtons(editor);
+                }
+            });
+
+            // Establecer contenido inicial
+            editor.commands.setContent(initialMarkdown);
+            if (inputContent) inputContent.value = initialMarkdown;
+
+            // Formato Buttons
+            btns.bold?.addEventListener('click', () => { editor.chain().focus().toggleBold().run() });
+            btns.italic?.addEventListener('click', () => { editor.chain().focus().toggleItalic().run() });
+            btns.underline?.addEventListener('click', () => { editor.chain().focus().toggleUnderline().run() });
+            btns.h1?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 1 }).run() });
+            btns.h2?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 2 }).run() });
+            btns.h3?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 3 }).run() });
+
+            function updateActiveButtons(ed) {
+                setBtnState(btns.bold, ed.isActive('bold'));
+                setBtnState(btns.italic, ed.isActive('italic'));
+                setBtnState(btns.underline, ed.isActive('underline'));
+                setBtnState(btns.h1, ed.isActive('heading', { level: 1 }));
+                setBtnState(btns.h2, ed.isActive('heading', { level: 2 }));
+                setBtnState(btns.h3, ed.isActive('heading', { level: 3 }));
+            }
+
+            function setBtnState(btn, isActive) {
+                if (!btn) return;
+                if (isActive) btn.classList.add('tiptap-btn-active');
+                else btn.classList.remove('tiptap-btn-active');
+            }
+
+            // Media
+            document.getElementById('btn-image-modal')?.addEventListener('click', () => {
+                document.getElementById('modal-image').classList.remove('hidden');
+                setTimeout(() => document.getElementById('modal-image-content').classList.remove('scale-95', 'opacity-0'), 10);
+            });
+            document.getElementById('btn-video-modal')?.addEventListener('click', () => {
+                document.getElementById('modal-youtube').classList.remove('hidden');
+                setTimeout(() => document.getElementById('modal-youtube-content').classList.remove('scale-95', 'opacity-0'), 10);
+            });
+            document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', () => {
+                document.getElementById('modal-image-content').classList.add('scale-95', 'opacity-0');
+                document.getElementById('modal-youtube-content').classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    document.getElementById('modal-image').classList.add('hidden');
+                    document.getElementById('modal-youtube').classList.add('hidden');
+                }, 200);
+            }));
+
+            document.getElementById('btn-insert-image')?.addEventListener('click', () => {
+                const url = document.getElementById('tiptap-img-url').value;
+                if (url) {
+                    editor.chain().focus().setImage({ src: url }).run();
+                    document.querySelector('.btn-close-modal').click();
+                }
+            });
+            document.getElementById('btn-insert-youtube')?.addEventListener('click', () => {
+                const url = document.getElementById('tiptap-yt-url').value;
+                if (url) {
+                    editor.chain().focus().setYoutubeVideo({ src: url }).run();
+                    document.querySelector('.btn-close-modal').click();
+                }
+            });
+
+            // Preview Portada
+            mainImageUrl?.addEventListener('input', () => {
+                const src = mainImageUrl.value;
+                if (src && coverPreviewImage && coverPreviewContainer) {
+                    coverPreviewImage.src = src;
+                    coverPreviewImage.onload = () => coverPreviewImage.classList.remove('hidden');
+                    coverPreviewContainer.classList.remove('hidden');
+                    coverPreviewContainer.classList.add('flex');
+                }
+            });
+
+            // Submit logic
+            form?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = document.getElementById('submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Guardando...';
+
+                try {
+                    const title = document.getElementById('title').value;
+                    const description = document.getElementById('description').value;
+                    const category = document.getElementById('category').value;
+                    const tagsInput = document.getElementById('tags').value;
+                    const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : [];
+                    
+                    const sourceName = document.getElementById('sourceName').value;
+                    const sourceUrl = document.getElementById('sourceUrl').value;
+                    const fuente = (sourceName || sourceUrl) ? { nombre: sourceName, url: sourceUrl } : undefined;
+
+                    // ReadTime approximation
+                    const plainText = editor.getText();
+                    const words = plainText.trim().split(/\s+/).length || 1;
+                    const readTime = `${Math.max(1, Math.ceil(words / 200))} min read`;
+
+                    const content = inputContent.value;
+                    const sha = form.dataset.sha;
+                    const filename = form.dataset.filename;
+
+                    let finalImageUrl = mainImageUrl.value;
+                    if (mainImageFile.files?.[0]) {
+                        const formData = new FormData();
+                        formData.append('image', mainImageFile.files[0]);
+                        const upRes = await fetch('/api/posts/upload-image', { method: 'POST', body: formData });
+                        if (upRes.ok) finalImageUrl = (await upRes.json()).url;
+                    }
+
+                    const payload = {
+                        title, description, content, category, tags, fuente, readTime,
+                        image: finalImageUrl,
+                        sha, filename,
+                        fileExtension: fileExtInput.value
+                    };
+
+                    const res = await fetch('/api/posts/publish', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if ((await res.json()).success) {
+                        alert('¡Artículo actualizado!');
+                        window.location.href = '/admin';
+                    } else {
+                        throw new Error('Error de servidor al guardar');
+                    }
+                } catch (err) {
+                    alert(err.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Guardar cambios';
+                }
+            });
+        }
+    });
+</script>

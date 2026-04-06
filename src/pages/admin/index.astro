@@ -355,5 +355,16 @@ const title = "Panel de Administración | RutaDorada";
                 }
             });
         });
+
+        // Delegates edit clicks
+        document.querySelectorAll('.btn-edit').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = btn.closest('.group') as HTMLElement;
+                const filename = card?.dataset.filename;
+                if (filename) {
+                    window.location.href = `/admin/editar-post?filename=${encodeURIComponent(filename)}`;
+                }
+            });
+        });
     </script>
 </Layout>

@@ -38,7 +38,9 @@ export const POST: APIRoute = async ({ request }) => {
       fuente, 
       readTime, 
       content, 
-      fileExtension 
+      fileExtension,
+      sha, // Opcional: Para actualizaciones
+      filename // Opcional: Nombre de archivo original
     } = data;
 
     if (!title || !content || !category || !description) {
@@ -48,11 +50,20 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // 3. Generar Slug
-    const slug = generateSlug(title);
+    // 3. Determinar Ruta de Archivo
+    let filePath = "";
+    if (filename) {
+      // Si estamos editando, mantenemos el archivo original
+      filePath = `src/content/posts/${filename}`;
+    } else {
+      // Si es nuevo, generamos slug
+      const slug = generateSlug(title);
+      const ext = fileExtension?.startsWith('.') ? fileExtension : `.${fileExtension || 'md'}`;
+      filePath = `src/content/posts/${slug}${ext}`;
+    }
 
     // 4. Construir Contenido Final (Frontmatter + Markdown)
-    // Escapar comillas en campos de texto libre
+    // ... (same logic for escaping and building yamlContent)
     const safeTitle = title.replace(/"/g, '\\"');
     const safeDesc = description.replace(/"/g, '\\"');
     const safeImage = image ? image.replace(/"/g, '\\"') : '';
@@ -82,26 +93,16 @@ ${content}
 
     // 5. Preparar Request de GitHub
     const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
-    const GITHUB_REPO = import.meta.env.GITHUB_REPO; // ej. "username/repository"
-
-    console.log("--- DEBUG GITHUB API ENV VARS ---");
-    console.log("GITHUB_TOKEN exists:", !!GITHUB_TOKEN);
-    console.log("GITHUB_REPO:", GITHUB_REPO);
+    const GITHUB_REPO = import.meta.env.GITHUB_REPO;
 
     if (!GITHUB_TOKEN || !GITHUB_REPO) {
-      console.error("Faltan variables de entorno GITHUB_TOKEN o GITHUB_REPO.");
-      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta (GitHub API).' }), {
+      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta.' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // Asegurar que fileExtension empiece con "."
-    const ext = fileExtension?.startsWith('.') ? fileExtension : `.${fileExtension || 'md'}`;
-    const filePath = `src/content/posts/${slug}${ext}`;
     const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
-
-    // Codificar a base64 (UTF-8 compatible con acentos y caracteres especiales)
     const base64Content = Buffer.from(yamlContent, 'utf-8').toString('base64');
 
     const githubRes = await fetch(githubUrl, {
@@ -111,32 +112,28 @@ ${content}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        message: `feat: publish post ${title}`,
-        content: base64Content
+        message: sha ? `feat: update post ${title}` : `feat: publish post ${title}`,
+        content: base64Content,
+        sha: sha || undefined // Solo se envía si existe
       })
     });
 
     if (!githubRes.ok) {
       const errorData = await githubRes.json();
-      console.error("Error desde GitHub:", errorData);
       return new Response(JSON.stringify({ success: false, error: `Error de GitHub: ${errorData.message}` }), {
         status: githubRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // 6. Disparar Deploy Hook de Vercel (Opcional)
+    // 6. Disparar Deploy Hook de Vercel
     const VERCEL_DEPLOY_HOOK = import.meta.env.VERCEL_DEPLOY_HOOK;
     if (VERCEL_DEPLOY_HOOK) {
-      fetch(VERCEL_DEPLOY_HOOK).catch(err => {
-        console.error("Error al disparar Vercel Deploy Hook:", err);
-      });
-    } else {
-      console.warn("VERCEL_DEPLOY_HOOK no está configurado.");
+      fetch(VERCEL_DEPLOY_HOOK).catch(() => {});
     }
 
     // 7. Respuesta Exitosa
-    return new Response(JSON.stringify({ success: true, slug, path: filePath }), {
+    return new Response(JSON.stringify({ success: true, path: filePath }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
