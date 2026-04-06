@@ -79,7 +79,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 name="title"
                                 required
                                 class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-lg"
-                                placeholder="Escribe el título aquí..."
+                                placeholder=""
                             />
                         </div>
 
@@ -94,7 +94,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 required
                                 rows="3"
                                 class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium resize-none leading-relaxed"
-                                placeholder="Un breve resumen que aparecerá en la tarjeta principal y en resultados de búsqueda (SEO)..."
+                                placeholder=""
                             ></textarea>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     id="tags"
                                     name="tags"
                                     class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
-                                    placeholder="Ej. Oscar, Cannes, Box Office"
+                                    placeholder=""
                                 />
                             </div>
                         </div>
@@ -161,7 +161,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 id="sourceName"
                                 name="sourceName"
                                 class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
-                                placeholder="Ej. The Hollywood Reporter"
+                                placeholder=""
                             />
                         </div>
                         
@@ -179,7 +179,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     id="sourceUrl"
                                     name="sourceUrl"
                                     class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
-                                    placeholder="https://"
+                                    placeholder=""
                                 />
                             </div>
                         </div>
@@ -376,7 +376,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
                 <div class="flex justify-between items-center mb-6">
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">auto_awesome</span> Bloque de Curiosidad
+                        <span class="material-symbols-outlined text-primary">star</span> Bloque de Curiosidad
                     </h4>
                     <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
                         <span class="material-symbols-outlined">close</span>
@@ -494,6 +494,13 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
     .dark .ProseMirror div[data-type="curiosity"] p {
         color: #cbd5e1 !important;
     }
+
+    /* Asegurar que el icono de estrella sea visible y tenga el color correcto */
+    .ProseMirror div[data-type="curiosity"] svg {
+        color: #D4AF37 !important;
+        stroke: #D4AF37 !important;
+        fill: none;
+    }
 </style>
 
 <script>
@@ -508,27 +515,40 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
     const Curiosity = Node.create({
         name: 'curiosity',
         group: 'block',
-        content: 'inline*', // Permitir contenido en línea dentro del bloque
         selectable: true,
         draggable: true,
         atom: true, // Se comporta como una unidad única
-        addAttributes() {
-            return {
-                title: { default: '' },
-                content: { default: '' },
-            }
-        },
         parseHTML() {
             return [
                 {
                     tag: 'div[data-type="curiosity"]',
+                },
+                {
+                    // Alternativa para detectar bloques existentes por sus clases de borde dorado
+                    tag: 'div',
                     getAttrs: node => {
-                        const title = (node as HTMLElement).querySelector('h4')?.innerText || '';
-                        const content = (node as HTMLElement).querySelector('p')?.innerText || '';
-                        return { title, content };
+                        const className = (node as HTMLElement).className || '';
+                        const hasGoldSpec = className.includes('D4AF37');
+                        const hasStructure = (node as HTMLElement).querySelector('h4') && (node as HTMLElement).querySelector('p');
+                        if (hasGoldSpec && hasStructure) {
+                            return {};
+                        }
+                        return false;
                     },
                 },
             ]
+        },
+        addAttributes() {
+            return {
+                title: { 
+                    default: '',
+                    parseHTML: element => element.querySelector('h4')?.innerText || '',
+                },
+                content: { 
+                    default: '',
+                    parseHTML: element => element.querySelector('p')?.innerText || '',
+                },
+            }
         },
         renderHTML({ HTMLAttributes }) {
             const { title, content } = HTMLAttributes;
@@ -538,12 +558,22 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 ['div', { class: 'absolute top-0 left-0 h-full w-1 bg-[#D4AF37]' }],
                 ['div', { class: 'flex items-start gap-4' },
                     ['div', { class: 'rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center' },
-                        ['svg', { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' },
+                        ['svg', { 
+                            xmlns: 'http://www.w3.org/2000/svg', 
+                            width: '24', 
+                            height: '24', 
+                            viewBox: '0 0 24 24', 
+                            fill: 'none', 
+                            stroke: 'currentColor', 
+                            'stroke-width': '2', 
+                            'stroke-linecap': 'round', 
+                            'stroke-linejoin': 'round' 
+                        },
                             ['polygon', { points: '12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2' }]
                         ]
                     ],
                     ['div', {},
-                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display' }, title],
+                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
                         ['p', { class: 'text-slate-600 dark:text-slate-300 text-sm leading-relaxed' }, content]
                     ]
                 ]
@@ -791,7 +821,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 if (title && content) {
                     // Usar el comando insertContent con el HTML exacto como solicitó el usuario, 
                     // pero con el data-type para que el editor lo reconozca como nuestro nodo Curiosity
-                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${content}</p></div></div></div>`;
+                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${content}</p></div></div></div>`;
                     
                     editor.commands.insertContent(html);
                     
