@@ -424,7 +424,6 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 <script>
     import { Editor } from '@tiptap/core';
     import StarterKit from '@tiptap/starter-kit';
-    import Underline from '@tiptap/extension-underline';
     import Image from '@tiptap/extension-image';
     import Youtube from '@tiptap/extension-youtube';
     import { Markdown } from 'tiptap-markdown';
@@ -464,7 +463,6 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 element: editorElement,
                 extensions: [
                     StarterKit,
-                    Underline,
                     Image,
                     Youtube.configure({ inline: false }),
                     Markdown

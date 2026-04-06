@@ -58,6 +58,9 @@ try {
     const { data, content } = matter(rawContent);
     postData = data;
     initialMarkdown = content;
+    
+    console.log("[SERVER] initialMarkdown length:", initialMarkdown.length);
+    console.log("[SERVER] initialMarkdown preview:", initialMarkdown.substring(0, 50) + "...");
 } catch (err) {
     console.error("Error loading post from GitHub:", err);
     errorLoading = true;
@@ -107,7 +110,7 @@ const sourceUrl = postData.fuente?.url || "";
             </div>
 
             <!-- Formulario Principal -->
-            <form class="space-y-8" id="editar-post-form" data-sha={fileSha} data-filename={filename}>
+            <form class="space-y-8" id="editar-post-form" data-sha={fileSha} data-filename={filename} data-initial-markdown={initialMarkdown}>
                 
                 <!-- Sección 1: Información Principal -->
                 <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
@@ -415,18 +418,21 @@ const sourceUrl = postData.fuente?.url || "";
     }
 </style>
 
-<script define:vars={{ initialMarkdown }}>
+<script>
     import { Editor } from '@tiptap/core';
     import StarterKit from '@tiptap/starter-kit';
-    import Underline from '@tiptap/extension-underline';
     import Image from '@tiptap/extension-image';
     import Youtube from '@tiptap/extension-youtube';
     import { Markdown } from 'tiptap-markdown';
 
     document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById('editar-post-form');
+        const initialMarkdown = form?.dataset.initialMarkdown || "";
+        
+        console.log("[CLIENT] initialMarkdown received from dataset:", typeof initialMarkdown, initialMarkdown?.length);
+        
         const editorElement = document.getElementById('tiptap-editor');
         const inputContent = document.getElementById('contentMarkdown');
-        const form = document.getElementById('editar-post-form');
         const fileExtInput = document.getElementById('fileExtension');
         
         const mainImageUrl = document.getElementById('imageUrl');
@@ -449,7 +455,6 @@ const sourceUrl = postData.fuente?.url || "";
                 element: editorElement,
                 extensions: [
                     StarterKit,
-                    Underline,
                     Image,
                     Youtube.configure({ inline: false }),
                     Markdown
@@ -478,7 +483,13 @@ const sourceUrl = postData.fuente?.url || "";
             });
 
             // Establecer contenido inicial
-            editor.commands.setContent(initialMarkdown);
+            if (editor) {
+                console.log("[CLIENT] Setting content. Editor exists. Content length:", initialMarkdown?.length);
+                editor.commands.setContent(initialMarkdown);
+            } else {
+                console.error("[CLIENT] Editor is NOT initialized!");
+            }
+            
             if (inputContent) inputContent.value = initialMarkdown;
 
             // Formato Buttons
