@@ -5,7 +5,7 @@ pubDate: 2026-04-06T20:47:20.753Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://img.youtube.com/vi/PMd1at7OwiE/maxresdefault.jpg"
+image: "/images/posts/trailer-the-devil-wears-prada-2.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]
