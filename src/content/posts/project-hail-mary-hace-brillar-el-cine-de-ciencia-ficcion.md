@@ -4,23 +4,20 @@ description: "Project Hail Mary es un emocionante y conmovedor viaje espacial co
 pubDate: 2026-03-19T05:53:24.783Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "/images/posts/project-hail-mary-hace-brillar-el-cine-de-ciencia-ficcion.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
-readTime: "5 min read"
 rating: 80
-tags: ["Ciencia Ficción"]
 fichaTecnica:
   sinopsis: "Un astronauta debe salvar a la humanidad en una misión desesperada en el espacio, acompañado por un inesperado aliado alienígena."
   director: "Phil Lord y Chris Miller"
   cast: "Ryan Gosling"
   duracion: "140 min"
+readTime: "2 min read"
+tags: ["Ciencia Ficción"]
 ---
-
-## Project Hail Mary hace brillar el cine de ciencia ficción
 
 ### Un blockbuster de estilo clásico
 
