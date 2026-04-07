@@ -36,11 +36,11 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const filePath = `src/content/posts/${filename}`;
-    const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
+    const postPath = `src/content/posts/${filename}`;
+    const postUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${postPath}`;
 
-    // 4. Obtener el SHA del archivo
-    const getRes = await fetch(githubUrl, {
+    // 4. Obtener contenido del post para buscar imágenes asociadas
+    const getRes = await fetch(postUrl, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
@@ -50,24 +50,64 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!getRes.ok) {
       const errorData = await getRes.json();
-      return new Response(JSON.stringify({ success: false, error: `Error al obtener archivo de GitHub: ${errorData.message}` }), {
+      return new Response(JSON.stringify({ success: false, error: `Error al obtener post de GitHub: ${errorData.message}` }), {
         status: getRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    const fileData = await getRes.json();
-    const sha = fileData.sha;
+    const postData = await getRes.json();
+    const postSha = postData.sha;
+    const base64Content = postData.content;
+    const postContent = Buffer.from(base64Content, 'base64').toString('utf-8');
 
-    if (!sha) {
-      return new Response(JSON.stringify({ success: false, error: 'No se pudo obtener el SHA del archivo.' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      });
+    // 5. Buscar y eliminar imágenes asociadas
+    // Buscamos cualquier cadena que empiece por /images/posts/
+    const imagePaths: string[] = [];
+    const imageRegex = /\/images\/posts\/[a-zA-Z0-9.\-_]+/g;
+    const matches = postContent.match(imageRegex);
+    
+    if (matches) {
+      const uniqueMatches = [...new Set(matches)];
+      console.log(`[DELETE API] Se encontraron ${uniqueMatches.length} imágenes potenciales para eliminar.`);
+      
+      for (const imgUrl of uniqueMatches) {
+        // El path en GitHub es public/images/posts/...
+        const imgPath = `public${imgUrl}`;
+        const imgUrlGitHub = `https://api.github.com/repos/${GITHUB_REPO}/contents/${imgPath}`;
+        
+        try {
+          // Obtener SHA de la imagen
+          const imgGetRes = await fetch(imgUrlGitHub, {
+            headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}` }
+          });
+          
+          if (imgGetRes.ok) {
+            const imgData = await imgGetRes.json();
+            const imgSha = imgData.sha;
+            
+            // Eliminar imagen
+            await fetch(imgUrlGitHub, {
+              method: 'DELETE',
+              headers: {
+                'Authorization': `Bearer ${GITHUB_TOKEN}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: `delete: remove associated image ${imgUrl}`,
+                sha: imgSha
+              })
+            });
+            console.log(`[DELETE API] Imagen eliminada: ${imgUrl}`);
+          }
+        } catch (err) {
+          console.error(`[DELETE API] No se pudo eliminar la imagen ${imgUrl}:`, err);
+        }
+      }
     }
 
-    // 5. Eliminar el archivo en GitHub
-    const deleteRes = await fetch(githubUrl, {
+    // 6. Eliminar el archivo del post en GitHub
+    const deleteRes = await fetch(postUrl, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
@@ -75,29 +115,26 @@ export const POST: APIRoute = async ({ request }) => {
       },
       body: JSON.stringify({
         message: `delete: remove post ${filename}`,
-        sha: sha
+        sha: postSha
       })
     });
 
     if (!deleteRes.ok) {
       const errorData = await deleteRes.json();
-      return new Response(JSON.stringify({ success: false, error: `Error al eliminar en GitHub: ${errorData.message}` }), {
+      return new Response(JSON.stringify({ success: false, error: `Error al eliminar post en GitHub: ${errorData.message}` }), {
         status: deleteRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // 6. Disparar Deploy Hook de Vercel (Opcional)
+    // 7. Disparar Deploy Hook de Vercel (Opcional)
     const VERCEL_DEPLOY_HOOK = import.meta.env.VERCEL_DEPLOY_HOOK;
     if (VERCEL_DEPLOY_HOOK) {
       fetch(VERCEL_DEPLOY_HOOK).catch(err => {
         console.error("Error al disparar Vercel Deploy Hook:", err);
       });
-    } else {
-      console.warn("VERCEL_DEPLOY_HOOK no está configurado.");
     }
 
-    // 7. Respuesta Exitosa
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
