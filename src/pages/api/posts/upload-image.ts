@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Relaxed check since `instanceof File` can fail depending on Astro's runtime (Node context)
     if (typeof imageFile === 'string' || !imageFile.name) {
-      console.error("[UPLOAD-IMAGE API] ERROR: El campo 'image' existe pero no parece ser un archivo válido. Tipo recibido:", typeof imageFile);
+      console.error("[UPLOAD-IMAGE API] ERROR: El campo 'image' existe pero no parece ser un archivo válido.");
       return new Response(JSON.stringify({ success: false, error: 'El formato de la imagen subida es inválido o se mandó como texto' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
@@ -55,19 +55,20 @@ export const POST: APIRoute = async ({ request }) => {
       .replace(/[^a-z0-9]+/g, '-') // Reemplazar caracteres raros y espacios por guiones
       .replace(/^-+|-+$/g, '');
 
-    const filename = `${dateString}-${safeName}${ext}`;
+    // Añadimos timestamp para evitar colisiones si suben el mismo nombre en el mismo día
+    const filename = `${dateString}-${safeName}-${Date.now()}${ext}`;
 
     // 4. Convertir Archivo a Base64
     const arrayBuffer = await imageFile.arrayBuffer();
     const base64Content = Buffer.from(arrayBuffer).toString('base64');
 
-    // 5. Variables de entorno GitHub
-    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
-    const GITHUB_REPO = import.meta.env.GITHUB_REPO; // formato "user/repo"
+    // 5. Variables de entorno GitHub (Soporta import.meta.env y process.env)
+    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN || process.env.GITHUB_TOKEN;
+    const GITHUB_REPO = import.meta.env.GITHUB_REPO || process.env.GITHUB_REPO;
 
     if (!GITHUB_TOKEN || !GITHUB_REPO) {
       console.error("Faltan variables de entorno GITHUB_TOKEN o GITHUB_REPO.");
-      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta (GitHub API).' }), {
+      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta (GitHub API keys faltantes).' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -82,6 +83,8 @@ export const POST: APIRoute = async ({ request }) => {
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Astro-App'
       },
       body: JSON.stringify({
         message: `upload: add post image ${filename}`,
@@ -90,16 +93,23 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!githubRes.ok) {
-      const errorData = await githubRes.json();
-      console.error("Error al subir imagen a GitHub:", errorData);
-      return new Response(JSON.stringify({ success: false, error: `Error de GitHub: ${errorData.message}` }), {
+      let errorData: any = { message: 'Desconocido' };
+      try {
+        errorData = await githubRes.json();
+      } catch (e) {
+        console.error("No se pudo parsear el error de GitHub como JSON");
+      }
+      console.error(`Error al subir imagen a GitHub (${githubRes.status}):`, errorData);
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: `GitHub respondió con error (${githubRes.status}): ${errorData.message}` 
+      }), {
         status: githubRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
     // 7. Respuesta Exitosa
-    // Importante: La URL pública retornada será relativa al framework Astro, es decir, /images/posts/filename
     const finalUrl = `/images/posts/${filename}`;
     
     return new Response(JSON.stringify({ success: true, url: finalUrl }), {
@@ -108,8 +118,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
   } catch (error: any) {
-    console.error("Error en upload API:", error);
-    return new Response(JSON.stringify({ success: false, error: error.message || 'Error interno del servidor' }), {
+    console.error("Error crítico en upload API:", error);
+    return new Response(JSON.stringify({ success: false, error: `Excepción interna: ${error.message || 'Error desconocido'}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

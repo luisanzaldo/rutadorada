@@ -948,11 +948,15 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
                     // Lógica imagen de Portada (Subida Local vs URL)
                     let finalImageUrl = mainImageUrl.value || '';
-                    if (mainImageFile.files && mainImageFile.files[0]) {
+                    if (mainImageFile.files && mainImageFile.files.length > 0) {
+                        const file = mainImageFile.files[0];
+                        if (file.size > 4.5 * 1024 * 1024) {
+                            throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
+                        }
+
                         const formData = new FormData();
-                        formData.append('image', mainImageFile.files[0]);
+                        formData.append('image', file);
                         
-                        // Llamar a la futura API de subida de imágenes
                         const uploadRes = await fetch('/api/posts/upload-image', {
                             method: 'POST',
                             body: formData
@@ -960,11 +964,18 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         
                         if (uploadRes.ok) {
                             const uploadData = await uploadRes.json();
-                            finalImageUrl = uploadData.url; // Asumimos que la API retorna un json con { url: '...' }
+                            finalImageUrl = uploadData.url;
                         } else {
-                            const errData = await uploadRes.json().catch(() => ({}));
-                            console.error("Upload API Error:", errData);
-                            throw new Error(`No se pudo subir la imagen. Motivo: ${errData.error || 'Desconocido'}`);
+                            const status = uploadRes.status;
+                            let errorDetail = 'Desconocido';
+                            try {
+                                const errData = await uploadRes.json();
+                                errorDetail = errData.error || errData.message || 'Sin mensaje de error';
+                            } catch (e) {
+                                errorDetail = `Error HTTP ${status} (No es JSON)`;
+                            }
+                            console.error(`Upload API Error (${status}):`, errorDetail);
+                            throw new Error(`No se pudo subir la imagen. Motivo: ${errorDetail}`);
                         }
                     }
 

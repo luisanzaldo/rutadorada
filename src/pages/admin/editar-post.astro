@@ -1117,10 +1117,28 @@ const duracionValue = ficha.duracion || "";
 
                     let finalImageUrl = mainImageUrl.value;
                     if (mainImageFile.files?.[0]) {
+                        const file = mainImageFile.files[0];
+                        if (file.size > 4.5 * 1024 * 1024) {
+                            throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
+                        }
+
                         const formData = new FormData();
-                        formData.append('image', mainImageFile.files[0]);
+                        formData.append('image', file);
                         const upRes = await fetch('/api/posts/upload-image', { method: 'POST', body: formData });
-                        if (upRes.ok) finalImageUrl = (await upRes.json()).url;
+                        
+                        if (upRes.ok) {
+                            finalImageUrl = (await upRes.json()).url;
+                        } else {
+                            const status = upRes.status;
+                            let errorDetail = 'Desconocido';
+                            try {
+                                const errData = await upRes.json();
+                                errorDetail = errData.error || errData.message || 'Sin mensaje de error';
+                            } catch (e) {
+                                errorDetail = `Error HTTP ${status}`;
+                            }
+                            throw new Error(`Error al subir imagen: ${errorDetail}`);
+                        }
                     }
 
                     const payload = {
