@@ -11,7 +11,7 @@ fuente:
   nombre: "Next Best Picture"
   url: "https://nextbestpicture.com/"
 readTime: "4 min read"
-tags: ["Cannes"]
+tags: ["Próximamente"]
 ---
 
 ## Un regreso triunfal

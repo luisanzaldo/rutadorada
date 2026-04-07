@@ -11,7 +11,7 @@ fuente:
   nombre: "Variety"
   url: "https://variety.com/"
 readTime: "5 min read"
-tags: ["Próximos estrenos"]
+tags: ["Próximamente"]
 ---
 
 ## Un nuevo hito para Spider-man

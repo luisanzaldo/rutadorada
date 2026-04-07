@@ -11,7 +11,7 @@ fuente:
   nombre: "Variety"
   url: "https://variety.com/"
 readTime: "5 min read"
-tags: ["Cines"]
+tags: ["En Cines"]
 ---
 
 **ALERTA DE SPOILERS:** Este artículo contiene spoilers de 'The Super Mario Galaxy Movie', actualmente en cines.
