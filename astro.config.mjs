@@ -6,8 +6,11 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
-  output: 'hybrid',
+  output: 'static',
   adapter: vercel(),
+  security: {
+    checkOrigin: false
+  },
 
   vite: {
     plugins: [tailwindcss()],
