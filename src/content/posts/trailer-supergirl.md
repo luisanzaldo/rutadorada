@@ -4,7 +4,7 @@ description: "Este junio, encuentra tu lugar en el universo. #Supergirl llega a 
 pubDate: 2026-04-06T23:11:22.583Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://cdn.mos.cms.futurecdn.net/J5ZSKJNQbmjxdMV8maYZYj-1920-80.jpg"
+image: "/images/posts/trailer-supergirl.jpg"
 category: "Tráilers"
 videoUrl: "https://youtu.be/0IPYl7hdCxc?si=z3Hj-Er5o0098F9Q"
 readTime: "1 min read"
