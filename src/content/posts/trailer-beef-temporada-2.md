@@ -1,5 +1,5 @@
 ---
-title: "Tráiler: BEEF: Temporada 2"
+title: "Tráiler: BEEF (Temporada 2)"
 description: "Descubre el impactante tráiler de BEEF: Temporada 2 en Netflix. Drama, emoción y giros inesperados que te mantendrán al borde del asiento."
 pubDate: 2026-04-02T17:32:10.501Z
 author: "Moncho"
@@ -8,7 +8,7 @@ authorImage: ""
 image: "/images/posts/trailer-beef-temporada-2.jpg"
 category: "Tráilers"
 readTime: "2 min"
-tags: ["TV"]
+tags: ["Netflix"]
 videoUrl: "https://youtu.be/ZtQoofDhJOM?si=y9yTWzriJWgtgvch"
 ---
 

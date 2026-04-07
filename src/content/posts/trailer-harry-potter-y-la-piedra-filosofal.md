@@ -8,7 +8,7 @@ authorImage: ""
 image: "/images/posts/trailer-harry-potter-y-la-piedra-filosofal.jpg"
 category: "Tráilers"
 readTime: "2 min"
-tags: ["TV"]
+tags: ["HBO Max"]
 videoUrl: "https://youtu.be/_N7r5luRkbg?si=fEjP0FCFg_vK8CkM"
 ---
 
