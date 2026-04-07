@@ -130,6 +130,46 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                             </div>
                         </div>
 
+                        <!-- Sección: Ficha Técnica (Solo para Críticas) -->
+                        <div id="ficha-tecnica-section" class="hidden space-y-4 pt-4 border-t border-slate-200 dark:border-[#224249] animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-primary text-[20px]">movie</span>
+                                <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Ficha Técnica</h3>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Calificación -->
+                                <div class="space-y-1">
+                                    <label for="rating" class="block text-[11px] font-bold text-slate-500 uppercase">Rating (0-100) *</label>
+                                    <input type="number" id="rating" name="rating" min="0" max="100" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                </div>
+                                
+                                <!-- Duración -->
+                                <div class="space-y-1">
+                                    <label for="duracion" class="block text-[11px] font-bold text-slate-500 uppercase">Duración *</label>
+                                    <input type="text" id="duracion" name="duracion" placeholder="103 min" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                </div>
+                            </div>
+                            
+                            <!-- Director -->
+                            <div class="space-y-1">
+                                <label for="director" class="block text-[11px] font-bold text-slate-500 uppercase">Director *</label>
+                                <input type="text" id="director" name="director" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                            </div>
+
+                            <!-- Elenco -->
+                            <div class="space-y-1">
+                                <label for="cast" class="block text-[11px] font-bold text-slate-500 uppercase">Elenco *</label>
+                                <input type="text" id="cast" name="cast" placeholder="Actor 1, Actor 2, Actor 3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                            </div>
+                            
+                            <!-- Sinopsis -->
+                            <div class="space-y-1">
+                                <label for="sinopsis" class="block text-[11px] font-bold text-slate-500 uppercase">Sinopsis *</label>
+                                <textarea id="sinopsis" name="sinopsis" rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none leading-relaxed"></textarea>
+                            </div>
+                        </div>
+
                         <!-- Tags / Etiquetas -->
                         <div class="space-y-2">
                             <label for="tags" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
@@ -564,9 +604,17 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         atom: true, // Se comporta como una unidad única
         parseHTML() {
             return [
-                {
-                    tag: 'div[data-type="curiosity"]',
-                },
+                { tag: 'div[data-type="curiosity"]' },
+                { 
+                    tag: 'div', 
+                    getAttrs: element => {
+                        const classes = element.getAttribute('class') || '';
+                        if (classes.includes('border-[#D4AF37]') || element.querySelector('h4')?.innerText.includes('Curiosidades')) {
+                            return {};
+                        }
+                        return false;
+                    }
+                }
             ]
         },
         addAttributes() {
@@ -628,6 +676,16 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 { tag: 'div[data-type="good"]', getAttrs: () => ({ type: 'good' }) },
                 { tag: 'div[data-type="regular"]', getAttrs: () => ({ type: 'regular' }) },
                 { tag: 'div[data-type="bad"]', getAttrs: () => ({ type: 'bad' }) },
+                {
+                    tag: 'div',
+                    getAttrs: element => {
+                        const text = element.querySelector('h4')?.innerText || '';
+                        if (text.toLowerCase().includes('lo bueno')) return { type: 'good' };
+                        if (text.toLowerCase().includes('lo regular')) return { type: 'regular' };
+                        if (text.toLowerCase().includes('lo malo')) return { type: 'bad' };
+                        return false;
+                    }
+                }
             ]
         },
         renderHTML({ HTMLAttributes }) {
@@ -649,7 +707,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 ['div', { class: 'absolute top-0 left-0 h-full w-1', style: `background-color: ${color}` }],
                 ['div', { class: 'flex items-start gap-4' },
                     ['div', { class: 'rounded-full p-2 shrink-0 flex items-center justify-center', style: `background-color: ${color}33` },
-                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'schedule']
+                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'speed']
                     ],
                     ['div', {},
                         ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
@@ -690,12 +748,22 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         const sourceUrlLabel = document.getElementById('sourceUrlLabel');
         const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
 
+        // Referencias adicionales para Críticas
+        const fichaTecnicaSection = document.getElementById('ficha-tecnica-section');
+        const ratingInput = document.getElementById('rating') as HTMLInputElement;
+        const directorInput = document.getElementById('director') as HTMLInputElement;
+        const duracionInput = document.getElementById('duracion') as HTMLInputElement;
+        const castInput = document.getElementById('cast') as HTMLInputElement;
+        const sinopsisInput = document.getElementById('sinopsis') as HTMLTextAreaElement;
+
         if (categorySelect) {
             categorySelect.addEventListener('change', () => {
-                const isTrailer = categorySelect.value === 'Tráilers';
+                const category = categorySelect.value;
+                const isTrailer = category === 'Tráilers';
+                const isCritica = category === 'Críticas';
                 
+                // Comportamiento Tráilers
                 if (isTrailer) {
-                    // Comportamiento Tráilers
                     if (sourceNameContainer) sourceNameContainer.classList.add('hidden');
                     if (sourceUrlLabel) sourceUrlLabel.innerHTML = 'Enlace de YouTube <span class="text-xs font-bold text-red-500">*</span>';
                     if (sourceUrlInput) {
@@ -703,13 +771,29 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         sourceUrlInput.placeholder = 'https://youtu.be/...';
                     }
                 } else {
-                    // Restaurar original
                     if (sourceNameContainer) sourceNameContainer.classList.remove('hidden');
                     if (sourceUrlLabel) sourceUrlLabel.innerHTML = 'Enlace de la fuente <span class="text-xs font-normal text-slate-500">(Opcional)</span>';
                     if (sourceUrlInput) {
                         sourceUrlInput.required = false;
                         sourceUrlInput.placeholder = '';
                     }
+                }
+
+                // Comportamiento Críticas
+                if (isCritica) {
+                    if (fichaTecnicaSection) fichaTecnicaSection.classList.remove('hidden');
+                    if (ratingInput) ratingInput.required = true;
+                    if (directorInput) directorInput.required = true;
+                    if (duracionInput) duracionInput.required = true;
+                    if (castInput) castInput.required = true;
+                    if (sinopsisInput) sinopsisInput.required = true;
+                } else {
+                    if (fichaTecnicaSection) fichaTecnicaSection.classList.add('hidden');
+                    if (ratingInput) ratingInput.required = false;
+                    if (directorInput) directorInput.required = false;
+                    if (duracionInput) duracionInput.required = false;
+                    if (castInput) castInput.required = false;
+                    if (sinopsisInput) sinopsisInput.required = false;
                 }
             });
         }
@@ -833,10 +917,23 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     
                     let fuente = undefined;
                     let videoUrl = undefined;
+                    let rating = undefined;
+                    let fichaTecnica = undefined;
 
                     if (category === 'Tráilers') {
                         videoUrl = sourceUrlInput.value;
-                        // No enviamos fuente para trailers (se oculta el campo nombre)
+                    } else if (category === 'Críticas') {
+                        const sName = sourceNameInput.value;
+                        const sUrl = sourceUrlInput.value;
+                        fuente = (sName || sUrl) ? { nombre: sName, url: sUrl } : undefined;
+                        
+                        rating = parseInt(ratingInput.value);
+                        fichaTecnica = {
+                            sinopsis: sinopsisInput.value,
+                            director: directorInput.value,
+                            cast: castInput.value,
+                            duracion: duracionInput.value
+                        };
                     } else {
                         const sName = sourceNameInput.value;
                         const sUrl = sourceUrlInput.value;
@@ -883,6 +980,8 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         tags,
                         fuente,
                         videoUrl,
+                        rating,
+                        fichaTecnica,
                         readTime,
                         content,
                         fileExtension: fileExtInput.value || '.md'

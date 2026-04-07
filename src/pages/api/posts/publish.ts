@@ -40,6 +40,8 @@ export const POST: APIRoute = async ({ request }) => {
       content, 
       fileExtension,
       videoUrl,
+      rating,
+      fichaTecnica,
       sha, // Opcional: Para actualizaciones
       filename // Opcional: Nombre de archivo original
     } = data;
@@ -80,6 +82,17 @@ export const POST: APIRoute = async ({ request }) => {
   nombre: "${fuenteName}"
   url: "${fuenteUrl}"` : "";
 
+    // Bloque Crítica (Rating y Ficha Técnica)
+    let criticaBlock = "";
+    if (category === 'Críticas' && rating !== undefined) {
+        criticaBlock = `rating: ${rating}
+fichaTecnica:
+  sinopsis: "${fichaTecnica?.sinopsis?.replace(/"/g, '\\"') || ""}"
+  director: "${fichaTecnica?.director?.replace(/"/g, '\\"') || ""}"
+  cast: "${fichaTecnica?.cast?.replace(/"/g, '\\"') || ""}"
+  duracion: "${fichaTecnica?.duracion?.replace(/"/g, '\\"') || ""}"\n`;
+    }
+
     const yamlContent = `---
 title: "${safeTitle}"
 description: "${safeDesc}"
@@ -88,7 +101,7 @@ author: "${safeAuthor}"
 letterboxd: "${safeLetterboxd}"
 image: "${safeImage}"
 category: "${category}"
-${sourceBlock ? sourceBlock + '\n' : ''}${videoUrlLine ? videoUrlLine + '\n' : ''}readTime: "${readTime || '3 min read'}"
+${sourceBlock ? sourceBlock + '\n' : ''}${videoUrlLine ? videoUrlLine + '\n' : ''}${criticaBlock}readTime: "${readTime || '3 min read'}"
 tags: ${JSON.stringify(Array.isArray(tags) ? tags : [])}
 ---
 

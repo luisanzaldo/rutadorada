@@ -75,6 +75,14 @@ const tagsString = postData.tags ? (Array.isArray(postData.tags) ? postData.tags
 // Helper para pre-rellenar fuente
 const sourceName = postData.fuente?.nombre || "";
 const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") : (postData.fuente?.url || "");
+
+// Otros campos
+const ratingValue = postData.rating !== undefined ? postData.rating.toString() : "";
+const ficha = postData.fichaTecnica || {};
+const sinopsisValue = ficha.sinopsis || "";
+const directorValue = ficha.director || "";
+const castValue = ficha.cast || "";
+const duracionValue = ficha.duracion || "";
 ---
 
 <Layout title={title}>
@@ -110,7 +118,19 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
             </div>
 
             <!-- Formulario Principal -->
-            <form class="space-y-8" id="editar-post-form" data-sha={fileSha} data-filename={filename} data-initial-markdown={initialMarkdown} data-pub-date={postData.pubDate ? (postData.pubDate instanceof Date ? postData.pubDate.toISOString() : postData.pubDate) : ""} data-author={postData.author || ""} data-letterboxd={postData.letterboxd || ""}>
+            <form class="space-y-8" id="editar-post-form" 
+                data-sha={fileSha} 
+                data-filename={filename} 
+                data-initial-markdown={initialMarkdown} 
+                data-pub-date={postData.pubDate ? (postData.pubDate instanceof Date ? postData.pubDate.toISOString() : postData.pubDate) : ""} 
+                data-author={postData.author || ""} 
+                data-letterboxd={postData.letterboxd || ""}
+                data-rating={ratingValue}
+                data-sinopsis={sinopsisValue}
+                data-director={directorValue}
+                data-cast={castValue}
+                data-duracion={duracionValue}
+            >
                 
                 <!-- Sección 1: Información Principal -->
                 <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
@@ -174,6 +194,46 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                                     <option value="Tráilers" selected={postData.category === "Tráilers"}>Tráilers</option>
                                 </select>
                                 <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+
+                        <!-- Sección: Ficha Técnica (Solo para Críticas) -->
+                        <div id="ficha-tecnica-section" class="hidden space-y-4 pt-4 border-t border-slate-200 dark:border-[#224249] animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-primary text-[20px]">movie</span>
+                                <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Ficha Técnica</h3>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Calificación -->
+                                <div class="space-y-1">
+                                    <label for="rating" class="block text-[11px] font-bold text-slate-500 uppercase">Rating (0-100) *</label>
+                                    <input type="number" id="rating" name="rating" min="0" max="100" value={ratingValue} class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                </div>
+                                
+                                <!-- Duración -->
+                                <div class="space-y-1">
+                                    <label for="duracion" class="block text-[11px] font-bold text-slate-500 uppercase">Duración *</label>
+                                    <input type="text" id="duracion" name="duracion" placeholder="103 min" value={duracionValue} class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                </div>
+                            </div>
+                            
+                            <!-- Director -->
+                            <div class="space-y-1">
+                                <label for="director" class="block text-[11px] font-bold text-slate-500 uppercase">Director *</label>
+                                <input type="text" id="director" name="director" value={directorValue} class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                            </div>
+
+                            <!-- Elenco -->
+                            <div class="space-y-1">
+                                <label for="cast" class="block text-[11px] font-bold text-slate-500 uppercase">Elenco *</label>
+                                <input type="text" id="cast" name="cast" placeholder="Actor 1, Actor 2, Actor 3" value={castValue} class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                            </div>
+                            
+                            <!-- Sinopsis -->
+                            <div class="space-y-1">
+                                <label for="sinopsis" class="block text-[11px] font-bold text-slate-500 uppercase">Sinopsis *</label>
+                                <textarea id="sinopsis" name="sinopsis" rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none leading-relaxed">{sinopsisValue}</textarea>
                             </div>
                         </div>
 
@@ -564,9 +624,17 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
         atom: true,
         parseHTML() {
             return [
-                {
-                    tag: 'div[data-type="curiosity"]',
-                },
+                { tag: 'div[data-type="curiosity"]' },
+                { 
+                    tag: 'div', 
+                    getAttrs: element => {
+                        const classes = element.getAttribute('class') || '';
+                        if (classes.includes('border-[#D4AF37]') || element.querySelector('h4')?.innerText.includes('Curiosidades')) {
+                            return {};
+                        }
+                        return false;
+                    }
+                }
             ]
         },
         addAttributes() {
@@ -628,6 +696,16 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                 { tag: 'div[data-type="good"]', getAttrs: () => ({ type: 'good' }) },
                 { tag: 'div[data-type="regular"]', getAttrs: () => ({ type: 'regular' }) },
                 { tag: 'div[data-type="bad"]', getAttrs: () => ({ type: 'bad' }) },
+                {
+                    tag: 'div',
+                    getAttrs: element => {
+                        const text = element.querySelector('h4')?.innerText || '';
+                        if (text.toLowerCase().includes('lo bueno')) return { type: 'good' };
+                        if (text.toLowerCase().includes('lo regular')) return { type: 'regular' };
+                        if (text.toLowerCase().includes('lo malo')) return { type: 'bad' };
+                        return false;
+                    }
+                }
             ]
         },
         renderHTML({ HTMLAttributes }) {
@@ -649,7 +727,7 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                 ['div', { class: 'absolute top-0 left-0 h-full w-1', style: `background-color: ${color}` }],
                 ['div', { class: 'flex items-start gap-4' },
                     ['div', { class: 'rounded-full p-2 shrink-0 flex items-center justify-center', style: `background-color: ${color}33` },
-                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'schedule']
+                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'speed']
                     ],
                     ['div', {},
                         ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
@@ -710,15 +788,25 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                 h3: document.querySelector('[data-tiptap-btn="h3"]'),
             };
 
-            // Referencias para comportamiento especial de Tráilers
             const categorySelect = document.getElementById('category') as HTMLSelectElement;
-            const sourceNameContainer = document.getElementById('sourceNameContainer');
-            const sourceUrlContainer = document.getElementById('sourceUrlContainer');
-            const sourceUrlLabel = document.getElementById('sourceUrlLabel');
+            const sourceNameContainer = document.getElementById('source-name-container');
+            const sourceUrlLabel = document.getElementById('source-url-label');
             const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
 
-            const updateTrailerFields = () => {
-                const isTrailer = categorySelect?.value === 'Tráilers';
+            // Referencias adicionales para Críticas e interfaz dinámica
+            const fichaTecnicaSection = document.getElementById('ficha-tecnica-section');
+            const ratingInput = document.getElementById('rating') as HTMLInputElement;
+            const directorInput = document.getElementById('director') as HTMLInputElement;
+            const duracionInput = document.getElementById('duracion') as HTMLInputElement;
+            const castInput = document.getElementById('cast') as HTMLInputElement;
+            const sinopsisInput = document.getElementById('sinopsis') as HTMLTextAreaElement;
+
+            const updateCategoryFields = () => {
+                const category = categorySelect?.value;
+                const isTrailer = category === 'Tráilers';
+                const isCritica = category === 'Críticas';
+                
+                // Tráilers logic
                 if (isTrailer) {
                     if (sourceNameContainer) sourceNameContainer.classList.add('hidden');
                     if (sourceUrlLabel) sourceUrlLabel.innerHTML = 'Enlace de YouTube <span class="text-xs font-bold text-red-500">*</span>';
@@ -734,11 +822,56 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                         sourceUrlInput.placeholder = '';
                     }
                 }
+
+                // Críticas logic
+                if (isCritica) {
+                    if (fichaTecnicaSection) fichaTecnicaSection.classList.remove('hidden');
+                    
+                    // Pre-rellenar desde data-attributes si los campos actuales están vacíos (especialmente al cargar inicial)
+                    if (ratingInput) {
+                        ratingInput.required = true;
+                        if ((!ratingInput.value || ratingInput.value === "") && form.dataset.rating) {
+                            ratingInput.value = form.dataset.rating;
+                        }
+                    }
+                    if (directorInput) {
+                        directorInput.required = true;
+                        if ((!directorInput.value || directorInput.value === "") && form.dataset.director) {
+                            directorInput.value = form.dataset.director;
+                        }
+                    }
+                    if (duracionInput) {
+                        duracionInput.required = true;
+                        if ((!duracionInput.value || duracionInput.value === "") && form.dataset.duracion) {
+                            duracionInput.value = form.dataset.duracion;
+                        }
+                    }
+                    if (castInput) {
+                        castInput.required = true;
+                        if ((!castInput.value || castInput.value === "") && form.dataset.cast) {
+                            castInput.value = form.dataset.cast;
+                        }
+                    }
+                    if (sinopsisInput) {
+                        sinopsisInput.required = true;
+                        // El textarea.value se comporta igual que un input.value
+                        if ((!sinopsisInput.value || sinopsisInput.value === "") && form.dataset.sinopsis) {
+                            sinopsisInput.value = form.dataset.sinopsis;
+                        }
+                    }
+                } else {
+                    if (fichaTecnicaSection) fichaTecnicaSection.classList.add('hidden');
+                    if (ratingInput) ratingInput.required = false;
+                    if (directorInput) directorInput.required = false;
+                    if (duracionInput) duracionInput.required = false;
+                    if (castInput) castInput.required = false;
+                    if (sinopsisInput) sinopsisInput.required = false;
+                }
             };
 
             if (categorySelect) {
-                categorySelect.addEventListener('change', updateTrailerFields);
-                updateTrailerFields(); // Ejecutar al cargar para posts existentes
+                categorySelect.addEventListener('change', updateCategoryFields);
+                updateCategoryFields(); // Ejecutar al cargar para posts existentes
             }
 
             const editor = new Editor({
@@ -943,12 +1076,26 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                     const sourceNameInput = document.getElementById('sourceName') as HTMLInputElement;
                     const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
                     const category = categorySelect.value;
-
                     let fuente = undefined;
                     let videoUrl = undefined;
+                    let rating = undefined;
+                    let fichaTecnica = undefined;
 
                     if (category === 'Tráilers') {
                         videoUrl = sourceUrlInput.value;
+                    } else if (category === 'Críticas') {
+                        const sName = sourceNameInput.value;
+                        const sUrl = sourceUrlInput.value;
+                        fuente = (sName || sUrl) ? { nombre: sName, url: sUrl } : undefined;
+                        
+                        const ratingInput = document.getElementById('rating') as HTMLInputElement;
+                        rating = parseInt(ratingInput.value);
+                        fichaTecnica = {
+                            sinopsis: (document.getElementById('sinopsis') as HTMLTextAreaElement).value,
+                            director: (document.getElementById('director') as HTMLInputElement).value,
+                            cast: (document.getElementById('cast') as HTMLInputElement).value,
+                            duracion: (document.getElementById('duracion') as HTMLInputElement).value
+                        };
                     } else {
                         const sName = sourceNameInput.value;
                         const sUrl = sourceUrlInput.value;
@@ -980,7 +1127,9 @@ const sourceUrl = postData.category === "Tráilers" ? (postData.videoUrl || "") 
                         image: finalImageUrl,
                         sha, filename,
                         pubDate, author, letterboxd,
-                        fileExtension: fileExtInput.value
+                        fileExtension: fileExtInput.value,
+                        rating,
+                        fichaTecnica
                     };
 
                     const res = await fetch('/api/posts/publish', {
