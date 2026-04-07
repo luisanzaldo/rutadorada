@@ -972,7 +972,9 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 const errData = await uploadRes.json();
                                 errorDetail = errData.error || errData.message || 'Sin mensaje de error';
                             } catch (e) {
-                                errorDetail = `Error HTTP ${status} (No es JSON)`;
+                                // Si no es JSON, intentar leer como texto para ver el error real (posiblemente un HTML de Vercel/Cloudflare)
+                                const textError = await uploadRes.text().catch(() => '');
+                                errorDetail = `Error HTTP ${status}${textError ? ': ' + textError.substring(0, 100) : ' (No es JSON)'}`;
                             }
                             console.error(`Upload API Error (${status}):`, errorDetail);
                             throw new Error(`No se pudo subir la imagen. Motivo: ${errorDetail}`);

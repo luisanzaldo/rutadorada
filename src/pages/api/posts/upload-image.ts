@@ -83,8 +83,6 @@ export const POST: APIRoute = async ({ request }) => {
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'Astro-App'
       },
       body: JSON.stringify({
         message: `upload: add post image ${filename}`,
@@ -93,16 +91,33 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!githubRes.ok) {
-      let errorData: any = { message: 'Desconocido' };
-      try {
-        errorData = await githubRes.json();
-      } catch (e) {
-        console.error("No se pudo parsear el error de GitHub como JSON");
+      let errorDetail = 'Desconocido';
+      const contentType = githubRes.headers.get('content-type');
+      
+      if (contentType && contentType.includes('application/json')) {
+        try {
+          const errorData = await githubRes.json();
+          errorDetail = errorData.message || JSON.stringify(errorData);
+        } catch (e) {
+          errorDetail = 'Error al parsear JSON de GitHub';
+        }
+      } else {
+        try {
+          errorDetail = await githubRes.text();
+          // Truncar si es muy largo (ej. una página HTML de error)
+          if (errorDetail.length > 200) errorDetail = errorDetail.substring(0, 200) + '...';
+        } catch (e) {
+          errorDetail = 'No se pudo leer el cuerpo de la respuesta';
+        }
       }
-      console.error(`Error al subir imagen a GitHub (${githubRes.status}):`, errorData);
+
+      console.error(`[UPLOAD-IMAGE API] Error al subir imagen a GitHub (${githubRes.status}):`, errorDetail);
+      if (githubRes.status === 403) {
+        console.error("[UPLOAD-IMAGE API] TIP: Verifica que el GITHUB_TOKEN tenga permisos de escritura (repo scope) y que la cuenta no tenga límites de tasa.");
+      }
       return new Response(JSON.stringify({ 
         success: false, 
-        error: `GitHub respondió con error (${githubRes.status}): ${errorData.message}` 
+        error: `GitHub respondió con error (${githubRes.status}): ${errorDetail}` 
       }), {
         status: githubRes.status,
         headers: { 'Content-Type': 'application/json' }

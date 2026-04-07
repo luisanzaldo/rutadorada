@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
-  output: 'static',
+  output: 'hybrid',
   adapter: vercel(),
 
   vite: {
