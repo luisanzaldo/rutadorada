@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: The Devil Wears Prada 2"
-description: "Descubre el emocionante regreso de la moda y el drama en 'The Devil Wears Prada 2'. ¡No te pierdas el tráiler final!"
+description: "Descubre el regreso de la moda y el drama en 'The Devil Wears Prada 2'. ¡No te pierdas el tráiler final!"
 pubDate: 2026-04-06T21:09:54.856Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
