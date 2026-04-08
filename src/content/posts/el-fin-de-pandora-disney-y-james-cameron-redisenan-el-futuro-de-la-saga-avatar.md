@@ -27,18 +27,18 @@ Fuentes cercanas a la producción indican que la tercera entrega ha resultado se
 
 Aunque James Cameron ha afirmado tener gran parte de *Avatar 4* ya filmada (para asegurar que los actores jóvenes no crecieran demasiado en pantalla), Disney está reconsiderando el calendario:
 
-1. **Consolidación de Historias:** Existe una propuesta interna para fusionar los arcos argumentales de las películas 4 y 5 en una sola gran conclusión épica.
+1. **Consolidación de historias:** Existe una propuesta interna para fusionar los arcos argumentales de las películas 4 y 5 en una sola gran conclusión épica.
 
-2. **El Factor Presupuesto:** Con costos que superan los **250 millones de dólares** por película, Disney está considerando unir las dos próximas historias en una sola para disminuir el presupuesto, dado que **la tercera entrega recaudó mil millones de dólares menos que la anterior**.
+2. **El factor presupuesto:** Con costos que superan los **250 millones de dólares** por película, Disney está considerando unir las dos próximas historias en una sola para disminuir el presupuesto, dado que **la tercera entrega recaudó mil millones de dólares menos que la anterior**.
 
-3. **Nuevas Fechas:** Aunque oficialmente se mantienen para **2029 y 2031**, los analistas de la industria sugieren que Disney podría adelantar la conclusión para evitar la fatiga de la franquicia.
+3. **Nuevas fechas:** Aunque oficialmente se mantienen para **2029 y 2031**, los analistas de la industria sugieren que Disney podría adelantar la conclusión para evitar la fatiga de la franquicia.
 
-4. **La no apertura de la zona Avatar en Disney:** Posiblemente la zona dedicada a la saga en los parques temáticos de Disney distribuidos por California, no abra, y en su lugar,  sea para Zootopia.
+4. **La no apertura de la zona Avatar en Disney:** Posiblemente la zona dedicada a la saga en los parques temáticos de Disney distribuidos por California no abra, y en su lugar sea para Zootopia.
 
 ## Innovación Tecnológica vs. Rentabilidad
 
 James Cameron está utilizando una nueva evolución de la tecnología de captura de movimiento para *Fire and Ash*, pero esto ha traído retos:
 
-- **IA en la Postproducción:** Se está implementando un nuevo sistema de renderizado basado en inteligencia artificial para acelerar los tiempos de efectos visuales, algo que inicialmente causó fricción con los sindicatos de artistas de VFX.
+- **IA en la postproducción:** Se está implementando un nuevo sistema de renderizado basado en Inteligencia Artificial para acelerar los tiempos de efectos visuales, algo que inicialmente causó fricción con los sindicatos de artistas de VFX.
 
 - **El dilema del Streaming:** Disney presiona para que la brecha entre el estreno en cines y **Disney+** sea más corta, algo a lo que Cameron se opone rotundamente, defendiendo la "experiencia cinematográfica pura".
