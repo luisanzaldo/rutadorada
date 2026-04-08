@@ -123,7 +123,7 @@ const duracionValue = ficha.duracion || "";
                 data-filename={filename} 
                 data-initial-markdown={initialMarkdown} 
                 data-pub-date={postData.pubDate ? (postData.pubDate instanceof Date ? postData.pubDate.toISOString() : postData.pubDate) : ""} 
-                data-author={postData.author || ""} 
+                data-author={postData.author || user?.displayName || ""} 
                 data-letterboxd={postData.letterboxd || ""}
                 data-rating={ratingValue}
                 data-sinopsis={sinopsisValue}
@@ -131,6 +131,8 @@ const duracionValue = ficha.duracion || "";
                 data-cast={castValue}
                 data-duracion={duracionValue}
             >
+                <input type="hidden" id="hidden-author" value={postData.author || user?.displayName || ""} />
+                <input type="hidden" id="hidden-letterboxd" value={postData.letterboxd || ""} />
                 
                 <!-- Sección 1: Información Principal -->
                 <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
@@ -1112,8 +1114,11 @@ const duracionValue = ficha.duracion || "";
                     const sha = form.dataset.sha;
                     const filename = form.dataset.filename;
                     const pubDate = form.dataset.pubDate;
-                    const author = form.dataset.author;
-                    const letterboxd = form.dataset.letterboxd;
+                    const authorInput = document.getElementById('hidden-author') as HTMLInputElement;
+                    const letterboxdInput = document.getElementById('hidden-letterboxd') as HTMLInputElement;
+                    
+                    const author = authorInput ? authorInput.value : form.dataset.author;
+                    const letterboxd = letterboxdInput ? letterboxdInput.value : form.dataset.letterboxd;
 
                     let finalImageUrl = mainImageUrl.value;
                     if (mainImageFile.files?.[0]) {
