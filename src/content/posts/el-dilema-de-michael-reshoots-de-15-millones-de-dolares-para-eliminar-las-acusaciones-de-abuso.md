@@ -39,6 +39,6 @@ A pesar de contar con el protagonismo de **Jaafar Jackson** (sobrino real de Mic
 
 **Paris Jackson:** La hija del cantante ha criticado la película calificándola de "azucarada" (*sugar-coated*) y alegando que intenta complacer a un sector del *fandom* que prefiere ignorar la realidad.
 
-**Janet Jackson:** Reportes indican que la hermana menor de Michael no aparece como personaje en la cinta y se ha mantenido al margen de la producción.
+**Janet Jackson:** Reportes señalan que la hermana menor de Michael no aparece como personaje en la cinta y se ha mantenido al margen de la producción.
 
 Este giro en la narrativa asegura que "Michael" sea una celebración de su legado musical, pero deja en el aire la pregunta de si la película logrará satisfacer a la crítica que esperaba un retrato humano y sin censura del artista más controversial de la historia.
