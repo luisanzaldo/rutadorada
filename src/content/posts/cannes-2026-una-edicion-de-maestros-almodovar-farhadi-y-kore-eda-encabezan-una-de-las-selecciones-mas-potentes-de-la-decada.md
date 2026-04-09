@@ -4,7 +4,7 @@ description: "Se ha revelado la lista oficial de la 79ª edición del Festival d
 pubDate: 2026-04-09T14:26:13.921Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/03/unnamed-30.jpg?w=1000&h=667&crop=1"
+image: "/images/posts/2026-04-09-gemini-generated-image-jzyygwjzyygwjzyy-1775745199887.png"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -12,6 +12,7 @@ fuente:
 readTime: "5 min read"
 tags: ["Cannes"]
 ---
+
 
 El director del festival, Thierry Frémaux, ha revelado hoy la alineación para el **79º Festival de Cine de Cannes**, y el veredicto es unánime: estamos ante un año de "cine de autor puro". Sin la distracción de los grandes *blockbusters* de Hollywood, la Croisette se prepara para un duelo de titanes entre ganadores de la Palma de Oro y las nuevas voces que están redefiniendo el cine global. El festival se llevará a cabo del **12 al 23 de mayo de 2026**.
 
@@ -162,3 +163,4 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 ### **Diversidad y Representación**
 
 Este año, la competición oficial no solo destaca por sus nombres consagrados, sino también por una representación LGBTQ+ histórica, con cinco cineastas abiertamente fuera del armario compitiendo por el máximo galardón (incluyendo a Almodóvar, Dhont y Los Javis). Aunque Frémaux admitió que la cifra de directoras en competición (alrededor del 28%) aún tiene margen de mejora, la calidad de las propuestas de cineastas como Léa Mysius y Marie Kreutzer ha sido muy celebrada.
+
