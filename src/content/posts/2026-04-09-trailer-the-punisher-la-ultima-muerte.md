@@ -5,7 +5,7 @@ pubDate: 2026-04-09T20:46:51.805Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://i.ytimg.com/vi/0bmhcUFmKMA/hqdefault.jpg"
+image: "https://kchcomunicacion.com/wp-content/uploads/2026/04/Jon-Bernthal-regresa-como-Frank-Castle-en-The-Puni.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]
