@@ -61,7 +61,7 @@ const title = "Panel de Administración | RutaDorada";
                     <div>
 
                         <h1 class="font-display font-bold text-2xl text-slate-900 dark:text-white">
-                            Panel de RutaDorada Films
+                            Panel de Ruta<span class="text-primary">Dorada</span> Films
                         </h1>
                         <p class="text-slate-500 text-sm">
                             Hola, <span class="text-primary font-bold">{user?.displayName}</span>. Bienvenido al centro de control.
@@ -220,10 +220,7 @@ const title = "Panel de Administración | RutaDorada";
             </div>
         </div>
 
-        <!-- Notificación de Éxito -->
-        <div id="toast-success" class="fixed bottom-6 right-6 z-[110] hidden bg-green-500 text-white px-6 py-3 rounded-xl font-bold shadow-xl animate-bounce-short">
-            Post eliminado con éxito
-        </div>
+
     </main>
 
     <script>
@@ -232,7 +229,6 @@ const title = "Panel de Administración | RutaDorada";
         const confirmDeleteBtn = document.getElementById('confirm-delete');
         const cancelDeleteBtn = document.getElementById('cancel-delete');
         const deleteModalMessage = document.getElementById('delete-modal-message');
-        const toastSuccess = document.getElementById('toast-success');
 
         let currentPostToDelete: { filename: string, element: HTMLElement } | null = null;
 
@@ -326,8 +322,7 @@ const title = "Panel de Administración | RutaDorada";
                     currentPostToDelete.element.classList.add('opacity-0', 'scale-95');
                     setTimeout(() => {
                         currentPostToDelete?.element.remove();
-                        toastSuccess?.classList.remove('hidden');
-                        setTimeout(() => toastSuccess?.classList.add('hidden'), 3000);
+                        alert('¡El artículo ha sido eliminado exitosamente!');
                     }, 300);
                     closeDeleteModal();
                 } else {

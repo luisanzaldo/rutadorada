@@ -103,7 +103,7 @@ const duracionValue = ficha.duracion || "";
                         <a href="/admin" class="flex items-center text-slate-400 hover:text-primary transition-colors hover:-translate-x-1" title="Volver al Panel">
                             <span class="material-symbols-outlined text-[28px]">arrow_back</span>
                         </a>
-                        Editar artículo
+                        Edita el artículo
                     </h1>
                     <p class="text-slate-500 text-sm mt-3 sm:ml-[42px] flex items-center gap-2">
                         <span>Autor:</span> 
@@ -181,8 +181,8 @@ const duracionValue = ficha.duracion || "";
                                 Categoría *
                             </label>
                             <div class="relative">
-                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
-                                    <span class="material-symbols-outlined text-[18px]">category</span>
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 mt-0.5 text-slate-400 pointer-events-none">
+                                    <span class="material-symbols-outlined text-[18px]">videocam</span>
                                 </span>
                                 <select
                                     id="category"
@@ -243,8 +243,8 @@ const duracionValue = ficha.duracion || "";
                             <label for="tags" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
                                 Etiquetas (Tags)
                             </label>
-                            <div class="relative flex items-center">
-                                <span class="absolute left-4 text-slate-400 pointer-events-none">
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 mt-0.5 text-slate-400 pointer-events-none">
                                     <span class="material-symbols-outlined text-[18px]">sell</span>
                                 </span>
                                 <input
@@ -276,8 +276,8 @@ const duracionValue = ficha.duracion || "";
                             <label for="sourceUrl" id="sourceUrlLabel" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
                                 Enlace de la fuente
                             </label>
-                            <div class="relative flex items-center">
-                                <span class="absolute left-4 text-slate-400 pointer-events-none">
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 mt-0.5 text-slate-400 pointer-events-none">
                                     <span class="material-symbols-outlined text-[18px]">link</span>
                                 </span>
                                 <input
@@ -345,7 +345,7 @@ const duracionValue = ficha.duracion || "";
                 <div class="space-y-4">
                     <label class="block text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px] text-primary">edit_note</span>
-                        Contenido del Artículo
+                        Contenido del artículo
                     </label>
 
                     <!-- TIPTAP EDITOR -->
@@ -513,7 +513,7 @@ const duracionValue = ficha.duracion || "";
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del bloque</label>
                         <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
                     </div>
-                    <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg capitalize">
+                    <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg">
                         Insertar punto
                     </button>
                 </div>
