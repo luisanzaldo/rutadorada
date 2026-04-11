@@ -13,7 +13,6 @@ readTime: "5 min read"
 tags: ["Cannes"]
 ---
 
-
 El director del festival, Thierry Frémaux, ha revelado hoy la alineación para el **79º Festival de Cine de Cannes**, y el veredicto es unánime: estamos ante un año de "cine de autor puro". Sin la distracción de los grandes *blockbusters* de Hollywood, la Croisette se prepara para un duelo de titanes entre ganadores de la Palma de Oro y las nuevas voces que están redefiniendo el cine global. El festival se llevará a cabo del **12 al 23 de mayo de 2026**.
 
 ### **El Regreso de los Grandes Maestros**
@@ -32,21 +31,21 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Minotaur,” Andrey Zvyagintsev
 
-“El Ser Querido” (“The Beloved”), Rodrigo Sorogoyen  
+“El Ser Querido” (“The Beloved”), Rodrigo Sorogoyen
 
-“The Man I Love,” Ira Sachs 
+“The Man I Love,” Ira Sachs
 
-“Fatherland,” Paweł Pawlikowski 
+“Fatherland,” Paweł Pawlikowski
 
 “Moulin,” László Nemes
 
-“Histoire de la nuit” (“The Birthday Party”), Léa Mysius 
+“Histoire de la nuit” (“The Birthday Party”), Léa Mysius
 
 “Fjord,” Cristian Mungiu
 
 “Notre salut,” Emmanuel Marre
 
-“Gentle Monster,” Marie Kreutzer  
+“Gentle Monster,” Marie Kreutzer
 
 “Nagi Notes,” Koji Fukada
 
@@ -68,7 +67,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “A Woman’s Life,” Charline Bourgeois-Tacquet
 
-“Parallel Tales,” Asghar Farhadi 
+“Parallel Tales,” Asghar Farhadi
 
 “Amarga Navidad” (“Bitter Christmas”), Pedro Almodóvar
 
@@ -94,7 +93,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Club Kid,” Jordan Firstman
 
-“Teenage Sex and Death at Camp Miasma,” Jane Schoenbrun  
+“Teenage Sex and Death at Camp Miasma,” Jane Schoenbrun
 
 “Everytime,” Sandra Wollner
 
@@ -122,7 +121,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 ### **PROYECCIONES ESPECIALES**
 
-“John Lennon: The Last Interview,” Steven Soderbergh  
+“John Lennon: The Last Interview,” Steven Soderbergh
 
 “Avedon,” Ron Howard
 
@@ -138,9 +137,9 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 ### **PROYECCIONES DE MEDIANOCHE**
 
-“Roma Elastica,” Bertrand Mandico 
+“Roma Elastica,” Bertrand Mandico
 
-“Full Phil,” Quentin Dupieux 
+“Full Phil,” Quentin Dupieux
 
 “Gun-Che” (“Colony”), Yeon Sang-ho
 
@@ -148,7 +147,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Sanguine,” Marion Le Coroller
 
-### **CANNES PREMIERE**
+### **CANNES Premiere**
 
 “Propeller One-Way Night Coach,” John Travolta
 
@@ -163,4 +162,3 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 ### **Diversidad y Representación**
 
 Este año, la competición oficial no solo destaca por sus nombres consagrados, sino también por una representación LGBTQ+ histórica, con cinco cineastas abiertamente fuera del armario compitiendo por el máximo galardón (incluyendo a Almodóvar, Dhont y Los Javis). Aunque Frémaux admitió que la cifra de directoras en competición (alrededor del 28%) aún tiene margen de mejora, la calidad de las propuestas de cineastas como Léa Mysius y Marie Kreutzer ha sido muy celebrada.
-
