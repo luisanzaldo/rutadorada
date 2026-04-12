@@ -71,7 +71,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Amarga Navidad” (“Bitter Christmas”), Pedro Almodóvar
 
-### **FUERA DE COMPETICIÓN**
+### **Fuera de competición**
 
 “The Electric Kiss” (“La Venus électrique”), Pierre Salvadori — Opening Film
 
@@ -87,7 +87,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “L’Abandon,” Vincent Garenq
 
-### **UN CERTAIN REGARD**
+### **Un Certain Regard**
 
 “La más dulce” (“Strawberries”), Laïla Marrakchi
 
@@ -119,7 +119,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Words of Love,” Rudi Rosenberg
 
-### **PROYECCIONES ESPECIALES**
+### **Proyecciones especiales**
 
 “John Lennon: The Last Interview,” Steven Soderbergh
 
@@ -135,7 +135,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Cantona,” David Tryhorn and Ben Nicholas
 
-### **PROYECCIONES DE MEDIANOCHE**
+### **Proyecciones de medianoche**
 
 “Roma Elastica,” Bertrand Mandico
 
@@ -147,7 +147,7 @@ Fuera de competición, el festival se vestirá de gala para el estreno de *Her P
 
 “Sanguine,” Marion Le Coroller
 
-### **CANNES Premiere**
+### **Cannes Premiere**
 
 “Propeller One-Way Night Coach,” John Travolta
 
