@@ -1,6 +1,6 @@
 ---
 title: "Super Mario Galaxy: La película, o cómo nunca perder la atención del público"
-description: "Secuela de la hiper famosa franquicia de Nintendo vistosa en su animación que carece de narrativa, está saturada de momentos de acción tras otra para no perder la atención del público y puro fan service."
+description: "Secuela de la hiperfamosa franquicia de Nintendo vistosa en su animación que carece de narrativa, está saturada de momentos de acción y busca no perder la atención del público con el objeto del fan service."
 pubDate: 2026-04-12T06:07:51.769Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
