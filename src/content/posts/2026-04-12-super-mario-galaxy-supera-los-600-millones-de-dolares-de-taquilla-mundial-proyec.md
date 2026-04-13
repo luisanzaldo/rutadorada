@@ -19,7 +19,7 @@ La industria cinematográfica está viviendo un momento emocionante, con varias 
 
 ## Un éxito sin precedentes
 
-La película ha demostrado ser un éxito sin precedentes, con una recaudación de $320 millones en el extranjero y $308 millones en Norteamérica. Los mercados más lucrativos incluyen México, el Reino Unido y Irlanda, Alemania y Francia. La película ha dominado la taquilla internacional en su segundo fin de semana de estreno, recaudando $83.5 millones en 81 territorios.
+La película ha demostrado ser un éxito sin precedentes, con una recaudación de $320 millones en el extranjero y $308 millones en Norteamérica. Los mercados más lucrativos incluyen México, el Reino Unido e Irlanda, Alemania y Francia. La película ha dominado la taquilla internacional en su segundo fin de semana de estreno, recaudando $83.5 millones en 81 territorios.
 
 ## Otras películas en la carrera
 
@@ -29,8 +29,6 @@ Mientras tanto, *Project Hail Mary* ha superado la barrera de los $500 millones 
 <div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">Un récord en la taquilla</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">La recaudación de Super Mario Galaxy Movie es un récord en la taquilla de 2026, ya que se espera que la película supere los $1.000 millones en las próximas semanas.</p></div></div>
 </div>
 
-La recaudación de Super Mario Galaxy Movie es un récord en la taquilla de 2026, ya que se espera que la película supere los $1.000 millones en las próximas semanas.
-
 ## Conclusión
 
-La carrera por la taquilla de 2026 está en pleno apogeo, y *Super Mario Galaxy Movie* se ha consolidado como la película más taquillera del año. Sin embargo, otras películas como *Project Hail Mary* y *The Drama* también han demostrado ser éxitos en la taquilla. La industria cinematográfica seguirá siendo emocionante en los próximos meses, con varias películas compitiendo por el título de la más taquillera del año.
+La carrera por la taquilla de 2026 está en pleno apogeo y *Super Mario Galaxy Movie* se ha consolidado como la película más taquillera del año. Sin embargo, otras películas como *Project Hail Mary* y *The Drama* también han demostrado ser éxitos en la taquilla. La industria cinematográfica seguirá siendo emocionante en los próximos meses, con varias películas compitiendo por el título de la más taquillera del año.
