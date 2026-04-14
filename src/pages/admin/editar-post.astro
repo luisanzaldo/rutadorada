@@ -882,7 +882,9 @@ const duracionValue = ficha.duracion || "";
                     StarterKit.configure({
                         hardBreak: false,
                     }),
-                    Image,
+                    Image.configure({
+                        inline: false,
+                    }),
                     Youtube.configure({ inline: false }),
                     Underline,
                     Markdown.configure({

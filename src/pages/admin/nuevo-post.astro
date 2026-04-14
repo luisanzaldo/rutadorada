@@ -819,8 +819,12 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             const editor = new Editor({
                 element: editorElement,
                 extensions: [
-                    StarterKit,
-                    Image,
+                    StarterKit.configure({
+                        hardBreak: false,
+                    }),
+                    Image.configure({
+                        inline: false,
+                    }),
                     Youtube.configure({ inline: false }),
                     Underline,
                     Markdown.configure({
