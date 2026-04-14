@@ -37,13 +37,17 @@ La cineasta franco-costarricense **Valentina Maurel** presenta su nuevo trabajo 
 
 Calva suma además una segunda presencia en el festival: **Her Private Hell**, dirigida por **Nicolas Winding Refn**, la cual se proyectará fuera de competencia con un reparto que incluye a Sophie Thatcher, Charles Melton, Havana Rose Liu, Kristine Froseth, Dougray Scott, Shioli Kutsuna, Aoi Yamada e Hidetoshi Nishijima.
 
-![](https://moreliafilmfest.com/sites/default/files/inline-images/Mexicanos%20Cannes%20Un%20Certain%20Regard%202026.jpg)## **Semana de la Crítica**
+![](https://moreliafilmfest.com/sites/default/files/inline-images/Mexicanos%20Cannes%20Un%20Certain%20Regard%202026.jpg)
+
+## **Semana de la Crítica**
 
 **Seis meses en el edificio rosa con azul**
 
 Esta película dirigida por el mexicano **Bruno Santamaría** se sitúa en Ciudad de México a principios de los años 90. El día que Bruno cumple once años, dos cosas ocurren al mismo tiempo: descubre sus sentimientos por su mejor amigo Vladimir y se entera de que su padre tiene VIH. Como en las canciones de salsa, la familia convierte el dolor en baile. Tres décadas después, Bruno filma y reinterpreta lo que no pudo entender del todo siendo niño.
 
-![](https://moreliafilmfest.com/sites/default/files/inline-images/Bruno%20Santamari%CC%81a.jpg)## **Cannes Écrans Juniors**
+![](https://moreliafilmfest.com/sites/default/files/inline-images/Bruno%20Santamari%CC%81a.jpg)
+
+## **Cannes Écrans Juniors**
 
 La selección de largometrajes para audiencias jóvenes a partir de trece años incluyó tres títulos mexicanos, todos con reconocimientos internacionales previos.
 
@@ -51,7 +55,9 @@ La selección de largometrajes para audiencias jóvenes a partir de trece años 
 - **Chicas tristes**, dirigida por **Fernanta Tovar**, película ganadora del Oso de Cristal a la Mejor Película y el Gran Prix del Jurado Internacional de Berlinale Generation.
 - **Vainilla**, dirigida por **Mayra Hermosillo**, Premio del Público a Largometraje Mexicano de Ficción en la edición 23 del Festival Internacional de Cine de Morelia.
 
-![](https://m.media-amazon.com/images/M/MV5BZjc5ODEwZDktNWM1ZC00NjBiLTlkZWYtMGM2Y2I0MmE4NjQyXkEyXkFqcGc@._V1_.jpg)## **Cannes Classics**
+![](https://m.media-amazon.com/images/M/MV5BZjc5ODEwZDktNWM1ZC00NjBiLTlkZWYtMGM2Y2I0MmE4NjQyXkEyXkFqcGc@._V1_.jpg)
+
+## **Cannes Classics**
 
 Guillermo del Toro cierra la participación mexicana con el peso específico de una retrospectiva que pocas películas merecen. **El laberinto del fauno** regresa a Cannes en versión restaurada para celebrar sus veinte años. La cinta tuvo su estreno mundial en el festival en 2006, donde obtuvo una de las ovaciones de pie más prolongadas en la historia del certamen.
 
