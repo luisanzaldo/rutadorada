@@ -52,7 +52,7 @@ Esta película dirigida por el mexicano **Bruno Santamaría** se sitúa en Ciuda
 La selección de largometrajes para audiencias jóvenes a partir de trece años incluyó tres títulos mexicanos, todos con reconocimientos internacionales previos.
 
 - **Moscas**, el quinto largometraje de **Fernando Eimbcke**, el cual tuvo su estreno en la pasada edición del Festival Internacional de Cine de Berlín.
-- **Chicas tristes**, dirigida por **Fernanta Tovar**, película ganadora del Oso de Cristal a la Mejor Película y el Gran Prix del Jurado Internacional de Berlinale Generation.
+- **Chicas tristes**, dirigida por **Fernanta Tovar**, película ganadora del Oso de Cristal a la Mejor Película y el Grand Prix del Jurado Internacional de Berlinale Generation.
 - **Vainilla**, dirigida por **Mayra Hermosillo**, Premio del Público a Largometraje Mexicano de Ficción en la edición 23 del Festival Internacional de Cine de Morelia.
 
 ![](https://m.media-amazon.com/images/M/MV5BZjc5ODEwZDktNWM1ZC00NjBiLTlkZWYtMGM2Y2I0MmE4NjQyXkEyXkFqcGc@._V1_.jpg)
