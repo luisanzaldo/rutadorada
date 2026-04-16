@@ -25,6 +25,14 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
+    // Validar que el filename no contenga path traversal ni caracteres peligrosos
+    if (!/^[a-zA-Z0-9._-]+$/.test(filename)) {
+      return new Response(JSON.stringify({ success: false, error: 'Nombre de archivo inválido' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     // 3. Configuración de GitHub
     const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
     const GITHUB_REPO = import.meta.env.GITHUB_REPO;

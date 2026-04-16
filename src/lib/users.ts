@@ -5,16 +5,18 @@ export interface AdminUser {
   letterboxdUrl: string;
 }
 
+// Los hashes de contraseña se leen de variables de entorno.
+// Deben definirse como HASH_LUISANZALDO y HASH_RAMONFIGUEROA en .env y en Vercel.
 export const USERS: AdminUser[] = [
   {
     username: 'luisanzaldo',
-    passwordHash: '$2b$10$U3i4WCT0FXUNUjAnwa6YX./PAxQ/Grhqu57XFUqhidD48zyWbTYgq',
+    passwordHash: import.meta.env.HASH_LUISANZALDO,
     displayName: 'Luis Anzaldo',
     letterboxdUrl: 'https://boxd.it/82ej9',
   },
   {
     username: 'ramonfigueroa',
-    passwordHash: '$2b$10$DhXsL1W2OlW097WQOQyKIerb11QKpLqNK8tTVE9OF53nVkEqdWrAa',
+    passwordHash: import.meta.env.HASH_RAMONFIGUEROA,
     displayName: 'Moncho',
     letterboxdUrl: 'https://boxd.it/8jjEl',
   }

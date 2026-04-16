@@ -56,12 +56,25 @@ export const POST: APIRoute = async ({ request }) => {
     // 3. Determinar Ruta de Archivo
     let filePath = "";
     if (filename) {
-      // Si estamos editando, mantenemos el archivo original
+      // Validar que el filename no contenga path traversal ni caracteres peligrosos
+      if (!/^[a-zA-Z0-9._-]+$/.test(filename)) {
+        return new Response(JSON.stringify({ success: false, error: 'Nombre de archivo inválido' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
       filePath = `src/content/posts/${filename}`;
     } else {
-      // Si es nuevo, generamos slug
-      const slug = generateSlug(title);
+      // Validar extensión: solo se permiten .md y .mdx
+      const allowedExtensions = ['.md', '.mdx'];
       const ext = fileExtension?.startsWith('.') ? fileExtension : `.${fileExtension || 'md'}`;
+      if (!allowedExtensions.includes(ext)) {
+        return new Response(JSON.stringify({ success: false, error: 'Extensión de archivo no permitida' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      const slug = generateSlug(title);
       filePath = `src/content/posts/${slug}${ext}`;
     }
 

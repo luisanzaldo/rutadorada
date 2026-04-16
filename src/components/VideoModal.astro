@@ -77,20 +77,31 @@
                     isIframe = false;
                 }
 
-                if (isIframe) {
-                    videoContainer.innerHTML = `<iframe 
-                        src="${embedUrl}" 
-                        class="w-full h-full border-0 absolute top-0 left-0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>`;
-                } else {
-                    videoContainer.innerHTML = `<video 
-                        src="${url}" 
-                        class="w-full h-full outline-none" 
-                        controls 
-                        autoplay>
-                    </video>`;
+                // Validar que la URL use un protocolo seguro antes de inyectarla en el DOM
+                try {
+                    const safeEmbedUrl = new URL(embedUrl);
+                    if (!['https:', 'http:'].includes(safeEmbedUrl.protocol)) return;
+                    const safeUrl = isIframe ? safeEmbedUrl : new URL(url);
+                    if (!['https:', 'http:'].includes(safeUrl.protocol)) return;
+
+                    videoContainer.innerHTML = '';
+                    if (isIframe) {
+                        const iframe = document.createElement('iframe');
+                        iframe.setAttribute('src', safeEmbedUrl.href);
+                        iframe.className = 'w-full h-full border-0 absolute top-0 left-0';
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        videoContainer.appendChild(iframe);
+                    } else {
+                        const video = document.createElement('video');
+                        video.setAttribute('src', safeUrl.href);
+                        video.className = 'w-full h-full outline-none';
+                        video.setAttribute('controls', '');
+                        video.setAttribute('autoplay', '');
+                        videoContainer.appendChild(video);
+                    }
+                } catch {
+                    return; // URL malformada, no hacer nada
                 }
 
                 modal.showModal();

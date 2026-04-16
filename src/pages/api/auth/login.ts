@@ -29,36 +29,33 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
         const user = USERS.find((u) => u.username === username);
 
-        if (user) {
-            const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
+        // Siempre ejecutar bcrypt.compare para normalizar el tiempo de respuesta
+        // y evitar la enumeración de usuarios por timing o por código HTTP.
+        const DUMMY_HASH = '$2b$10$abcdefghijklmnopqrstuuTGnQ1V7ND3ZcEL9JfGAlkNRJZFw2e3G';
+        const hashToCompare = user ? user.passwordHash : DUMMY_HASH;
+        const isPasswordCorrect = await bcrypt.compare(password, hashToCompare);
 
-            if (isPasswordCorrect) {
-                // Credenciales correctas: Crear sesión
-                const token = await createSession(user.username);
+        if (user && isPasswordCorrect) {
+            // Credenciales correctas: Crear sesión
+            const token = await createSession(user.username);
 
-                // Guardar en cookie
-                cookies.set("session", token, {
-                    path: "/",
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: "strict",
-                    maxAge: 60 * 60 * 24 * 7, // 7 días
-                });
+            // Guardar en cookie
+            cookies.set("session", token, {
+                path: "/",
+                httpOnly: true,
+                secure: true,
+                sameSite: "strict",
+                maxAge: 60 * 60 * 24 * 7, // 7 días
+            });
 
-                return new Response(
-                    JSON.stringify({ success: true }), 
-                    { status: 200, headers: { 'Content-Type': 'application/json' } }
-                );
-            } else {
-                return new Response(
-                    JSON.stringify({ success: false, error: 'Contraseña incorrecta' }), 
-                    { status: 401, headers: { 'Content-Type': 'application/json' } }
-                );
-            }
+            return new Response(
+                JSON.stringify({ success: true }),
+                { status: 200, headers: { 'Content-Type': 'application/json' } }
+            );
         } else {
             return new Response(
-                JSON.stringify({ success: false, error: 'Usuario no encontrado' }), 
-                { status: 404, headers: { 'Content-Type': 'application/json' } }
+                JSON.stringify({ success: false, error: 'Credenciales incorrectas' }),
+                { status: 401, headers: { 'Content-Type': 'application/json' } }
             );
         }
     } catch (e) {
