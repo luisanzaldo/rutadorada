@@ -1,5 +1,5 @@
 ---
-title: "CinemaCon 2026: Resumen Walt Disney Studiios"
+title: "CinemaCon 2026: Resumen Walt Disney Studios"
 description: "Disney cerró la CinemaCon 2026 con una presentación de alto impacto que reafirma su dominio en la taquilla global"
 pubDate: 2026-04-17T16:50:45.814Z
 author: "Moncho"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Próximamente"]
 ---
+
 
 Bajo la nueva dirección de Josh D'Amaro, Disney cerró la CinemaCon 2026 reafirmando su liderazgo en la taquilla y su compromiso con las ventanas de exhibición teatral (con un promedio de 57 días de exclusividad). La presentación se centró en grandes franquicias y algunas propuestas originales de alto impacto.
 
@@ -44,3 +45,4 @@ Kevin Feige y los hermanos Russo presentaron **"Infinity Vision"**, un nuevo est
 #### **Vistazo al Futuro**
 
 Aunque el enfoque estuvo en 2026, se mencionaron brevemente los proyectos para 2027: **"Gatto"** de Pixar y **"Star Wars: Starfighter"**.
+
