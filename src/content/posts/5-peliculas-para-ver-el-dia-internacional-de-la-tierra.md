@@ -25,11 +25,11 @@ Una joya de la animación que presenta un futuro donde la Tierra es un vertedero
 
 Este clásico del cine de catástrofes visualiza las consecuencias extremas de la alteración de las corrientes oceánicas. Aunque se toma licencias narrativas, su mensaje sobre la fragilidad del equilibrio climático y la rapidez con la que el entorno puede volverse hostil sigue siendo un referente en la cultura popular. **Se puede ver en Disney +.**
 
-![](https://m.media-amazon.com/images/M/MV5BNzA4MzM4OTMxM15BMl5BanBnXkFtZTcwNzM3MjkyMw@@._V1_.jpg)###  **No miren arriba (2021)**
+![](https://m.media-amazon.com/images/M/MV5BNzA4MzM4OTMxM15BMl5BanBnXkFtZTcwNzM3MjkyMw@@._V1_.jpg)### **No miren arriba (2021)**
 
 Utilizando la caída de un cometa como metáfora del cambio climático, esta sátira muerde con su crítica a la indiferencia mediática y política. Es una pieza clave para entender cómo la desinformación y la priorización de intereses económicos pueden cegarnos ante amenazas existenciales inminentes. **Se puede ver en Netflix.**
 
-![](https://pics.filmaffinity.com/No_miren_arriba-208865935-large.jpg)###  **Una verdad incómoda (2006)**
+![](https://pics.filmaffinity.com/No_miren_arriba-208865935-large.jpg)### **Una verdad incómoda (2006)**
 
 Este documental liderado por Al Gore marcó un antes y un después en la conversación pública sobre el calentamiento global. Con datos rigurosos y una presentación clara, explica por qué el aumento de las temperaturas no es una teoría, sino una realidad científica que requiere una respuesta humana inmediata. **Se puede rentar en Prime Video y Apple TV +.**
 
