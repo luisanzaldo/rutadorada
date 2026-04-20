@@ -21,19 +21,27 @@ Ver estas películas durante el Día de la Tierra permite procesar la crisis cli
 
 Una joya de la animación que presenta un futuro donde la Tierra es un vertedero gigante abandonado por la humanidad. A través de la mirada de un pequeño robot, se nos advierte sobre el consumismo desenfrenado y la pérdida de conexión con la naturaleza, recordándonos que la vida siempre busca una manera de florecer si le damos la oportunidad. **Se puede ver en Disney +**
 
-![](https://www.looper.com/img/gallery/the-terrifying-detail-you-missed-in-wall-es-opening-scene/l-intro-1608234708.jpg)## **El día después de mañana (2004)**
+![](https://www.looper.com/img/gallery/the-terrifying-detail-you-missed-in-wall-es-opening-scene/l-intro-1608234708.jpg)
+
+### **El día después de mañana (2004)**
 
 Este clásico del cine de catástrofes visualiza las consecuencias extremas de la alteración de las corrientes oceánicas. Aunque se toma licencias narrativas, su mensaje sobre la fragilidad del equilibrio climático y la rapidez con la que el entorno puede volverse hostil sigue siendo un referente en la cultura popular. **Se puede ver en Disney +.**
 
-![](https://m.media-amazon.com/images/M/MV5BNzA4MzM4OTMxM15BMl5BanBnXkFtZTcwNzM3MjkyMw@@._V1_.jpg)\### **No miren arriba (2021)**
+![](https://m.media-amazon.com/images/M/MV5BNzA4MzM4OTMxM15BMl5BanBnXkFtZTcwNzM3MjkyMw@@._V1_.jpg)
+
+### **No miren arriba (2021)**
 
 Utilizando la caída de un cometa como metáfora del cambio climático, esta sátira muerde con su crítica a la indiferencia mediática y política. Es una pieza clave para entender cómo la desinformación y la priorización de intereses económicos pueden cegarnos ante amenazas existenciales inminentes. **Se puede ver en Netflix.**
 
-![](https://pics.filmaffinity.com/No_miren_arriba-208865935-large.jpg)\### **Una verdad incómoda (2006)**
+![](https://pics.filmaffinity.com/No_miren_arriba-208865935-large.jpg)\### 
+
+### **Una verdad incómoda (2006)**
 
 Este documental liderado por Al Gore marcó un antes y un después en la conversación pública sobre el calentamiento global. Con datos rigurosos y una presentación clara, explica por qué el aumento de las temperaturas no es una teoría, sino una realidad científica que requiere una respuesta humana inmediata. **Se puede rentar en Prime Video y Apple TV +.**
 
-![](https://m.media-amazon.com/images/S/pv-target-images/8d2532c329f5c75fe20095647ed60a5f3489eb25f71fed41b39b2754a0b8595a._SX1080_FMjpg_.jpg)\### **David Attenborough: A Life on Our Planet (2020)**
+![](https://m.media-amazon.com/images/S/pv-target-images/8d2532c329f5c75fe20095647ed60a5f3489eb25f71fed41b39b2754a0b8595a._SX1080_FMjpg_.jpg) 
+
+### **David Attenborough: A Life on Our Planet (2020)**
 
 Más que un documental, es el "testimonio de un testigo". Attenborough recorre su trayectoria para mostrar cómo ha disminuido la biodiversidad del planeta en una sola vida humana. Sin embargo, termina con una nota de esperanza, ofreciendo una hoja de ruta clara sobre cómo podemos "asilvestrar" el mundo para asegurar nuestro futuro. **Se puede ver en Netflix.**
 
