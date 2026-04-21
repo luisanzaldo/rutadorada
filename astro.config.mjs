@@ -16,5 +16,9 @@ export default defineConfig({
     }
   },
 
-  integrations: [mdx()]
+  integrations: [mdx()],
+
+  security: {
+    checkOrigin: false
+  }
 });
