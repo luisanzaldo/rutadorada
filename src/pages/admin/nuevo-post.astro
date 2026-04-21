@@ -1147,17 +1147,47 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             });
 
             // Insertar Imagen desde UI
-            document.getElementById('btn-insert-image')?.addEventListener('click', () => {
+            document.getElementById('btn-insert-image')?.addEventListener('click', async () => {
                 const urlInput = document.getElementById('tiptap-img-url') as HTMLInputElement;
                 const fileInput = document.getElementById('tiptap-img-file') as HTMLInputElement;
                 let url = urlInput?.value;
 
                 if (fileInput?.files && fileInput.files[0]) {
-                    url = URL.createObjectURL(fileInput.files[0]); // Object URL temporal de previsualización
+                    const btn = document.getElementById('btn-insert-image');
+                    const originalText = btn?.textContent || 'Insertar en el artículo';
+                    if (btn) btn.textContent = 'Subiendo...';
+                    
+                    try {
+                        const file = fileInput.files[0];
+                        if (file.size > 4.5 * 1024 * 1024) {
+                            throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB.`);
+                        }
+
+                        const formData = new FormData();
+                        formData.append('image', file);
+                        const uploadRes = await fetch('/api/posts/upload-image', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const uploadData = await uploadRes.json();
+                        if (uploadData.success) {
+                            url = uploadData.url;
+                        } else {
+                            throw new Error(uploadData.error);
+                        }
+                    } catch (e: any) {
+                        alert('Error al subir la imagen: ' + e.message);
+                        if (btn) btn.textContent = originalText;
+                        return;
+                    }
+                    if (btn) btn.textContent = originalText;
                 }
 
                 if (url) {
                     editor.chain().focus().setImage({ src: url }).run();
+                    // Agregar un párrafo vacío tras insertar imagen para separar nuevos bloques
+                    editor.chain().focus().insertContent('<p></p>').run();
+                    
                     if (urlInput) urlInput.value = '';
                     if (fileInput) fileInput.value = '';
                     closeModal(modalImage, modalImageContent);

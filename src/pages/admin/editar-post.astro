@@ -442,8 +442,22 @@ const duracionValue = ficha.duracion || "";
                     </button>
                 </div>
                 <div class="space-y-4">
-                    <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white" placeholder="https://..." />
-                    <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold">Insertar</button>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Por URL web</label>
+                        <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
+                    </div>
+                    <div class="relative flex py-2 items-center">
+                        <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
+                        <span class="flex-shrink-0 mx-4 text-slate-400 text-xs font-semibold uppercase">O</span>
+                        <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase">Subir archivo local</label>
+                        <input type="file" id="tiptap-img-file" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 dark:file:bg-[#162a2f] dark:file:text-white dark:hover:file:bg-[#224249] cursor-pointer" />
+                    </div>
+                    <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
+                        Insertar en el artículo
+                    </button>
                 </div>
             </div>
         </div>
@@ -1039,11 +1053,54 @@ const duracionValue = ficha.duracion || "";
                 }
             });
 
-            document.getElementById('btn-insert-image')?.addEventListener('click', () => {
-                const url = document.getElementById('tiptap-img-url').value;
+            document.getElementById('btn-insert-image')?.addEventListener('click', async () => {
+                const urlInput = document.getElementById('tiptap-img-url') as HTMLInputElement;
+                const fileInput = document.getElementById('tiptap-img-file') as HTMLInputElement;
+                let url = urlInput?.value;
+
+                if (fileInput?.files && fileInput.files[0]) {
+                    const btn = document.getElementById('btn-insert-image');
+                    const originalText = btn?.textContent || 'Insertar en el artículo';
+                    if (btn) btn.textContent = 'Subiendo...';
+                    
+                    try {
+                        const file = fileInput.files[0];
+                        if (file.size > 4.5 * 1024 * 1024) {
+                            throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB.`);
+                        }
+
+                        const formData = new FormData();
+                        formData.append('image', file);
+                        const uploadRes = await fetch('/api/posts/upload-image', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const uploadData = await uploadRes.json();
+                        if (uploadData.success) {
+                            url = uploadData.url;
+                        } else {
+                            throw new Error(uploadData.error);
+                        }
+                    } catch (e: any) {
+                        alert('Error al subir la imagen: ' + e.message);
+                        if (btn) btn.textContent = originalText;
+                        return;
+                    }
+                    if (btn) btn.textContent = originalText;
+                }
+
                 if (url) {
                     editor.chain().focus().setImage({ src: url }).run();
-                    document.querySelector('.btn-close-modal').click();
+                    // Agregar un párrafo vacío para evitar que los siguientes elementos (como subtítulos) 
+                    // queden pegados a la imagen en el markdown resultante.
+                    editor.chain().focus().insertContent('<p></p>').run();
+                    
+                    if (urlInput) urlInput.value = '';
+                    if (fileInput) fileInput.value = '';
+                    const closeBtn = document.querySelector('.btn-close-modal') as HTMLElement;
+                    if (closeBtn) closeBtn.click();
+                } else {
+                    alert("Por favor ingresa un enlace o selecciona un archivo para tu imagen.");
                 }
             });
             document.getElementById('btn-insert-youtube')?.addEventListener('click', () => {
