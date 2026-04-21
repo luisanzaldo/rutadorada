@@ -23,3 +23,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# scratch / temp files that shouldn't be committed
+temp*.html
+test_*.js
+test_*.css
+pnpm-dist/
+tmp/

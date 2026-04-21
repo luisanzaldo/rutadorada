@@ -1,7 +1,7 @@
 # 🚀 DevBlog - Modern Tech & Architecture Blog
 
 <p align="center">
-  <img src="Logo.png">
+  <img src="public/Logo.png">
 </p>
 
 DevBlog is a high-performance, premium tech blog built for deep dives into software architecture, ethical hacking, and AI. It features a futuristic dark aesthetic, interactive guest features, and a robust authentication system.
