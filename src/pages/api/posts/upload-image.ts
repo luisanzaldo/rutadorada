@@ -124,8 +124,12 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
+    const githubData = await githubRes.json();
+
     // 7. Respuesta Exitosa
-    const finalUrl = `/images/posts/${filename}`;
+    // Al usar download_url apuntamos directamente a raw.githubusercontent.com,
+    // garantizando que la imagen se vea al instante sin esperar el rebuild de Vercel.
+    const finalUrl = githubData.content?.download_url || `https://raw.githubusercontent.com/${GITHUB_REPO}/main/${githubPath}`;
     
     return new Response(JSON.stringify({ success: true, url: finalUrl }), {
       status: 200,
