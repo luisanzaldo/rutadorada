@@ -842,7 +842,8 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 },
                 onUpdate: ({ editor }) => {
                     // TipTap Markdown extrae el texto puro MD que usaremos después en colecciones
-                    const mdText = editor.storage.markdown.getMarkdown();
+                    const mdText = editor.storage.markdown.getMarkdown()
+                        .replace(/(!\[[^\]]*\]\([^)]*\))\n?(#{1,6} )/g, '$1\n\n$2');
                     inputContent.value = mdText;
                     
                     // Detectar si hay un iframe de youtube presente y forzar a que sea MDX!

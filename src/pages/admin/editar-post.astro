@@ -899,7 +899,8 @@ const duracionValue = ficha.duracion || "";
                     },
                 },
                 onUpdate: ({ editor }) => {
-                    const mdText = editor.storage.markdown.getMarkdown();
+                    const mdText = editor.storage.markdown.getMarkdown()
+                        .replace(/(!\[[^\]]*\]\([^)]*\))\n?(#{1,6} )/g, '$1\n\n$2');
                     if (inputContent) inputContent.value = mdText;
                     
                     if (fileExtInput) {
