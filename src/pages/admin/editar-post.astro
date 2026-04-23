@@ -1130,9 +1130,11 @@ const duracionValue = ficha.duracion || "";
                             throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
                         }
 
-                        const formData = new FormData();
-                        formData.append('image', file);
-                        const upRes = await fetch('/api/posts/upload-image', { method: 'POST', body: formData });
+                        const upRes = await fetch('/api/posts/upload-image', {
+                            method: 'POST',
+                            headers: { 'Content-Type': file.type, 'x-filename': encodeURIComponent(file.name) },
+                            body: file
+                        });
                         
                         if (upRes.ok) {
                             finalImageUrl = (await upRes.json()).url;

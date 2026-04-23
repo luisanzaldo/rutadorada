@@ -959,12 +959,10 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                             throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
                         }
 
-                        const formData = new FormData();
-                        formData.append('image', file);
-                        
                         const uploadRes = await fetch('/api/posts/upload-image', {
                             method: 'POST',
-                            body: formData
+                            headers: { 'Content-Type': file.type, 'x-filename': encodeURIComponent(file.name) },
+                            body: file
                         });
                         
                         if (uploadRes.ok) {
@@ -1148,17 +1146,42 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             });
 
             // Insertar Imagen desde UI
-            document.getElementById('btn-insert-image')?.addEventListener('click', () => {
+            document.getElementById('btn-insert-image')?.addEventListener('click', async () => {
                 const urlInput = document.getElementById('tiptap-img-url') as HTMLInputElement;
                 const fileInput = document.getElementById('tiptap-img-file') as HTMLInputElement;
-                let url = urlInput?.value;
+                const insertBtn = document.getElementById('btn-insert-image') as HTMLButtonElement;
+                const urlValue = urlInput?.value.trim();
 
                 if (fileInput?.files && fileInput.files[0]) {
-                    url = URL.createObjectURL(fileInput.files[0]); // Object URL temporal de previsualización
+                    const file = fileInput.files[0];
+                    const originalLabel = insertBtn?.textContent || 'Insertar en el artículo';
+                    if (insertBtn) { insertBtn.disabled = true; insertBtn.textContent = 'Subiendo...'; }
+
+                    try {
+                        const uploadRes = await fetch('/api/posts/upload-image', {
+                            method: 'POST',
+                            headers: { 'Content-Type': file.type, 'x-filename': encodeURIComponent(file.name) },
+                            body: file
+                        });
+                        const uploadData = await uploadRes.json();
+                        if (uploadRes.ok && uploadData.success) {
+                            editor.chain().focus().setImage({ src: uploadData.url }).run();
+                            if (urlInput) urlInput.value = '';
+                            if (fileInput) fileInput.value = '';
+                            closeModal(modalImage, modalImageContent);
+                        } else {
+                            alert(`No se pudo subir la imagen: ${uploadData.error || 'Error desconocido'}`);
+                        }
+                    } catch (e: any) {
+                        alert(`Error al subir la imagen: ${e.message}`);
+                    } finally {
+                        if (insertBtn) { insertBtn.disabled = false; insertBtn.textContent = originalLabel; }
+                    }
+                    return;
                 }
 
-                if (url) {
-                    editor.chain().focus().setImage({ src: url }).run();
+                if (urlValue) {
+                    editor.chain().focus().setImage({ src: urlValue }).run();
                     if (urlInput) urlInput.value = '';
                     if (fileInput) fileInput.value = '';
                     closeModal(modalImage, modalImageContent);

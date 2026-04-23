@@ -5,7 +5,6 @@ export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    // 1. Verificar Sesión
     const session = await getSession(request);
     if (!session) {
       return new Response(JSON.stringify({ success: false, error: 'No autorizado' }), {
@@ -14,67 +13,48 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    console.log("\n--- [UPLOAD-IMAGE API] Iniciando petición ---");
-    // 2. Extraer FormData y el archivo de imagen
-    const formData = await request.formData();
-    console.log("[UPLOAD-IMAGE API] FormData recibido. Llaves presentes:", Array.from(formData.keys()));
-    
-    const imageFile = formData.get('image') as File;
+    const rawFilename = request.headers.get('x-filename');
+    if (!rawFilename) {
+      return new Response(JSON.stringify({ success: false, error: 'Falta el header x-filename.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    const originalName = decodeURIComponent(rawFilename);
 
-    if (!imageFile) {
-      console.error("[UPLOAD-IMAGE API] ERROR: Campo 'image' no encontrado en FormData.");
-      return new Response(JSON.stringify({ success: false, error: 'No se envió ninguna imagen.' }), {
+    const arrayBuffer = await request.arrayBuffer();
+    if (!arrayBuffer || arrayBuffer.byteLength === 0) {
+      return new Response(JSON.stringify({ success: false, error: 'No se recibió ningún archivo.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // Relaxed check since `instanceof File` can fail depending on Astro's runtime (Node context)
-    if (typeof imageFile === 'string' || !imageFile.name) {
-      console.error("[UPLOAD-IMAGE API] ERROR: El campo 'image' existe pero no parece ser un archivo válido.");
-      return new Response(JSON.stringify({ success: false, error: 'El formato de la imagen subida es inválido o se mandó como texto' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
+    const dateString = new Date().toISOString().split('T')[0];
+    const lastDotIndex = originalName.lastIndexOf('.');
+    const ext = lastDotIndex !== -1 ? originalName.substring(lastDotIndex).toLowerCase() : '.jpg';
+    const nameWithoutExt = lastDotIndex !== -1 ? originalName.substring(0, lastDotIndex) : originalName;
 
-    console.log(`[UPLOAD-IMAGE API] Archivo válido detectado: nombre="${imageFile.name}", tamaño=${imageFile.size} bytes`);
-
-    // 3. Generar Nombre de Archivo Único
-    const dateString = new Date().toISOString().split('T')[0]; // Ejemplo: "2026-03-24"
-    
-    // Limpiar el nombre original del archivo para guardarlo seguro en el repo
-    const lastDotIndex = imageFile.name.lastIndexOf('.');
-    const ext = lastDotIndex !== -1 ? imageFile.name.substring(lastDotIndex).toLowerCase() : '';
-    const nameWithoutExt = lastDotIndex !== -1 ? imageFile.name.substring(0, lastDotIndex) : imageFile.name;
-    
     const safeName = nameWithoutExt
       .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, '-') // Reemplazar caracteres raros y espacios por guiones
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
 
-    // Añadimos timestamp para evitar colisiones si suben el mismo nombre en el mismo día
     const filename = `${dateString}-${safeName}-${Date.now()}${ext}`;
-
-    // 4. Convertir Archivo a Base64
-    const arrayBuffer = await imageFile.arrayBuffer();
     const base64Content = Buffer.from(arrayBuffer).toString('base64');
 
-    // 5. Variables de entorno GitHub (Soporta import.meta.env y process.env)
     const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN || process.env.GITHUB_TOKEN;
     const GITHUB_REPO = import.meta.env.GITHUB_REPO || process.env.GITHUB_REPO;
 
     if (!GITHUB_TOKEN || !GITHUB_REPO) {
-      console.error("Faltan variables de entorno GITHUB_TOKEN o GITHUB_REPO.");
-      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta (GitHub API keys faltantes).' }), {
+      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta.' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // 6. Subir Imagen a GitHub
     const githubPath = `public/images/posts/${filename}`;
     const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${githubPath}`;
 
@@ -91,50 +71,27 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!githubRes.ok) {
-      let errorDetail = 'Desconocido';
-      const contentType = githubRes.headers.get('content-type');
-      
-      if (contentType && contentType.includes('application/json')) {
-        try {
-          const errorData = await githubRes.json();
-          errorDetail = errorData.message || JSON.stringify(errorData);
-        } catch (e) {
-          errorDetail = 'Error al parsear JSON de GitHub';
-        }
-      } else {
-        try {
-          errorDetail = await githubRes.text();
-          // Truncar si es muy largo (ej. una página HTML de error)
-          if (errorDetail.length > 200) errorDetail = errorDetail.substring(0, 200) + '...';
-        } catch (e) {
-          errorDetail = 'No se pudo leer el cuerpo de la respuesta';
-        }
+      let errorDetail = `HTTP ${githubRes.status}`;
+      try {
+        const errorData = await githubRes.json();
+        errorDetail = errorData.message || JSON.stringify(errorData);
+      } catch {
+        const text = await githubRes.text().catch(() => '');
+        if (text) errorDetail = text.substring(0, 200);
       }
-
-      console.error(`[UPLOAD-IMAGE API] Error al subir imagen a GitHub (${githubRes.status}):`, errorDetail);
-      if (githubRes.status === 403) {
-        console.error("[UPLOAD-IMAGE API] TIP: Verifica que el GITHUB_TOKEN tenga permisos de escritura (repo scope) y que la cuenta no tenga límites de tasa.");
-      }
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: `GitHub respondió con error (${githubRes.status}): ${errorDetail}` 
-      }), {
+      return new Response(JSON.stringify({ success: false, error: `GitHub: ${errorDetail}` }), {
         status: githubRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // 7. Respuesta Exitosa
-    const finalUrl = `/images/posts/${filename}`;
-    
-    return new Response(JSON.stringify({ success: true, url: finalUrl }), {
+    return new Response(JSON.stringify({ success: true, url: `/images/posts/${filename}` }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
 
   } catch (error: any) {
-    console.error("Error crítico en upload API:", error);
-    return new Response(JSON.stringify({ success: false, error: `Excepción interna: ${error.message || 'Error desconocido'}` }), {
+    return new Response(JSON.stringify({ success: false, error: error.message || 'Error interno del servidor' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

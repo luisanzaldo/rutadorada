@@ -31,4 +31,3 @@ Por su parte, el actor y director **Diego Luna** tendrá presencia en la secció
 
 Finalmente, el festival también ha apostado por la animación, integrando en su programación **"Tangles"**, de **Leah Nelson**, para sus proyecciones especiales, y **"Lucy Lost"**, de **Olivier Clert**, dentro de la categoría de cine familiar.
 
-![](blob:https://www.rutadoradafilms.com/f266ef26-605a-453d-a21d-a11cbaa7bbde)
