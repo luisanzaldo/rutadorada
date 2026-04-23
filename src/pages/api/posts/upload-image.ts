@@ -70,22 +70,19 @@ export const POST: APIRoute = async ({ request }) => {
       })
     });
 
+    const githubData = await githubRes.json();
+
     if (!githubRes.ok) {
-      let errorDetail = `HTTP ${githubRes.status}`;
-      try {
-        const errorData = await githubRes.json();
-        errorDetail = errorData.message || JSON.stringify(errorData);
-      } catch {
-        const text = await githubRes.text().catch(() => '');
-        if (text) errorDetail = text.substring(0, 200);
-      }
+      const errorDetail = githubData?.message || JSON.stringify(githubData).substring(0, 200);
       return new Response(JSON.stringify({ success: false, error: `GitHub: ${errorDetail}` }), {
         status: githubRes.status,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    return new Response(JSON.stringify({ success: true, url: `/images/posts/${filename}` }), {
+    const previewUrl = githubData?.content?.download_url ?? null;
+
+    return new Response(JSON.stringify({ success: true, url: `/images/posts/${filename}`, previewUrl }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });

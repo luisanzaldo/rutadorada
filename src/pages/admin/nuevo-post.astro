@@ -1165,7 +1165,8 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         });
                         const uploadData = await uploadRes.json();
                         if (uploadRes.ok && uploadData.success) {
-                            editor.chain().focus().setImage({ src: uploadData.url }).run();
+                            const imageSrc = uploadData.previewUrl || uploadData.url;
+                            editor.chain().focus().setImage({ src: imageSrc }).run();
                             if (urlInput) urlInput.value = '';
                             if (fileInput) fileInput.value = '';
                             closeModal(modalImage, modalImageContent);
