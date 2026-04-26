@@ -4,8 +4,7 @@ description: "La biografía de Michael Jackson rompe récords en su debut"
 pubDate: 2026-04-26T15:58:26.296Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://www.universalpictures.es/tl_files/content/movies/michael/michael_header-mobile.jpg"
+image: "https://fotografias-2.larazon.es/assets/2026/04/ya-a-la-venta-las-entradas-para-michael.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
@@ -13,6 +12,7 @@ fuente:
 readTime: "2 min read"
 tags: ["Box Office"]
 ---
+
 
 ## Un debut impresionante
 La biografía de Michael Jackson, "Michael", ha arrasado en taquilla con un debut récord de $97 millones en Estados Unidos y $217 millones a nivel global en su primer fin de semana de estreno. Estas cifras de taquilla superan con creces las expectativas iniciales y establecen un nuevo récord para una biografía, superando a "Straight Outta Compton" (2015) y "Bohemian Rhapsody" (2018).
