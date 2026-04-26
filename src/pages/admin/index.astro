@@ -18,23 +18,44 @@ if (!session) {
 // 2. Obtener los datos del usuario logueado
 const user = USERS.find((u) => u.username === session.username);
 
-// 3. Obtener todas las publicaciones y ordenarlas de más nueva a más antigua
+// 3. Determinar la sección activa
+const validSections = ["publicaciones", "calendario", "guiones", "videos", "recursos"] as const;
+type Section = (typeof validSections)[number];
+const sectionParam = Astro.url.searchParams.get("section") as Section | null;
+const activeSection: Section = sectionParam && validSections.includes(sectionParam) ? sectionParam : "publicaciones";
+
+// 4. Obtener todas las publicaciones (solo necesarias para "publicaciones")
 const allPosts = await getCollection("posts");
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Paginación
+// Búsqueda por título
 const searchParams = Astro.url.searchParams;
+const rawSearch = searchParams.get('search') ?? '';
+const searchQuery = rawSearch.trim();
+const filteredPosts = searchQuery
+    ? sortedPosts.filter((post) => post.data.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    : sortedPosts;
+
+// Paginación (solo aplica a la sección de publicaciones)
 const pageParam = searchParams.get('page');
 const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
-const postsPerPage = 30;
+const postsPerPage = 9;
 
-const totalPosts = sortedPosts.length;
+const totalPosts = filteredPosts.length;
 const totalPages = Math.max(1, Math.ceil(totalPosts / postsPerPage));
 const validCurrentPage = Math.max(1, Math.min(currentPage, totalPages));
 
 const startIndex = (validCurrentPage - 1) * postsPerPage;
 const endIndex = startIndex + postsPerPage;
-const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
+const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
+
+const buildPageHref = (page: number) => {
+    const params = new URLSearchParams();
+    params.set('section', 'publicaciones');
+    if (searchQuery) params.set('search', searchQuery);
+    params.set('page', String(page));
+    return `/admin?${params.toString()}`;
+};
 const formatDate = (date: Date) => {
     return date.toLocaleDateString("es-ES", {
         year: "numeric",
@@ -43,23 +64,45 @@ const formatDate = (date: Date) => {
     });
 };
 
-const title = "Panel de Administración | RutaDorada";
+// 5. Configuración del menú lateral
+const navItems: Array<{
+    id: Section;
+    label: string;
+    emoji: string;
+    iconType: "emoji" | "gdrive" | "envato";
+}> = [
+    { id: "publicaciones", label: "Publicaciones", emoji: "✏️", iconType: "emoji" },
+    { id: "calendario", label: "Calendario", emoji: "📅", iconType: "emoji" },
+    { id: "guiones", label: "Guiones", emoji: "", iconType: "gdrive" },
+    { id: "videos", label: "Videos", emoji: "", iconType: "gdrive" },
+    { id: "recursos", label: "Recursos", emoji: "", iconType: "envato" },
+];
+
+const sectionTitles: Record<Section, string> = {
+    publicaciones: "Publicaciones",
+    calendario: "Calendario de actividades",
+    guiones: "Guiones",
+    videos: "Videos finales",
+    recursos: "Recursos de Envato",
+};
+
+const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
 ---
 
 <Layout title={title}>
     <Header />
-    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <!-- Background Elements para coherencia visual -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
             <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
             <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
         </div>
 
-        <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 shadow-2xl backdrop-blur-sm relative z-10">
+        <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm relative z-10">
+            <!-- Cabecera -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-slate-100 dark:border-[#224249] pb-8">
                 <div class="flex items-center gap-4">
                     <div>
-
                         <h1 class="font-display font-bold text-2xl text-slate-900 dark:text-white">
                             Panel de Ruta<span class="text-primary">Dorada</span> Films
                         </h1>
@@ -69,9 +112,9 @@ const title = "Panel de Administración | RutaDorada";
                     </div>
                 </div>
 
-                <button 
+                <button
                     id="logout-button"
-                    class="px-5 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest border border-red-500/20 transition-all flex items-center gap-2 group"
+                    class="px-5 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest border border-red-500/20 transition-all flex items-center gap-2 group self-start md:self-auto"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -80,120 +123,365 @@ const title = "Panel de Administración | RutaDorada";
                 </button>
             </div>
 
-            <!-- Sección de Publicaciones -->
-            <div>
-                <div class="flex justify-end mb-10">
-                    <a href="/admin/nuevo-post" class="bg-primary text-[#0b1618] px-6 py-3 flex items-center gap-2 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                        Nuevo post
-                    </a>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {paginatedPosts.map((post) => (
-                        <div class="group flex flex-col bg-white/5 dark:bg-[#162a2f]/30 border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={post.data.title}>
-                            
-                            <!-- Cover Image Area -->
-                            <div class="relative w-full aspect-video bg-slate-100 dark:bg-[#0b1618] overflow-hidden rounded-t-2xl">
-                                {post.data.image ? (
-                                    <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                                ) : (
-                                    <div class="w-full h-full flex items-center justify-center text-slate-300 dark:text-slate-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-                                        </svg>
-                                    </div>
-                                )}
-                            </div>
-
-                            <!-- Content Area -->
-                            <div class="p-5 flex flex-col flex-grow">
-                                <div class="flex items-center gap-2 mb-3">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-[10px] uppercase font-bold tracking-wider text-slate-600 dark:text-slate-300 shadow-sm">
-                                        {post.data.category}
-                                    </span>
-                                    <span class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium ml-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                        {formatDate(post.data.pubDate)}
-                                    </span>
-                                </div>
-                                
-                                <h3 class="text-slate-900 dark:text-white font-bold text-base leading-snug mb-4 group-hover:text-primary transition-colors line-clamp-2">
-                                    {post.data.title}
-                                </h3>
-                                
-                                <div class="mt-auto pt-4 border-t border-slate-100 dark:border-[#224249]/50 flex items-center justify-between relative">
-                                    <span class="flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400 font-medium tracking-tight">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                        </svg>
-                                        {post.data.author}
-                                    </span>
-                                    
-                                    <!-- Botones de Acción directos -->
-                                    <div class="flex items-center gap-1.5 flex-shrink-0">
-                                        <button class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#224249] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 btn-edit" title="Editar">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            <!-- Layout de 2 columnas: sidebar + contenido -->
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- COLUMNA IZQUIERDA: Navegación -->
+                <aside class="lg:w-64 flex-shrink-0">
+                    <nav class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-1 px-1">
+                        {navItems.map((item) => {
+                            const isActive = item.id === activeSection;
+                            const baseClass = "flex items-center gap-3 px-4 py-3 rounded-xl border text-sm font-bold transition-all whitespace-nowrap lg:whitespace-normal flex-shrink-0";
+                            const activeClass = "bg-primary/10 border-primary/40 text-primary shadow-[0_0_15px_rgba(212,175,55,0.15)]";
+                            const inactiveClass = "bg-white/5 dark:bg-[#162a2f]/30 border-slate-200 dark:border-[#224249]/60 text-slate-700 dark:text-slate-300 hover:border-primary/40 hover:text-primary";
+                            return (
+                                <a href={`/admin?section=${item.id}`} class={`${baseClass} ${isActive ? activeClass : inactiveClass}`}>
+                                    <span class="flex items-center justify-center w-6 h-6 flex-shrink-0">
+                                        {item.iconType === "emoji" && (
+                                            <span class="text-xl leading-none">{item.emoji}</span>
+                                        )}
+                                        {item.iconType === "gdrive" && (
+                                            <svg viewBox="0 0 87.3 78" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                                                <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                                                <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                                                <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                                                <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                                                <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
                                             </svg>
-                                        </button>
-                                        <button class="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 btn-delete" title="Eliminar">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        )}
+                                        {item.iconType === "envato" && (
+                                            <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill="#82B541" d="M20.7 2.3c-.3-.3-.7-.4-1-.2-3.5 1.6-6 4-7.3 7-1.4-2-1.5-4-.2-6.5.2-.3.1-.7-.1-1-.3-.2-.7-.2-1 0C7.5 4 6 6.4 6 9.4c0 1.4.3 2.7.9 3.9-1.4 1.6-2.2 3.6-2.4 5.7 0 .4.3.7.7.8h.1c.4 0 .7-.3.8-.7.2-1.5.7-2.9 1.6-4.1 1.4 1.9 3.6 3.1 6.1 3.1 4.7 0 8.5-3.8 8.5-8.5 0-2.4-.5-4.6-1.6-6.5-.2-.3-.4-.6-.6-.8.2 0 .4-.1.5-.2.2-.2.2-.5.1-.8z"/>
                                             </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <!-- Controles de Paginación -->
-                {totalPages > 1 && (
-                    <div class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-100 dark:border-[#224249] mt-8">
-                        <div class="flex items-center gap-2">
-                            {validCurrentPage > 1 ? (
-                                <a href={`/admin?page=${validCurrentPage - 1}`} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Anterior">
-                                    <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform font-bold">chevron_left</span>
+                                        )}
+                                    </span>
+                                    <span>{item.label}</span>
                                 </a>
-                            ) : (
-                                <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
-                                    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                            );
+                        })}
+                    </nav>
+                </aside>
+
+                <!-- COLUMNA DERECHA: Contenido dinámico -->
+                <div class="flex-1 min-w-0">
+                    {activeSection === "publicaciones" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <span class="text-2xl">✏️</span> Publicaciones
+                                </h2>
+                                <div class="flex items-center gap-3 flex-wrap">
+                                    <form action="/admin" method="get" class="flex items-stretch rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 focus-within:border-primary/60 focus-within:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all overflow-hidden">
+                                        <input type="hidden" name="section" value="publicaciones" />
+                                        <input
+                                            type="text"
+                                            name="search"
+                                            value={searchQuery}
+                                            placeholder="Buscar por título..."
+                                            aria-label="Buscar posts por título"
+                                            class="bg-transparent px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none w-44 sm:w-56"
+                                        />
+                                        <button
+                                            type="submit"
+                                            aria-label="Buscar"
+                                            class="px-3 text-slate-500 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors flex items-center justify-center"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    <a href="/admin/nuevo-post" class="bg-primary text-[#0b1618] px-6 py-2.5 flex items-center gap-2 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                        </svg>
+                                        Nuevo post
+                                    </a>
+                                </div>
+                            </div>
+
+                            {searchQuery && (
+                                <div class="flex items-center justify-between flex-wrap gap-3 mb-8 px-4 py-3 rounded-xl bg-primary/5 border border-primary/20">
+                                    <p class="text-sm text-slate-700 dark:text-slate-300">
+                                        {totalPosts === 0 ? (
+                                            <>Sin resultados para <strong class="text-slate-900 dark:text-white">"{searchQuery}"</strong></>
+                                        ) : (
+                                            <>{totalPosts} {totalPosts === 1 ? "resultado" : "resultados"} para <strong class="text-slate-900 dark:text-white">"{searchQuery}"</strong></>
+                                        )}
+                                    </p>
+                                    <a href="/admin?section=publicaciones" class="text-xs font-bold uppercase tracking-widest text-primary hover:brightness-110 transition-all flex items-center gap-1.5">
+                                        Limpiar
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </a>
                                 </div>
                             )}
 
-                            <div class="flex items-center gap-2">
-                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
-                                    <a href={`/admin?page=${i}`} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
-                                        i === validCurrentPage
-                                            ? "bg-[#D4AF37] text-white border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                            : "bg-white/5 dark:bg-[#0b1618] border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37]"
-                                    }`}>
-                                        {i}
-                                    </a>
+                            {totalPosts === 0 ? (
+                                <div class="rounded-2xl border border-dashed border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/20 p-12 text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-slate-400 dark:text-slate-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+                                    </svg>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">No se encontraron publicaciones que coincidan con tu búsqueda.</p>
+                                </div>
+                            ) : (
+                            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                                {paginatedPosts.map((post) => (
+                                    <div class="group flex flex-col bg-white/5 dark:bg-[#162a2f]/30 border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={post.data.title}>
+
+                                        <!-- Cover Image Area -->
+                                        <div class="relative w-full aspect-video bg-slate-100 dark:bg-[#0b1618] overflow-hidden rounded-t-2xl">
+                                            {post.data.image ? (
+                                                <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                                            ) : (
+                                                <div class="w-full h-full flex items-center justify-center text-slate-300 dark:text-slate-700">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                                                    </svg>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        <!-- Content Area -->
+                                        <div class="p-5 flex flex-col flex-grow">
+                                            <div class="flex items-center gap-2 mb-3">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-[10px] uppercase font-bold tracking-wider text-slate-600 dark:text-slate-300 shadow-sm">
+                                                    {post.data.category}
+                                                </span>
+                                                <span class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium ml-auto">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                    </svg>
+                                                    {formatDate(post.data.pubDate)}
+                                                </span>
+                                            </div>
+
+                                            <h3 class="text-slate-900 dark:text-white font-bold text-base leading-snug mb-4 group-hover:text-primary transition-colors line-clamp-2">
+                                                {post.data.title}
+                                            </h3>
+
+                                            <div class="mt-auto pt-4 border-t border-slate-100 dark:border-[#224249]/50 flex items-center justify-between relative">
+                                                <span class="flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400 font-medium tracking-tight">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                    </svg>
+                                                    {post.data.author}
+                                                </span>
+
+                                                <!-- Botones de Acción directos -->
+                                                <div class="flex items-center gap-1.5 flex-shrink-0">
+                                                    <button class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#224249] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 btn-edit" title="Editar">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                        </svg>
+                                                    </button>
+                                                    <button class="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 btn-delete" title="Eliminar">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 ))}
                             </div>
-                            
-                            {validCurrentPage < totalPages ? (
-                                <a href={`/admin?page=${validCurrentPage + 1}`} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Siguiente">
-                                    <span class="material-symbols-outlined text-[20px] group-hover:translate-x-0.5 transition-transform font-bold">chevron_right</span>
-                                </a>
-                            ) : (
-                                <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
-                                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                            )}
+
+                            <!-- Controles de Paginación -->
+                            {totalPosts > 0 && totalPages > 1 && (
+                                <div class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-100 dark:border-[#224249] mt-8">
+                                    <div class="flex items-center gap-2">
+                                        {validCurrentPage > 1 ? (
+                                            <a href={buildPageHref(validCurrentPage - 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Anterior">
+                                                <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform font-bold">chevron_left</span>
+                                            </a>
+                                        ) : (
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                                <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                                            </div>
+                                        )}
+
+                                        <div class="flex items-center gap-2">
+                                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
+                                                <a href={buildPageHref(i)} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
+                                                    i === validCurrentPage
+                                                        ? "bg-[#D4AF37] text-white border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                                        : "bg-white/5 dark:bg-[#0b1618] border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37]"
+                                                }`}>
+                                                    {i}
+                                                </a>
+                                            ))}
+                                        </div>
+
+                                        {validCurrentPage < totalPages ? (
+                                            <a href={buildPageHref(validCurrentPage + 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Siguiente">
+                                                <span class="material-symbols-outlined text-[20px] group-hover:translate-x-0.5 transition-transform font-bold">chevron_right</span>
+                                            </a>
+                                        ) : (
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                                <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div class="text-xs font-medium text-slate-500 dark:text-[#a0a0a0] uppercase tracking-widest">
+                                        Página {validCurrentPage} de {totalPages}
+                                    </div>
                                 </div>
                             )}
                         </div>
-                        <div class="text-xs font-medium text-slate-500 dark:text-[#a0a0a0] uppercase tracking-widest">
-                            Página {validCurrentPage} de {totalPages}
+                    )}
+
+                    {activeSection === "calendario" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <span class="text-2xl">📅</span> Calendario de actividades
+                                </h2>
+                                <span class="text-xs font-medium text-slate-500 dark:text-[#a0a0a0] uppercase tracking-widest">
+                                    Sincronizado con Notion
+                                </span>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-[#162a2f]/30 shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+                                <iframe
+                                    src="https://funny-horn-a3b.notion.site/ebd//34e288e2c3ae808d914cf51c10f47763"
+                                    width="100%"
+                                    height="700"
+                                    frameborder="0"
+                                    allowfullscreen
+                                    class="block w-full bg-white"
+                                    title="Calendario de actividades RutaDorada Films"
+                                ></iframe>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+
+                    {activeSection === "guiones" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <svg viewBox="0 0 87.3 78" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                                    </svg>
+                                    Guiones
+                                </h2>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
+                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
+                                    <svg viewBox="0 0 87.3 78" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Carpeta de Guiones</h3>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
+                                    Accede a la carpeta de Google Drive donde se almacenan todos los guiones de RutaDorada Films.
+                                </p>
+                                <a
+                                    href="https://drive.google.com/drive/folders/1-WMR3OBw_2-fe4Z5bJFLPl4OZGQIZPAn?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                >
+                                    Abrir en Google Drive
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === "videos" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <svg viewBox="0 0 87.3 78" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                                    </svg>
+                                    Videos finales
+                                </h2>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
+                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
+                                    <svg viewBox="0 0 87.3 78" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Carpeta de Videos finales</h3>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
+                                    Accede a la carpeta de Google Drive con los videos finales de RutaDorada Films.
+                                </p>
+                                <a
+                                    href="https://drive.google.com/drive/folders/19Hvo2G3GfmbjNBh4BS00IzH1vCaIw9A_?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                >
+                                    Abrir en Google Drive
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === "recursos" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#82B541" d="M20.7 2.3c-.3-.3-.7-.4-1-.2-3.5 1.6-6 4-7.3 7-1.4-2-1.5-4-.2-6.5.2-.3.1-.7-.1-1-.3-.2-.7-.2-1 0C7.5 4 6 6.4 6 9.4c0 1.4.3 2.7.9 3.9-1.4 1.6-2.2 3.6-2.4 5.7 0 .4.3.7.7.8h.1c.4 0 .7-.3.8-.7.2-1.5.7-2.9 1.6-4.1 1.4 1.9 3.6 3.1 6.1 3.1 4.7 0 8.5-3.8 8.5-8.5 0-2.4-.5-4.6-1.6-6.5-.2-.3-.4-.6-.6-.8.2 0 .4-.1.5-.2.2-.2.2-.5.1-.8z"/>
+                                    </svg>
+                                    Recursos
+                                </h2>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
+                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
+                                    <svg viewBox="0 0 24 24" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#82B541" d="M20.7 2.3c-.3-.3-.7-.4-1-.2-3.5 1.6-6 4-7.3 7-1.4-2-1.5-4-.2-6.5.2-.3.1-.7-.1-1-.3-.2-.7-.2-1 0C7.5 4 6 6.4 6 9.4c0 1.4.3 2.7.9 3.9-1.4 1.6-2.2 3.6-2.4 5.7 0 .4.3.7.7.8h.1c.4 0 .7-.3.8-.7.2-1.5.7-2.9 1.6-4.1 1.4 1.9 3.6 3.1 6.1 3.1 4.7 0 8.5-3.8 8.5-8.5 0-2.4-.5-4.6-1.6-6.5-.2-.3-.4-.6-.6-.8.2 0 .4-.1.5-.2.2-.2.2-.5.1-.8z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Recursos de Envato</h3>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
+                                    Plantillas, gráficos, audio y vídeo para tus producciones. Inicia sesión en Envato para descargar recursos.
+                                </p>
+                                <a
+                                    href="https://app.envato.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                >
+                                    Abrir Envato
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
 
@@ -205,10 +493,10 @@ const title = "Panel de Administración | RutaDorada";
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                 </div>
-                
+
                 <h3 class="text-xl font-bold text-slate-900 dark:text-white text-center mb-4">Confirmar eliminación</h3>
                 <p id="delete-modal-message" class="text-slate-500 dark:text-slate-400 text-center mb-8"></p>
-                
+
                 <div class="flex items-center gap-4">
                     <button id="cancel-delete" class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
                         Cancelar
@@ -276,7 +564,7 @@ const title = "Panel de Administración | RutaDorada";
             }
             deleteModal?.classList.remove('hidden');
             deleteModal?.classList.add('flex');
-            
+
             // Animation triggers
             setTimeout(() => {
                 const content = deleteModal?.querySelector('.modal-content');
@@ -289,7 +577,7 @@ const title = "Panel de Administración | RutaDorada";
             const content = deleteModal?.querySelector('.modal-content');
             content?.classList.add('scale-95', 'opacity-0');
             content?.classList.remove('scale-100', 'opacity-100');
-            
+
             setTimeout(() => {
                 deleteModal?.classList.add('hidden');
                 deleteModal?.classList.remove('flex');
