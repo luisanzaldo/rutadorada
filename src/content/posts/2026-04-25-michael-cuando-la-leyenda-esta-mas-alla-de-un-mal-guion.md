@@ -4,7 +4,7 @@ description: "La leyenda del rey del pop rescata su biopic del olvido. Te compar
 pubDate: 2026-04-25T06:01:27.665Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://estaticos.elcolombiano.com/binrepository/848x565/68c0/780d565/none/11101/USTV/nueva-pelicula-michael-jackson_49183149_20251106102502.jpg"
+image: "https://ychef.files.bbci.co.uk/976x549/p0nfp5bc.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"
@@ -18,6 +18,7 @@ fichaTecnica:
 readTime: "4 min read"
 tags: ["Biopic"]
 ---
+
 
 ## Un comienzo prometedor
 La película "Michael" comienza de manera atrapante, presentando la infancia de Michael Jackson de una forma que capta la atención del espectador. La primera media hora es especialmente destacable, gracias en parte a la increíble actuación de Juliano Valdi, quien logra transmitir la esencia del personaje en sus primeros años de vida. Esta introducción prometedora establece un tono que sugiere una exploración profunda y emocional de la vida de la leyenda del pop. Sin embargo, a medida que la película avanza, se nota que el ritmo y la profundidad de la narrativa no se mantienen consistentes, dejando al espectador con la sensación de que algo falta.
