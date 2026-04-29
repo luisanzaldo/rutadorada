@@ -5,7 +5,7 @@ pubDate: 2026-04-28T20:20:11.648Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://cdn.sortiraparis.com/images/80/69688/1269411-ally-bong-joon-ho-signe-son-premier-film-d-animation-en-salle-en-2027.jpg"
+image: "https://m.media-amazon.com/images/M/MV5BMDliNjBmNDYtZWMyMS00NmQ0LTgxMWEtMDExMGE1YTIxYjE2XkEyXkFqcGc@._V1_.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"
