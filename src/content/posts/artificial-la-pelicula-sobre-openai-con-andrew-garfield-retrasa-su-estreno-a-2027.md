@@ -13,12 +13,8 @@ readTime: "1 min read"
 tags: ["Próximamente"]
 ---
 
-
-
-La película, que cuenta con **Andrew Garfield** como Sam Altman y **Monica Barbaro** (quien interpretaría a Mira Murati), ha ajustado su calendario para asegurar un estreno sólido a principios de **2027**.
+La película, que cuenta con **Andrew Garfield** como Sam Altman y **Monica Barbaro** (quien interpretaría a Mira Murati), y que será dirigida por Luca Guadagnino, ha ajustado su calendario para asegurar un estreno sólido a principios de **2027**.
 
 - **Evitando la competencia directa:** La decisión de estrenar a inicios de 2027 busca evitar un enfrentamiento en taquilla con ***The Social Reckoning***, otro drama de alto perfil sobre tecnología y redes sociales que se espera para finales de 2026, dándole a *Artificial* su propio espacio para destacar en la temporada de premios, aunque ya no la de este año.
 
 - **Trama central:** La narrativa se sumerge en el vertiginoso ascenso de la inteligencia artificial generativa, el drama del "golpe de estado" en la junta directiva de OpenAI y las ambiciones personales de sus fundadores.
-
-
