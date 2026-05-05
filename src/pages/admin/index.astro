@@ -19,7 +19,7 @@ if (!session) {
 const user = USERS.find((u) => u.username === session.username);
 
 // 3. Determinar la sección activa
-const validSections = ["publicaciones", "calendario", "guiones", "videos", "recursos"] as const;
+const validSections = ["publicaciones", "calendario"] as const;
 type Section = (typeof validSections)[number];
 const sectionParam = Astro.url.searchParams.get("section") as Section | null;
 const activeSection: Section = sectionParam && validSections.includes(sectionParam) ? sectionParam : "publicaciones";
@@ -77,18 +77,15 @@ type NavItem = {
 const navItems: NavItem[] = [
     { id: "publicaciones", label: "Publicaciones", emoji: "✏️", iconType: "emoji" },
     { id: "calendario", label: "Calendario", emoji: "📅", iconType: "emoji" },
-    { id: "guiones", label: "Guiones", emoji: "", iconType: "gdrive" },
-    { id: "videos", label: "Videos", emoji: "", iconType: "gdrive" },
-    { id: "recursos", label: "Recursos", emoji: "", iconType: "envato" },
+    { id: "guiones", label: "Guiones", emoji: "", iconType: "gdrive", href: "https://drive.google.com/drive/folders/1-WMR3OBw_2-fe4Z5bJFLPl4OZGQIZPAn?usp=sharing", external: true },
+    { id: "videos", label: "Videos", emoji: "", iconType: "gdrive", href: "https://drive.google.com/drive/folders/19Hvo2G3GfmbjNBh4BS00IzH1vCaIw9A_?usp=sharing", external: true },
+    { id: "recursos", label: "Recursos", emoji: "", iconType: "envato", href: "https://app.envato.com/", external: true },
     { id: "posts-redes", label: "Posts de redes", emoji: "", iconType: "buffer", href: "https://publish.buffer.com/schedule", external: true },
 ];
 
 const sectionTitles: Record<Section, string> = {
     publicaciones: "Publicaciones",
     calendario: "Calendario de actividades",
-    guiones: "Guiones",
-    videos: "Videos finales",
-    recursos: "Recursos de Envato",
 };
 
 const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
@@ -370,130 +367,6 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                         </div>
                     )}
 
-                    {activeSection === "guiones" && (
-                        <div>
-                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                                    <svg viewBox="0 0 87.3 78" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
-                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
-                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
-                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
-                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
-                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
-                                    </svg>
-                                    Guiones
-                                </h2>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
-                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
-                                    <svg viewBox="0 0 87.3 78" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
-                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
-                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
-                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
-                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
-                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
-                                    </svg>
-                                </div>
-                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Carpeta de Guiones</h3>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
-                                    Accede a la carpeta de Google Drive donde se almacenan todos los guiones de RutaDorada Films.
-                                </p>
-                                <a
-                                    href="https://drive.google.com/drive/folders/1-WMR3OBw_2-fe4Z5bJFLPl4OZGQIZPAn?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                >
-                                    Abrir en Google Drive
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    )}
-
-                    {activeSection === "videos" && (
-                        <div>
-                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                                    <svg viewBox="0 0 87.3 78" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
-                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
-                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
-                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
-                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
-                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
-                                    </svg>
-                                    Videos finales
-                                </h2>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
-                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
-                                    <svg viewBox="0 0 87.3 78" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
-                                        <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
-                                        <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
-                                        <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
-                                        <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
-                                        <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
-                                    </svg>
-                                </div>
-                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Carpeta de Videos finales</h3>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
-                                    Accede a la carpeta de Google Drive con los videos finales de RutaDorada Films.
-                                </p>
-                                <a
-                                    href="https://drive.google.com/drive/folders/19Hvo2G3GfmbjNBh4BS00IzH1vCaIw9A_?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                >
-                                    Abrir en Google Drive
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    )}
-
-                    {activeSection === "recursos" && (
-                        <div>
-                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                                    <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="#82B541" d="M20.7 2.3c-.3-.3-.7-.4-1-.2-3.5 1.6-6 4-7.3 7-1.4-2-1.5-4-.2-6.5.2-.3.1-.7-.1-1-.3-.2-.7-.2-1 0C7.5 4 6 6.4 6 9.4c0 1.4.3 2.7.9 3.9-1.4 1.6-2.2 3.6-2.4 5.7 0 .4.3.7.7.8h.1c.4 0 .7-.3.8-.7.2-1.5.7-2.9 1.6-4.1 1.4 1.9 3.6 3.1 6.1 3.1 4.7 0 8.5-3.8 8.5-8.5 0-2.4-.5-4.6-1.6-6.5-.2-.3-.4-.6-.6-.8.2 0 .4-.1.5-.2.2-.2.2-.5.1-.8z"/>
-                                    </svg>
-                                    Recursos
-                                </h2>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 p-10 sm:p-14 text-center">
-                                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex items-center justify-center shadow-md">
-                                    <svg viewBox="0 0 24 24" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="#82B541" d="M20.7 2.3c-.3-.3-.7-.4-1-.2-3.5 1.6-6 4-7.3 7-1.4-2-1.5-4-.2-6.5.2-.3.1-.7-.1-1-.3-.2-.7-.2-1 0C7.5 4 6 6.4 6 9.4c0 1.4.3 2.7.9 3.9-1.4 1.6-2.2 3.6-2.4 5.7 0 .4.3.7.7.8h.1c.4 0 .7-.3.8-.7.2-1.5.7-2.9 1.6-4.1 1.4 1.9 3.6 3.1 6.1 3.1 4.7 0 8.5-3.8 8.5-8.5 0-2.4-.5-4.6-1.6-6.5-.2-.3-.4-.6-.6-.8.2 0 .4-.1.5-.2.2-.2.2-.5.1-.8z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mb-3">Recursos de Envato</h3>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8">
-                                    Plantillas, gráficos, audio y vídeo para tus producciones. Inicia sesión en Envato para descargar recursos.
-                                </p>
-                                <a
-                                    href="https://app.envato.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 bg-primary text-[#0b1618] px-6 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                >
-                                    Abrir Envato
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
         </div>
