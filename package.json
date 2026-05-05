@@ -33,9 +33,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@prisma/client": "^7.3.0",
     "@types/bcryptjs": "^2.4.6",
-    "prisma": "^7.3.0",
     "typescript": "^5.9.3"
   }
 }
