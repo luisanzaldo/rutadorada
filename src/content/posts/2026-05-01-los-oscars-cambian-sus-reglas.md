@@ -5,7 +5,7 @@ pubDate: 2026-05-01T18:50:50.554Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/03/Oscars-Statue.jpg"
+image: "/images/posts/2026-05-01-los-oscars-cambian-sus-reglas.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

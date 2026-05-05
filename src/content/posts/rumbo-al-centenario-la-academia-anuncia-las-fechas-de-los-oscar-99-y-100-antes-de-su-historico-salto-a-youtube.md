@@ -4,7 +4,7 @@ description: "Los Oscar ya miran al 2028. La Academia confirma las fechas de sus
 pubDate: 2026-04-08T14:53:54.648Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/03/Stage-Render-2-credit-Courtesy-of-the-Academy-H-2026.jpg?w=1296"
+image: "/images/posts/rumbo-al-centenario-la-academia-anuncia-las-fechas-de-los-oscar-99-y-100-antes-de-su-historico-salto-a-youtube.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

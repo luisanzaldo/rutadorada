@@ -5,7 +5,7 @@ pubDate: 2026-04-29T19:17:15.240Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/01/odyssey.png"
+image: "/images/posts/2026-04-29-la-odisea-durara-menos-que-oppenheimer.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

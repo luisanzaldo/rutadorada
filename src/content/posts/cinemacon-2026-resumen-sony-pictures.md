@@ -4,7 +4,7 @@ description: "Sony sacó los \"pesos pesados\" en Las Vegas, confirmando que son
 pubDate: 2026-04-15T14:39:53.609Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://images.thedirect.com/media/photos/spider-verse_2.jpg"
+image: "/images/posts/cinemacon-2026-resumen-sony-pictures.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

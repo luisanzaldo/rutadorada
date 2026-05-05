@@ -4,7 +4,7 @@ description: "Warner Bros. Pictures demostró en Las Vegas que sigue apostando f
 pubDate: 2026-04-15T14:27:40.473Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://images.flickdirect.com/cache/entertainment-news/019200-cinemacon-2026-day-two-brings-warner-bros-surprise_8633.jpg"
+image: "/images/posts/cinemacon-2026-resumen-warner-bros-pictures.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

@@ -4,7 +4,7 @@ description: "Universal Pictures se consolida como el estudio más estable de Ho
 pubDate: 2026-04-16T22:34:40.205Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/04/Steven-Spielberg-CinemaCon.jpg?crop=0px%2C161px%2C5000px%2C2803px&resize=681%2C383"
+image: "/images/posts/cinemacon-2026-resumen-universal-y-focus-features.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

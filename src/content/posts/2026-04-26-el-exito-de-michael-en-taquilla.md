@@ -4,7 +4,7 @@ description: "La biografía de Michael Jackson rompe récords en su debut"
 pubDate: 2026-04-26T15:58:26.296Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://fotografias-2.larazon.es/assets/2026/04/ya-a-la-venta-las-entradas-para-michael.jpg"
+image: "/images/posts/2026-04-26-el-exito-de-michael-en-taquilla.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

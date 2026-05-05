@@ -4,7 +4,7 @@ description: "Artificial: El drama de Luca Guadagnino sobre OpenAI y Andrew Garf
 pubDate: 2026-05-04T18:01:26.068Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2025/04/2210183994.jpg?w=1000&h=667&crop=1"
+image: "/images/posts/artificial-la-pelicula-sobre-openai-con-andrew-garfield-retrasa-su-estreno-a-2027.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"

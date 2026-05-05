@@ -4,7 +4,7 @@ description: "Desde una ópera prima queer ambientada en el DF de los noventa ha
 pubDate: 2026-04-14T17:34:39.611Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://moreliafilmfest.com/sites/default/files/inline-images/collage%203_4.jpg"
+image: "/images/posts/mexico-en-cannes-nueve-titulos-cuatro-secciones-y-un-aniversario-que-vale-ovacion.jpg"
 category: "Premios"
 fuente:
   nombre: "Morelia Film Festival"

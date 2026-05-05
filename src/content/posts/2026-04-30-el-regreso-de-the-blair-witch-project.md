@@ -5,7 +5,7 @@ pubDate: 2026-04-30T17:49:25.011Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2022/11/MSDBLWI_EC003.jpg"
+image: "/images/posts/2026-04-30-el-regreso-de-the-blair-witch-project.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

@@ -5,7 +5,7 @@ pubDate: 2026-04-16T17:53:16.725Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2022/05/Top-Gun-Maverick.jpg"
+image: "/images/posts/2026-04-16-se-confirma-la-tercera-entrega-de-top-gun.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

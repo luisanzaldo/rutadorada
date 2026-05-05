@@ -5,7 +5,7 @@ pubDate: 2026-04-29T23:28:22.709Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/04/Screen-Shot-2026-04-15-at-8.32.01-AM.png?crop=8px%2C0px%2C2356px%2C1569px&resize=1000%2C667"
+image: "/images/posts/2026-04-29-la-hija-de-val-kilmer-defiende-el-uso-de-inteligencia-artificial.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

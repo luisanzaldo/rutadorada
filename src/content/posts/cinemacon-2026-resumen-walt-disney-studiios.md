@@ -4,7 +4,7 @@ description: "Disney cerró la CinemaCon 2026 con una presentación de alto impa
 pubDate: 2026-04-17T16:50:45.814Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://pbs.twimg.com/media/HGDwptGbsAANUu9.jpg"
+image: "/images/posts/cinemacon-2026-resumen-walt-disney-studiios.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

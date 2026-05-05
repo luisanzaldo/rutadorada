@@ -4,7 +4,7 @@ description: "SAG-AFTRA ha anunciado las fechas de las próximas dos ceremonias 
 pubDate: 2026-04-08T00:39:01.244Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2025/11/BEqfcbOA.jpeg"
+image: "/images/posts/netflix-y-los-sag-awards-blindan-su-alianza-ya-hay-fechas-para-2027-y-2028.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

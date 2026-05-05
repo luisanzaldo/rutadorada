@@ -5,7 +5,7 @@ pubDate: 2026-05-05T18:45:13.603Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2017/02/pans-labyrinth.jpg"
+image: "/images/posts/2026-05-05-el-regreso-de-pans-labyrinth.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

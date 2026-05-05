@@ -4,7 +4,7 @@ description: "Secuela de la hiperfamosa franquicia de Nintendo vistosa en su ani
 pubDate: 2026-04-12T06:07:51.769Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/04/The-Super-Mario-Galaxy-Movie.jpg?w=681&h=383&crop=1"
+image: "/images/posts/2026-04-12-super-mario-galaxy-la-pelicula-o-como-nunca-perder-la-atencion-del-publico.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

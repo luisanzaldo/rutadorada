@@ -5,7 +5,7 @@ pubDate: 2026-04-30T21:08:33.301Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://m.media-amazon.com/images/S/pv-target-images/4564bc26f4f21a13b6a04648bbdcd3efe5fbb72ea35b406eb91858b8e7ee4b0c._SX1080_FMjpg_.jpg"
+image: "/images/posts/2026-04-30-el-misterioso-caso-del-oscar-perdido.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

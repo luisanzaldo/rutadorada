@@ -4,7 +4,7 @@ description: "El \"blindaje\" de Michael: La biopic elimina las acusaciones de a
 pubDate: 2026-04-08T15:41:48.231Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://cdn-pro.elsalvador.com/wp-content/uploads/2026/02/entretenimiento-escena-michael-jackson.jpg"
+image: "/images/posts/el-dilema-de-michael-reshoots-de-15-millones-de-dolares-para-eliminar-las-acusaciones-de-abuso.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

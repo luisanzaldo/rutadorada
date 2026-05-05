@@ -4,7 +4,7 @@ description: "Entre las películas que se añaden están \"Victorian Psycho\", p
 pubDate: 2026-04-23T01:42:18.307Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://moreliafilmfest.com/sites/default/files/inline-images/CENIZA%20EN%20LA%20BOCA%2C%20dirigida%20por%20Diego%20Luna%2C%20estrenara%CC%81%20en%20el%2079%C2%B0%20Festival%20de%20Cannes.jpg"
+image: "/images/posts/el-festival-de-cannes-agrega-proyecciones-a-su-programacion-de-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

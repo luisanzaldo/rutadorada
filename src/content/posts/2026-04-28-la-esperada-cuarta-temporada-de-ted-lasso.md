@@ -5,7 +5,7 @@ pubDate: 2026-04-28T20:16:14.863Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2025/03/Ted_Lasso_Photo_031213-e1741976091309.jpg"
+image: "/images/posts/2026-04-28-la-esperada-cuarta-temporada-de-ted-lasso.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

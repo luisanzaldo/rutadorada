@@ -5,7 +5,7 @@ pubDate: 2026-04-19T18:57:37.246Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/04/super-mario-galaxy-movie.jpg"
+image: "/images/posts/2026-04-19-la-franquicia-super-mario-galaxy-supera-los-2-mil-millones.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"
