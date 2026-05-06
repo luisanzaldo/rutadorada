@@ -23,6 +23,7 @@ const socialImageURL = image.startsWith('http')
 // Analytics — solo se cargan en producción y si los IDs están definidos
 const GA4_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+const COOKIEYES_ID = import.meta.env.PUBLIC_COOKIEYES_ID;
 const analyticsEnabled = import.meta.env.PROD;
 ---
 
@@ -81,12 +82,30 @@ const analyticsEnabled = import.meta.env.PROD;
 		<!-- Preconnects -->
 		<link rel="preconnect" href="https://www.transparenttextures.com" crossorigin="anonymous" />
 
+		{analyticsEnabled && (
+			<script is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('consent', 'default', {
+					ad_storage: 'denied',
+					ad_user_data: 'denied',
+					ad_personalization: 'denied',
+					analytics_storage: 'denied',
+					functionality_storage: 'granted',
+					security_storage: 'granted',
+					wait_for_update: 500
+				});
+			</script>
+		)}
+
+		{analyticsEnabled && COOKIEYES_ID && (
+			<script id="cookieyes" type="text/javascript" src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_ID}/script.js`}></script>
+		)}
+
 		{analyticsEnabled && GA4_ID && (
 			<>
-				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-				<script is:inline define:vars={{ ga4Id: GA4_ID }}>
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
+				<script async type="text/plain" data-cookieyes="cookieyes-analytics" src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+				<script is:inline type="text/plain" data-cookieyes="cookieyes-analytics" define:vars={{ ga4Id: GA4_ID }}>
 					gtag('js', new Date());
 					gtag('config', ga4Id);
 				</script>
@@ -94,7 +113,7 @@ const analyticsEnabled = import.meta.env.PROD;
 		)}
 
 		{analyticsEnabled && CLARITY_ID && (
-			<script is:inline define:vars={{ clarityId: CLARITY_ID }}>
+			<script is:inline type="text/plain" data-cookieyes="cookieyes-analytics" define:vars={{ clarityId: CLARITY_ID }}>
 				(function(c,l,a,r,i,t,y){
 					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
