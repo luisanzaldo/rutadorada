@@ -69,7 +69,7 @@ type NavItem = {
     id: string;
     label: string;
     emoji: string;
-    iconType: "emoji" | "gdrive" | "envato" | "buffer";
+    iconType: "emoji" | "gdrive" | "envato" | "buffer" | "analytics" | "clarity";
     href?: string;
     external?: boolean;
 };
@@ -81,6 +81,8 @@ const navItems: NavItem[] = [
     { id: "videos", label: "Videos", emoji: "", iconType: "gdrive", href: "https://drive.google.com/drive/folders/19Hvo2G3GfmbjNBh4BS00IzH1vCaIw9A_?usp=sharing", external: true },
     { id: "recursos", label: "Recursos", emoji: "", iconType: "envato", href: "https://app.envato.com/", external: true },
     { id: "posts-redes", label: "Posts de redes", emoji: "", iconType: "buffer", href: "https://publish.buffer.com/schedule", external: true },
+    { id: "analytics", label: "Google Analytics", emoji: "", iconType: "analytics", href: "https://analytics.google.com/analytics/web/#/a393754490p536372172/reports/reportinghub?params=_u..nav%3Dmaui%26_u.dateOption%3Dtoday%26_u.comparisonOption%3Ddisabled", external: true },
+    { id: "clarity", label: "Clarity", emoji: "", iconType: "clarity", href: "https://clarity.microsoft.com/projects/view/wmk7qoz72z/dashboard?date=Last%203%20days", external: true },
 ];
 
 const sectionTitles: Record<Section, string> = {
@@ -162,6 +164,19 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         {item.iconType === "buffer" && (
                                             <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill="#2C4BFF" d="M23.997 7.469L12.012 1.594.003 7.47l11.998 5.876 11.996-5.876zm0 9.063l-2.866-1.405-9.122 4.469-9.139-4.476L0 16.522l12.012 5.884 11.985-5.876v-.001zm0-4.532l-2.866-1.405-9.122 4.469L2.87 10.59 0 11.989l12.012 5.884 11.985-5.876V12z"/>
+                                            </svg>
+                                        )}
+                                        {item.iconType === "analytics" && (
+                                            <svg viewBox="0 0 64 64" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill="#F9AB00" d="M43 9v44a8 8 0 0 0 16 0V9.45C59 5 55.41 1 51 1s-8 3.85-8 8z"/>
+                                                <path fill="#E37400" d="M24 32v21a8 8 0 1 0 16 0V32a8 8 0 1 0-16 0zM5 55a8 8 0 1 0 16 0 8 8 0 0 0-16 0z"/>
+                                            </svg>
+                                        )}
+                                        {item.iconType === "clarity" && (
+                                            <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="10" fill="#2A9DD8"/>
+                                                <circle cx="12" cy="12" r="4" fill="#fff"/>
+                                                <circle cx="12" cy="12" r="1.6" fill="#2A9DD8"/>
                                             </svg>
                                         )}
                                     </span>
