@@ -112,6 +112,19 @@ const formatDayShort = (iso: string) => {
     return d.toLocaleDateString("es-ES", { weekday: "short", day: "numeric" });
 };
 
+// Convierte un slug ("la-doncella" o "2026-04-12-trailer-godzilla") en un título legible ("La Doncella", "Trailer Godzilla").
+// Solo se usa como fallback cuando el slug no existe en la colección de posts (post borrado, slug huérfano, etc.).
+const slugToPrettyTitle = (slug: string): string => {
+    const withoutDate = slug.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+    return withoutDate
+        .split("-")
+        .filter(Boolean)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+};
+
+const displayTitle = (slug: string): string => slugToTitle[slug] ?? slugToPrettyTitle(slug);
+
 // 6. Configuración del menú lateral
 type NavItem = {
     id: string;
@@ -498,7 +511,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                     {topLikes.map((p, i) => (
                                                         <li class="flex items-start gap-3 text-sm">
                                                             <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
-                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{displayTitle(p.slug)}</span>
                                                             <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.likes}</span>
                                                         </li>
                                                     ))}
@@ -516,7 +529,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                     {topComentarios.map((p, i) => (
                                                         <li class="flex items-start gap-3 text-sm">
                                                             <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
-                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{displayTitle(p.slug)}</span>
                                                             <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.comentarios}</span>
                                                         </li>
                                                     ))}
@@ -534,7 +547,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                     {topFavoritos.map((p, i) => (
                                                         <li class="flex items-start gap-3 text-sm">
                                                             <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
-                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{displayTitle(p.slug)}</span>
                                                             <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.favoritos}</span>
                                                         </li>
                                                     ))}
@@ -568,7 +581,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                         {topEngagement.map((p, i) => (
                                                             <tr class="border-b border-slate-100 dark:border-[#224249]/50 last:border-0 hover:bg-primary/5 transition-colors">
                                                                 <td class="py-3 px-5 text-slate-500 dark:text-slate-400 tabular-nums">{i + 1}</td>
-                                                                <td class="py-3 px-3 text-slate-900 dark:text-white font-medium">{slugToTitle[p.slug] ?? p.slug}</td>
+                                                                <td class="py-3 px-3 text-slate-900 dark:text-white font-medium">{displayTitle(p.slug)}</td>
                                                                 <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.likes}</td>
                                                                 <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.comentarios}</td>
                                                                 <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.favoritos}</td>
