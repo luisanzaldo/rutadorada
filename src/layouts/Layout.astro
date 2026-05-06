@@ -104,8 +104,8 @@ const analyticsEnabled = import.meta.env.PROD;
 
 		{analyticsEnabled && GA4_ID && (
 			<>
-				<script async type="text/plain" data-cookieyes="cookieyes-analytics" src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-				<script is:inline type="text/plain" data-cookieyes="cookieyes-analytics" define:vars={{ ga4Id: GA4_ID }}>
+				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+				<script is:inline define:vars={{ ga4Id: GA4_ID }}>
 					gtag('js', new Date());
 					gtag('config', ga4Id);
 				</script>
@@ -113,7 +113,7 @@ const analyticsEnabled = import.meta.env.PROD;
 		)}
 
 		{analyticsEnabled && CLARITY_ID && (
-			<script is:inline type="text/plain" data-cookieyes="cookieyes-analytics" define:vars={{ clarityId: CLARITY_ID }}>
+			<script is:inline define:vars={{ clarityId: CLARITY_ID }}>
 				(function(c,l,a,r,i,t,y){
 					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
