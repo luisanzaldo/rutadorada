@@ -434,6 +434,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                             </div>
                             <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-card-dark shadow-[0_0_20px_rgba(212,175,55,0.05)]">
                                 <iframe
+                                    id="calendar-iframe"
                                     src="https://funny-horn-a3b.notion.site/ebd//34e288e2c3ae808d914cf51c10f47763"
                                     width="100%"
                                     height="700"
@@ -443,6 +444,182 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     title="Calendario de actividades RutaDorada Films"
                                 ></iframe>
                             </div>
+
+                            <div class="mt-8 rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/80 dark:bg-card-dark p-5 sm:p-6 shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+                                <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                                        <span class="text-xl">🤖</span> Asistente del calendario
+                                    </h3>
+                                    <span class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                                        Llama 3.3 · Groq
+                                    </span>
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                                    Pídele que agregue eventos. Ejemplo: <em>"Coloca el 7 de mayo el título 'La Odisea' como Estrenos en Eventos"</em>.
+                                </p>
+
+                                <div
+                                    id="calendar-chat-log"
+                                    class="space-y-3 max-h-96 overflow-y-auto pr-1 mb-4"
+                                    aria-live="polite"
+                                >
+                                    <div class="flex gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center text-base flex-shrink-0">🤖</div>
+                                        <div class="flex-1 rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-[#142428] border border-slate-200 dark:border-[#224249] px-4 py-3 text-sm text-slate-800 dark:text-slate-200">
+                                            Hola, soy el asistente del calendario. Dime qué evento quieres agregar y lo registro en Notion.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <form id="calendar-chat-form" class="flex items-stretch gap-2">
+                                    <textarea
+                                        id="calendar-chat-input"
+                                        placeholder="Ej: Mañana reunión con productora como Reuniones en Actividades clave"
+                                        autocomplete="off"
+                                        rows="2"
+                                        class="flex-1 resize-y min-h-[3rem] max-h-48 rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary/60 focus:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all"
+                                        required
+                                    ></textarea>
+                                    <button
+                                        type="submit"
+                                        id="calendar-chat-send"
+                                        class="bg-primary text-[#0b1618] px-5 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 self-stretch"
+                                    >
+                                        <span id="calendar-chat-send-label">Enviar</span>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <script is:inline>
+                                (function () {
+                                    const form = document.getElementById('calendar-chat-form');
+                                    const input = document.getElementById('calendar-chat-input');
+                                    const log = document.getElementById('calendar-chat-log');
+                                    const sendBtn = document.getElementById('calendar-chat-send');
+                                    const sendLabel = document.getElementById('calendar-chat-send-label');
+                                    const iframe = document.getElementById('calendar-iframe');
+                                    if (!form || !input || !log || !sendBtn || !sendLabel) return;
+
+                                    const history = [];
+
+                                    function escapeHtml(s) {
+                                        return String(s)
+                                            .replace(/&/g, '&amp;')
+                                            .replace(/</g, '&lt;')
+                                            .replace(/>/g, '&gt;')
+                                            .replace(/"/g, '&quot;')
+                                            .replace(/'/g, '&#39;');
+                                    }
+
+                                    function addMessage(role, content, opts) {
+                                        opts = opts || {};
+                                        const wrap = document.createElement('div');
+                                        wrap.className = 'flex gap-3' + (role === 'user' ? ' flex-row-reverse' : '');
+
+                                        const avatar = document.createElement('div');
+                                        avatar.className = 'w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0 ' +
+                                            (role === 'user'
+                                                ? 'bg-primary text-[#0b1618] font-bold text-sm'
+                                                : 'bg-primary/15 border border-primary/30');
+                                        avatar.textContent = role === 'user' ? 'Tú' : '🤖';
+
+                                        const bubble = document.createElement('div');
+                                        const baseBubble = 'flex-1 rounded-2xl px-4 py-3 text-sm border';
+                                        bubble.className = role === 'user'
+                                            ? baseBubble + ' rounded-tr-sm bg-primary/10 border-primary/30 text-slate-900 dark:text-white'
+                                            : baseBubble + ' rounded-tl-sm bg-slate-100 dark:bg-[#142428] border-slate-200 dark:border-[#224249] text-slate-800 dark:text-slate-200';
+
+                                        if (opts.error) {
+                                            bubble.className = baseBubble + ' rounded-tl-sm bg-red-500/10 border-red-500/30 text-red-600 dark:text-red-400';
+                                        }
+                                        if (opts.thinking) {
+                                            bubble.dataset.thinking = '1';
+                                            bubble.innerHTML = '<span class="inline-flex gap-1"><span class="w-1.5 h-1.5 rounded-full bg-current opacity-40 animate-pulse"></span><span class="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-pulse" style="animation-delay:120ms"></span><span class="w-1.5 h-1.5 rounded-full bg-current opacity-80 animate-pulse" style="animation-delay:240ms"></span></span>';
+                                        } else {
+                                            bubble.innerHTML = escapeHtml(content).replace(/\n/g, '<br/>');
+                                        }
+
+                                        wrap.appendChild(avatar);
+                                        wrap.appendChild(bubble);
+                                        log.appendChild(wrap);
+                                        log.scrollTop = log.scrollHeight;
+                                        return wrap;
+                                    }
+
+                                    function setBusy(busy) {
+                                        sendBtn.disabled = busy;
+                                        input.disabled = busy;
+                                        sendLabel.textContent = busy ? 'Pensando…' : 'Enviar';
+                                    }
+
+                                    function refreshIframe() {
+                                        if (!iframe) return;
+                                        try {
+                                            const url = new URL(iframe.src, window.location.origin);
+                                            url.searchParams.set('v', String(Date.now()));
+                                            iframe.src = url.toString();
+                                        } catch (e) {
+                                            iframe.src = iframe.src;
+                                        }
+                                    }
+
+                                    form.addEventListener('submit', async (e) => {
+                                        e.preventDefault();
+                                        const text = input.value.trim();
+                                        if (!text) return;
+
+                                        addMessage('user', text);
+                                        history.push({ role: 'user', content: text });
+                                        input.value = '';
+                                        setBusy(true);
+                                        const thinkingNode = addMessage('assistant', '', { thinking: true });
+
+                                        try {
+                                            const res = await fetch('/api/calendar/chat', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({ messages: history }),
+                                            });
+                                            const data = await res.json().catch(() => ({}));
+                                            thinkingNode.remove();
+
+                                            if (!res.ok || !data.ok) {
+                                                addMessage('assistant', data.error || 'Hubo un error procesando tu mensaje.', { error: true });
+                                                history.pop();
+                                                return;
+                                            }
+
+                                            const reply = (data.reply || '').trim();
+                                            const createdCount = Array.isArray(data.created) ? data.created.length : 0;
+                                            const deletedCount = Array.isArray(data.deleted) ? data.deleted.length : 0;
+
+                                            if (reply) {
+                                                addMessage('assistant', reply);
+                                                history.push({ role: 'assistant', content: reply });
+                                            } else if (createdCount > 0 || deletedCount > 0) {
+                                                const fallback = createdCount > 0 && deletedCount > 0
+                                                    ? 'Listo, calendario actualizado.'
+                                                    : createdCount > 0
+                                                        ? 'Listo, evento agregado al calendario.'
+                                                        : 'Listo, evento mandado a la papelera.';
+                                                addMessage('assistant', fallback);
+                                                history.push({ role: 'assistant', content: fallback });
+                                            }
+
+                                            if (createdCount > 0 || deletedCount > 0) {
+                                                refreshIframe();
+                                            }
+                                        } catch (err) {
+                                            thinkingNode.remove();
+                                            addMessage('assistant', 'No pude conectar con el servidor.', { error: true });
+                                            history.pop();
+                                        } finally {
+                                            setBusy(false);
+                                            input.focus();
+                                        }
+                                    });
+                                })();
+                            </script>
                         </div>
                     )}
 
