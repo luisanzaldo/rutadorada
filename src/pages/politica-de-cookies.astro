@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const title = "Política de Cookies | RutaDorada";
+const description = "Información detallada sobre las cookies que utiliza RutaDorada Films, su finalidad y cómo gestionar tu consentimiento.";
+---
+
+<Layout title={title} description={description}>
+    <Header />
+    <main class="flex-grow relative overflow-hidden py-20 px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div
+                class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm"
+            >
+                <div class="mb-10 text-center">
+                    <h1 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white mb-4">
+                        POLÍTICA DE COOKIES
+                    </h1>
+                    <p class="text-primary font-bold tracking-widest uppercase text-sm">
+                        Ruta Dorada Films — Sitio Web de Cine
+                    </p>
+                </div>
+
+                <div class="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-8">
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">¿Qué son las cookies?</h2>
+                        <p>
+                            Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, móvil o tableta) cuando visita un sitio web. Permiten al sitio recordar sus acciones y preferencias durante un período de tiempo, para que no tenga que volver a introducirlas cada vez que regrese o navegue de una página a otra.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">¿Qué cookies utiliza este sitio?</h2>
+                        <p>
+                            En RutaDorada Films utilizamos cookies propias y de terceros con distintas finalidades. A continuación se detalla la lista actualizada de cookies en uso, agrupadas por categoría. Esta tabla se actualiza automáticamente cuando se modifica nuestra configuración.
+                        </p>
+
+                        <!-- Start CookieYes cookie policy -->
+                        <div class="mt-6 cky-cookie-policy-wrapper">
+                            <script id="cky-cookie-policy" type="text/javascript" src="https://cdn-cookieyes.com/client_data/38f6c6916015f96f82238e1c4fa0db75/cookie-policy/script.js" is:inline></script>
+                        </div>
+                        <!-- End CookieYes cookie policy -->
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Gestión y revocación de su consentimiento</h2>
+                        <p>
+                            Puede aceptar, rechazar o personalizar el uso de cookies en cualquier momento. Si desea cambiar la decisión que tomó previamente, pulse el siguiente botón:
+                        </p>
+                        <button
+                            type="button"
+                            id="cky-revisit-btn"
+                            class="mt-4 inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-white font-bold hover:opacity-90 transition-opacity"
+                        >
+                            Cambiar mis preferencias de cookies
+                        </button>
+                        <p class="mt-4 text-sm text-slate-600 dark:text-slate-400">
+                            También puede gestionar las cookies directamente desde la configuración de su navegador. Tenga en cuenta que deshabilitar las cookies estrictamente necesarias puede afectar al funcionamiento del sitio.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Más información</h2>
+                        <p>
+                            Para más información sobre cómo tratamos sus datos personales, consulte nuestra <a href="/politica-de-privacidad" class="text-primary hover:underline font-bold">Política de Privacidad</a>.
+                        </p>
+                        <p class="mt-4">
+                            Si tiene cualquier duda relativa al uso de cookies en este sitio, puede contactarnos en <a href="mailto:rutadoradafilms@gmail.com" class="text-primary hover:underline font-bold">rutadoradafilms@gmail.com</a>.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-slate-200 dark:border-[#224249] text-center text-sm text-slate-500 font-medium">
+                    Última actualización: Mayo de 2026 — Ruta Dorada Films
+                </div>
+
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('cky-revisit-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            if (typeof window.revisitCkyConsent === 'function') {
+                window.revisitCkyConsent();
+            } else {
+                var trigger = document.querySelector('.cky-banner-element');
+                if (trigger) trigger.click();
+            }
+        });
+    });
+</script>
