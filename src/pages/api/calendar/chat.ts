@@ -17,7 +17,7 @@ type ChatMessage = {
 
 type ClientMessage = { role: "user" | "assistant"; content: string };
 
-const VALID_CATEGORIES = ["Eventos", "Actividades clave", "Contenido publicado"] as const;
+const VALID_CATEGORIES = ["Actividad", "Tarea", "Contenido"] as const;
 type Category = (typeof VALID_CATEGORIES)[number];
 
 const GROQ_MODEL = "llama-3.3-70b-versatile";
@@ -47,12 +47,12 @@ const addEventTool = {
                     type: "string",
                     enum: VALID_CATEGORIES as unknown as string[],
                     description:
-                        "La columna Select de Notion donde se va a guardar el valor. Debe ser exactamente una de: Eventos (estrenos, premieres, festivales), Actividades clave (reuniones, entregables, hitos internos), Contenido publicado (videos, posts, artículos publicados).",
+                        "La columna Select de Notion donde se va a guardar el valor. Debe ser exactamente una de: Actividad (estrenos, premieres, festivales), Tarea (reuniones, entregables, hitos internos), Contenido (videos, posts, artículos publicados).",
                 },
                 value: {
                     type: "string",
                     description:
-                        "Valor concreto dentro de la categoría elegida (ej. 'Estrenos' para Eventos, 'Video' para Contenido publicado). Puede ser una opción nueva si el usuario menciona algo que no existe.",
+                        "Valor concreto dentro de la categoría elegida (ej. 'Estrenos' para Actividad, 'Video' para Contenido). Puede ser una opción nueva si el usuario menciona algo que no existe.",
                 },
             },
             required: ["name", "date", "category", "value"],
@@ -119,9 +119,9 @@ function buildSystemPrompt(): string {
         "Eres un asistente que ayuda al equipo de RutaDorada Films a gestionar su calendario de Notion (agregar, consultar y borrar eventos).",
         `Hoy es ${todayHuman()} (ISO: ${todayISO()}). Usa esta fecha para resolver expresiones relativas como "mañana", "próximo viernes", "en dos semanas".`,
         "El calendario tiene tres categorías mutuamente excluyentes (cada evento usa SOLO UNA):",
-        "- 'Eventos': estrenos, premieres, festivales, conferencias, lanzamientos públicos.",
-        "- 'Actividades clave': reuniones internas, entregables, hitos de producción, deadlines.",
-        "- 'Contenido publicado': piezas que ya se publicaron (Video, Post, Artículo, Reel, etc.).",
+        "- 'Actividad': estrenos, premieres, festivales, conferencias, lanzamientos públicos.",
+        "- 'Tarea': reuniones internas, entregables, hitos de producción, deadlines.",
+        "- 'Contenido': piezas que ya se publicaron (Video, Post, Artículo, Reel, etc.).",
         "",
         "REGLAS PARA AGREGAR (add_calendar_event):",
         "- Llama la herramienta con name, date (YYYY-MM-DD), category y value.",
