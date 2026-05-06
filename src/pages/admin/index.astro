@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import { getSession } from "../../lib/auth";
 import { USERS } from "../../lib/users";
+import { supabaseAdmin } from "../../lib/supabaseAdmin";
 
 export const prerender = false;
 
@@ -19,7 +20,7 @@ if (!session) {
 const user = USERS.find((u) => u.username === session.username);
 
 // 3. Determinar la sección activa
-const validSections = ["publicaciones", "calendario"] as const;
+const validSections = ["publicaciones", "calendario", "dashboard"] as const;
 type Section = (typeof validSections)[number];
 const sectionParam = Astro.url.searchParams.get("section") as Section | null;
 const activeSection: Section = sectionParam && validSections.includes(sectionParam) ? sectionParam : "publicaciones";
@@ -64,7 +65,54 @@ const formatDate = (date: Date) => {
     });
 };
 
-// 5. Configuración del menú lateral
+// 5. Datos del Dashboard (solo se cargan si la sección activa es "dashboard")
+type UserSummary = { total_registrados: number; email_confirmado: number; nuevos_7d: number; nuevos_30d: number };
+type ActividadRow = { dia: string; likes: number; comentarios: number; favoritos: number };
+type PostRow = { slug: string; likes: number; comentarios: number; favoritos: number; engagement_total: number };
+
+let userSummary: UserSummary = { total_registrados: 0, email_confirmado: 0, nuevos_7d: 0, nuevos_30d: 0 };
+let actividad7d: ActividadRow[] = [];
+let postsSummary: PostRow[] = [];
+let dashboardError: string | null = null;
+const slugToTitle: Record<string, string> = {};
+
+if (activeSection === "dashboard") {
+    if (!supabaseAdmin) {
+        dashboardError = "Supabase admin no está configurado. Revisa SUPABASE_SERVICE_ROLE_KEY.";
+    } else {
+        const [usersRes, activityRes, postsRes] = await Promise.all([
+            supabaseAdmin.rpc("dashboard_user_summary"),
+            supabaseAdmin.rpc("dashboard_actividad_7d"),
+            supabaseAdmin.rpc("dashboard_posts_summary"),
+        ]);
+
+        if (usersRes.error) dashboardError = `Error usuarios: ${usersRes.error.message}`;
+        else if (activityRes.error) dashboardError = `Error actividad: ${activityRes.error.message}`;
+        else if (postsRes.error) dashboardError = `Error posts: ${postsRes.error.message}`;
+        else {
+            const u = (usersRes.data as UserSummary[] | null)?.[0];
+            if (u) userSummary = u;
+            actividad7d = (activityRes.data as ActividadRow[] | null) ?? [];
+            postsSummary = (postsRes.data as PostRow[] | null) ?? [];
+        }
+
+        // Mapa slug → título para mostrar nombres legibles en lugar de slugs
+        for (const p of allPosts) slugToTitle[p.id] = p.data.title;
+    }
+}
+
+// Helpers de rankings (derivados de postsSummary, top 5 cada uno)
+const topLikes = [...postsSummary].sort((a, b) => b.likes - a.likes).filter(p => p.likes > 0).slice(0, 5);
+const topComentarios = [...postsSummary].sort((a, b) => b.comentarios - a.comentarios).filter(p => p.comentarios > 0).slice(0, 5);
+const topFavoritos = [...postsSummary].sort((a, b) => b.favoritos - a.favoritos).filter(p => p.favoritos > 0).slice(0, 5);
+const topEngagement = postsSummary.slice(0, 10);
+
+const formatDayShort = (iso: string) => {
+    const d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString("es-ES", { weekday: "short", day: "numeric" });
+};
+
+// 6. Configuración del menú lateral
 type NavItem = {
     id: string;
     label: string;
@@ -77,6 +125,7 @@ type NavItem = {
 const navItems: NavItem[] = [
     { id: "publicaciones", label: "Publicaciones", emoji: "✏️", iconType: "emoji" },
     { id: "calendario", label: "Calendario", emoji: "📅", iconType: "emoji" },
+    { id: "dashboard", label: "Dashboard", emoji: "📊", iconType: "emoji" },
     { id: "guiones", label: "Guiones", emoji: "", iconType: "gdrive", href: "https://drive.google.com/drive/folders/1-WMR3OBw_2-fe4Z5bJFLPl4OZGQIZPAn?usp=sharing", external: true },
     { id: "videos", label: "Videos", emoji: "", iconType: "gdrive", href: "https://drive.google.com/drive/folders/19Hvo2G3GfmbjNBh4BS00IzH1vCaIw9A_?usp=sharing", external: true },
     { id: "recursos", label: "Recursos", emoji: "", iconType: "envato", href: "https://app.envato.com/", external: true },
@@ -88,6 +137,7 @@ const navItems: NavItem[] = [
 const sectionTitles: Record<Section, string> = {
     publicaciones: "Publicaciones",
     calendario: "Calendario de actividades",
+    dashboard: "Dashboard",
 };
 
 const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
@@ -102,7 +152,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
             <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
         </div>
 
-        <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm relative z-10">
+        <div class="bg-white/80 dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm relative z-10">
             <!-- Cabecera -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-slate-100 dark:border-[#224249] pb-8">
                 <div class="flex items-center gap-4">
@@ -136,7 +186,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                             const isActive = !item.external && item.id === activeSection;
                             const baseClass = "flex items-center gap-3 px-4 py-3 rounded-xl border text-sm font-bold transition-all whitespace-nowrap lg:whitespace-normal flex-shrink-0";
                             const activeClass = "bg-primary/10 border-primary/40 text-primary shadow-[0_0_15px_rgba(212,175,55,0.15)]";
-                            const inactiveClass = "bg-white/5 dark:bg-[#162a2f]/30 border-slate-200 dark:border-[#224249]/60 text-slate-700 dark:text-slate-300 hover:border-primary/40 hover:text-primary";
+                            const inactiveClass = "bg-white/5 dark:bg-card-dark/60 border-slate-200 dark:border-[#224249]/60 text-slate-700 dark:text-slate-300 hover:border-primary/40 hover:text-primary";
                             const linkHref = item.external && item.href ? item.href : `/admin?section=${item.id}`;
                             const linkTarget = item.external ? "_blank" : undefined;
                             const linkRel = item.external ? "noopener noreferrer" : undefined;
@@ -196,7 +246,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     <span class="text-2xl">✏️</span> Publicaciones
                                 </h2>
                                 <div class="flex items-center gap-3 flex-wrap">
-                                    <form action="/admin" method="get" class="flex items-stretch rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/30 focus-within:border-primary/60 focus-within:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all overflow-hidden">
+                                    <form action="/admin" method="get" class="flex items-stretch rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 focus-within:border-primary/60 focus-within:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all overflow-hidden">
                                         <input type="hidden" name="section" value="publicaciones" />
                                         <input
                                             type="text"
@@ -244,7 +294,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                             )}
 
                             {totalPosts === 0 ? (
-                                <div class="rounded-2xl border border-dashed border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-[#162a2f]/20 p-12 text-center">
+                                <div class="rounded-2xl border border-dashed border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/40 p-12 text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-slate-400 dark:text-slate-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
                                     </svg>
@@ -253,10 +303,10 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                             ) : (
                             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                                 {paginatedPosts.map((post) => (
-                                    <div class="group flex flex-col bg-white/5 dark:bg-[#162a2f]/30 border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={post.data.title}>
+                                    <div class="group flex flex-col bg-white/5 dark:bg-card-dark border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={post.data.title}>
 
                                         <!-- Cover Image Area -->
-                                        <div class="relative w-full aspect-video bg-slate-100 dark:bg-[#0b1618] overflow-hidden rounded-t-2xl">
+                                        <div class="relative w-full aspect-video bg-slate-100 dark:bg-background-dark overflow-hidden rounded-t-2xl">
                                             {post.data.image ? (
                                                 <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                                             ) : (
@@ -271,7 +321,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         <!-- Content Area -->
                                         <div class="p-5 flex flex-col flex-grow">
                                             <div class="flex items-center gap-2 mb-3">
-                                                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-[10px] uppercase font-bold tracking-wider text-slate-600 dark:text-slate-300 shadow-sm">
+                                                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-background-dark border border-slate-200 dark:border-[#224249] text-[10px] uppercase font-bold tracking-wider text-slate-600 dark:text-slate-300 shadow-sm">
                                                     {post.data.category}
                                                 </span>
                                                 <span class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium ml-auto">
@@ -319,11 +369,11 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                 <div class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-100 dark:border-[#224249] mt-8">
                                     <div class="flex items-center gap-2">
                                         {validCurrentPage > 1 ? (
-                                            <a href={buildPageHref(validCurrentPage - 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Anterior">
+                                            <a href={buildPageHref(validCurrentPage - 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Anterior">
                                                 <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform font-bold">chevron_left</span>
                                             </a>
                                         ) : (
-                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
                                                 <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                                             </div>
                                         )}
@@ -333,7 +383,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                 <a href={buildPageHref(i)} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                                                     i === validCurrentPage
                                                         ? "bg-[#D4AF37] text-white border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                                        : "bg-white/5 dark:bg-[#0b1618] border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37]"
+                                                        : "bg-white/5 dark:bg-card-dark border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37]"
                                                 }`}>
                                                     {i}
                                                 </a>
@@ -341,11 +391,11 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         </div>
 
                                         {validCurrentPage < totalPages ? (
-                                            <a href={buildPageHref(validCurrentPage + 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-[#0b1618] border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Siguiente">
+                                            <a href={buildPageHref(validCurrentPage + 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Siguiente">
                                                 <span class="material-symbols-outlined text-[20px] group-hover:translate-x-0.5 transition-transform font-bold">chevron_right</span>
                                             </a>
                                         ) : (
-                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0b1618] border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
                                                 <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                                             </div>
                                         )}
@@ -368,7 +418,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     Sincronizado con Notion
                                 </span>
                             </div>
-                            <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-[#162a2f]/30 shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+                            <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-card-dark shadow-[0_0_20px_rgba(212,175,55,0.05)]">
                                 <iframe
                                     src="https://funny-horn-a3b.notion.site/ebd//34e288e2c3ae808d914cf51c10f47763"
                                     width="100%"
@@ -382,13 +432,178 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                         </div>
                     )}
 
+                    {activeSection === "dashboard" && (
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                    <span class="text-2xl">📊</span> Dashboard
+                                </h2>
+                                <span class="text-xs font-medium text-slate-500 dark:text-[#a0a0a0] uppercase tracking-widest">
+                                    Métricas en vivo
+                                </span>
+                            </div>
+
+                            {dashboardError ? (
+                                <div class="rounded-2xl border border-red-500/30 bg-red-500/5 p-6 text-sm text-red-500">
+                                    {dashboardError}
+                                </div>
+                            ) : (
+                                <>
+                                    {/* KPI Cards */}
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Usuarios totales</p>
+                                            <p class="font-display font-bold text-3xl text-slate-900 dark:text-white">{userSummary.total_registrados.toLocaleString("es-ES")}</p>
+                                        </div>
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Email confirmado</p>
+                                            <p class="font-display font-bold text-3xl text-slate-900 dark:text-white">{userSummary.email_confirmado.toLocaleString("es-ES")}</p>
+                                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                                {userSummary.total_registrados > 0
+                                                    ? `${Math.round((userSummary.email_confirmado / userSummary.total_registrados) * 100)}% del total`
+                                                    : "—"}
+                                            </p>
+                                        </div>
+                                        <div class="bg-white/5 dark:bg-card-dark border border-primary/30 rounded-2xl p-5 shadow-[0_0_15px_rgba(212,175,55,0.08)]">
+                                            <p class="text-[11px] font-bold uppercase tracking-widest text-primary mb-2">Nuevos · 7 días</p>
+                                            <p class="font-display font-bold text-3xl text-slate-900 dark:text-white">{userSummary.nuevos_7d.toLocaleString("es-ES")}</p>
+                                        </div>
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Nuevos · 30 días</p>
+                                            <p class="font-display font-bold text-3xl text-slate-900 dark:text-white">{userSummary.nuevos_30d.toLocaleString("es-ES")}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Gráfica de actividad 7 días */}
+                                    <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 mb-8 shadow-sm">
+                                        <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Actividad · últimos 7 días</h3>
+                                            <span class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Likes · Comentarios · Favoritos</span>
+                                        </div>
+                                        <div class="relative h-72">
+                                            <canvas id="activity-chart"></canvas>
+                                        </div>
+                                    </div>
+
+                                    {/* Rankings top 5 */}
+                                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                                <span>❤️</span> Top likes
+                                            </h3>
+                                            {topLikes.length === 0 ? (
+                                                <p class="text-sm text-slate-500 dark:text-slate-400">Sin datos aún.</p>
+                                            ) : (
+                                                <ol class="space-y-2">
+                                                    {topLikes.map((p, i) => (
+                                                        <li class="flex items-start gap-3 text-sm">
+                                                            <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.likes}</span>
+                                                        </li>
+                                                    ))}
+                                                </ol>
+                                            )}
+                                        </div>
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                                <span>💬</span> Top comentarios
+                                            </h3>
+                                            {topComentarios.length === 0 ? (
+                                                <p class="text-sm text-slate-500 dark:text-slate-400">Sin datos aún.</p>
+                                            ) : (
+                                                <ol class="space-y-2">
+                                                    {topComentarios.map((p, i) => (
+                                                        <li class="flex items-start gap-3 text-sm">
+                                                            <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.comentarios}</span>
+                                                        </li>
+                                                    ))}
+                                                </ol>
+                                            )}
+                                        </div>
+                                        <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                                <span>⭐</span> Top favoritos
+                                            </h3>
+                                            {topFavoritos.length === 0 ? (
+                                                <p class="text-sm text-slate-500 dark:text-slate-400">Sin datos aún.</p>
+                                            ) : (
+                                                <ol class="space-y-2">
+                                                    {topFavoritos.map((p, i) => (
+                                                        <li class="flex items-start gap-3 text-sm">
+                                                            <span class="font-display font-bold text-primary w-5 flex-shrink-0">{i + 1}.</span>
+                                                            <span class="flex-1 text-slate-700 dark:text-slate-200 line-clamp-2 leading-snug">{slugToTitle[p.slug] ?? p.slug}</span>
+                                                            <span class="font-bold text-slate-900 dark:text-white tabular-nums">{p.favoritos}</span>
+                                                        </li>
+                                                    ))}
+                                                </ol>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Tabla de engagement total */}
+                                    <div class="bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-5 shadow-sm">
+                                        <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Top 10 por engagement total</h3>
+                                            <span class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Likes + comentarios + favoritos</span>
+                                        </div>
+                                        {topEngagement.length === 0 ? (
+                                            <p class="text-sm text-slate-500 dark:text-slate-400 py-4">Sin datos aún.</p>
+                                        ) : (
+                                            <div class="overflow-x-auto -mx-5">
+                                                <table class="w-full text-sm">
+                                                    <thead>
+                                                        <tr class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-[#224249]">
+                                                            <th class="text-left py-3 px-5 font-bold">#</th>
+                                                            <th class="text-left py-3 px-3 font-bold">Post</th>
+                                                            <th class="text-right py-3 px-3 font-bold">❤️</th>
+                                                            <th class="text-right py-3 px-3 font-bold">💬</th>
+                                                            <th class="text-right py-3 px-3 font-bold">⭐</th>
+                                                            <th class="text-right py-3 px-5 font-bold text-primary">Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {topEngagement.map((p, i) => (
+                                                            <tr class="border-b border-slate-100 dark:border-[#224249]/50 last:border-0 hover:bg-primary/5 transition-colors">
+                                                                <td class="py-3 px-5 text-slate-500 dark:text-slate-400 tabular-nums">{i + 1}</td>
+                                                                <td class="py-3 px-3 text-slate-900 dark:text-white font-medium">{slugToTitle[p.slug] ?? p.slug}</td>
+                                                                <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.likes}</td>
+                                                                <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.comentarios}</td>
+                                                                <td class="py-3 px-3 text-right text-slate-700 dark:text-slate-300 tabular-nums">{p.favoritos}</td>
+                                                                <td class="py-3 px-5 text-right font-bold text-primary tabular-nums">{p.engagement_total}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Datos serializados para la gráfica */}
+                                    <script
+                                        type="application/json"
+                                        id="activity-data"
+                                        set:html={JSON.stringify({
+                                            labels: actividad7d.map(r => formatDayShort(r.dia)),
+                                            likes: actividad7d.map(r => r.likes),
+                                            comentarios: actividad7d.map(r => r.comentarios),
+                                            favoritos: actividad7d.map(r => r.favoritos),
+                                        })}
+                                    />
+                                </>
+                            )}
+                        </div>
+                    )}
+
                 </div>
             </div>
         </div>
 
         <!-- Modal de Confirmación de Eliminación -->
         <div id="delete-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
-            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 max-w-md w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 modal-content">
+            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-8 max-w-md w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 modal-content">
                 <div class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 mx-auto mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -551,4 +766,129 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
             });
         });
     </script>
+
+    {activeSection === "dashboard" && !dashboardError && (
+        <>
+            <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+            <script is:inline>
+                (function () {
+                    function init() {
+                        const dataNode = document.getElementById('activity-data');
+                        const canvas = document.getElementById('activity-chart');
+                        if (!dataNode || !canvas || typeof Chart === 'undefined') return;
+
+                        let parsed;
+                        try { parsed = JSON.parse(dataNode.textContent || '{}'); } catch (e) { return; }
+
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const gridColor = isDark ? 'rgba(34, 66, 73, 0.5)' : 'rgba(226, 232, 240, 0.8)';
+                        const tickColor = isDark ? '#94a3b8' : '#64748b';
+                        const tooltipBg = isDark ? '#0b1618' : '#ffffff';
+                        const tooltipBorder = isDark ? '#224249' : '#e2e8f0';
+                        const tooltipColor = isDark ? '#ffffff' : '#0f172a';
+
+                        const goldFill = (ctx) => {
+                            const { chart } = ctx;
+                            const { ctx: c, chartArea } = chart;
+                            if (!chartArea) return 'rgba(212, 175, 55, 0.2)';
+                            const g = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                            g.addColorStop(0, 'rgba(212, 175, 55, 0.35)');
+                            g.addColorStop(1, 'rgba(212, 175, 55, 0)');
+                            return g;
+                        };
+
+                        new Chart(canvas, {
+                            type: 'line',
+                            data: {
+                                labels: parsed.labels || [],
+                                datasets: [
+                                    {
+                                        label: 'Likes',
+                                        data: parsed.likes || [],
+                                        borderColor: '#D4AF37',
+                                        backgroundColor: goldFill,
+                                        borderWidth: 2.5,
+                                        tension: 0.35,
+                                        fill: true,
+                                        pointBackgroundColor: '#D4AF37',
+                                        pointRadius: 4,
+                                        pointHoverRadius: 6,
+                                    },
+                                    {
+                                        label: 'Comentarios',
+                                        data: parsed.comentarios || [],
+                                        borderColor: '#3b82f6',
+                                        backgroundColor: 'rgba(59, 130, 246, 0.08)',
+                                        borderWidth: 2.5,
+                                        tension: 0.35,
+                                        fill: false,
+                                        pointBackgroundColor: '#3b82f6',
+                                        pointRadius: 4,
+                                        pointHoverRadius: 6,
+                                    },
+                                    {
+                                        label: 'Favoritos',
+                                        data: parsed.favoritos || [],
+                                        borderColor: '#a855f7',
+                                        backgroundColor: 'rgba(168, 85, 247, 0.08)',
+                                        borderWidth: 2.5,
+                                        tension: 0.35,
+                                        fill: false,
+                                        pointBackgroundColor: '#a855f7',
+                                        pointRadius: 4,
+                                        pointHoverRadius: 6,
+                                    },
+                                ],
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                interaction: { mode: 'index', intersect: false },
+                                plugins: {
+                                    legend: {
+                                        position: 'bottom',
+                                        labels: {
+                                            color: tickColor,
+                                            usePointStyle: true,
+                                            pointStyle: 'circle',
+                                            padding: 16,
+                                            font: { size: 12, weight: '600' },
+                                        },
+                                    },
+                                    tooltip: {
+                                        backgroundColor: tooltipBg,
+                                        borderColor: tooltipBorder,
+                                        borderWidth: 1,
+                                        titleColor: tooltipColor,
+                                        bodyColor: tooltipColor,
+                                        padding: 12,
+                                        cornerRadius: 8,
+                                        displayColors: true,
+                                        boxPadding: 4,
+                                    },
+                                },
+                                scales: {
+                                    x: {
+                                        grid: { color: gridColor, drawBorder: false },
+                                        ticks: { color: tickColor, font: { size: 11 } },
+                                    },
+                                    y: {
+                                        beginAtZero: true,
+                                        grid: { color: gridColor, drawBorder: false },
+                                        ticks: { color: tickColor, font: { size: 11 }, precision: 0 },
+                                    },
+                                },
+                            },
+                        });
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', init);
+                    } else {
+                        init();
+                    }
+                })();
+            </script>
+        </>
+    )}
 </Layout>

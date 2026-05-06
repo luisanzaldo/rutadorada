@@ -29,7 +29,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] mix-blend-screen opacity-20"></div>
         </div>
 
-        <div class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm relative z-10">
+        <div class="bg-white/80 dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm relative z-10">
             
             <!-- Encabezado de la página -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-slate-100 dark:border-[#224249] pb-6">
@@ -42,7 +42,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     </h1>
                     <p class="text-slate-500 text-sm mt-3 sm:ml-[42px] flex items-center gap-2">
                         <span>Autor asignado:</span> 
-                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#162a2f] border border-[#224249] text-white">
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card-dark border border-[#224249] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
@@ -61,7 +61,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             <form class="space-y-8" id="nuevo-post-form" data-author={user?.displayName} data-letterboxd={user?.letterboxdUrl}>
                 
                 <!-- Sección 1: Información Principal -->
-                <div class="space-y-6 bg-slate-50/50 dark:bg-[#162a2f]/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
+                <div class="space-y-6 bg-slate-50/50 dark:bg-card-dark/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
                     <h3 class="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2 mb-4">
                         <span class="material-symbols-outlined text-[18px]">info</span>
                         Datos Principales
@@ -78,7 +78,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 id="title"
                                 name="title"
                                 required
-                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-lg"
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-lg"
                                 placeholder=""
                             />
                         </div>
@@ -93,7 +93,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 name="description"
                                 required
                                 rows="3"
-                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium resize-none leading-relaxed"
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium resize-none leading-relaxed"
                                 placeholder=""
                             ></textarea>
                         </div>
@@ -118,7 +118,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     id="category"
                                     name="category"
                                     required
-                                    class="w-full pl-11 pr-10 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium appearance-none cursor-pointer"
+                                    class="w-full pl-11 pr-10 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled selected>Selecciona la categoría</option>
                                     <option value="Artículos">Artículos</option>
@@ -141,32 +141,32 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 <!-- Calificación -->
                                 <div class="space-y-1">
                                     <label for="rating" class="block text-[11px] font-bold text-slate-500 uppercase">Rating (0-100) *</label>
-                                    <input type="number" id="rating" name="rating" min="0" max="100" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                    <input type="number" id="rating" name="rating" min="0" max="100" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                                 </div>
                                 
                                 <!-- Duración -->
                                 <div class="space-y-1">
                                     <label for="duracion" class="block text-[11px] font-bold text-slate-500 uppercase">Duración *</label>
-                                    <input type="text" id="duracion" name="duracion" placeholder="103 min" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                    <input type="text" id="duracion" name="duracion" placeholder="103 min" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                                 </div>
                             </div>
                             
                             <!-- Director -->
                             <div class="space-y-1">
                                 <label for="director" class="block text-[11px] font-bold text-slate-500 uppercase">Director *</label>
-                                <input type="text" id="director" name="director" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                <input type="text" id="director" name="director" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                             </div>
 
                             <!-- Elenco -->
                             <div class="space-y-1">
                                 <label for="cast" class="block text-[11px] font-bold text-slate-500 uppercase">Elenco *</label>
-                                <input type="text" id="cast" name="cast" placeholder="Actor 1, Actor 2, Actor 3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
+                                <input type="text" id="cast" name="cast" placeholder="Actor 1, Actor 2, Actor 3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                             </div>
                             
                             <!-- Sinopsis -->
                             <div class="space-y-1">
                                 <label for="sinopsis" class="block text-[11px] font-bold text-slate-500 uppercase">Sinopsis *</label>
-                                <textarea id="sinopsis" name="sinopsis" rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-[#162a2f]/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none leading-relaxed"></textarea>
+                                <textarea id="sinopsis" name="sinopsis" rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none leading-relaxed"></textarea>
                             </div>
                         </div>
 
@@ -183,7 +183,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     type="text"
                                     id="tags"
                                     name="tags"
-                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
                                     placeholder=""
                                 />
                             </div>
@@ -201,7 +201,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 type="text"
                                 id="sourceName"
                                 name="sourceName"
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
                                 placeholder=""
                             />
                         </div>
@@ -219,7 +219,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                     type="url"
                                     id="sourceUrl"
                                     name="sourceUrl"
-                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                    class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
                                     placeholder=""
                                 />
                             </div>
@@ -230,7 +230,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <hr class="border-slate-100 dark:border-[#224249]/50" />
 
                 <!-- Sección 3: Área visual (Imagen Header) -->
-                <div class="space-y-4 bg-slate-50/50 dark:bg-[#162a2f]/10 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
+                <div class="space-y-4 bg-slate-50/50 dark:bg-card-dark/10 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
                     <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2 mb-2">
                         <span class="material-symbols-outlined text-[20px] text-primary">broken_image</span>
                         Imagen Principal (Portada)
@@ -244,7 +244,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 type="url"
                                 id="imageUrl"
                                 name="imageUrl"
-                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-sm"
+                                class="w-full px-4 py-3 rounded-xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium text-sm"
                                 placeholder="Pega el enlace web de la imagen aquí..."
                             />
                         </div>
@@ -253,7 +253,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         <div class="w-full space-y-2 mt-2 md:mt-0">
                             <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wide">O subir archivo local</label>
                             <div class="flex items-center justify-center w-full">
-                                <label for="imageFile" class="flex flex-col items-center justify-center w-full h-[50px] border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-xl cursor-pointer bg-slate-50 dark:bg-[#0b1618] dark:hover:bg-[#162a2f] hover:bg-slate-100 transition-colors group">
+                                <label for="imageFile" class="flex flex-col items-center justify-center w-full h-[50px] border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-xl cursor-pointer bg-slate-50 dark:bg-background-dark dark:hover:bg-card-dark hover:bg-slate-100 transition-colors group">
                                     <div class="flex items-center space-x-2">
                                         <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">cloud_upload</span>
                                         <span class="text-sm text-slate-500 dark:text-slate-400 font-medium group-hover:text-slate-600 dark:group-hover:text-slate-200 transition-colors">Examinar computadora...</span>
@@ -265,7 +265,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     </div>
 
                     <!-- Contenedor de Previsualización de Portada -->
-                    <div id="coverPreviewContainer" class="hidden mt-6 w-full flex-col items-center justify-center p-4 bg-slate-50 dark:bg-[#0b1618]/50 border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-2xl relative overflow-hidden transition-all">
+                    <div id="coverPreviewContainer" class="hidden mt-6 w-full flex-col items-center justify-center p-4 bg-slate-50 dark:bg-background-dark/50 border-2 border-slate-200 dark:border-[#224249] border-dashed rounded-2xl relative overflow-hidden transition-all">
                         <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Previsualización de Portada</span>
                         <img id="coverPreviewImage" src="" alt="Previsualización" class="max-h-[300px] w-auto rounded-xl object-contain shadow-md hidden" />
                         <div id="coverPreviewError" class="hidden flex-col items-center gap-2 text-red-500/80 p-6 text-center">
@@ -286,10 +286,10 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     </label>
 
                     <!-- TIPTAP EDITOR -->
-                    <div class="w-full rounded-2xl bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
+                    <div class="w-full rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
                         
                         <!-- Toolbar -->
-                        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-[#162a2f]/50 border-b border-slate-200 dark:border-[#224249]">
+                        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
                             <!-- Format Buttons -->
                             <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita (Ctrl+B)">
                                 <span class="font-serif font-black text-lg">N</span>
@@ -352,7 +352,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 sm:gap-4 pt-8 mt-12 border-t border-slate-100 dark:border-[#224249]">
                     <a 
                         href="/admin" 
-                        class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-[#162a2f] transition-all flex items-center justify-center gap-2"
+                        class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-card-dark transition-all flex items-center justify-center gap-2"
                     >
                         <span class="material-symbols-outlined text-[18px]">close</span>
                         Cancelar
@@ -372,7 +372,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         <!-- Modales para TipTap -->
         <!-- Modal Imagen -->
         <div id="modal-image" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-image-content">
+            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-image-content">
                 <div class="flex justify-between items-center mb-6">
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary">image</span> Insertar Imagen
@@ -384,7 +384,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <div class="space-y-4">
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Por URL web</label>
-                        <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
+                        <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
                     </div>
                     <div class="relative flex py-2 items-center">
                         <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
@@ -393,7 +393,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     </div>
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Subir archivo local</label>
-                        <input type="file" id="tiptap-img-file" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 dark:file:bg-[#162a2f] dark:file:text-white dark:hover:file:bg-[#224249] cursor-pointer" />
+                        <input type="file" id="tiptap-img-file" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 dark:file:bg-card-dark dark:file:text-white dark:hover:file:bg-[#224249] cursor-pointer" />
                     </div>
                     <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
                         Insertar en el artículo
@@ -404,7 +404,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
         <!-- Modal YouTube -->
         <div id="modal-youtube" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-youtube-content">
+            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-youtube-content">
                 <div class="flex justify-between items-center mb-6">
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#FF0000]">smart_display</span> Video de YouTube
@@ -416,7 +416,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <div class="space-y-6">
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Enlace del video</label>
-                        <input type="url" id="tiptap-yt-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://www.youtube.com/watch?v=..." />
+                        <input type="url" id="tiptap-yt-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://www.youtube.com/watch?v=..." />
                     </div>
                     <button type="button" id="btn-insert-youtube" class="w-full py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
                         Incrustar video
@@ -427,7 +427,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
         <!-- Modal Curiosidad -->
         <div id="modal-curiosity" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
+            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
                 <div class="flex justify-between items-center mb-6">
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary">star</span> Bloque de Curiosidad
@@ -439,11 +439,11 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <div class="space-y-4">
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Título del recuadro</label>
-                        <input type="text" id="curiosity-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. La Magia de Cannes" />
+                        <input type="text" id="curiosity-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. La Magia de Cannes" />
                     </div>
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del recuadro</label>
-                        <textarea id="curiosity-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto de la curiosidad aquí..."></textarea>
+                        <textarea id="curiosity-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto de la curiosidad aquí..."></textarea>
                     </div>
                     <button type="button" id="btn-insert-curiosity" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(212,175,55,0.3)]">
                         Insertar bloque
@@ -454,7 +454,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
         <!-- Modal Puntos (Bueno/Regular/Malo) -->
         <div id="modal-point" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-point-content">
+            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-point-content">
                 <div class="flex justify-between items-center mb-6">
                     <h4 id="point-modal-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <svg id="point-modal-icon" xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a10 10 0 1 0 10 10'/><path d='M12 6v6l4 2'/></svg>
@@ -467,11 +467,11 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <div class="space-y-4">
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Título del bloque</label>
-                        <input type="text" id="point-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. Actuaciones sobresalientes" />
+                        <input type="text" id="point-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. Actuaciones sobresalientes" />
                     </div>
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del bloque</label>
-                        <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#162a2f]/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
+                        <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
                     </div>
                     <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg">
                         Insertar punto
