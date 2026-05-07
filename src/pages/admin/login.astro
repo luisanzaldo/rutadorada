@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import AdminDesktopOnly from "../../components/AdminDesktopOnly.astro";
 import { getSession } from "../../lib/auth";
 
 export const prerender = false;
@@ -19,8 +20,9 @@ const title = "Admin Login | RutaDorada";
 
 <Layout title={title}>
     <Header />
+    <AdminDesktopOnly />
     <main
-        class="flex-grow grid place-items-center relative overflow-hidden py-20 px-4"
+        class="hidden lg:grid flex-grow place-items-center relative overflow-hidden py-20 px-4"
     >
         <!-- Background Elements (Coherente con login.astro) -->
         <div class="absolute inset-0 pointer-events-none">
