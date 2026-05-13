@@ -43,7 +43,7 @@ Una adición oportuna, desgarradora y humana a las representaciones cinematográ
 
 La actuación de Díaz es la **"única razón para seguir mirando"**. Algunas escenas en México son calificadas como "conmovedoras".
 
-La califica como **"desarticulada" e "inerte"**. Crítica que la narrativa es tan reducida que carece de cohesión emocional. El marco temporal es borroso.
+La califica como **"desarticulada" e "inerte"**. Critica que la narrativa es tan reducida que carece de cohesión emocional. El marco temporal es borroso.
 
 Un estudio de personajes bien intencionado pero fallido, que resulta **íntimo pero poco involucrante**.
 
