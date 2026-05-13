@@ -1,5 +1,5 @@
 ---
-title: "Criticas decepcionantes de A Woman’s Life en Cannes 2026"
+title: "Críticas decepcionantes de A Woman’s Life en Cannes 2026"
 description: "Críticas de la película A Woman’s Life vista en la selección oficial de Cannes 2026"
 pubDate: 2026-05-13T17:55:49.238Z
 author: "Moncho"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Cannes"]
 ---
+
 
 **Léa Drucker** brilla y es lo más destacado en las primeras críticas de la película  de la directora **Charline Bourgeois-Tacquet**. Existe un consenso absoluto en que Léa Drucker es el corazón de la película. Los críticos la describen como una de las mejores actrices de Francia, destacando su habilidad para mostrar a una mujer "al límite" pero sin desmoronarse, equilibrando una dureza profesional con una vulnerabilidad sensual.
 
@@ -56,3 +57,4 @@ Se siente **"segura"** dentro de las convenciones del cine francés contemporán
 Admirable por mantener a la protagonista como alguien **complicado y no siempre simpático**. Control juicioso del ritmo, el humor y la música.
 
 Puede resultar **"demasiado ligera"** comparada con otros autores en competencia. Rara vez alcanza la pasión que promete su escena inicial. Resulta "difícil de ver" por su agitación constante.
+
