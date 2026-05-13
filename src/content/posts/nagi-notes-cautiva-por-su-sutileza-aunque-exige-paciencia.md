@@ -1,5 +1,5 @@
 ---
-title: "\"’Nagi Notes cautiva por su sutileza, aunque exige paciencia\""
+title: "“Nagi Notes” cautiva por su sutileza, aunque exige paciencia"
 description: "Críticas de Nagi Notes de la selección oficial por la Palma de Oro en Cannes 2026"
 pubDate: 2026-05-13T15:19:52.955Z
 author: "Moncho"
