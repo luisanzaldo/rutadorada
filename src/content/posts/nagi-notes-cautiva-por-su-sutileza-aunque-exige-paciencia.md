@@ -19,11 +19,15 @@ En general, las críticas coinciden en que "Nagi Notes" es una obra de humanismo
 
 **The Hollywood Reporter**
 
+['Nagi Notes' Review: Koji Fukada's Gentle Study of Art and Fellowship](https://www.hollywoodreporter.com/movies/movie-reviews/nagi-notes-review-koji-fukada-1236587673/)
+
 **Lo bueno:** Estudio profundo y reflexivo sobre el arte, el compañerismo y la vida rural. Destaca su inclusión de temas LGBTQ+ con una franqueza inusual en el cine japonés. El proceso artístico está retratado con gran deleite y el reparto es excelente.
 
 **Lo malo:** Se describe como "no muy emocionante" y "fácil de olvidar" en comparación con obras anteriores de Fukada como *Harmonium*. Su tono es tan suave que puede resultar demasiado pasivo para algunos espectadores.
 
 **Variety**
+
+['Nagi Notes' Review: Koji Fukada's Quietly Resonant Drama](https://variety.com/2026/film/news/nagi-notes-review-1236736662/)
 
 **Lo bueno:** Considerada un "regreso a la forma" del director. Elogia la precisión de la caracterización, el guion finamente trabajado y las actuaciones sutiles de las protagonistas. La cinematografía captura una luz esperanzadora sin embellecer demasiado el paisaje.
 
@@ -31,11 +35,15 @@ En general, las críticas coinciden en que "Nagi Notes" es una obra de humanismo
 
 **Screen Daily**
 
+[‘Nagi Notes’ review: A stranger unsettles a rural Japanese community in Koji Fukada’s subdued drama | Reviews | Screen](https://www.screendaily.com/reviews/nagi-notes-review-a-stranger-unsettles-a-rural-japanese-community-in-koji-fukadas-subdued-drama/5216275.article)
+
 Lo bueno: Una celebración de la creatividad y de las conexiones emocionales a través del arte. Los temas queer están manejados de forma educada y benigna, creando un "espacio seguro" para las confesiones de los personajes.
 
 **Lo malo:** Es "gentil casi hasta el extremo" y poco asertiva en sus temas. Comparada con otras películas del director donde el pasado interrumpe el presente, el impacto aquí se siente mucho más tenue o inofensivo.
 
 **IndieWire**
+
+[Nagi Notes Review: Koji Fukada's Quietly Spectacular Farm Drama](https://www.indiewire.com/criticism/movies/nagi-notes-movie-review-1235193607/)
 
 **Lo bueno:** Calificada como "silenciosamente espectacular" y un retrato encantador de la búsqueda de una nueva familia. Valora el uso de los personajes para "triangular" sus propias posiciones en la sociedad y su clímax emocionalmente fuerte a pesar de su calma.
 
