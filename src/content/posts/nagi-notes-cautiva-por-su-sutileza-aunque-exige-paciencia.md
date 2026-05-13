@@ -1,5 +1,5 @@
 ---
-title: "Nagi Notes cautiva por su sutileza, aunque exige paciencia"
+title: "\"’Nagi Notes cautiva por su sutileza, aunque exige paciencia\""
 description: "Críticas de Nagi Notes de la selección oficial por la Palma de Oro en Cannes 2026"
 pubDate: 2026-05-13T15:19:52.955Z
 author: "Moncho"
@@ -37,7 +37,7 @@ En general, las críticas coinciden en que "Nagi Notes" es una obra de humanismo
 
 [‘Nagi Notes’ review: A stranger unsettles a rural Japanese community in Koji Fukada’s subdued drama | Reviews | Screen](https://www.screendaily.com/reviews/nagi-notes-review-a-stranger-unsettles-a-rural-japanese-community-in-koji-fukadas-subdued-drama/5216275.article)
 
-Lo bueno: Una celebración de la creatividad y de las conexiones emocionales a través del arte. Los temas queer están manejados de forma educada y benigna, creando un "espacio seguro" para las confesiones de los personajes.
+**Lo bueno:** Una celebración de la creatividad y de las conexiones emocionales a través del arte. Los temas queer están manejados de forma educada y benigna, creando un "espacio seguro" para las confesiones de los personajes.
 
 **Lo malo:** Es "gentil casi hasta el extremo" y poco asertiva en sus temas. Comparada con otras películas del director donde el pasado interrumpe el presente, el impacto aquí se siente mucho más tenue o inofensivo.
 
