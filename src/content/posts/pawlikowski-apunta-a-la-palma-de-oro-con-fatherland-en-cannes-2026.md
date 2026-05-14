@@ -23,13 +23,13 @@ El filme es descrito como un **viaje por las ruinas de la Alemania de posguerra*
 
 Algunos críticos sugieren que su **rigor estético** puede, en ocasiones, distanciar al espectador emocionalmente o hacer que la trama se sienta incompleta en comparación con sus éxitos anteriores.
 
-**Next Best Picture**
+## **Next Best Picture**
 
 **Lo bueno:** Actuaciones **impecables** de Hüller y Zischler; guion con claridad y enfoque; visuales impresionantes de Łukasz Żal.
 
 **Lo malo:** Su corta duración de 82 minutos podría dejar a algunos espectadores con **ganas de más**.
 
-**The Playlist**
+## **The Playlist**
 
 ['Fatherland' Review: Sandra Huller Resonates In Paweł Pawlikowski's Striking Depiction Of Post-War Germany \[Cannes\]](https://theplaylist.net/fatherland-review-sandra-huller-pawel-pawlikowskis-germany-cannes-20260514/)
 
@@ -37,7 +37,7 @@ Algunos críticos sugieren que su **rigor estético** puede, en ocasiones, dista
 
 **Lo malo:** nada
 
-**IndieWire**
+## **IndieWire**
 
 ['Fatherland' Review: Sandra Hüller Leads Pawel Pawlikowski's Latest](https://www.indiewire.com/criticism/movies/fatherland-review-sandra-huller-pawel-pawlikowski-1235193023/)
 
@@ -45,7 +45,7 @@ Algunos críticos sugieren que su **rigor estético** puede, en ocasiones, dista
 
 **Lo malo:** El estilo elíptico limita el **impacto emocional**; no penetra psicológicamente tanto como en obras previas de Pawlikowski.
 
-**Screen Daily**
+## **Screen Daily**
 
 [‘Fatherland’ review: Sandra Hüller and Hanns Zischler command Pawel Pawlikowski’s finely-honed literary drama | Reviews | Screen](https://www.screendaily.com/reviews/fatherland-review-sandra-huller-and-hanns-zischler-command-pawel-pawlikowskis-finely-honed-literary-drama/5216564.article)
 
@@ -53,7 +53,7 @@ Algunos críticos sugieren que su **rigor estético** puede, en ocasiones, dista
 
 **Lo malo:** Puede resultar un filme **"especializado"** en comparación con la accesibilidad de *Ida* o *Cold War*.
 
-**The Wrap**
+## **The Wrap**
 
 [Fatherland Review: Sandra Hüller Is Dazzling in Cannes Drama](https://www.thewrap.com/creative-content/movies/fatherland-review-cannes-sandra-huller/)
 
@@ -61,7 +61,7 @@ Algunos críticos sugieren que su **rigor estético** puede, en ocasiones, dista
 
 **Lo malo:** Se siente **"más pequeña"** que *Cold War* y menos reveladora que *Ida*.
 
-**Deadline**
+## **Deadline**
 
 [‘Fatherland’ Review: Pawel Pawlikowski’s Latest Is A Masterclass In Artistic Discipline](https://deadline.com/2026/05/fatherland-review-pawel-pawlikowski-sandra-huller-1236904459/)
 
