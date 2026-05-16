@@ -1421,7 +1421,10 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                     setRefreshBusy(true);
                     feedback.classList.add('hidden');
                     try {
-                        const res = await fetch('/api/admin/cannes/refresh', { method: 'POST' });
+                        const res = await fetch('/api/admin/cannes/refresh', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                        });
                         const data = await res.json().catch(() => ({}));
                         if (!res.ok || !data.ok) {
                             showFeedback(data.error || 'No se pudo actualizar.', 'error');
