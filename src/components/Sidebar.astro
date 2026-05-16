@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import CannesCard from "./CannesCard.astro";
 const allPosts = await getCollection("posts");
 
 const tagCategoryMap = new Map<string, string>();
@@ -116,6 +117,9 @@ const getCategoryUrl = (category: string) => {
             }
         </div>
     </div>
+
+    <!-- Calificaciones Cannes 2026 -->
+    <CannesCard />
 
     <!-- Weekly Tech Digest -->
     <div
