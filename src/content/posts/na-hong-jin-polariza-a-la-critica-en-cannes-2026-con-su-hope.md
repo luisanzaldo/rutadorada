@@ -4,7 +4,7 @@ description: "Críticas de Hope, la película más polarizante hasta ahora de la
 pubDate: 2026-05-17T22:52:48.235Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/04/Hope-first-look-copy.jpg?w=1296&h=730&crop=1"
+image: "https://m.media-amazon.com/images/M/MV5BM2Y0M2E0ZmYtNTk4OS00NTU0LThhNzgtOWU3OGUxZDk3Yjg5XkEyXkFqcGc@._V1_.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -12,6 +12,7 @@ fuente:
 readTime: "5 min read"
 tags: ["Cannes"]
 ---
+
 
 El sentir de las críticas sobre **Hope** es el de una obra **técnicamente brillante en su dirección de acción y comedia**, pero profundamente **lastrada por la calidad de sus efectos digitales y su excesiva duración**. Mientras que algunos críticos la consideran un clásico de culto instantáneo por su energía inagotable y su humor ácido, otros la describen como una decepción mayúscula que se desmorona tras un primer acto magistral. Todos coinciden en que Na Hong-jin demuestra una **maestría absoluta en la coreografía de escenas de acción a plena luz del día**, logrando momentos de tensión que superan a los blockbusters promedio de Hollywood. Sin embargo, el **CGI del monstruo es el punto más divisivo y criticado**, llegando a ser comparado con videojuegos antiguos o producciones de bajo presupuesto.
 
@@ -26,3 +27,4 @@ Por el contrario, [**IndieWire**](https://www.indiewire.com/criticism/movies/hop
 Según la crítica de [**Deadline**](https://deadline.com/2026/05/hope-review-aliens-vs-south-koreans-cannes-film-festival-1236913546/), lo más positivo de Hope es su capacidad para superar a cualquier producción similar de Hollywood, ofreciendo una experiencia de acción salvaje y frenética que no se detiene durante sus 160 minutos de duración. Elogia especialmente el apartado técnico, calificando de espectacular la persecución final en la autopista y comparando el excelente trabajo de captura de movimiento de los alienígenas con el de la película Avatar. Además, resalta que el filme posee una capa de significado social al presentar a estos visitantes de otro mundo como una alegoría de los inmigrantes vistos como intrusos. El punto negativo es la escasa profundidad de los personajes, ya que el guion se enfoca tanto en la acción que la película acaba convirtiéndose esencialmente en una única y gigantesca persecución prolongada sin mayor desarrollo narrativo de sus protagonistas.
 
 Según  [**ScreenDaily**](https://www.screendaily.com/reviews/hope-review-a-rural-south-korean-comes-under-attack-in-na-hong-jin-thunderously-entertaining-genre-mash-up/5216856.article), la película es una mezcla de géneros muy entretenida que ofrece un espectáculo de violencia y humor negro con un ritmo que apenas da respiro. Entre sus puntos más positivos destacan su primer acto magistral, un diseño de producción excepcional donde cada detalle del entorno cuenta una historia, y una fotografía de pantalla ancha que captura de forma impresionante la acción en las montañas. También se elogian las acrobacias con vehículos, calificadas como de primer nivel, y un cambio de perspectiva final que aporta profundidad moral al cuestionar la naturaleza de los "monstruos". En contraste, la crítica señala como aspectos negativos su extensa duración de 160 minutos, advirtiendo que el bombardeo constante de acción y armas automáticas puede volverse repetitivo. Además, el punto más débil son los efectos visuales de las criaturas, los cuales revelan las limitaciones del presupuesto al parecer imágenes generadas por IA o gráficos de un videojuego.
+
