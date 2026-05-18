@@ -4,7 +4,7 @@ description: "Gran recibimiento para Fjord, la última película del rumano Cris
 pubDate: 2026-05-18T18:16:06.358Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://d1nslcd7m2225b.cloudfront.net/Pictures/480xany/8/5/7/1478857_fjord_dircristianmungiu_credittudorpanduru_777935.jpg"
+image: "https://deadline.com/wp-content/uploads/2026/05/Fjord-Family-Picture-Photo-Credit-Tudor-Panduru-copy.jpg?w=681&h=383&crop=1"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -12,6 +12,7 @@ fuente:
 readTime: "4 min read"
 tags: ["Cannes"]
 ---
+
 
 La última película del rumano **Cristian Mungiu** sigue a la familia Gheorghiu, quienes se mudan con sus cinco hijos a un remoto pueblo en los fiordos de Noruega, el lugar de nacimiento de ella. Su vida se ve sumida en el caos cuando, debido a sus estrictas prácticas de crianza cristianas conservadoras y tras el hallazgo de moretones en su hija mayor, son investigados por presunto abuso infantil.
 
@@ -32,3 +33,4 @@ La recepción crítica en Cannes 2026 para **Fjord**  ha sido predominantemente 
 [The Guardian](https://www.theguardian.com/film/2026/may/18/fjord-review-cristian-mungiu-at-sea-with-strange-child-abuse-drama-starring-renate-reinsve-and-sebastian-stan)**:** Es la crítica más severa, asegura que la película es un traspié en el que el director parece haber perdido el foco al trabajar fuera de su territorio habitual. Si bien reconoce que la técnica de Mungiu sigue siendo interesante, critica que el filme no logre entregar una verdad ardiente sobre sus personajes y que el final resulte inerte y falto de suspenso.
 
 ![](https://m.media-amazon.com/images/M/MV5BNzUzMDMzNzctNjU0Yy00YzFjLThiNjMtZGM4NmMzOWVkNzg0XkEyXkFqcGc@._V1_.jpg)
+
