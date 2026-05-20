@@ -13,6 +13,7 @@ readTime: "3 min read"
 tags: ["Cannes"]
 ---
 
+
 **A Man of His Time** es un drama histórico, dirigido por **Emmanuel Marre**, que narra el ascenso de Henri Marre (**Swann Arlaud**), un hombre mediocre y oportunista que aprovecha el establecimiento del régimen de Vichy en 1940 para relanzar su carrera profesional dentro de la burocracia fascista. La película destaca por retratar la banalidad del mal, mostrando cómo un funcionario común gestiona actos atroces, como la deportación de familias judías, con la misma indiferencia que un trámite administrativo.
 
 La crítica ha elogiado de manera unánime la actuación soberbia de Arlaud y el estilo visual moderno y disruptivo del director Emmanuel Marre, quien utiliza música de los 80 y una estética de cámara en mano para acercar el relato al presente. No obstante, el principal punto negativo señalado es su excesiva duración (más de dos horas y media), que genera problemas de ritmo y momentos de tedio deliberado.
@@ -26,3 +27,4 @@ La crítica ha elogiado de manera unánime la actuación soberbia de Arlaud y el
 [**The Wrap**](https://www.thewrap.com/creative-content/movies/a-man-of-his-time-review-cannes/) **| "Una mirada discordante y juguetona a los engranajes del fascismo mediante la estética del 'docudrama'":** Esta crítica la cataloga como una obra extraña pero fascinante. El punto más fuerte es la comparación que establece con una versión de la serie *The Office* aplicada al genocidio, subrayando que el fascismo fue movido por burócratas mediocres que solo fichaban en el trabajo. El aspecto menos favorable es su estructura tanto picaresca y sombría así como su ritmo lento, que requiere mucha paciencia por parte del espectador.
 
 [**Cineuropa**](https://cineuropa.org/en/newsdetail/491640) **| "Una filmación de la historia en presente que rompe las barreras con el antihéroe":** Es una crítica muy positiva que elogia cómo la película sitúa al espectador en un relato que se siente actual. Destaca la capacidad de la dirección para alternar entre mostrar al personaje en los márgenes o en el centro de la acción para cuestionar su responsabilidad moral.
+
