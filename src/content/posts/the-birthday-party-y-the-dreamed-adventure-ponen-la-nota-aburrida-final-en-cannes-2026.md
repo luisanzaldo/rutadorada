@@ -4,7 +4,7 @@ description: "Críticas de las últimas películas proyectadas en la selección 
 pubDate: 2026-05-23T00:24:22.898Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-05-23-cannes22mayo-1779495861794.png"
+image: "/images/posts/2026-05-23-dreamed-1779496232031.webp"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -12,6 +12,7 @@ fuente:
 readTime: "6 min read"
 tags: ["Cannes"]
 ---
+
 
 A veces no conviene ser el último, pero las circunstancias se dieron así, y para bien o para mal, estas dos películas se han exhibido en el último día de proyección de las películas en competencia por La Palma de Oro. Ninguna de las dos ha destacado particularmente, al contrario, no fueron muy bien recibidas por la crítica y pasaron con más pena que gloria.
 
@@ -40,3 +41,4 @@ La primera en presentarse fue **The Dreamed Adventure**, película dirigida por 
 [**The Guardian**](https://www.theguardian.com/film/2026/may/22/the-birthday-party-review-grimly-compulsive-unhappy-occasion-in-deepest-france)**: "Un drama rural siniestro y compulsivo que pierde fuelle en su resolución" (Regular)** Valora la película como un cambio de ritmo interesante para la competencia de Cannes, destacando su extrañeza rural siniestra. El punto más fuerte es Magimel, descrito como una gárgola de amenaza que domina sus escenas. El punto débil principal es el ritmo del tercer acto, donde la narrativa parece quedarse sin vapor y un giro de guion clave termina resultando confuso o mal ejecutado.
 
 ![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-05-23-party-1779495553717.webp)
+
