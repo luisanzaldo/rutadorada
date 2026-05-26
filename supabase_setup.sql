@@ -63,7 +63,34 @@ ALTER TABLE public.comentarios ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.favoritos   ENABLE ROW LEVEL SECURITY;
 
 -- ---------------------------------------------------------------------
--- 4. POLÍTICAS RLS
+-- 4. GRANTS A LA DATA API (PostgREST / supabase-js / GraphQL)
+-- Desde el 30-oct-2026 Supabase ya no expone tablas nuevas en "public"
+-- a la Data API por defecto. Estos GRANT son idempotentes y dejan el
+-- script preparado para tablas nuevas. RLS sigue filtrando filas: GRANT
+-- abre el "tubo" y las policies deciden qué se ve.
+-- ---------------------------------------------------------------------
+
+-- PROFILES: solo el dueño autenticado puede leer (RLS). service_role
+-- para que el trigger handle_new_user y el backfill puedan insertar.
+GRANT SELECT                         ON public.profiles    TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.profiles    TO service_role;
+
+-- LIKES: lectura pública, escritura autenticada.
+GRANT SELECT                         ON public.likes       TO anon, authenticated;
+GRANT INSERT, DELETE                 ON public.likes       TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.likes       TO service_role;
+
+-- COMENTARIOS: lectura pública, escritura autenticada.
+GRANT SELECT                         ON public.comentarios TO anon, authenticated;
+GRANT INSERT, DELETE                 ON public.comentarios TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.comentarios TO service_role;
+
+-- FAVORITOS: privados al dueño (RLS). El conteo público va por RPC.
+GRANT SELECT, INSERT, DELETE         ON public.favoritos   TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.favoritos   TO service_role;
+
+-- ---------------------------------------------------------------------
+-- 5. POLÍTICAS RLS
 -- ---------------------------------------------------------------------
 
 -- LIKES: lectura pública, escritura autenticada solo del propio user
@@ -119,7 +146,7 @@ CREATE POLICY "Profiles lectura propia"
   ON public.profiles FOR SELECT USING (auth.uid() = id);
 
 -- ---------------------------------------------------------------------
--- 5. FUNCIÓN RPC: contador público de favoritos
+-- 6. FUNCIÓN RPC: contador público de favoritos
 -- (favoritos es privado por RLS, pero queremos mostrar el total a todos)
 -- SECURITY DEFINER hace que la función corra con permisos del owner,
 -- saltando RLS para devolver solo un COUNT (no expone filas).
@@ -138,7 +165,7 @@ $$;
 GRANT EXECUTE ON FUNCTION public.get_bookmark_count(TEXT) TO anon, authenticated;
 
 -- ---------------------------------------------------------------------
--- 6. TRIGGER: crear profile automáticamente al registrarse un usuario
+-- 7. TRIGGER: crear profile automáticamente al registrarse un usuario
 -- ---------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION public.handle_new_user()
@@ -161,7 +188,7 @@ CREATE TRIGGER on_auth_user_created
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
 -- ---------------------------------------------------------------------
--- 7. BACKFILL: crear profile para usuarios que ya existían antes del trigger
+-- 8. BACKFILL: crear profile para usuarios que ya existían antes del trigger
 -- ---------------------------------------------------------------------
 
 INSERT INTO public.profiles (id, role)
