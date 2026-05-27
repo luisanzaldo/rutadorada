@@ -11,7 +11,7 @@ fuente:
   nombre: "The Wrap"
   url: "https://www.thewrap.com/"
 readTime: "2 min read"
-tags: ["Prueba"]
+tags: ["Amazon Prime"]
 ---
 
 ## Introducción a la inteligencia artificial en la producción de Amazon
@@ -40,5 +40,4 @@ El Fondo de Creadores GenAI es una iniciativa que busca empoderar la creatividad
 </div>
 </div>
 
-## Conclusión
 La iniciativa de Amazon para impulsar la producción con inteligencia artificial es un paso importante hacia el futuro del entretenimiento. Con el Fondo de Creadores GenAI, la empresa busca empoderar a los creadores y proporcionarles las herramientas y el financiamiento necesarios para producir contenido de alta calidad. Esto es solo el comienzo de una nueva era en la producción de contenido, y es emocionante ver qué otros proyectos innovadores surgirán de esta iniciativa.
