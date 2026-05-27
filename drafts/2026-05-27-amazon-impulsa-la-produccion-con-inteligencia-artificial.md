@@ -11,7 +11,7 @@ fuente:
   nombre: "The Wrap"
   url: "https://www.thewrap.com/"
 readTime: "2 min read"
-tags: ["Prueba"]
+tags: ["Amazon Prime"]
 ---
 
 ## Introducción a la inteligencia artificial en la producción de Amazon
