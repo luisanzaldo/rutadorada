@@ -32,7 +32,6 @@ Narrativamente, "Backrooms" deja mucho que desear. La conexión entre la psicolo
 Se nota un esfuerzo en vano por tratar de darle profundidad a algo que, desde su nacimiento, no la tiene. La película intenta explorar temas y conceptos interesantes, pero no logra desarrollarlos de manera efectiva. La sensación es que se están intentando forzar ideas y emociones que no están realmente allí, lo que resulta en una experiencia que se siente un poco forzada y artificial. A pesar del esfuerzo que se ha puesto en la película, no se puede evitar la sensación de que se está tratando de hacer algo que no es del todo posible, lo que es una lástima, porque hay elementos que sugieren que la película podría haber sido algo más.
 
 ## Actuaciones aceptables
-ACTUACIONES ACEPTABLES
 Las actuaciones en “Backrooms” son, en general, aceptables. Renate Reinsve y Chiwetel Ejiofor, los actores principales, entregan papeles que son decentes, aunque no necesariamente destacados. Lo que es notable es que, considerando que se trata de una historia de terror, no caen en la exageración y el melodrama que es común en el género. En su lugar, optan por una aproximación más sutil y contenida, lo que ayuda a mantener la tensión y la inquietud que se genera a lo largo de la película. Aunque no son actuaciones que llamen la atención, son lo suficientemente buenas como para mantener al espectador involucrado en la historia, lo que es importante en una película que se basa tanto en la atmósfera como en el suspenso.
 
 ## El Atajo
