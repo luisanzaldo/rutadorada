@@ -1,5 +1,5 @@
 ---
-title: "“Tráiler de Fatherland”"
+title: "Tráiler de Fatherland de Paweł Pawlikowski"
 description: ""
 pubDate: 2026-05-29T06:39:27.710Z
 author: "Luis Anzaldo"
