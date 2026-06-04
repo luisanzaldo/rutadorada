@@ -4,8 +4,7 @@ description: "El director de \"Goodfellas\" se une a la empresa de inteligencia 
 pubDate: 2026-06-04T14:40:23.301Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://images.milenio.com/Mv1ASQt_HcOQPEzH4zDnTD7Seyk=/345x194/uploads/media/2025/07/15/martin-scorsese-recibe-nominacion-emmy.jpg"
+image: "https://static01.nyt.com/images/2020/01/05/arts/05martin-scorsese3/05martin-scorsese3-videoSixteenByNineJumbo1600.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
@@ -13,6 +12,7 @@ fuente:
 readTime: "2 min read"
 tags: ["Hollywood"]
 ---
+
 
 ## Introducción
 El legendario director de cine Martin Scorsese ha sorprendido a la industria cinematográfica al unirse a la empresa de inteligencia artificial Black Forest Labs como asesor. Esta noticia ha generado un gran debate sobre el futuro del cine y el papel que la inteligencia artificial (IA) puede desempeñar en la creación de películas.
