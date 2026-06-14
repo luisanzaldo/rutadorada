@@ -39,5 +39,4 @@ La película The Super Mario Galaxy Movie se convierte en la primera película d
 </div>
 </div>
 </div>
-## Un futuro brillante para la franquicia
 Dado el éxito de ambas películas de Super Mario, Universal, Nintendo y Illumination estarán ansiosos por volver a poner a Mario y Luigi en acción. La pregunta es, ¿qué próximo capítulo nos depara la franquicia? Solo el tiempo lo dirá, pero una cosa es segura: la taquilla de 2026 seguirá siendo emocionante.
