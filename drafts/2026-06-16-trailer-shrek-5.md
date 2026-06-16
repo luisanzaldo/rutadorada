@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: Shrek 5"
-description: "Disfruta los videos y la música que te encantan, sube contenido original y compártelo con tus amigos, familiares y el resto del mundo en YouTube."
-pubDate: 2026-06-16T15:50:33.658Z
+description: "Tráiler de Shrek 5"
+pubDate: 2026-06-16T15:51:13.642Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
