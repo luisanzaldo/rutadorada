@@ -42,7 +42,7 @@ const getCategoryUrl = (category: string) => {
         class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
     >
         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
-            Sobre ruta<span class="text-[#D4AF37]">dorada</span>
+            Sobre Ruta<span class="text-[#F2AF0D]">Dorada</span>
         </h3>
         <p
             class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed"
@@ -142,7 +142,7 @@ const getCategoryUrl = (category: string) => {
                 type="email"
             />
             <button
-                class="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-background-dark font-bold py-2 rounded text-sm transition-colors shadow-lg shadow-[#D4AF37]/20"
+                class="w-full bg-[#F2AF0D] hover:bg-[#F2AF0D]/90 text-background-dark font-bold py-2 rounded text-sm transition-colors shadow-lg shadow-[#F2AF0D]/20"
             >
                 Suscríbete
             </button>
@@ -225,10 +225,10 @@ const getCategoryUrl = (category: string) => {
             if (popularByCategory.length > 0) {
                 list.innerHTML = popularByCategory.map((item, index) => `
                     <a class="group block" href="${baseUrl}/posts/${item.slug}">
-                        <span class="text-[#D4AF37] text-xs font-bold uppercase mb-1 block">
+                        <span class="text-[#F2AF0D] text-xs font-bold uppercase mb-1 block">
                             ${item.category}
                         </span>
-                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#D4AF37] transition-colors">
+                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#F2AF0D] transition-colors">
                             ${item.title}
                         </h4>
                     </a>

@@ -25,10 +25,10 @@ El motivo de la salida de Gosling se debe a un conflicto con su apretada agenda.
 Universal había previsto inicialmente el estreno de este proyecto secreto para el 12 de junio de 2027, pero luego lo trasladó al 19 de noviembre de 2027. Los Daniels, como se conoce a Kwan y Scheinert, planeaban iniciar el rodaje en Los Ángeles este verano, pero la producción no pudo ajustarse a la agenda del actor, que ha estado muy ocupada tras una extensa gira de prensa global por el éxito de Amazon MGM, “Project Hail Mary”.
 
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

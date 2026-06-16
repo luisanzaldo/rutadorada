@@ -23,10 +23,10 @@ La nueva película de Spider-Man, titulada **'Spider-Man: Brand New Day'**, sigu
 En sus primeras 24 horas desde su lanzamiento, el tráiler de **Spider-Man: Brand New Day** acumuló 718.6 millones de visualizaciones, estableciendo un nuevo récord para cualquier tráiler de película o videojuego. Tan solo ocho horas después de su estreno, ya había alcanzado 373 millones de visitas a nivel global, suficiente para dejar una marca indeleble en la historia del cine. La película anterior que ostentaba el récord era 'Deadpool and Wolverine', con 365 millones de visualizaciones en un día tras su debut en el Super Bowl de 2024.
 
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

@@ -93,6 +93,42 @@
   unicode-range: U+0000-00FF;
 }
 
+/* Manrope — títulos y subtítulos */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-024F;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF;
+}
+
+/* DM Mono — usada solo en el header editorial (Hero) */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/dm-mono-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/dm-mono-latin-500-normal.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -119,19 +155,19 @@
   -webkit-font-smoothing: antialiased;
 }
 @theme {
-  --color-primary: #D4AF37;
+  --color-primary: #F2AF0D;
   /* Warm Gold/Amber */
   --color-background-light: #fafaf9;
   /* Stone 50 (Warm Cream) */
   --color-background-dark: #0c0a09;
   /* Stone 950 (Warm Black) */
-  --color-card-dark: #1c1917;
+  --color-card-dark: #17181C;
   /* Stone 900 */
   --color-card-light: #ffffff;
   --color-surface-dark: #1c1917;
   --color-surface-darker: #0c0a09;
   --color-nav-bg: #000000;
-  --color-background-card: #1c1917;
+  --color-background-card: #17181C;
   --color-background-input: #292524;
   /* Stone 800 */
   --color-text-muted: #a8a29e;
@@ -139,8 +175,9 @@
   --color-accent: #991b1b;
   /* Deep Red */
 
-  --font-display: "Cinzel", serif;
-  --font-heading: "Playfair Display", serif;
+  /* Manrope for titles & subtitles, Plus Jakarta Sans for body */
+  --font-display: "Manrope", sans-serif;
+  --font-heading: "Manrope", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
 
   --radius-default: 0.25rem;
@@ -181,7 +218,22 @@
   h5,
   h6 {
     font-family: var(--font-display);
-    @apply uppercase tracking-tight;
+    @apply tracking-tight;
+  }
+
+  /* Pesos adecuados por jerarquía (Manrope) */
+  h1,
+  h2 {
+    font-weight: 700;
+    /* títulos: bold */
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    /* subtítulos: semibold */
   }
 
   ::-webkit-scrollbar {
@@ -198,13 +250,13 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #D4AF37;
+    background: #F2AF0D;
   }
 }
 
 @layer utilities {
   .hero-pattern {
-    background-image: radial-gradient(#D4AF37 1px, transparent 1px);
+    background-image: radial-gradient(#F2AF0D 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: linear-gradient(to bottom,
         rgba(0, 0, 0, 0.4) 0%,

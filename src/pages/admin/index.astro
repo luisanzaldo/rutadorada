@@ -423,11 +423,11 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                 <div class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-100 dark:border-[#224249] mt-8">
                                     <div class="flex items-center gap-2">
                                         {validCurrentPage > 1 ? (
-                                            <a href={buildPageHref(validCurrentPage - 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Anterior">
+                                            <a href={buildPageHref(validCurrentPage - 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#F2AF0D]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#F2AF0D]/10 hover:border-slate-300 dark:hover:border-[#F2AF0D] transition-all group" aria-label="Anterior">
                                                 <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform font-bold">chevron_left</span>
                                             </a>
                                         ) : (
-                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#F2AF0D]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
                                                 <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                                             </div>
                                         )}
@@ -436,8 +436,8 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                             {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
                                                 <a href={buildPageHref(i)} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                                                     i === validCurrentPage
-                                                        ? "bg-[#D4AF37] text-white border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                                                        : "bg-white/5 dark:bg-card-dark border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37]"
+                                                        ? "bg-[#F2AF0D] text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                                        : "bg-white/5 dark:bg-card-dark border-slate-200 dark:border-[#F2AF0D]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#F2AF0D]/10 hover:border-slate-300 dark:hover:border-[#F2AF0D]"
                                                 }`}>
                                                     {i}
                                                 </a>
@@ -445,11 +445,11 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         </div>
 
                                         {validCurrentPage < totalPages ? (
-                                            <a href={buildPageHref(validCurrentPage + 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#D4AF37]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#D4AF37]/10 hover:border-slate-300 dark:hover:border-[#D4AF37] transition-all group" aria-label="Siguiente">
+                                            <a href={buildPageHref(validCurrentPage + 1)} class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 dark:bg-card-dark border border-slate-200 dark:border-[#F2AF0D]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#F2AF0D]/10 hover:border-slate-300 dark:hover:border-[#F2AF0D] transition-all group" aria-label="Siguiente">
                                                 <span class="material-symbols-outlined text-[20px] group-hover:translate-x-0.5 transition-transform font-bold">chevron_right</span>
                                             </a>
                                         ) : (
-                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#D4AF37]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
+                                            <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 dark:bg-card-dark border border-slate-100 dark:border-[#F2AF0D]/20 text-slate-400 dark:text-white opacity-30 cursor-not-allowed">
                                                 <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                                             </div>
                                         )}
@@ -926,9 +926,9 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                 style="position:fixed;top:0;left:0;width:1080px;height:1080px;background:#0c0a09;padding:56px 56px 72px 56px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#f5f5f4;box-sizing:border-box;opacity:0;pointer-events:none;z-index:-9999;display:flex;flex-direction:column;"
                             >
                                 <div style="margin-bottom:28px;">
-                                    <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.32em;color:#f5f5f4;margin:0 0 12px 0;text-transform:uppercase;font-weight:700;">Ruta<span style="color:#D4AF37;">Dorada</span> Films</p>
-                                    <h1 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:800;margin:0;line-height:1.05;color:#ffffff;letter-spacing:-0.01em;">Calificaciones <span style="color:#D4AF37;">Cannes 2026</span></h1>
-                                    <p style="font-size:18px;color:#d6d3d1;margin:14px 0 0 0;font-weight:500;line-height:1.35;">Promedio de las críticas · <span style="color:#D4AF37;font-weight:700;">Películas en competencia</span></p>
+                                    <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.32em;color:#f5f5f4;margin:0 0 12px 0;text-transform:uppercase;font-weight:700;">Ruta<span style="color:#F2AF0D;">Dorada</span> Films</p>
+                                    <h1 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:800;margin:0;line-height:1.05;color:#ffffff;letter-spacing:-0.01em;">Calificaciones <span style="color:#F2AF0D;">Cannes 2026</span></h1>
+                                    <p style="font-size:18px;color:#d6d3d1;margin:14px 0 0 0;font-weight:500;line-height:1.35;">Promedio de las críticas · <span style="color:#F2AF0D;font-weight:700;">Películas en competencia</span></p>
                                 </div>
                                 <table id="cannes-poster-table" style="width:100%;border-collapse:collapse;table-layout:fixed;">
                                 </table>
@@ -1143,12 +1143,12 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     {
                                         label: 'Likes',
                                         data: parsed.likes || [],
-                                        borderColor: '#D4AF37',
+                                        borderColor: '#F2AF0D',
                                         backgroundColor: goldFill,
                                         borderWidth: 2.5,
                                         tension: 0.35,
                                         fill: true,
-                                        pointBackgroundColor: '#D4AF37',
+                                        pointBackgroundColor: '#F2AF0D',
                                         pointRadius: 4,
                                         pointHoverRadius: 6,
                                     },
@@ -1354,12 +1354,12 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                     }
 
                     const thead =
-                        '<thead><tr style="border-bottom:2px solid #D4AF37;background:#0c0a09;">' +
+                        '<thead><tr style="border-bottom:2px solid #F2AF0D;background:#0c0a09;">' +
                         snapshot.headers.map((h, i) => {
                             const align = i === 0 ? 'left' : 'center';
                             const isPromedio = i === 1;
                             const headerBg = isPromedio ? 'background:rgba(212,175,55,0.08);' : '';
-                            return '<th style="text-align:' + align + ';padding:10px 6px;font-family:\'Cinzel\',serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#D4AF37;font-weight:700;vertical-align:bottom;' + headerBg + '">' +
+                            return '<th style="text-align:' + align + ';padding:10px 6px;font-family:\'Cinzel\',serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#F2AF0D;font-weight:700;vertical-align:bottom;' + headerBg + '">' +
                                 renderPosterHeader(h) + '</th>';
                         }).join('') +
                         '</tr></thead>';
@@ -1377,7 +1377,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     const color = isTitle
                                         ? '#ffffff'
                                         : isPromedio
-                                            ? '#D4AF37'
+                                            ? '#F2AF0D'
                                             : (hasContent ? '#fafaf9' : '#78716c');
                                     const weight = isTitle ? '500' : (isPromedio ? '800' : '600');
                                     const fontSize = isTitle ? '16px' : '17px';

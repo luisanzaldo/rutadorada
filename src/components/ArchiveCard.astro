@@ -19,7 +19,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
 ---
 
 <article
-    class="archive-card-container relative flex flex-col h-full rounded-xl overflow-hidden bg-background-card border border-transparent"
+    class="archive-card-container relative flex flex-col h-full rounded-xl overflow-hidden bg-card-light dark:bg-background-card border border-slate-200 dark:border-transparent shadow-sm dark:shadow-none"
 >
     <a
         href={url}
@@ -31,7 +31,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
             style={`background-image: url("${image}");`}
         >
             <div
-                class="absolute inset-0 bg-gradient-to-t from-background-card to-transparent opacity-80"
+                class="absolute inset-0 bg-gradient-to-t from-transparent dark:from-background-card to-transparent opacity-80"
             >
             </div>
             <div class="absolute top-3 left-3 flex flex-wrap gap-2">
@@ -50,21 +50,21 @@ const triggerClass = videoUrl ? "video-trigger" : "";
         </div>
         <div class="flex flex-col flex-1 p-5 gap-3 text-left">
             <h3
-                class="archive-title text-white text-xl font-bold leading-tight transition-colors"
+                class="archive-title text-slate-900 dark:text-white text-xl font-bold leading-tight transition-colors"
             >
                 {title}
             </h3>
-            <p class="text-text-muted text-sm line-clamp-2">
+            <p class="text-slate-600 dark:text-text-muted text-sm line-clamp-2">
                 {description}
             </p>
             <div
-                class="mt-auto pt-4 flex items-center justify-between border-t border-[#224249]/50"
+                class="mt-auto pt-4 flex items-center justify-between border-t border-slate-200 dark:border-[#224249]/50"
             >
-                <span class="text-text-muted text-xs font-mono"
+                <span class="text-slate-500 dark:text-text-muted text-xs font-mono"
                     >{date} • {readTime}</span
                 >
                 <div
-                    class={`archive-arrow material-symbols-outlined text-[#D4AF37] text-[20px] transition-transform`}
+                    class={`archive-arrow material-symbols-outlined text-[#F2AF0D] text-[20px] transition-transform`}
                 >
                     arrow_forward
                 </div>
@@ -81,7 +81,7 @@ const triggerClass = videoUrl ? "video-trigger" : "";
         }
 
         .archive-card-link:hover .archive-title {
-            color: #D4AF37;
+            color: #F2AF0D;
         }
 
         .archive-card-link:hover .archive-arrow {

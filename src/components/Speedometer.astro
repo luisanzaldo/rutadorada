@@ -9,15 +9,15 @@ const { rating } = Astro.props;
 const arcRotation = (rating / 100) * 240 - 120;
 ---
 
-<div class="flex flex-col items-center justify-center mt-16 mb-10 py-12 px-6 bg-[#D4AF37]/5 rounded-[2.5rem] border border-[#D4AF37]/20 relative overflow-hidden">
-    <div class="absolute top-0 left-0 h-full w-2 bg-[#D4AF37]"></div>
+<div class="flex flex-col items-center justify-center mt-16 mb-10 py-12 px-6 bg-[#F2AF0D]/5 rounded-[2.5rem] border border-[#F2AF0D]/20 relative overflow-hidden">
+    <div class="absolute top-0 left-0 h-full w-2 bg-[#F2AF0D]"></div>
     
     <div class="text-center mb-6 relative z-10">
-        <h3 class="text-2xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white uppercase tracking-[0.2em]">
+        <h3 class="text-2xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white uppercase tracking-[0.2em]">
             Calificación
         </h3>
         <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] font-black mt-3">
-            Ruta<span class="text-[#D4AF37]">Dorada</span> Score
+            Ruta<span class="text-[#F2AF0D]">Dorada</span> Score
         </p>
     </div>
     
@@ -32,7 +32,7 @@ const arcRotation = (rating / 100) * 240 - 120;
                 </linearGradient>
                 <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#FCEECA" />
-                    <stop offset="50%" stop-color="#D4AF37" />
+                    <stop offset="50%" stop-color="#F2AF0D" />
                     <stop offset="100%" stop-color="#997A15" />
                 </linearGradient>
                 <radialGradient id="dialBackground" cx="50%" cy="50%" r="50%">
@@ -51,10 +51,10 @@ const arcRotation = (rating / 100) * 240 - 120;
             <circle cx="100" cy="100" r="95" fill="none" stroke="url(#goldGradient)" stroke-width="3" />
             
             <!-- Metallic inner dashed ring -->
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#D4AF37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 4" />
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#F2AF0D" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 4" />
             
             <!-- Arc track background -->
-            <path d="M 30.7 140 A 80 80 0 1 1 169.3 140" fill="none" stroke="#D4AF37" stroke-opacity="0.1" stroke-width="10" stroke-linecap="round" />
+            <path d="M 30.7 140 A 80 80 0 1 1 169.3 140" fill="none" stroke="#F2AF0D" stroke-opacity="0.1" stroke-width="10" stroke-linecap="round" />
             
             <!-- Colored rating gradient arc -->
             <path d="M 30.7 140 A 80 80 0 1 1 169.3 140" fill="none" stroke="url(#gaugeGradient)" stroke-width="10" stroke-linecap="round" />
@@ -72,17 +72,17 @@ const arcRotation = (rating / 100) * 240 - 120;
                 const ty = 100 + 52 * Math.sin(rad);
                 return (
                     <g key={i}>
-                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#D4AF37" stroke-opacity="0.6" stroke-width="2" />
-                        <text x={tx} y={ty} fill="#D4AF37" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="central">{tickVal}</text>
+                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#F2AF0D" stroke-opacity="0.6" stroke-width="2" />
+                        <text x={tx} y={ty} fill="#F2AF0D" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="central">{tickVal}</text>
                     </g>
                 );
             })}
 
             <!-- Digital readout -->
             <!-- Digital readout -->
-            <rect x="68" y="132" width="64" height="30" rx="5" fill="#000000" stroke="#D4AF37" stroke-opacity="0.6" stroke-width="1.5" />
+            <rect x="68" y="132" width="64" height="30" rx="5" fill="#000000" stroke="#F2AF0D" stroke-opacity="0.6" stroke-width="1.5" />
             <text x="100" y="154" fill="url(#goldGradient)" font-size="22" font-family="monospace" font-weight="900" text-anchor="middle" filter="url(#glow)">{rating}</text>
-            <text x="100" y="178" fill="#D4AF37" stroke-opacity="0.9" font-size="9" font-family="sans-serif" font-weight="black" text-anchor="middle" letter-spacing="3">RATING</text>
+            <text x="100" y="178" fill="#F2AF0D" stroke-opacity="0.9" font-size="9" font-family="sans-serif" font-weight="black" text-anchor="middle" letter-spacing="3">RATING</text>
 
             <!-- The needle group (this rotates dynamically based on rating) -->
             <g transform={`rotate(${arcRotation}, 100, 100)`}>
@@ -90,7 +90,7 @@ const arcRotation = (rating / 100) * 240 - 120;
                 <polygon points="98,105 102,105 100,25" fill="url(#goldGradient)" filter="url(#glow)" />
                 <polygon points="99,105 101,105 100,25" fill="#FFF2C8" />
                 <!-- Center cap -->
-                <circle cx="100" cy="100" r="12" fill="#111827" stroke="#D4AF37" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="12" fill="#111827" stroke="#F2AF0D" stroke-width="1.5" />
                 <circle cx="100" cy="100" r="8" fill="url(#goldGradient)" />
                 <!-- Center pin -->
                 <circle cx="100" cy="100" r="3" fill="#111827" />

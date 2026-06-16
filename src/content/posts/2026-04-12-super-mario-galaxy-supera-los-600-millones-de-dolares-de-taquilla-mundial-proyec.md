@@ -25,8 +25,8 @@ La película ha demostrado ser un éxito sin precedentes, con una recaudación d
 
 Mientras tanto, *Project Hail Mary* ha superado la barrera de los $500 millones en taquilla, con una recaudación de $254 millones en el extranjero y $256.5 millones en Norteamérica. La película ha generado $510 millones en todo el mundo después de cuatro fines de semana de estreno. Otra película que ha llamado la atención es *The Drama*, que ha recaudado $35 millones en el extranjero y $65 millones en todo el mundo después de dos fines de semana de estreno.
 
-<div data-type="curiosity" class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">Un récord en la taquilla</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">La recaudación de Super Mario Galaxy Movie es un récord en la taquilla de 2026, ya que se espera que la película supere los $1.000 millones en las próximas semanas.</p></div></div>
+<div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">Un récord en la taquilla</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">La recaudación de Super Mario Galaxy Movie es un récord en la taquilla de 2026, ya que se espera que la película supere los $1.000 millones en las próximas semanas.</p></div></div>
 </div>
 
 ## Conclusión

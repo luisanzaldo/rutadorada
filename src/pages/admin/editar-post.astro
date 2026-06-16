@@ -528,7 +528,7 @@ const duracionValue = ficha.duracion || "";
     .ProseMirror {
         outline: none;
         min-height: 400px;
-        caret-color: #D4AF37;
+        caret-color: #F2AF0D;
     }
     .tiptap-btn-active {
         background-color: #e2e8f0 !important;
@@ -536,10 +536,10 @@ const duracionValue = ficha.duracion || "";
     }
     .dark .tiptap-btn-active {
         background-color: #0b1618 !important; 
-        color: #D4AF37 !important;
+        color: #F2AF0D !important;
     }
     .ProseMirror strong, .ProseMirror b {
-        color: #D4AF37 !important;
+        color: #F2AF0D !important;
     }
     .ProseMirror img {
         max-width: 100%;
@@ -573,7 +573,7 @@ const duracionValue = ficha.duracion || "";
         left: 0;
         height: 100%;
         width: 4px;
-        background-color: #D4AF37;
+        background-color: #F2AF0D;
     }
 
     .ProseMirror div[data-type="curiosity"] h4 {
@@ -602,7 +602,7 @@ const duracionValue = ficha.duracion || "";
 
     /* Asegurar que el icono de estrella sea visible y tenga el color correcto */
     .ProseMirror div[data-type="curiosity"] .material-symbols-outlined {
-        color: #D4AF37 !important;
+        color: #F2AF0D !important;
     }
 
     /* Colores para bloques de valoración */
@@ -633,7 +633,7 @@ const duracionValue = ficha.duracion || "";
                     tag: 'div', 
                     getAttrs: element => {
                         const classes = element.getAttribute('class') || '';
-                        if (classes.includes('border-[#D4AF37]') || element.querySelector('h4')?.innerText.includes('Curiosidades')) {
+                        if (classes.includes('border-[#F2AF0D]') || element.querySelector('h4')?.innerText.includes('Curiosidades')) {
                             return {};
                         }
                         return false;
@@ -657,10 +657,10 @@ const duracionValue = ficha.duracion || "";
             const { title, content } = HTMLAttributes;
             return [
                 'div', 
-                { 'data-type': 'curiosity', class: 'my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden' },
-                ['div', { class: 'absolute top-0 left-0 h-full w-1 bg-[#D4AF37]' }],
+                { 'data-type': 'curiosity', class: 'my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden' },
+                ['div', { class: 'absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]' }],
                 ['div', { class: 'flex items-start gap-4' },
-                    ['div', { class: 'rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center' },
+                    ['div', { class: 'rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center' },
                         ['span', { class: 'material-symbols-outlined text-sm' }, 'star']
                     ],
                     ['div', {},
@@ -1031,7 +1031,7 @@ const duracionValue = ficha.duracion || "";
 
                 if (title && content) {
                     const cleanContent = content.replace(/\r?\n|\r/g, " ");
-                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined" style="font-size: 20px;">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${cleanContent}</p></div></div></div>`;
+                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined" style="font-size: 20px;">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${cleanContent}</p></div></div></div>`;
                     editor.commands.insertContent(html);
                     
                     if (titleInput) titleInput.value = '';

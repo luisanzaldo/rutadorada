@@ -14,7 +14,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 ---
 
 <header
-    class="sticky top-0 z-50 w-full backdrop-blur-md bg-nav-bg border-b border-white/5"
+    class="dark sticky top-0 z-50 w-full backdrop-blur-md bg-nav-bg border-b border-white/5"
 >
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -25,39 +25,87 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
             >
 
                 <img
-                    src={`${baseUrl}/images/RutaDorada-web.png`}
+                    src={`${baseUrl}/logo-RutaDorada-v002.svg`}
                     alt="Ruta Dorada"
-                    class="h-[40px] sm:h-[48px] w-auto"
+                    class="h-[26px] sm:h-[31px] w-auto"
                 />
             </a>
 
             <nav class="hidden lg:flex space-x-8">
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={import.meta.env.BASE_URL}>Lo último</a>
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${baseUrl}/articulos`}>Artículos</a>
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${baseUrl}/criticas`}>Críticas</a>
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${baseUrl}/premios`}>Premios</a>
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${baseUrl}/trailers`}>Tráilers</a>
                 <a
-                    class="text-slate-300 hover:text-[#D4AF37] px-3 py-2 text-sm font-medium transition-colors"
+                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
                     href={`${baseUrl}/archive`}>Archivo</a>
             </nav>
 
             <!-- Search + Auth + Menu -->
             <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+                <!-- Theme Toggle -->
+                <button
+                    id="theme-toggle"
+                    class="p-2 text-slate-500 hover:text-[#F2AF0D] transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
+                    aria-label="Cambiar entre tema claro y oscuro"
+                    title="Cambiar tema"
+                >
+                    <!-- Sol: visible en tema oscuro (clic para pasar a claro) -->
+                    <svg
+                        id="theme-icon-sun"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m6.34 17.66-1.41 1.41"></path>
+                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                    <!-- Luna: visible en tema claro (clic para pasar a oscuro) -->
+                    <svg
+                        id="theme-icon-moon"
+                        class="hidden"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </button>
+
                 <!-- Search -->
                 <button
                     id="search-btn"
-                    class="p-2 text-slate-500 hover:text-[#D4AF37] transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
+                    class="p-2 text-slate-500 hover:text-[#F2AF0D] transition-colors hover:bg-primary/10 rounded-full flex items-center justify-center"
                     aria-label="Search"
                 >
                     <svg
@@ -83,7 +131,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 >
                     <a
                         href={`${baseUrl}/login`}
-                        class="text-slate-300 hover:text-[#D4AF37] px-1 py-2 text-sm font-medium transition-colors"
+                        class="text-slate-300 hover:text-[#F2AF0D] px-1 py-2 text-sm font-medium transition-colors"
                     >
                         Login
                     </a>
@@ -124,7 +172,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="text-slate-400 group-hover:text-[#D4AF37] transition-colors"
+                            class="text-slate-400 group-hover:text-[#F2AF0D] transition-colors"
                         >
                             <path d="m6 9 6 6 6-6"></path>
                         </svg>
@@ -152,7 +200,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         </div>
                         <a
                             href={`${baseUrl}/settings`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +226,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         </div>
                         <a
                             href={`${baseUrl}/my-likes`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +248,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         </a>
                         <a
                             href={`${baseUrl}/my-favorites`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#D4AF37] transition-colors"
+                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +300,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 <!-- Mobile Menu Button -->
                 <button
                     id="mobile-menu-btn"
-                    class="lg:hidden p-2 text-slate-500 hover:text-[#D4AF37] transition-colors hover:bg-primary/10 rounded-lg group"
+                    class="lg:hidden p-2 text-slate-500 hover:text-[#F2AF0D] transition-colors hover:bg-primary/10 rounded-lg group"
                     aria-label="Toggle Menu"
                 >
                     <div class="w-6 h-5 relative flex flex-col justify-between">
@@ -291,33 +339,33 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     >
         <nav class="flex flex-col space-y-4">
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={import.meta.env.BASE_URL}>Lo último</a>
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={`${baseUrl}/articulos`}>Artículos</a
             >
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={`${baseUrl}/criticas`}>Críticas</a
             >
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={`${baseUrl}/premios`}>Premios</a
             >
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={`${baseUrl}/trailers`}>Tráilers</a
             >
             <a
-                class="text-slate-300 hover:text-[#D4AF37] text-lg font-bold py-2 border-b border-white/5"
+                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
                 href={`${baseUrl}/archive`}>Archivo</a
             >
 
             <div id="mobile-auth-section" class="pt-4 flex flex-col space-y-3">
                 <a
                     href={`${baseUrl}/login`}
-                    class="w-full text-center py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
+                    class="w-full text-center py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
                 >
                     Login
                 </a>
@@ -352,7 +400,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 
                 <a
                     href={`${baseUrl}/settings`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -374,7 +422,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 </a>
                 <a
                     href={`${baseUrl}/my-likes`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -396,7 +444,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 </a>
                 <a
                     href={`${baseUrl}/my-favorites`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#D4AF37] transition-colors"
+                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -448,7 +496,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
             </p>
             <div class="flex gap-4">
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
                     href="https://x.com/rutadoradafilms"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -459,7 +507,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                     </svg>
                 </a>
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
                     href="https://www.tiktok.com/@rutadoradafilms"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -470,7 +518,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                     </svg>
                 </a>
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
                     href="https://www.instagram.com/rutadoradafilms"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -481,7 +529,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                     </svg>
                 </a>
                 <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:bg-primary/10 transition-all"
+                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
                     href="https://www.youtube.com/@RutaDoradaFilms"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -663,7 +711,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-bold text-primary uppercase tracking-widest">${post.category}</span>
                 </div>
-                <h4 class="text-slate-100 font-bold group-hover:text-[#D4AF37] transition-colors">${post.title}</h4>
+                <h4 class="text-slate-100 font-bold group-hover:text-[#F2AF0D] transition-colors">${post.title}</h4>
                 <p class="text-sm text-slate-500 line-clamp-1 mt-1">${post.description}</p>
             </a>
         `,
@@ -716,6 +764,30 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 closeSearch();
             }
         }
+    });
+</script>
+
+<script>
+    // Theme Toggle (claro/oscuro). El header siempre permanece oscuro.
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIconSun = document.getElementById("theme-icon-sun");
+    const themeIconMoon = document.getElementById("theme-icon-moon");
+
+    function syncThemeIcon() {
+        const isDark = document.documentElement.classList.contains("dark");
+        // Sol en modo oscuro, luna en modo claro
+        themeIconSun?.classList.toggle("hidden", !isDark);
+        themeIconMoon?.classList.toggle("hidden", isDark);
+    }
+
+    syncThemeIcon();
+
+    themeToggle?.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        try {
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        } catch (e) {}
+        syncThemeIcon();
     });
 </script>
 

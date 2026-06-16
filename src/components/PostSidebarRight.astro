@@ -28,7 +28,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
         <!-- Ficha Técnica (Only for 'Críticas') -->
         {
             category === "Críticas" && fichaTecnica && (
-                <div class="rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-slate-100 dark:border-[#224249]">
+                <div class="rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-transparent dark:border-[#224249] shadow-sm">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4">
                         Ficha Técnica
                     </h3>
@@ -57,7 +57,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
         <!-- Table of Contents -->
         {
             headings.length > 0 && (
-                <div class="rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-slate-100 dark:border-[#224249]">
+                <div class="rounded-xl bg-slate-50 dark:bg-background-card p-6 border border-transparent dark:border-[#224249] shadow-sm">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#90c1cb] mb-4">
                         Tabla de contenidos
                     </h3>
@@ -109,7 +109,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                                 return (
                                     <a
                                         href={url}
-                                        class={`group block rounded-xl bg-slate-50 dark:bg-background-card p-4 border border-transparent hover:border-[#D4AF37]/50 transition-all shadow-sm ${triggerClass}`}
+                                        class={`group block rounded-xl bg-slate-50 dark:bg-background-card p-4 border border-transparent hover:border-[#F2AF0D]/50 transition-all shadow-sm ${triggerClass}`}
                                         { ...(isTrailer ? { "data-video-url": post.videoUrl } : {}) }
                                     >
                                         <div class="mb-3 overflow-hidden rounded-lg h-32 w-full bg-slate-200 dark:bg-[#102023] relative">
@@ -134,7 +134,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                                                 </div>
                                             )}
                                         </div>
-                                        <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                                        <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-[#F2AF0D] transition-colors leading-snug">
                                             {post.title}
                                         </h4>
                                         <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
@@ -163,7 +163,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                 type="email"
             />
             <button
-                class="w-full rounded-lg bg-[#D4AF37] py-2 text-xs font-bold text-[#102023] hover:bg-[#D4AF37]/90 transition-colors"
+                class="w-full rounded-lg bg-[#F2AF0D] py-2 text-xs font-bold text-[#102023] hover:bg-[#F2AF0D]/90 transition-colors"
                 >Suscríbete</button
             >
         </div>

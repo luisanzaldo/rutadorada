@@ -1,234 +1,459 @@
 ---
 import { getCollection } from "astro:content";
 
+const baseUrl = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
+
 const allPosts = await getCollection("posts");
-const latestPost = allPosts.sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-)[0];
+const latest = allPosts
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 8);
+
+const fmtDate = (d: Date) =>
+    d
+        .toLocaleDateString("es-ES", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+        })
+        .replace(/\./g, "");
+
+const featured = latest.slice(0, 5).map((p) => {
+    const videoUrl = p.data.videoUrl || "";
+    const isTrailer = videoUrl !== "";
+    return {
+        title: p.data.title,
+        category: p.data.category,
+        date: fmtDate(p.data.pubDate),
+        read: (p.data.readTime || "").replace(/read/i, "").trim() || "—",
+        image: p.data.image.startsWith("/")
+            ? `${baseUrl}${p.data.image}`
+            : p.data.image,
+        videoUrl,
+        isTrailer,
+        href: isTrailer ? videoUrl : `${baseUrl}/posts/${p.slug}`,
+    };
+});
+
+const marquee = latest.map((p) => ({
+    title: p.data.title,
+    href: p.data.videoUrl || `${baseUrl}/posts/${p.slug}`,
+}));
+
+const first = featured[0];
+const archiveHref = `${baseUrl}/archive`;
 ---
 
 <section
-    class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#0c0a09] text-white"
+    id="hero"
+    class="hero-cover relative w-full overflow-hidden bg-[#0c0a09] text-[#F3ECDD] h-[80svh] min-h-[600px] lg:h-[84svh] lg:max-h-[820px]"
+    aria-label="En cartelera — últimas noticias"
 >
-    <!-- Simplified Background -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09] to-[#1c1917] z-10"></div>
-        <!-- Subtle pattern remains -->
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-20 bg-[url('https://www.transparenttextures.com/patterns/film-grain.png')]"></div>
-    </div>
-
-    <!-- Film Road Animation Container -->
-    <div id="film-road-container" class="absolute inset-0 z-10 pointer-events-none overflow-hidden opacity-0 transition-opacity duration-700">
-        <div class="film-road-surface">
-            <div class="film-road-holes"></div>
-            <div class="film-road-fade"></div>
-            <!-- Light streaks -->
-            <div class="film-light-streak"></div>
-            <div class="film-light-streak"></div>
-            <div class="film-light-streak"></div>
-            <div class="film-light-streak" style="left: 50%; animation-delay: 2s; animation-duration: 3s;"></div>
+    <!-- Reel progress -->
+    <div class="absolute top-0 inset-x-0 z-30 h-[2px] bg-[#F3ECDD]/10">
+        <div
+            id="hero-progress"
+            class="h-full bg-gradient-to-r from-[#F2AF0D] to-[#e9d9a8] origin-left"
+            style="transform: scaleX(0)"
+        >
         </div>
     </div>
 
-    <!-- Theatrical Accent Lines -->
-    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent z-20"></div>
-    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent z-20"></div>
+    <!-- Full-bleed stills -->
+    <div class="absolute inset-0 z-0">
+        {
+            featured.map((s, i) => (
+                <figure
+                    data-slide={i}
+                    class={`hero-slide absolute inset-0 ${i === 0 ? "is-active" : ""}`}
+                >
+                    <img
+                        src={s.image}
+                        alt=""
+                        class="kb-img h-full w-full object-cover"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        aria-hidden="true"
+                    />
+                </figure>
+            ))
+        }
+    </div>
 
-    <div class="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <!-- Badge -->
-        <div id="film-badge" class="inline-flex cursor-pointer items-center px-6 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#D4AF37] text-[11px] font-black uppercase tracking-[0.4em] mb-12 animate-fade-in shadow-[0_0_25px_rgba(212,175,55,0.15)] transition-all duration-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mr-3 animate-pulse"></span>
-            Ruta Dorada Films
+    <!-- Cinematic light grade -->
+    <div
+        class="absolute inset-0 z-10 bg-gradient-to-t from-[#0c0a09]/90 via-[#0c0a09]/35 to-transparent dark:from-[#0c0a09] dark:via-[#0c0a09]/75 dark:to-[#0c0a09]/25"
+    >
+    </div>
+    <div
+        class="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-transparent to-transparent dark:from-black/55"
+    >
+    </div>
+    <div class="hero-grain absolute inset-0 z-10 pointer-events-none"></div>
+
+    <!-- Content -->
+    <div
+        class="relative z-20 h-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col justify-between pt-7 sm:pt-9 pb-16 sm:pb-20"
+    >
+        <!-- Eyebrow row -->
+        <div class="hero-reveal flex items-start justify-end gap-4">
+            <div class="text-right shrink-0">
+                <p
+                    class="ff-mono inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#F2AF0D]"
+                >
+                    <span class="live-dot"></span>
+                    En cartelera
+                </p>
+                <a
+                    href={archiveHref}
+                    class="archive-link ff-mono block mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#F3ECDD]/45 transition-colors"
+                >
+                    Archivo &#8599;
+                </a>
+            </div>
         </div>
 
-        <!-- Main Heading -->
-        <h1 class="text-[2.2rem] sm:text-6xl md:text-[6.2rem] font-black tracking-tighter mb-10 leading-[1.2] sm:leading-[1.0] uppercase select-none">
-            Tu guía en el <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-[#D4AF37] via-[#f7e5a9] to-white drop-shadow-2xl">
-                camino del cine
-            </span>
-        </h1>
+        <!-- Protagonist -->
+        <div class="hero-reveal hero-reveal-2 max-w-5xl">
+            <a id="hero-link" href={first.href} class="hero-link block group">
+                <span
+                    class="ff-mono inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#F2AF0D] mb-4"
+                >
+                    Lo último
+                </span>
 
-        <!-- CTA Buttons -->
-        <div class="mt-20 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
-            <a
-                class="hero-cta-button block px-6 sm:px-14 py-4 sm:py-6 overflow-hidden bg-[#D4AF37] text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase shadow-[0_20px_50px_-15px_rgba(212,175,55,0.6)] transition-all active:scale-95 text-sm sm:text-base text-center"
-                href={`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/#lo-ultimo`}
-            >
-                <span class="relative z-10">Lo último</span>
+                <h1
+                    id="hero-title"
+                    class="ff-display font-semibold normal-case tracking-[-0.02em] leading-[0.95] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-3"
+                >
+                    {first.title}
+                </h1>
+
+                <span
+                    class="hero-cta ff-mono mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
+                >
+                    <span id="hero-cta-text"
+                        >{first.isTrailer ? "Ver tráiler" : "Leer la nota"}</span
+                    >
+                    <svg
+                        id="hero-arrow-icon"
+                        class={`hero-arrow ${first.isTrailer ? "hidden" : ""}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                    <svg
+                        id="hero-play-icon"
+                        class={`hero-arrow ${first.isTrailer ? "" : "hidden"}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path d="M8 5.14v14l11-7-11-7z"></path>
+                    </svg>
+                </span>
             </a>
-            <a
-                class="hero-cta-secondary px-6 sm:px-14 py-4 sm:py-6 border-2 border-white/40 text-white font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-all backdrop-blur-lg active:scale-95 text-sm sm:text-base text-center"
-                href={`${import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL}/archive`}
+
+            <!-- Ficha técnica -->
+            <div
+                class="ff-mono mt-8 sm:mt-10 flex flex-wrap items-end gap-x-6 gap-y-4 sm:gap-x-9"
             >
-                Archivo de publicaciones
-            </a>
+                <div class="ficha-cell">
+                    <span class="ficha-label">Sección</span>
+                    <span id="hero-cat" class="ficha-value">{first.category}</span
+                    >
+                </div>
+                <span class="ficha-div"></span>
+                <div class="ficha-cell">
+                    <span class="ficha-label">Publicado</span>
+                    <span id="hero-date" class="ficha-value">{first.date}</span>
+                </div>
+                <span class="ficha-div"></span>
+                <div class="ficha-cell">
+                    <span class="ficha-label">Lectura</span>
+                    <span id="hero-read" class="ficha-value">{first.read}</span>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Marquee ticker -->
+    <div
+        class="marquee absolute bottom-0 inset-x-0 z-20 border-t border-black/10 bg-white/90 dark:border-[#F3ECDD]/10 dark:bg-[#0c0a09]/70 backdrop-blur-sm overflow-hidden"
+    >
+        <div class="marquee-track ff-mono text-[11px] sm:text-xs uppercase tracking-[0.18em] py-3">
+            {
+                [0, 1].map((dup) => (
+                    <div
+                        class="marquee-group flex items-center shrink-0"
+                        aria-hidden={dup === 1 ? "true" : undefined}
+                    >
+                        {marquee.map((m) => (
+                            <a href={m.href} class="marquee-item">
+                                <span class="text-[#F2AF0D] mx-4 sm:mx-6">&#10038;</span>
+                                <span class="text-[#0c0a09]/70 hover:text-[#0c0a09] dark:text-[#F3ECDD]/70 dark:hover:text-[#F3ECDD] transition-colors">
+                                    {m.title}
+                                </span>
+                            </a>
+                        ))}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <!-- Hidden trigger reusing the global VideoModal -->
+    <a
+        id="hero-video-trigger"
+        class="video-trigger hidden"
+        data-video-url=""
+        aria-hidden="true"
+        tabindex="-1"></a>
 </section>
 
 <style>
-    @media (hover: hover) {
-        .hero-cta-button:hover {
-            transform: scale(1.05);
-        }
-        .hero-cta-secondary:hover {
-            background-color: #D4AF37;
-            border-color: #D4AF37;
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px -15px rgba(212, 175, 55, 0.6);
-        }
-        #film-badge:hover {
-            transform: scale(1.05);
-            background-color: rgba(212, 175, 55, 0.2);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-        }
+    .ff-display {
+        font-family: "Manrope", system-ui, sans-serif;
     }
-    @keyframes fade-in {
-
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-        animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .animate-bounce-slow {
-        animation: bounce-slow 3s infinite;
-    }
-    @keyframes bounce-slow {
-        0%, 100% { transform: translate(-50%, 0); }
-        50% { transform: translate(-50%, 10px); }
+    .ff-mono {
+        font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
     }
 
-    /* Cinematic Film Road Animation */
-    #film-road-container {
-        perspective: 1000px;
+    /* Stills crossfade + slow drift */
+    .hero-slide {
+        opacity: 0;
+        transition: opacity 1.2s ease;
     }
-
-    #film-road-container.active {
+    .hero-slide.is-active {
         opacity: 1;
     }
-
-    .film-road-surface {
-        position: absolute;
-        bottom: -20vh;
-        left: 50%;
-        width: 600px;
-        height: 150vh;
-        margin-left: -300px;
-        transform-origin: bottom center;
-        transform: rotateX(75deg) translateY(0);
-        background: #0c0a09;
-        border-left: 2px solid #D4AF37;
-        border-right: 2px solid #D4AF37;
-        box-shadow: 0 0 100px rgba(212, 175, 55, 0.4), inset 0 0 60px rgba(212, 175, 55, 0.3);
-        overflow: hidden;
-        transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    .kb-img {
+        transform: scale(1.05);
+        will-change: transform;
+    }
+    .hero-slide.is-active .kb-img {
+        animation: kb 9s ease-out forwards;
+    }
+    @keyframes kb {
+        from {
+            transform: scale(1.05);
+        }
+        to {
+            transform: scale(1.15);
+        }
     }
 
-    #film-road-container.active .film-road-surface {
-        transform: rotateX(60deg) translateY(-20px) scale(1.05);
+    /* Film grain texture */
+    .hero-grain {
+        background-image: url("https://www.transparenttextures.com/patterns/film-grain.png");
+        opacity: 0.04;
     }
 
-    .film-road-holes {
-        position: absolute;
-        top: -100px;
-        bottom: 0px;
-        left: 0;
-        right: 0;
-        background-image: 
-            repeating-linear-gradient(to bottom, transparent 0, transparent 24px, #0c0a09 24px, #0c0a09 48px),
-            repeating-linear-gradient(to bottom, transparent 0, transparent 24px, #0c0a09 24px, #0c0a09 48px),
-            linear-gradient(to right, #D4AF37 0px, #D4AF37 40px, transparent 40px, transparent calc(100% - 40px), #D4AF37 calc(100% - 40px), #D4AF37 100%);
-        background-size: 24px 100%, 24px 100%, 100% 100%;
-        background-position: 8px 0, calc(100% - 8px) 0, center;
-        background-repeat: no-repeat;
-        transform: translateY(0);
+    /* Live indicator */
+    .live-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 9999px;
+        background: #F2AF0D;
+        animation: live-pulse 2.4s ease-out infinite;
+    }
+    @keyframes live-pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+        }
+        70% {
+            box-shadow: 0 0 0 7px rgba(212, 175, 55, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+        }
     }
 
-    /* Only animate when active to save resources */
-    #film-road-container.active .film-road-holes {
-        animation: road-scroll 1.5s linear infinite;
+    /* Ficha técnica */
+    .ficha-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    .ficha-label {
+        font-size: 9px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: rgba(243, 236, 221, 0.38);
+    }
+    .ficha-value {
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(243, 236, 221, 0.92);
+    }
+    .ficha-div {
+        width: 1px;
+        align-self: stretch;
+        min-height: 2.1rem;
+        background: rgba(243, 236, 221, 0.16);
     }
 
-    .film-road-fade {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, transparent 40%, #0c0a09 90%);
-        z-index: 10;
-        pointer-events: none;
+    .hero-arrow {
+        transition: transform 0.3s ease;
+    }
+    .hero-link:hover .hero-arrow {
+        transform: translateX(4px);
+    }
+    .archive-link:hover {
+        color: #F2AF0D;
     }
 
-    .film-light-streak {
-        position: absolute;
-        bottom: 0;
-        width: 2px;
-        height: 15vh;
-        background: #D4AF37;
-        box-shadow: 0 0 20px #D4AF37, 0 0 40px #D4AF37;
-        transform-origin: bottom;
+    /* Marquee */
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 48s linear infinite;
+    }
+    .marquee:hover .marquee-track {
+        animation-play-state: paused;
+    }
+    .marquee-item {
+        white-space: nowrap;
+    }
+    @keyframes marquee {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Entrance reveal */
+    .hero-reveal {
         opacity: 0;
-        z-index: 5;
+        transform: translateY(26px);
+        animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-reveal-2 {
+        animation-delay: 0.12s;
+    }
+    @keyframes reveal {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    #film-road-container.active .film-light-streak {
-        animation: streak-fly 2s ease-in infinite;
-    }
-
-    .film-light-streak:nth-child(3) {
-        left: 30%;
-        animation-delay: 0.5s;
-        animation-duration: 2.5s;
-    }
-
-    .film-light-streak:nth-child(4) {
-        left: 70%;
-        animation-delay: 1.2s;
-        animation-duration: 1.8s;
-    }
-
-    @keyframes road-scroll {
-        0% { transform: translateY(-48px); }
-        100% { transform: translateY(0); }
-    }
-
-    @keyframes streak-fly {
-        0% { transform: translateY(0) scaleY(1); opacity: 0; }
-        10% { opacity: 1; }
-        100% { transform: translateY(-150vh) scaleY(4); opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-slide,
+        .kb-img,
+        .live-dot,
+        .hero-arrow,
+        .marquee-track,
+        .hero-reveal {
+            animation: none !important;
+            transition: none;
+        }
+        .hero-reveal {
+            opacity: 1;
+            transform: none;
+        }
+        .kb-img {
+            transform: scale(1.02);
+        }
     }
 </style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const badge = document.getElementById('film-badge');
-        const road = document.getElementById('film-road-container');
-        let touchTimeout;
-        let isTouchDevice = false;
-        
-        if (badge && road) {
-            // Mobile touch (tap to activate for 8s)
-            badge.addEventListener('touchstart', () => {
-                isTouchDevice = true;
-                road.classList.add('active');
-                
-                clearTimeout(touchTimeout);
-                touchTimeout = setTimeout(() => {
-                    road.classList.remove('active');
-                }, 8000);
-            }, { passive: true });
+<script define:vars={{ featured }}>
+    (() => {
+        const section = document.getElementById("hero");
+        if (!section || featured.length === 0) return;
 
-            // Desktop hover (only trigger if not a touch device)
-            badge.addEventListener('mouseenter', () => {
-                if (isTouchDevice) return;
-                road.classList.add('active');
-            });
-            
-            badge.addEventListener('mouseleave', () => {
-                if (isTouchDevice) return;
-                road.classList.remove('active');
+        const figs = Array.from(section.querySelectorAll("[data-slide]"));
+        const link = document.getElementById("hero-link");
+        const titleEl = document.getElementById("hero-title");
+        const catEl = document.getElementById("hero-cat");
+        const dateEl = document.getElementById("hero-date");
+        const readEl = document.getElementById("hero-read");
+        const ctaText = document.getElementById("hero-cta-text");
+        const arrowIcon = document.getElementById("hero-arrow-icon");
+        const playIcon = document.getElementById("hero-play-icon");
+        const progress = document.getElementById("hero-progress");
+        const videoTrigger = document.getElementById("hero-video-trigger");
+
+        const reduce = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const INTERVAL = 7000;
+        let current = 0;
+        let elapsed = 0;
+        let last = performance.now();
+        let paused = false;
+
+        function show(i) {
+            current = i;
+            const s = featured[i];
+            figs.forEach((el, n) => el.classList.toggle("is-active", n === i));
+            if (titleEl) titleEl.textContent = s.title;
+            if (catEl) catEl.textContent = s.category;
+            if (dateEl) dateEl.textContent = s.date;
+            if (readEl) readEl.textContent = s.read;
+            if (ctaText)
+                ctaText.textContent = s.isTrailer ? "Ver tráiler" : "Leer la nota";
+            if (arrowIcon) arrowIcon.classList.toggle("hidden", s.isTrailer);
+            if (playIcon) playIcon.classList.toggle("hidden", !s.isTrailer);
+            if (link) {
+                link.setAttribute("href", s.href);
+                link.setAttribute("target", s.isTrailer ? "_blank" : "_self");
+            }
+        }
+
+        function setProgress(p) {
+            if (progress) progress.style.transform = `scaleX(${Math.min(p, 1)})`;
+        }
+
+        function loop(now) {
+            const dt = now - last;
+            last = now;
+            if (!paused) {
+                elapsed += dt;
+                setProgress(elapsed / INTERVAL);
+                if (elapsed >= INTERVAL) {
+                    elapsed = 0;
+                    show((current + 1) % featured.length);
+                }
+            }
+            requestAnimationFrame(loop);
+        }
+
+        // Trailers open the modal; notes navigate
+        if (link) {
+            link.addEventListener("click", (e) => {
+                const s = featured[current];
+                if (!s.isTrailer || !s.videoUrl || !videoTrigger) return;
+                e.preventDefault();
+                videoTrigger.setAttribute("data-video-url", s.videoUrl);
+                videoTrigger.click();
             });
         }
-    });
+
+        section.addEventListener("mouseenter", () => (paused = true));
+        section.addEventListener("mouseleave", () => {
+            paused = false;
+            last = performance.now();
+        });
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) last = performance.now();
+        });
+
+        if (!reduce && featured.length > 1) {
+            last = performance.now();
+            requestAnimationFrame(loop);
+        }
+    })();
 </script>

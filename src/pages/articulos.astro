@@ -36,14 +36,14 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     <main class="flex-1 flex justify-center py-8 px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col w-full max-w-[1200px] gap-8">
             <!-- Title Section -->
-            <div class="flex flex-col gap-4 border-b border-[#224249] pb-8">
+            <div class="flex flex-col gap-4 border-b border-slate-200 dark:border-[#224249] pb-8">
                 <h1
-                    class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]"
+                    class="text-slate-900 dark:text-white text-4xl md:text-5xl font-bold leading-tight tracking-[-0.033em]"
                 >
                     Artículos
                 </h1>
                 <p
-                    class="text-text-muted text-lg font-normal leading-normal max-w-2xl"
+                    class="text-slate-500 dark:text-text-muted text-lg font-normal leading-normal max-w-2xl"
                 >
                     Explora las últimas perspectivas en cine, desde críticas profundas
                     hasta los premios más importantes y los trailers más esperados.
@@ -57,7 +57,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                 <div class="relative flex items-center w-full min-w-0 md:max-w-[calc(100%-160px)]">
                     <button
                         id="scroll-left"
-                        class="absolute left-0 z-10 flex h-full w-12 items-center justify-start bg-gradient-to-r from-[#fafaf9] via-[#fafaf9] dark:from-[#0c0a09] dark:via-[#0c0a09] to-transparent text-[#D4AF37] hover:text-[#b8952b] transition-opacity duration-300 opacity-0 pointer-events-none"
+                        class="absolute left-0 z-10 flex h-full w-12 items-center justify-start bg-gradient-to-r from-[#fafaf9] via-[#fafaf9] dark:from-[#0c0a09] dark:via-[#0c0a09] to-transparent text-[#F2AF0D] hover:text-[#b8952b] transition-opacity duration-300 opacity-0 pointer-events-none"
                         aria-label="Scroll left"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -67,7 +67,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
                     <div class="flex gap-2 overflow-x-auto flex-nowrap scroll-smooth w-full py-1 px-1" id="topic-filters" style="-ms-overflow-style:none; scrollbar-width:none;">
                         <button
-                            class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-input hover:bg-[#D4AF37] text-slate-300 hover:text-white border border-transparent px-4 transition-all group active"
+                            class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-background-input hover:bg-[#F2AF0D] text-slate-700 dark:text-slate-300 hover:text-[#0c0a09] dark:hover:text-white border border-transparent px-4 transition-all group active"
                             data-tag="all"
                         >
                             <span class="text-sm font-medium">Todos los artículos</span>
@@ -75,7 +75,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                         {
                             topics.map((topic) => (
                                 <button
-                                    class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-input hover:bg-[#D4AF37] text-slate-300 hover:text-white border border-transparent px-4 transition-all group"
+                                    class="topic-filter flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-background-input hover:bg-[#F2AF0D] text-slate-700 dark:text-slate-300 hover:text-[#0c0a09] dark:hover:text-white border border-transparent px-4 transition-all group"
                                     data-tag={topic.value}
                                 >
                                     <span class="text-sm font-medium">
@@ -88,7 +88,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
                     <button
                         id="scroll-right"
-                        class="absolute right-0 z-10 flex h-full w-12 items-center justify-end bg-gradient-to-l from-[#fafaf9] via-[#fafaf9] dark:from-[#0c0a09] dark:via-[#0c0a09] to-transparent text-[#D4AF37] hover:text-[#b8952b] transition-opacity duration-300 opacity-0 pointer-events-none"
+                        class="absolute right-0 z-10 flex h-full w-12 items-center justify-end bg-gradient-to-l from-[#fafaf9] via-[#fafaf9] dark:from-[#0c0a09] dark:via-[#0c0a09] to-transparent text-[#F2AF0D] hover:text-[#b8952b] transition-opacity duration-300 opacity-0 pointer-events-none"
                         aria-label="Scroll right"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,9 +97,9 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                     </button>
                 </div>
                 <div class="flex items-center gap-2 shrink-0">
-                    <span class="text-text-muted text-sm">Ordenar por:</span>
+                    <span class="text-slate-500 dark:text-text-muted text-sm">Ordenar por:</span>
                     <button
-                        class="flex items-center gap-1 text-white text-sm font-medium hover:text-[#D4AF37] transition-colors"
+                        class="flex items-center gap-1 text-slate-900 dark:text-white text-sm font-medium hover:text-[#F2AF0D] transition-colors"
                         id="sort-toggle"
                     >
                         <span id="sort-label">Más recientes</span>
@@ -113,7 +113,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="text-[#D4AF37]"
+                            class="text-[#F2AF0D]"
                         >
                             <path d="m6 9 6 6 6-6"></path>
                         </svg>
@@ -154,12 +154,12 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
             <!-- Pagination Section -->
             <div
-                class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-[#224249] mt-8"
+                class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-200 dark:border-[#224249] mt-8"
             >
                 <div class="flex items-center gap-2" id="pagination-controls">
                     <button
                         id="prev-page"
-                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-background-input border border-[#D4AF37]/20 text-white hover:bg-[#D4AF37]/10 hover:border-[#D4AF37] transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
+                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-background-input border border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D] transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
                         aria-label="Previous page"
                     >
                         <span
@@ -174,7 +174,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
 
                     <button
                         id="next-page"
-                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-background-input border border-[#D4AF37]/20 text-white hover:bg-[#D4AF37]/10 hover:border-[#D4AF37] transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
+                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-background-input border border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D] transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
                         aria-label="Next page"
                     >
                         <span
@@ -184,7 +184,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                     </button>
                 </div>
                 <div
-                    class="text-xs font-medium text-text-muted uppercase tracking-widest"
+                    class="text-xs font-medium text-slate-500 dark:text-text-muted uppercase tracking-widest"
                     id="pagination-info"
                 >
                     Page 1 of 1
@@ -238,8 +238,8 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
                 const btn = document.createElement("button");
                 btn.className = `w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                     i === currentPage
-                        ? "bg-[#D4AF37] text-white border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                        : "bg-background-input border-[#D4AF37]/20 text-white hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]"
+                        ? "bg-[#F2AF0D] text-slate-900 dark:text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                        : "bg-slate-100 dark:bg-background-input border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D]"
                 }`;
                 btn.textContent = i.toString();
                 btn.addEventListener("click", () => {
@@ -392,7 +392,7 @@ const progressPercentage = (currentArticlesCount / totalArticlesCount) * 100;
     @reference "../styles/global.css";
 
     .topic-filter.active {
-        @apply bg-[#D4AF37] text-white font-bold;
+        @apply bg-[#F2AF0D] text-slate-900 dark:text-white font-bold;
         box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
 

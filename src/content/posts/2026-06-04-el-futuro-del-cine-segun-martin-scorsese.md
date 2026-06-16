@@ -23,10 +23,10 @@ Scorsese no es el único director que ha abrazado la IA. Otros directores como J
 ## El uso de la IA en la creación de películas
 La IA puede ser utilizada en various aspectos de la creación de películas, desde la storyboard hasta la generación de efectos visuales. Scorsese ha utilizado la IA para ayudar a storyboardear escenas, lo que le permite traducir su visión mental en algo que su equipo puede llevar a la vida. Otros directores, como Doug Liman, han utilizado la IA para generar fondos y iluminación en sus películas.
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

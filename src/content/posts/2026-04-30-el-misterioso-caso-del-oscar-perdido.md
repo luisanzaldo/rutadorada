@@ -23,10 +23,10 @@ Talankin había volado en varias ocasiones con su Oscar sin ningún problema, pe
 ## La búsqueda del Oscar perdido
 Talankin aceptó la propuesta de Lufthansa de embalar la estatuilla en un cartón y etiquetarla para que fuera transportada en el vuelo. Sin embargo, al llegar a su destino en Frankfurt, Alemania, la estatuilla no estaba en el lugar designado. El director y su equipo han estado buscando la estatuilla sin éxito y han contactado a Lufthansa y a la TSA para tratar de resolver el problema.
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>
