@@ -4,8 +4,7 @@ description: "Resumen de la taquilla de verano con \"Disclosure Day\" y \"Obsess
 pubDate: 2026-06-14T23:02:12.620Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/06/disclosure-day-emily-blunt.jpg"
+image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsyAaLCwOObCAC9rUovL5XbXQhyphenhyphenF17Ii1VYUgJWU8NzScyK6ZQydQQPVnBNJOKZBJv1p4vv_rlYUVVf1d5bZra3qOxAfqoFBP1beqg7BxnvMoV6h9xh_d0jmgf91jFZg_3Pxd1BmazE8Qa-lI2k-icDeykKzJ6gCb53orHdd5lSt3f3Qb0KrxEKSqSrYr2/s1920/disclousre.png"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"
@@ -13,6 +12,7 @@ fuente:
 readTime: "2 min read"
 tags: ["Box Office"]
 ---
+
 
 ## La taquilla de verano se calienta con "Disclosure Day"
 La película "Disclosure Day" de Steven Spielberg ha tenido un gran debut en la taquilla, recaudando $44 millones en Estados Unidos y $92,9 millones en todo el mundo. Esto marca el mejor debut de Spielberg en la taquilla desde "Indiana Jones y el reino de la calavera de cristal" en 2008.
