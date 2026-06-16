@@ -4,7 +4,7 @@ description: "La película de Super Mario Galaxy supera los 1000 millones de dó
 pubDate: 2026-06-07T17:43:50.672Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/04/MCDSUMA_UV087.jpg"
+image: "https://corporate.comcast.com/media/img/original/2026/03/corporate_v3-Xfinity-Membership-Super-Marios-Bros-16x9-Hero-v2.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
@@ -12,6 +12,7 @@ fuente:
 readTime: "2 min read"
 tags: ["Box Office"]
 ---
+
 
 ## Un nuevo récord en la taquilla
 
@@ -30,3 +31,4 @@ Universal tiene una cartelera emocionante para el futuro, con películas como "D
 </div>
 
 Dado el éxito de ambas películas de Super Mario, Universal, Nintendo y Illumination estarán ansiosos por volver a poner a Mario y Luigi en acción. La pregunta es, ¿qué próximo capítulo nos depara la franquicia? Solo el tiempo lo dirá, pero una cosa es segura: la taquilla de 2026 seguirá siendo emocionante.
+
