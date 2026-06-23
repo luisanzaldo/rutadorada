@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: The Debut"
-description: "Disfruta los videos y la música que te encantan, sube contenido original y compártelo con tus amigos, familiares y el resto del mundo en YouTube."
-pubDate: 2026-06-23T14:30:18.514Z
+description: "Nueva película de Jesse Eisenberg con Julianne Moore"
+pubDate: 2026-06-23T14:31:29.357Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
