@@ -48,16 +48,6 @@ const archiveHref = `${baseUrl}/archive`;
     class="hero-cover relative w-full overflow-hidden bg-[#0c0a09] text-[#F3ECDD] h-[80svh] min-h-[600px] lg:h-[84svh] lg:max-h-[820px]"
     aria-label="En cartelera — últimas noticias"
 >
-    <!-- Reel progress -->
-    <div class="absolute top-0 inset-x-0 z-30 h-[2px] bg-[#F3ECDD]/10">
-        <div
-            id="hero-progress"
-            class="h-full bg-gradient-to-r from-[#F2AF0D] to-[#e9d9a8] origin-left"
-            style="transform: scaleX(0)"
-        >
-        </div>
-    </div>
-
     <!-- Full-bleed stills -->
     <div class="absolute inset-0 z-0">
         {
@@ -213,6 +203,55 @@ const archiveHref = `${baseUrl}/archive`;
         </div>
     </div>
 
+    {
+        featured.length > 1 && (
+            <div class="hero-nav hidden md:block">
+                <button
+                    id="hero-prev"
+                    type="button"
+                    class="hero-nav-btn absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30"
+                    aria-label="Artículo anterior"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+                <button
+                    id="hero-next"
+                    type="button"
+                    class="hero-nav-btn absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30"
+                    aria-label="Artículo siguiente"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+        )
+    }
+
     <!-- Hidden trigger reusing the global VideoModal -->
     <a
         id="hero-video-trigger"
@@ -305,6 +344,38 @@ const archiveHref = `${baseUrl}/archive`;
         background: rgba(243, 236, 221, 0.16);
     }
 
+    /* Carousel nav arrows (desktop) */
+    .hero-nav-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 9999px;
+        color: #F3ECDD;
+        background: rgba(12, 10, 9, 0.35);
+        border: 1px solid rgba(243, 236, 221, 0.18);
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+        opacity: 0.7;
+        transition:
+            opacity 0.25s ease,
+            background-color 0.25s ease,
+            border-color 0.25s ease,
+            transform 0.25s ease;
+    }
+    .hero-nav-btn:hover {
+        opacity: 1;
+        background: rgba(12, 10, 9, 0.6);
+        border-color: rgba(242, 175, 13, 0.7);
+        color: #F2AF0D;
+    }
+    .hero-nav-btn:focus-visible {
+        outline: 2px solid #F2AF0D;
+        outline-offset: 2px;
+        opacity: 1;
+    }
+
     .hero-arrow {
         transition: transform 0.3s ease;
     }
@@ -383,7 +454,8 @@ const archiveHref = `${baseUrl}/archive`;
         const ctaText = document.getElementById("hero-cta-text");
         const arrowIcon = document.getElementById("hero-arrow-icon");
         const playIcon = document.getElementById("hero-play-icon");
-        const progress = document.getElementById("hero-progress");
+        const prevBtn = document.getElementById("hero-prev");
+        const nextBtn = document.getElementById("hero-next");
         const videoTrigger = document.getElementById("hero-video-trigger");
 
         const reduce = window.matchMedia(
@@ -393,7 +465,6 @@ const archiveHref = `${baseUrl}/archive`;
         let current = 0;
         let elapsed = 0;
         let last = performance.now();
-        let paused = false;
 
         function show(i) {
             current = i;
@@ -413,20 +484,19 @@ const archiveHref = `${baseUrl}/archive`;
             }
         }
 
-        function setProgress(p) {
-            if (progress) progress.style.transform = `scaleX(${Math.min(p, 1)})`;
+        function go(dir) {
+            elapsed = 0;
+            last = performance.now();
+            show((current + dir + featured.length) % featured.length);
         }
 
         function loop(now) {
             const dt = now - last;
             last = now;
-            if (!paused) {
-                elapsed += dt;
-                setProgress(elapsed / INTERVAL);
-                if (elapsed >= INTERVAL) {
-                    elapsed = 0;
-                    show((current + 1) % featured.length);
-                }
+            elapsed += dt;
+            if (elapsed >= INTERVAL) {
+                elapsed = 0;
+                show((current + 1) % featured.length);
             }
             requestAnimationFrame(loop);
         }
@@ -442,11 +512,33 @@ const archiveHref = `${baseUrl}/archive`;
             });
         }
 
-        section.addEventListener("mouseenter", () => (paused = true));
-        section.addEventListener("mouseleave", () => {
-            paused = false;
-            last = performance.now();
-        });
+        // Manual navigation — desktop arrows
+        if (prevBtn) prevBtn.addEventListener("click", () => go(-1));
+        if (nextBtn) nextBtn.addEventListener("click", () => go(1));
+
+        // Manual navigation — mobile swipe
+        let touchX = 0;
+        let touchY = 0;
+        section.addEventListener(
+            "touchstart",
+            (e) => {
+                touchX = e.changedTouches[0].clientX;
+                touchY = e.changedTouches[0].clientY;
+            },
+            { passive: true },
+        );
+        section.addEventListener(
+            "touchend",
+            (e) => {
+                const dx = e.changedTouches[0].clientX - touchX;
+                const dy = e.changedTouches[0].clientY - touchY;
+                if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+                    go(dx < 0 ? 1 : -1);
+                }
+            },
+            { passive: true },
+        );
+
         document.addEventListener("visibilitychange", () => {
             if (!document.hidden) last = performance.now();
         });
