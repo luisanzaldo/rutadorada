@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: DIGGER"
-description: ""
-pubDate: 2026-07-13T14:19:04.489Z
+description: "Lo nuevo del mexicano Alejandro G. Iñárritu con Tom Cruise"
+pubDate: 2026-07-13T14:20:45.608Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
