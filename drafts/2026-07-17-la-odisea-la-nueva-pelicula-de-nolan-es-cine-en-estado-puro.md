@@ -1,7 +1,7 @@
 ---
 title: "La odisea: la nueva película de Nolan es cine en estado puro"
 description: "Crítica de la última película de Christopher Nolan, La odisea, una épica espectacular realizada al muy estilo clásico pero que adapta el relato a nuestros tiempos"
-pubDate: 2026-07-17T19:16:49.631Z
+pubDate: 2026-07-17T19:32:24.427Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://people.com/thmb/sojmOVaqk_oxn5YeHE90EDNRl5Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/matt-damon-the-odyssey-021725-1-33088753391b490b9dddc2ed4beeb46b.jpg"
@@ -20,19 +20,19 @@ tags: ["Fantástico"]
 ---
 
 ## Cine en estado puro  
-La odisea de Christopher Nolan se presenta como cine en estado puro: no se trata de una espectacularidad vacía, sino de una historia bien desarrollada y adaptada a nuestros tiempos, que transforma el relato clásico en algo actual. La técnica se mantiene al servicio de la dirección de Nolan, con una fotografía espectacular de Hoyte van Hoytema, habitual colaborador, que realza cada detalle visual; una música impactante de Ludwig Göransson, también recurrente, que acompaña la narrativa con intensidad; y un sonido vibrante, perfectamente envolvente, que se funde con las imágenes para crear una experiencia inmersiva.
+La odisea de Christopher Nolan se presenta como cine en estado puro, pues la espectacularidad no se queda en una fachada vacía sino que se sustenta en una historia bien desarrollada y adaptada a los tiempos actuales. La técnica se convierte en un fiel aliado de la dirección, con una fotografía deslumbrante de Hoyte van Hoytema que realza cada escenario, una partitura impactante de Ludwig Göransson que subraya la tensión narrativa, y un sonido vibrante que envuelve al espectador y sincroniza perfectamente con las imágenes proyectadas en pantalla.  
 
-## Actuaciones destacadas  
-El elenco de estrellas realiza un trabajo destacable. Matt Damon entrega su papel más demandante física y actoralmente en mucho tiempo, dotando a Odiseo de una profundidad heroica y humana simultáneamente. Anne Hathaway, como Penélope, brilla en cada escena que ocupa, aportando elegancia y fuerza interior. Tom Holland demuestra que su talento trasciende al héroe arácnido, ofreciendo una interpretación fresca y convincente. Samantha Morton destaca como la bruja Circe, combinando misterio y vulnerabilidad, mientras que Robert Pattison encarna a un villano fuera de toda caricatura, con una presencia amenazante que eleva la tensión dramática.
+## Actuaciones estelares  
+El elenco de estrellas realiza un trabajo destacable: Matt Damon entrega su papel más demandante física y actoralmente en mucho tiempo, dotando a Odiseo de una profundidad heroica y humana simultáneamente; Anne Hathaway, como Penélope, brilla en cada aparición, aportando una elegancia que contrasta con la crudeza del viaje; Tom Holland demuestra que su talento trasciende al héroe arácnido, ofreciendo una interpretación fresca y convincente; Samantha Morton destaca como la bruja Circe, imbuyendo al personaje de una amenaza misteriosa; y Robert Pattison encarna a un villano que escapa a toda caricatura, consolidando así un reparto de alto nivel.  
 
 ## Escenas que revelan la maestría de Nolan  
-Dos secuencias demuestran que Nolan es amo y señor de la dirección: el pasaje del Cíclope y la parada con la bruja Circe. En ambas, el director maneja con maestría los géneros de fantasía y terror, dotando a esos momentos de una atmósfera opresora y de una espectacularidad contenida que pocos cineastas logran equilibrar. La composición de los planos, la iluminación y el ritmo de montaje convergen para crear una sensación de asombro y temor que refuerza la narrativa sin eclipsar la historia.
+Dos pasajes evidencian la autoridad de Nolan en la dirección: el enfrentamiento con el Cíclope y la parada frente a la bruja Circe. En ambos casos, el director logra manejar con soltura los géneros de fantasía y terror, creando una atmósfera opresora que se combina con una espectacularidad visual poco común. La cuidadosa composición de la luz, el ritmo de los cortes y la intensificación sonora convierten esas secuencias en ejemplos claros de cómo pocos cineastas pueden equilibrar lo sobrenatural con una narrativa coherente.  
 
-## Tesis sobre el mito de Prometeo  
-La tesis de la película se centra en el mito de Prometeo. Al igual que en Oppenheimer, Nolan plantea que el conocimiento, representado aquí por una gran táctica de guerra (el caballo de Troya), saca lo peor del ser humano, revelando su ambición y naturaleza destructiva. En un contexto contemporáneo al borde de la catástrofe, el mensaje invita al cambio, a la hospitalidad entre los individuos y a la aplicación de la ley de Zeus como guía para evitar la autodestrucción mutua.
+## La tesis de Prometeo y la advertencia contemporánea  
+La película plantea, al estilo de Oppenheimer, una tesis centrada en el mito de Prometeo: el conocimiento, simbolizado por la táctica del caballo de Troya, saca a relucir lo peor del ser humano, ambicioso y destructor por naturaleza. En un contexto global que roza la catástrofe, el mensaje se vuelve una llamada al cambio, exhortando a la humanidad a ser hospitalaria entre sí, a aplicar la ley de Zeus y a evitar la autodestrucción. Esta reflexión, inserta en la trama, busca resonar con la audiencia contemporánea y ofrecer una perspectiva moral sobre el poder y sus consecuencias.  
 
-## Defectos y decisiones de producción  
-No todo es miel sobre hojuelas. La tesis, similar a la de la película anterior, sufre problemas de ritmo durante el segundo acto debido a la estructura narrativa, y varios personajes secundarios, como Helena o Agamenón, quedan desaprovechados. Además, Nolan muestra cierta reticencia a representar una violencia más explícita, decisión que parece estar condicionada por exigencias del estudio para obtener una clasificación de edad más favorable y maximizar la recaudación en taquilla.
+## Defectos estructurales y decisiones de estudio  
+No todo es perfección; la película muestra problemas de ritmo durante el segundo acto, consecuencia de una estructura narrativa que a veces se diluye, y varios personajes secundarios, como Helena o Agamenón, quedan desaprovechados. Además, Nolan parece temer a mostrar una violencia más explícita, una restricción que probablemente provenga de decisiones del estudio para obtener una clasificación de edad más amplia y maximizar la recaudación. Esta moderación, aunque comprensible desde el punto de vista comercial, plantea dudas sobre la coherencia de la tesis y la integridad artística de un director de su calibre.
 
 ## El Atajo
 
