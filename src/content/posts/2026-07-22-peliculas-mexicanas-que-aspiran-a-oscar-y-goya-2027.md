@@ -25,15 +25,11 @@ Esta cinta, coproducida por Gabriela Rodríguez, Alfonso Cuarón y el propio Jon
 <div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">PREMIO AL PÚBLICO EN SXSW</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">"Campeón gabacho" se alzó con el premio del público en la sección Narrative Spotlight de SXSW 2023.</p></div></div>
 </div>
 
-#### PREMIO AL PÚBLICO EN SXSW
-
-Campeón gabacho se alzó con el premio del público en la sección Narrative Spotlight de SXSW 2023.
-
 ## "Ceniza en la boca" de Diego Luna
 
 Presentada en Cannes con una ovación de cinco minutos, esta adaptación de la novela de Brenda Navarro explora la vida de Lucila, una joven de 21 años que viaja a España para reunirse con su madre emigrante. La película aborda la migración, el racismo y la presión familiar, y cuenta con la actuación de Anna Díaz y Adriana Paz. El guion, coescrito por Luna, Abia Castillo y Diego Rabasa, combina realismo social y una estética que recuerda al cine de autor latinoamericano.
 
-## "Chicas tristes" de Fernanda Tovar
+### "Chicas tristes" de Fernanda Tovar
 
 Estrenada en la Berlinale dentro de la sección Generation, la ópera prima de Fernanda Tovar obtuvo el Oso de Cristal a Mejor Película y el Gran Prix del Jurado Internacional. La historia sigue a dos amigas que se preparan para una competencia de natación mientras enfrentan una agresión sexual que desencadena un debate sobre la violencia de género en la era post‑MeToo. Con Darana Álvarez y Rocío Guzmán al frente, la película ha sido reconocida también en el Festival de Morelia y en el taller Next Step de Cannes.
 
