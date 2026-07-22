@@ -1,7 +1,7 @@
 ---
 title: "Películas mexicanas que aspiran a Oscar y Goya 2027"
 description: "Descubre las 17 cintas elegibles que la AMACC propone para representar a México en los Oscar y Goya 2027, con historias de migración, violencia y esperanza."
-pubDate: 2026-07-22T18:47:22.806Z
+pubDate: 2026-07-22T18:50:20.902Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -59,6 +59,6 @@ Esta ópera prima ganó la Mejor Ópera Prima en la sección Perspectivas de la 
 
 Participó en la sección Panorama de la Berlinale 2026 y se llevó la Biznaga de Oro a Mejor Película Iberoamericana en el Festival de Málaga. La película muestra una familia que crea un refugio de ternura en medio de un bosque en declive, simbolizando la esperanza que brota aun en los entornos más adversos.
 
-## Conclusión
+## El cine mexicano es una fuerza creativa a nivel mundial
 
 La diversidad temática y la calidad artística de estas diecisiete propuestas demuestran que el cine mexicano sigue consolidándose como una fuerza creativa a nivel mundial. Si alguna de estas cintas logra la nominación, será un reconocimiento al talento de sus creadores y a la riqueza de historias que México tiene para contar.
