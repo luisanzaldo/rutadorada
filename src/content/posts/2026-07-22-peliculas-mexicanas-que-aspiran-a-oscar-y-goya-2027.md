@@ -21,9 +21,7 @@ La Academia Mexicana de Artes y Ciencias Cinematográficas ha publicado un lista
 
 Esta cinta, coproducida por Gabriela Rodríguez, Alfonso Cuarón y el propio Jonás Cuarón, narra la travesía de Liborio, un migrante mexicano que enfrenta los obstáculos de la frontera con humor y dignidad. El reparto incluye a Juan Daniel García Treviño, Leslie Grace, Rubén Blades y Rosario Dawson. La película ya se llevó el Premio del Público en el festival South by Southwest (SXSW) dentro de la sección Narrative Spotlight, lo que la posiciona como una fuerte candidata a nivel internacional.
 
-![](https://cdn.milenio.com/uploads/media/2026/03/19/imagen-oficial-cinta-campeon-gabacho.jpg)<div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">PREMIO AL PÚBLICO EN SXSW</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">"Campeón gabacho" se alzó con el premio del público en la sección Narrative Spotlight de SXSW 2023.</p></div></div>
-</div>
+![](https://cdn.milenio.com/uploads/media/2026/03/19/imagen-oficial-cinta-campeon-gabacho.jpg)
 
 ### "Ceniza en la boca" de Diego Luna
 
