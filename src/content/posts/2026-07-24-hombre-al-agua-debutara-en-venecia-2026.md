@@ -5,13 +5,14 @@ pubDate: 2026-07-24T04:30:25.320Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 image: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/Hombre-al-agua-de-Gael-Garcia-Bernal-estara-en-el-Festival-de-Cine-de-Toronto.jpg"
-category: "Artículos"
+category: "Premios"
 fuente:
   nombre: "FICM"
   url: "https://moreliafilmfest.com/"
 readTime: "2 min read"
 tags: ["Venecia"]
 ---
+
 
 ## Un nuevo paso para Gael García Bernal
 
@@ -32,3 +33,4 @@ Entre los intérpretes destacan Esmeralda Pimentel, Débora Nascimento, Natalia 
 ## Expectativas y futuro
 
 Con una combinación de crítica social, humor y elementos oníricos, “Hombre al agua” promete ser uno de los títulos más comentados del festival. Su paso por Venecia y Toronto abre la puerta a posibles distribuciones internacionales, lo que podría consolidar a Bernal como un creador de contenido global. Los amantes del cine latinoamericano estarán atentos a cómo esta obra redefine la narrativa de poder y manipulación en el contexto contemporáneo.
+
