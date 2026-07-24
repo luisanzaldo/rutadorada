@@ -4,7 +4,7 @@ description: "El Festival Internacional de Cine de Venecia ha anunciado oficialm
 pubDate: 2026-07-23T15:08:39.802Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://static.labiennale.org/files/styles/ratio_3_2/public/cinema/2018/750x500/leone-rosso-ve2.jpg?itok=B5OVy0Hf"
+image: "https://laestatuilla.com/wp-content/uploads/2024/09/palmares-venecia-2024-leon-de-oro-2024.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"
@@ -12,6 +12,7 @@ fuente:
 readTime: "4 min read"
 tags: ["Venecia"]
 ---
+
 
 El Festival Internacional de Cine de Venecia ha anunciado oficialmente la programación para su 83.ª edición, que se celebrará del 2 al 12 de septiembre de 2026.
 
@@ -192,3 +193,4 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 - *Scherzetto*, dir. Mario Martone
 
 - *Un Bon Avocat*, dir. Tristan Seguela
+
