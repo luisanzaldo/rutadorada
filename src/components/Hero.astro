@@ -88,14 +88,14 @@ const archiveHref = `${baseUrl}/archive`;
         <div class="hero-reveal flex items-start justify-end gap-4">
             <div class="text-right shrink-0">
                 <p
-                    class="ff-mono inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#F2AF0D]"
+                    class="ff-sans inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#F2AF0D]"
                 >
                     <span class="live-dot"></span>
                     En cartelera
                 </p>
                 <a
                     href={archiveHref}
-                    class="archive-link ff-mono block mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#F3ECDD]/45 transition-colors"
+                    class="archive-link ff-sans block mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#F3ECDD]/45 transition-colors"
                 >
                     Archivo &#8599;
                 </a>
@@ -106,7 +106,7 @@ const archiveHref = `${baseUrl}/archive`;
         <div class="hero-reveal hero-reveal-2 max-w-5xl">
             <a id="hero-link" href={first.href} class="hero-link block group">
                 <span
-                    class="ff-mono inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#F2AF0D] mb-4"
+                    class="ff-sans inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#F2AF0D] mb-4"
                 >
                     Lo último
                 </span>
@@ -119,7 +119,7 @@ const archiveHref = `${baseUrl}/archive`;
                 </h1>
 
                 <span
-                    class="hero-cta ff-mono mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
+                    class="hero-cta ff-sans mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
                 >
                     <span id="hero-cta-text"
                         >{first.isTrailer ? "Ver tráiler" : "Leer la nota"}</span
@@ -298,6 +298,9 @@ const archiveHref = `${baseUrl}/archive`;
     }
     .ff-mono {
         font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    }
+    .ff-sans {
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     }
 
     /* Stills crossfade + slow drift */
