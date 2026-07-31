@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
-import fetch from 'node-fetch';
 
 const postsDir = path.join(process.cwd(), 'src/content/posts');
 const imagesDir = path.join(process.cwd(), 'public/images/posts');

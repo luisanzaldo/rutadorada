@@ -1,0 +1,221 @@
+---
+// Modales del editor Tiptap (imagen, YouTube, curiosidad y puntos de valoración)
+// más los estilos globales de ProseMirror. Se usan junto con EditorPanel.astro
+// y la lógica de src/lib/tiptap-editor.ts.
+---
+
+<!-- Modal Imagen -->
+<div id="modal-image" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-image-content">
+        <div class="flex justify-between items-center mb-6">
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">image</span> Insertar Imagen
+            </h4>
+            <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Por URL web</label>
+                <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
+            </div>
+            <div class="relative flex py-2 items-center">
+                <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
+                <span class="flex-shrink-0 mx-4 text-slate-400 text-xs font-semibold uppercase">O</span>
+                <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Subir archivo local</label>
+                <input type="file" id="tiptap-img-file" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 dark:file:bg-card-dark dark:file:text-white dark:hover:file:bg-[#224249] cursor-pointer" />
+            </div>
+            <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
+                Insertar en el artículo
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal YouTube -->
+<div id="modal-youtube" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-youtube-content">
+        <div class="flex justify-between items-center mb-6">
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#FF0000]">smart_display</span> Video de YouTube
+            </h4>
+            <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-6">
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Enlace del video</label>
+                <input type="url" id="tiptap-yt-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://www.youtube.com/watch?v=..." />
+            </div>
+            <button type="button" id="btn-insert-youtube" class="w-full py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
+                Incrustar video
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Curiosidad -->
+<div id="modal-curiosity" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
+        <div class="flex justify-between items-center mb-6">
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">star</span> Bloque de Curiosidad
+            </h4>
+            <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Título del recuadro</label>
+                <input type="text" id="curiosity-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. La Magia de Cannes" />
+            </div>
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del recuadro</label>
+                <textarea id="curiosity-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto de la curiosidad aquí..."></textarea>
+            </div>
+            <button type="button" id="btn-insert-curiosity" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(212,175,55,0.3)]">
+                Insertar bloque
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Puntos (Bueno/Regular/Malo) -->
+<div id="modal-point" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-point-content">
+        <div class="flex justify-between items-center mb-6">
+            <h4 id="point-modal-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <svg id="point-modal-icon" xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a10 10 0 1 0 10 10'/><path d='M12 6v6l4 2'/></svg>
+                <span>Agregar punto</span>
+            </h4>
+            <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Título del bloque</label>
+                <input type="text" id="point-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. Actuaciones sobresalientes" />
+            </div>
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del bloque</label>
+                <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
+            </div>
+            <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg">
+                Insertar punto
+            </button>
+        </div>
+    </div>
+</div>
+
+<style is:global>
+    /* Estilos base de TipTap para quitar bordes e indicar el min height default */
+    .ProseMirror {
+        outline: none;
+        min-height: 400px;
+        caret-color: #F2AF0D; /* Color primario o dorado */
+    }
+
+    /* Placeholder behavior cuando esta vacío */
+    .ProseMirror p.is-editor-empty:first-child::before {
+        content: attr(data-placeholder);
+        float: left;
+        color: #94a3b8; /* slate-400 */
+        pointer-events: none;
+        height: 0;
+    }
+
+    /* Estado visual de los botones del Toolbar de TipTap cuando estan activos */
+    .tiptap-btn-active {
+        background-color: #e2e8f0 !important; /* slate-200 */
+        color: #0f172a !important; /* slate-900 */
+        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    }
+    .dark .tiptap-btn-active {
+        background-color: #0b1618 !important;
+        color: #F2AF0D !important; /* text-primary */
+        border-color: #224249;
+    }
+
+    /* Regla absoluta para que todo el texto en negritas dentro del área de edición sea del color primario (dorado) */
+    .ProseMirror strong, .ProseMirror b {
+        color: #F2AF0D !important;
+    }
+
+    /* Media embeds en el editor */
+    .ProseMirror img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        margin: 1.5rem auto;
+        border: 1px solid #224249;
+    }
+    .ProseMirror iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 0.75rem;
+        margin: 1.5rem auto;
+        border: none;
+    }
+
+    /* Estilos explícitos para el bloque de Curiosidad dentro del editor (Tailwind fallback) */
+    .ProseMirror div[data-type="curiosity"] {
+        margin: 2rem 0;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        background-color: rgba(212, 175, 55, 0.05);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ProseMirror div[data-type="curiosity"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 4px;
+        background-color: #F2AF0D;
+    }
+
+    .ProseMirror div[data-type="curiosity"] h4 {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: #0f172a !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        font-size: 1.125rem;
+    }
+
+    .dark .ProseMirror div[data-type="curiosity"] h4 {
+        color: #ffffff !important;
+    }
+
+    .ProseMirror div[data-type="curiosity"] p {
+        margin: 0 !important;
+        color: #475569 !important;
+        font-size: 0.875rem;
+        line-height: 1.625;
+    }
+
+    .dark .ProseMirror div[data-type="curiosity"] p {
+        color: #cbd5e1 !important;
+    }
+
+    /* Asegurar que el icono de estrella sea visible y tenga el color correcto */
+    .ProseMirror div[data-type="curiosity"] .material-symbols-outlined {
+        color: #F2AF0D !important;
+    }
+
+    /* Colores para bloques de valoración */
+    .ProseMirror div[data-type="good"] .material-symbols-outlined { color: #22c55e !important; }
+    .ProseMirror div[data-type="regular"] .material-symbols-outlined { color: #f97316 !important; }
+    .ProseMirror div[data-type="bad"] .material-symbols-outlined { color: #ef4444 !important; }
+</style>

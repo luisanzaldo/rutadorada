@@ -1,157 +1,66 @@
-# 🚀 DevBlog - Modern Tech & Architecture Blog
+# 🎬 RutaDorada Films
 
-<p align="center">
-  <img src="public/Logo.png">
-</p>
+Blog editorial de cine en español: noticias, críticas, tráilers y cobertura de la temporada de premios (Oscar, Cannes, Venecia). Publicado en [rutadoradafilms.com](https://www.rutadoradafilms.com).
 
-DevBlog is a high-performance, premium tech blog built for deep dives into software architecture, ethical hacking, and AI. It features a futuristic dark aesthetic, interactive guest features, and a robust authentication system.
+## 🛠️ Stack
 
-## 🛠️ Tech Stack
+- **[Astro 5](https://astro.build/)** — sitio estático con content collections (posts en Markdown/MDX) y rutas server-rendered para el panel admin y la API.
+- **[Tailwind CSS 4](https://tailwindcss.com/)** — estilos, con tema claro/oscuro.
+- **[Supabase](https://supabase.com/)** — auth de lectores, likes, favoritos y comentarios.
+- **[Tiptap](https://tiptap.dev/)** — editor enriquecido del panel admin.
+- **[Vercel](https://vercel.com/)** — hosting y deploy.
 
-![Astro](https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+## 🏗️ Cómo funciona
 
-- **[Astro 5.0+](https://astro.build/)**: The web framework for content-driven websites. Focused on performance with zero-JavaScript by default.
-- **[Supabase](https://supabase.com/)**: Backend-as-a-Service providing PostgreSQL database, Secure Auth, and Real-time capabilities.
-- **[Tailwind CSS 4.0](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development with a custom premium design system.
-- **[Vite](https://vitejs.dev/)**: Next-generation frontend tooling for a fast development experience.
-- **[TypeScript](https://www.typescriptlang.org/)**: Static type checking for robust and maintainable code.
+- Los posts viven en `src/content/posts/` como `.md`/`.mdx` (schema en `src/content/config.ts`).
+- El **panel admin** (`/admin`) permite crear y editar posts desde el navegador: el contenido se commitea al repo vía la API de GitHub y se dispara un deploy hook de Vercel. La sesión del admin usa JWT (`jose`) + bcrypt; los usuarios se definen en `src/lib/users.ts` con hashes en variables de entorno.
+- En `prebuild`, `scripts/download-images.mjs` descarga las imágenes de portada externas, las optimiza con `sharp` (versión desktop 1280×720 y móvil 600×338) y reescribe el frontmatter para servirlas localmente desde `public/images/posts/`.
+- Los lectores pueden registrarse (Supabase Auth) para dar likes, guardar favoritos y comentar.
+- `rss-state.json` lo actualiza una automatización externa; el `ignoreCommand` de `vercel.json` evita que esos commits disparen builds.
 
-## 🏗️ System Architecture
+## 🚀 Desarrollo
 
-DevBlog follows a modern decoupled architecture, combining static content with dynamic real-time features.
-
-### 🧩 Architecture Diagram
-
-```mermaid
-graph TB
-    subgraph "🌐 Client Layer"
-        UI["Astro UI (SSR/Hybrid)"]
-        SDK["Supabase JS SDK"]
-        LS["Local Storage (Guest State)"]
-    end
-
-    subgraph "⚡ Edge / Server Layer"
-        Astro["Astro Server Engine"]
-        API["Edge Functions / RPC"]
-    end
-
-    subgraph "🔐 Security & Logic"
-        Auth["Supabase Auth"]
-        RLS["RLS & RBAC (Admin/User policies)"]
-    end
-
-    subgraph "💾 Persistence Layer"
-        DB[("PostgreSQL Database")]
-        Prisma["Prisma ORM (Migrations)"]
-    end
-
-    %% Interactions
-    UI <--> SDK
-    SDK <--> Auth
-    SDK <--> RLS
-    RLS <--> DB
-    UI <--> LS
-    
-    Astro -->|SSG| UI
-    Astro <--> API
-    API <--> DB
-    
-    Prisma -.->|Schema Sync| DB
-
-    %% Styling
-    classDef client fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef server fill:#fff3e0,stroke:#e65100,stroke-width:2px;
-    classDef security fill:#ede7f6,stroke:#311b92,stroke-width:2px;
-    classDef storage fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
-
-    class UI,SDK,LS client;
-    class Astro,API server;
-    class Auth,RLS security;
-    class DB,Prisma storage;
+```bash
+npm install
+cp .env.example .env   # y llena las variables
+npm run dev            # servidor de desarrollo
+npm run build          # build de producción (incluye prebuild de imágenes)
+npm run preview        # previsualizar el build
 ```
 
-### ⚙️ How it works:
-- **Static First**: Blog posts are pre-rendered during build time for maximum speed and SEO.
-- **Dynamic Layers**: Interactivity (Likes, Comments, Bookmarks) is handled via client-side scripts connecting directly to Supabase.
-- **Secure Auth**: User management and the "Danger Zone" use Supabase Auth and secure PostgreSQL functions.
-- **Data Integrity**: Prisma handles the schema definitions and migrations, while Supabase RLS ensures only authorized users can modify their data.
+## 🔑 Variables de entorno
 
-## 📂 Project Structure
+Ver `.env.example`. Resumen:
 
-The project follows a modular and organized structure:
+| Variable | Uso |
+| --- | --- |
+| `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY` | Cliente Supabase (auth de lectores, likes, comentarios) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Operaciones admin de Supabase (server-side) |
+| `JWT_SECRET` | Firma de la sesión del panel admin |
+| `HASH_LUISANZALDO`, `HASH_RAMONFIGUEROA` | Hashes bcrypt de los usuarios admin |
+| `GITHUB_TOKEN`, `GITHUB_REPO` | Publicación de posts vía API de GitHub |
+| `VERCEL_DEPLOY_HOOK` | Redeploy al publicar desde el admin |
+| `PUBLIC_GA4_MEASUREMENT_ID`, `PUBLIC_CLARITY_PROJECT_ID`, `PUBLIC_COOKIEYES_ID` | Analytics (solo producción, condicionados a consentimiento) |
+| `GROQ_API_KEY`, `NOTION_TOKEN`, `NOTION_CALENDAR_DATA_SOURCE_ID` | Asistente de calendario editorial (`/api/calendar/chat`) |
+| `GOOGLE_API_KEY`, `CANNES_SHEET_ID`, `CANNES_SHEET_RANGE` | Calificaciones de festivales desde Google Sheets |
 
-```text
-/
-├── src/
-│   ├── components/       # Reusable UI components
-│   │   ├── PostSidebarLeft.astro   # Interactive sidebar (Likes, Comments, Bookmarks)
-│   │   ├── PostSidebarRight.astro  # Table of Contents and Related Posts
-│   │   ├── Comments.astro          # Real-time comment system with Admin features
-│   │   ├── ArticleCard.astro       # Blog post layout card
-│   │   ├── Header.astro            # Dynamic navigation
-│   │   └── Footer.astro            # Site footer
-│   ├── content/          # Markdown/MDX content for blog posts
-│   │   └── posts/        # Individual article files
-│   ├── layouts/          # Base HTML structures (Layout.astro)
-│   ├── lib/              # Utility configurations
-│   │   └── supabase.ts   # Supabase client configuration
-│   ├── pages/            # View routes
-│   │   ├── posts/        # Dynamic blog post routes ([...slug].astro)
-│   │   ├── index.astro   # Homepage
-│   │   ├── login.astro   # User login
-│   │   ├── register.astro# User registration
-│   │   └── settings.astro# Account management (Update profile, Delete account)
-│   └── styles/           # Global design tokens and Tailwind configuration
-├── public/               # Static assets (images, icons)
-├── prisma/               # Database ORM
-│   └── schema.prisma     # Database schema definition
-├── supabase_security_policies.sql # SQL for RLS policies, Profiles table, and Admin setup
-└── package.json          # Project dependencies and scripts
+## 📂 Estructura
+
+```
+src/
+├── components/        # UI compartida (Header, cards, sidebars, modales)
+│   └── admin/         # Editor Tiptap compartido (EditorPanel, EditorModals)
+├── content/posts/     # Artículos en Markdown/MDX
+├── layouts/           # Layout base (SEO, fuentes, analytics)
+├── lib/               # auth (JWT), supabase, tiptap-editor, users
+├── pages/
+│   ├── [categoria].astro   # Listados: /criticas, /premios, /trailers, /articulos
+│   ├── admin/              # Panel de publicación (server-rendered)
+│   ├── api/                # Endpoints (auth, posts, cannes, calendar)
+│   └── posts/[...slug]     # Página de artículo
+└── styles/global.css  # Tailwind + fuentes autohospedadas
 ```
 
-## ✨ Key Features
+## 📜 SQL de Supabase
 
-- **Interactive Post Sidebar**: Real-time counter for Likes, Comments, and Bookmarks.
-- **Guest Support**: Anonymous users can interact (likes, favorites, comments) via local tracking.
-- **Advanced Auth**: Secure Registration, Login, and personalized "My Activity" pages.
-- **Danger Zone**: A secure, custom-built account deletion flow with anti-cache RPC logic.
-- **Premium UI**: Futuristic design with Aldrich typography, glassmorphism, and smooth transitions.
-
-## 🚀 Getting Started
-
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-2. **Configure environment**:
-   Create a `.env` file with your Supabase credentials:
-   ```env
-   PUBLIC_SUPABASE_URL=your_url
-   PUBLIC_SUPABASE_ANON_KEY=your_key
-   ```
-
-3. **Run development server**:
-   ```bash
-   npm run dev
-   ```
-
-## 🚀 Deployment (Vercel)
-
-1.  **Environment Variables**: In your Vercel project settings, add the following:
-    - `PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
-    - `PUBLIC_SUPABASE_ANON_KEY`: Your Supabase Anonymous API Key.
-2.  **Redeploy**: Ensure you redeploy the project after adding these variables to apply the changes.
-
-## 🤝 Contributing
-
-Developed with ❤️ for the Tech Community.
-
----
-
-📜 Licencia
-
-Este proyecto está bajo la licencia MIT. Puedes usarlo libremente, siempre citando al autor.
+`supabase_setup.sql` y `supabase_grants.sql` contienen el esquema y permisos de las tablas de likes/favoritos/comentarios.

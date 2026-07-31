@@ -11,6 +11,55 @@ const searchablePosts = allPosts.map((post) => ({
     body: post.body,
 }));
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
+// Navegación principal (se renderiza en desktop y en el menú móvil)
+const navLinks = [
+    { label: "Lo último", href: import.meta.env.BASE_URL },
+    { label: "Artículos", href: `${baseUrl}/articulos` },
+    { label: "Críticas", href: `${baseUrl}/criticas` },
+    { label: "Premios", href: `${baseUrl}/premios` },
+    { label: "Tráilers", href: `${baseUrl}/trailers` },
+    { label: "Archivo", href: `${baseUrl}/archive` },
+];
+
+// Contenido interno de cada icono SVG (stroke, 24x24)
+const icons = {
+    settings: `<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle>`,
+    likes: `<path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>`,
+    favorites: `<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>`,
+    logout: `<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line>`,
+};
+
+// Enlaces del menú de usuario (dropdown desktop y sección móvil)
+const userMenuLinks = [
+    { label: "Configuración", href: `${baseUrl}/settings`, icon: icons.settings },
+    { label: "Mis likes", href: `${baseUrl}/my-likes`, icon: icons.likes },
+    { label: "Mis favoritos", href: `${baseUrl}/my-favorites`, icon: icons.favorites },
+];
+
+// Redes sociales del menú móvil (fill, 16x16)
+const socialLinks = [
+    {
+        title: "Instagram",
+        href: "https://www.instagram.com/rutadoradafilms",
+        icon: `<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>`,
+    },
+    {
+        title: "TikTok",
+        href: "https://www.tiktok.com/@rutadoradafilms",
+        icon: `<path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>`,
+    },
+    {
+        title: "YouTube",
+        href: "https://www.youtube.com/@RutaDoradaFilms",
+        icon: `<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.052-.072 1.964l-.008.104-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>`,
+    },
+    {
+        title: "X (Twitter)",
+        href: "https://x.com/rutadoradafilms",
+        icon: `<path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>`,
+    },
+];
 ---
 
 <header
@@ -32,24 +81,16 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
             </a>
 
             <nav class="hidden lg:flex space-x-8">
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={import.meta.env.BASE_URL}>Lo último</a>
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={`${baseUrl}/articulos`}>Artículos</a>
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={`${baseUrl}/criticas`}>Críticas</a>
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={`${baseUrl}/premios`}>Premios</a>
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={`${baseUrl}/trailers`}>Tráilers</a>
-                <a
-                    class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
-                    href={`${baseUrl}/archive`}>Archivo</a>
+                {
+                    navLinks.map((link) => (
+                        <a
+                            class="text-slate-300 hover:text-[#F2AF0D] px-3 py-2 text-sm font-medium transition-colors"
+                            href={link.href}
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
             </nav>
 
             <!-- Search + Auth + Menu -->
@@ -198,75 +239,33 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                                 user@example.com
                             </p>
                         </div>
-                        <a
-                            href={`${baseUrl}/settings`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path
-                                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
-                                ></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                            Configuración
-                        </a>
-                        <div
-                            class="h-[1px] bg-slate-100 dark:bg-[#224249] my-1"
-                        >
-                        </div>
-                        <a
-                            href={`${baseUrl}/my-likes`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M7 10v12"></path>
-                                <path
-                                    d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"
-                                ></path>
-                            </svg>
-                            Mis likes
-                        </a>
-                        <a
-                            href={`${baseUrl}/my-favorites`}
-                            class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path
-                                    d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"
-                                ></path>
-                            </svg>
-                            Mis favoritos
-                        </a>
+                        {
+                            userMenuLinks.map((item, index) => (
+                                <>
+                                    <a
+                                        href={item.href}
+                                        class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#162a2f] hover:text-[#F2AF0D] transition-colors"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            set:html={item.icon}
+                                        />
+                                        {item.label}
+                                    </a>
+                                    {index === 0 && (
+                                        <div class="h-[1px] bg-slate-100 dark:bg-[#224249] my-1" />
+                                    )}
+                                </>
+                            ))
+                        }
                         <div
                             class="h-[1px] bg-slate-100 dark:bg-[#224249] my-1"
                         >
@@ -285,13 +284,8 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                            >
-                                <path
-                                    d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
-                                ></path>
-                                <polyline points="16 17 21 12 16 7"></polyline>
-                                <line x1="21" x2="9" y1="12" y2="12"></line>
-                            </svg>
+                                set:html={icons.logout}
+                            />
                             Cerrar sesión
                         </button>
                     </div>
@@ -338,29 +332,16 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
         class="absolute right-0 top-0 bottom-0 w-[280px] bg-black border-l border-white/10 translate-x-full transition-transform duration-300 ease-out p-6 pt-24 overflow-y-auto custom-scrollbar"
     >
         <nav class="flex flex-col space-y-4">
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={import.meta.env.BASE_URL}>Lo último</a>
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={`${baseUrl}/articulos`}>Artículos</a
-            >
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={`${baseUrl}/criticas`}>Críticas</a
-            >
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={`${baseUrl}/premios`}>Premios</a
-            >
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={`${baseUrl}/trailers`}>Tráilers</a
-            >
-            <a
-                class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
-                href={`${baseUrl}/archive`}>Archivo</a
-            >
+            {
+                navLinks.map((link) => (
+                    <a
+                        class="text-slate-300 hover:text-[#F2AF0D] text-lg font-bold py-2 border-b border-white/5"
+                        href={link.href}
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
 
             <div id="mobile-auth-section" class="pt-4 flex flex-col space-y-3">
                 <a
@@ -398,71 +379,28 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                     </div>
                 </div>
 
-                <a
-                    href={`${baseUrl}/settings`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
-                        ></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                    Configuración
-                </a>
-                <a
-                    href={`${baseUrl}/my-likes`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M7 10v12"></path>
-                        <path
-                            d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"
-                        ></path>
-                    </svg>
-                    Mis likes
-                </a>
-                <a
-                    href={`${baseUrl}/my-favorites`}
-                    class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"
-                        ></path>
-                    </svg>
-                    Mis favoritos
-                </a>
+                {
+                    userMenuLinks.map((item) => (
+                        <a
+                            href={item.href}
+                            class="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-slate-700 text-slate-300 font-bold hover:border-primary hover:text-[#F2AF0D] transition-colors"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                set:html={item.icon}
+                            />
+                            {item.label}
+                        </a>
+                    ))
+                }
                 <button
                     id="mobile-logout-btn"
                     class="w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-red-500/10 text-red-500 font-bold hover:bg-red-500/20 transition-colors"
@@ -477,12 +415,8 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                    >
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
-                        ></path>
-                        <polyline points="16 17 21 12 16 7"></polyline>
-                        <line x1="21" x2="9" y1="12" y2="12"></line>
-                    </svg>
+                        set:html={icons.logout}
+                    />
                     Cerrar sesión
                 </button>
             </div>
@@ -495,50 +429,26 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 Conecta
             </p>
             <div class="flex gap-4">
-                <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
-                    href="https://www.instagram.com/rutadoradafilms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Instagram"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                    </svg>
-                </a>
-                <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
-                    href="https://www.tiktok.com/@rutadoradafilms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="TikTok"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
-                    </svg>
-                </a>
-                <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
-                    href="https://www.youtube.com/@RutaDoradaFilms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="YouTube"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.052-.072 1.964l-.008.104-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-                    </svg>
-                </a>
-                <a
-                    class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
-                    href="https://x.com/rutadoradafilms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="X (Twitter)"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
-                    </svg>
-                </a>
+                {
+                    socialLinks.map((social) => (
+                        <a
+                            class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#F2AF0D] hover:bg-primary/10 transition-all"
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={social.title}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                viewBox="0 0 16 16"
+                                set:html={social.icon}
+                            />
+                        </a>
+                    ))
+                }
             </div>
         </div>
     </div>
@@ -741,7 +651,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     if (searchBtnEl) {
         searchBtnEl.addEventListener("click", openSearch);
     }
-    
+
     const searchBackdropEl = document.getElementById("search-backdrop");
     if (searchBackdropEl) {
         searchBackdropEl.addEventListener("click", closeSearch);
@@ -875,7 +785,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
             // Hide Auth Buttons
             authButtons.classList.add("hidden");
             authButtons.classList.remove("lg:flex");
-            
+
             // Show User Menu (Desktop only)
             userMenu.classList.add("hidden", "lg:flex");
 
@@ -907,14 +817,14 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
                 userAvatar?.setAttribute("src", avatarUrl);
                 userAvatar?.classList.remove("hidden");
                 userInitials?.classList.add("hidden");
-                
+
                 mobileUserAvatar?.setAttribute("src", avatarUrl);
                 mobileUserAvatar?.classList.remove("hidden");
                 mobileUserInitials?.classList.add("hidden");
             } else {
                 userAvatar?.classList.add("hidden");
                 userInitials?.classList.remove("hidden");
-                
+
                 mobileUserAvatar?.classList.add("hidden");
                 mobileUserInitials?.classList.remove("hidden");
             }
@@ -987,7 +897,7 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
     };
 
     const interactionEvents = ["mouseenter", "scroll", "touchstart", "click", "keydown"];
-    
+
     const onUserInteraction = () => {
         interactionEvents.forEach((e) => document.removeEventListener(e, onUserInteraction));
         loadSupabaseAuth();

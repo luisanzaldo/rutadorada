@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import AdminDesktopOnly from "../../components/AdminDesktopOnly.astro";
+import EditorPanel from "../../components/admin/EditorPanel.astro";
+import EditorModals from "../../components/admin/EditorModals.astro";
 import { getSession } from "../../lib/auth";
 import { USERS } from "../../lib/users";
 
@@ -32,7 +34,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         </div>
 
         <div class="bg-white/80 dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm relative z-10">
-            
+
             <!-- Encabezado de la página -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-slate-100 dark:border-[#224249] pb-6">
                 <div>
@@ -43,7 +45,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         Escribe un nuevo artículo
                     </h1>
                     <p class="text-slate-500 text-sm mt-3 sm:ml-[42px] flex items-center gap-2">
-                        <span>Autor asignado:</span> 
+                        <span>Autor asignado:</span>
                         <span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card-dark border border-[#224249] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -61,14 +63,14 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
             <!-- Formulario Principal -->
             <form class="space-y-8" id="nuevo-post-form" data-author={user?.displayName} data-letterboxd={user?.letterboxdUrl}>
-                
+
                 <!-- Sección 1: Información Principal -->
                 <div class="space-y-6 bg-slate-50/50 dark:bg-card-dark/20 p-6 rounded-2xl border border-slate-100 dark:border-[#224249]/50">
                     <h3 class="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2 mb-4">
                         <span class="material-symbols-outlined text-[18px]">info</span>
                         Datos Principales
                     </h3>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Título -->
                         <div class="md:col-span-2 space-y-2">
@@ -104,7 +106,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
                 <!-- Sección 2: Metadata y Categorización -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
+
                     <!-- Columna Izquierda: Taxonomía -->
                     <div class="space-y-6">
                         <!-- Categoría -->
@@ -138,21 +140,21 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 <span class="material-symbols-outlined text-primary text-[20px]">movie</span>
                                 <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Ficha Técnica</h3>
                             </div>
-                            
+
                             <div class="grid grid-cols-2 gap-4">
                                 <!-- Calificación -->
                                 <div class="space-y-1">
                                     <label for="rating" class="block text-[11px] font-bold text-slate-500 uppercase">Rating (0-100) *</label>
                                     <input type="number" id="rating" name="rating" min="0" max="100" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                                 </div>
-                                
+
                                 <!-- Duración -->
                                 <div class="space-y-1">
                                     <label for="duracion" class="block text-[11px] font-bold text-slate-500 uppercase">Duración *</label>
                                     <input type="text" id="duracion" name="duracion" placeholder="103 min" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                                 </div>
                             </div>
-                            
+
                             <!-- Director -->
                             <div class="space-y-1">
                                 <label for="director" class="block text-[11px] font-bold text-slate-500 uppercase">Director *</label>
@@ -164,7 +166,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 <label for="cast" class="block text-[11px] font-bold text-slate-500 uppercase">Elenco *</label>
                                 <input type="text" id="cast" name="cast" placeholder="Actor 1, Actor 2, Actor 3" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-card-dark/30 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50" />
                             </div>
-                            
+
                             <!-- Sinopsis -->
                             <div class="space-y-1">
                                 <label for="sinopsis" class="block text-[11px] font-bold text-slate-500 uppercase">Sinopsis *</label>
@@ -207,7 +209,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                                 placeholder=""
                             />
                         </div>
-                        
+
                         <!-- URL de la Fuente -->
                         <div class="space-y-2" id="sourceUrlContainer">
                             <label for="sourceUrl" id="sourceUrlLabel" class="block text-sm font-bold text-slate-700 dark:text-slate-200">
@@ -237,7 +239,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         <span class="material-symbols-outlined text-[20px] text-primary">broken_image</span>
                         Imagen Principal (Portada)
                     </h3>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                         <!-- Opción URL -->
                         <div class="w-full space-y-2">
@@ -281,86 +283,19 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 <hr class="border-slate-100 dark:border-[#224249]/50" />
 
                 <!-- Sección 4: Área del Editor Enriquecido -->
-                <div class="space-y-4">
-                    <label class="block text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[20px] text-primary">edit_note</span>
-                        Contenido del artículo
-                    </label>
-
-                    <!-- TIPTAP EDITOR -->
-                    <div class="w-full rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
-                        
-                        <!-- Toolbar -->
-                        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
-                            <!-- Format Buttons -->
-                            <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita (Ctrl+B)">
-                                <span class="font-serif font-black text-lg">N</span>
-                            </button>
-                            <button type="button" data-tiptap-btn="italic" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic" title="Itálica (Ctrl+I)">
-                                <span class="font-serif font-black text-lg">I</span>
-                            </button>
-                            <button type="button" data-tiptap-btn="underline" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none underline line-through decoration-transparent" title="Subrayado (Ctrl+U)">
-                                <span class="font-serif font-black text-lg">U</span>
-                            </button>
-                            
-                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
-                            
-                            <!-- Media Buttons -->
-                            <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
-                                <span class="material-symbols-outlined text-[20px]">image</span>
-                            </button>
-                            <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video de YouTube">
-                                <span class="material-symbols-outlined text-[20px]">smart_display</span>
-                            </button>
-                            <button type="button" id="btn-curiosity-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Bloque de Curiosidad">
-                                <span class="material-symbols-outlined text-[20px]">star</span>
-                            </button>
-                            
-                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
-                            
-                            <!-- Rating Blocks -->
-                            <button type="button" id="btn-good-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-green-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto positivo">
-                                <span class="material-symbols-outlined text-[20px]">schedule</span>
-                            </button>
-                            <button type="button" id="btn-regular-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-orange-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto regular">
-                                <span class="material-symbols-outlined text-[20px]">schedule</span>
-                            </button>
-                            <button type="button" id="btn-bad-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-red-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto negativo">
-                                <span class="material-symbols-outlined text-[20px]">schedule</span>
-                            </button>
-                            
-                            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
-                            
-                            <!-- Heading Buttons -->
-                            <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Título principal">
-                                <span class="text-[15px]">H1</span>
-                            </button>
-                            <button type="button" data-tiptap-btn="h2" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Subtítulo">
-                                <span class="text-sm">H2</span>
-                            </button>
-                            <button type="button" data-tiptap-btn="h3" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Sección">
-                                <span class="text-[12px]">H3</span>
-                            </button>
-                        </div>
-
-                        <!-- Escritura Area -->
-                        <div id="tiptap-editor" class="p-6 prose prose-slate dark:prose-invert max-w-none text-slate-900 dark:text-slate-200 min-h-[400px] max-h-[600px] overflow-y-auto outline-none bg-transparent prose-headings:font-display prose-headings:font-bold prose-a:text-primary prose-strong:text-primary prose-a:no-underline hover:prose-a:underline"></div>
-                        <input type="hidden" name="contentMarkdown" id="contentMarkdown">
-                        <input type="hidden" name="fileExtension" id="fileExtension" value=".md">
-                    </div>
-                </div>
+                <EditorPanel />
 
                 <!-- Botones de Acción (Submit) -->
                 <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 sm:gap-4 pt-8 mt-12 border-t border-slate-100 dark:border-[#224249]">
-                    <a 
-                        href="/admin" 
+                    <a
+                        href="/admin"
                         class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-200 dark:border-[#224249] text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-card-dark transition-all flex items-center justify-center gap-2"
                     >
                         <span class="material-symbols-outlined text-[18px]">close</span>
                         Cancelar
                     </a>
-                    
-                    <button 
+
+                    <button
                         id="submit-btn" type="submit"
                         class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-primary text-[#0b1618] font-bold shadow-[0_4px_14px_0_rgba(212,175,55,0.39)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -371,382 +306,21 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             </form>
         </div>
 
-        <!-- Modales para TipTap -->
-        <!-- Modal Imagen -->
-        <div id="modal-image" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-image-content">
-                <div class="flex justify-between items-center mb-6">
-                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">image</span> Insertar Imagen
-                    </h4>
-                    <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="space-y-4">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Por URL web</label>
-                        <input type="url" id="tiptap-img-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
-                    </div>
-                    <div class="relative flex py-2 items-center">
-                        <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
-                        <span class="flex-shrink-0 mx-4 text-slate-400 text-xs font-semibold uppercase">O</span>
-                        <div class="flex-grow border-t border-slate-200 dark:border-[#224249]"></div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Subir archivo local</label>
-                        <input type="file" id="tiptap-img-file" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 dark:file:bg-card-dark dark:file:text-white dark:hover:file:bg-[#224249] cursor-pointer" />
-                    </div>
-                    <button type="button" id="btn-insert-image" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
-                        Insertar en el artículo
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal YouTube -->
-        <div id="modal-youtube" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-youtube-content">
-                <div class="flex justify-between items-center mb-6">
-                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[#FF0000]">smart_display</span> Video de YouTube
-                    </h4>
-                    <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="space-y-6">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Enlace del video</label>
-                        <input type="url" id="tiptap-yt-url" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://www.youtube.com/watch?v=..." />
-                    </div>
-                    <button type="button" id="btn-insert-youtube" class="w-full py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
-                        Incrustar video
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Curiosidad -->
-        <div id="modal-curiosity" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-curiosity-content">
-                <div class="flex justify-between items-center mb-6">
-                    <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">star</span> Bloque de Curiosidad
-                    </h4>
-                    <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="space-y-4">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Título del recuadro</label>
-                        <input type="text" id="curiosity-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. La Magia de Cannes" />
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del recuadro</label>
-                        <textarea id="curiosity-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto de la curiosidad aquí..."></textarea>
-                    </div>
-                    <button type="button" id="btn-insert-curiosity" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(212,175,55,0.3)]">
-                        Insertar bloque
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Puntos (Bueno/Regular/Malo) -->
-        <div id="modal-point" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
-            <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-point-content">
-                <div class="flex justify-between items-center mb-6">
-                    <h4 id="point-modal-title" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <svg id="point-modal-icon" xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a10 10 0 1 0 10 10'/><path d='M12 6v6l4 2'/></svg>
-                        <span>Agregar punto</span>
-                    </h4>
-                    <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="space-y-4">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Título del bloque</label>
-                        <input type="text" id="point-title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Ej. Actuaciones sobresalientes" />
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-500 uppercase">Contenido del bloque</label>
-                        <textarea id="point-content" rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none font-medium" placeholder="Escribe el texto aquí..."></textarea>
-                    </div>
-                    <button type="button" id="btn-insert-point" class="w-full mt-4 py-3 rounded-xl text-[#0b1618] font-bold hover:brightness-110 transition-all shadow-lg">
-                        Insertar punto
-                    </button>
-                </div>
-            </div>
-        </div>
+        <EditorModals />
     </main>
 </Layout>
 
-<style is:global>
-    /* Estilos base de TipTap para quitar bordes e indicar el min height default */
-    .ProseMirror {
-        outline: none;
-        min-height: 400px;
-        caret-color: #F2AF0D; /* Color primario o dorado */
-    }
-    
-    /* Placeholder behavior cuando esta vacío */
-    .ProseMirror p.is-editor-empty:first-child::before {
-        content: attr(data-placeholder);
-        float: left;
-        color: #94a3b8; /* slate-400 */
-        pointer-events: none;
-        height: 0;
-    }
-
-    /* Estado visual de los botones del Toolbar de TipTap cuando estan activos */
-    .tiptap-btn-active {
-        background-color: #e2e8f0 !important; /* slate-200 */
-        color: #0f172a !important; /* slate-900 */
-        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-    }
-    .dark .tiptap-btn-active {
-        background-color: #0b1618 !important; 
-        color: #F2AF0D !important; /* text-primary */
-        border-color: #224249;
-    }
-    
-    /* Regla absoluta para que todo el texto en negritas dentro del área de edición sea del color primario (dorado) */
-    .ProseMirror strong, .ProseMirror b {
-        color: #F2AF0D !important;
-    }
-    
-    /* Media embeds en el editor */
-    .ProseMirror img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 0.75rem;
-        margin: 1.5rem auto;
-        border: 1px solid #224249;
-    }
-    .ProseMirror iframe {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        border-radius: 0.75rem;
-        margin: 1.5rem auto;
-        border: none;
-    }
-
-    /* Estilos explícitos para el bloque de Curiosidad dentro del editor (Tailwind fallback) */
-    .ProseMirror div[data-type="curiosity"] {
-        margin: 2rem 0;
-        border-radius: 0.75rem;
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        background-color: rgba(212, 175, 55, 0.05);
-        padding: 1.5rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .ProseMirror div[data-type="curiosity"]::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 4px;
-        background-color: #F2AF0D;
-    }
-
-    .ProseMirror div[data-type="curiosity"] h4 {
-        margin-top: 0 !important;
-        margin-bottom: 0.5rem !important;
-        color: #0f172a !important;
-        font-weight: 700 !important;
-        text-transform: uppercase;
-        font-size: 1.125rem;
-    }
-
-    .dark .ProseMirror div[data-type="curiosity"] h4 {
-        color: #ffffff !important;
-    }
-
-    .ProseMirror div[data-type="curiosity"] p {
-        margin: 0 !important;
-        color: #475569 !important;
-        font-size: 0.875rem;
-        line-height: 1.625;
-    }
-
-    .dark .ProseMirror div[data-type="curiosity"] p {
-        color: #cbd5e1 !important;
-    }
-
-    /* Asegurar que el icono de estrella sea visible y tenga el color correcto */
-    .ProseMirror div[data-type="curiosity"] .material-symbols-outlined {
-        color: #F2AF0D !important;
-    }
-
-    /* Colores para bloques de valoración */
-    .ProseMirror div[data-type="good"] .material-symbols-outlined { color: #22c55e !important; }
-    .ProseMirror div[data-type="regular"] .material-symbols-outlined { color: #f97316 !important; }
-    .ProseMirror div[data-type="bad"] .material-symbols-outlined { color: #ef4444 !important; }
-</style>
-
 <script>
-    import { Editor, Node } from '@tiptap/core';
-    import StarterKit from '@tiptap/starter-kit';
-    import Image from '@tiptap/extension-image';
-    import Youtube from '@tiptap/extension-youtube';
-    import Underline from '@tiptap/extension-underline';
-    import { Markdown } from 'tiptap-markdown';
-    // Extensión personalizada para el bloque de Curiosidad
-    const Curiosity = Node.create({
-        name: 'curiosity',
-        group: 'block',
-        selectable: true,
-        draggable: true,
-        atom: true, // Se comporta como una unidad única
-        parseHTML() {
-            return [
-                { tag: 'div[data-type="curiosity"]' },
-                { 
-                    tag: 'div', 
-                    getAttrs: element => {
-                        const classes = element.getAttribute('class') || '';
-                        if (classes.includes('border-[#F2AF0D]') || element.querySelector('h4')?.innerText.includes('Curiosidades')) {
-                            return {};
-                        }
-                        return false;
-                    }
-                }
-            ]
-        },
-        addAttributes() {
-            return {
-                title: { 
-                    default: '',
-                    parseHTML: element => element.querySelector('h4')?.innerText || '',
-                },
-                content: { 
-                    default: '',
-                    parseHTML: element => (element.querySelector('p')?.innerText || '').replace(/\r?\n|\r/g, " "),
-                },
-            }
-        },
-        renderHTML({ HTMLAttributes }) {
-            const { title, content } = HTMLAttributes;
-            return [
-                'div', 
-                { 'data-type': 'curiosity', class: 'my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden' },
-                ['div', { class: 'absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]' }],
-                ['div', { class: 'flex items-start gap-4' },
-                    ['div', { class: 'rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center' },
-                        ['span', { class: 'material-symbols-outlined text-sm' }, 'star']
-                    ],
-                    ['div', {},
-                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
-                        ['p', { class: 'text-slate-600 dark:text-slate-300 text-sm leading-relaxed' }, content]
-                    ]
-                ]
-            ];
-        },
-    });
+    import { initPostEditor } from '../../lib/tiptap-editor';
 
-    // Nodo para bloques de valoración (Bueno/Regular/Malo)
-    const Point = Node.create({
-        name: 'point',
-        group: 'block',
-        selectable: true,
-        draggable: true,
-        atom: true,
-        addAttributes() {
-            return {
-                type: { 
-                    default: 'good',
-                    parseHTML: element => element.getAttribute('data-type')
-                },
-                title: { 
-                    default: '',
-                    parseHTML: element => element.querySelector('h4')?.innerText || '',
-                },
-                content: { 
-                    default: '',
-                    parseHTML: element => (element.querySelector('p')?.innerText || '').replace(/\r?\n|\r/g, " "),
-                },
-            };
-        },
-        parseHTML() {
-            return [
-                { tag: 'div[data-type="good"]', getAttrs: () => ({ type: 'good' }) },
-                { tag: 'div[data-type="regular"]', getAttrs: () => ({ type: 'regular' }) },
-                { tag: 'div[data-type="bad"]', getAttrs: () => ({ type: 'bad' }) },
-                {
-                    tag: 'div',
-                    getAttrs: element => {
-                        const text = element.querySelector('h4')?.innerText || '';
-                        if (text.toLowerCase().includes('lo bueno')) return { type: 'good' };
-                        if (text.toLowerCase().includes('lo regular')) return { type: 'regular' };
-                        if (text.toLowerCase().includes('lo malo')) return { type: 'bad' };
-                        return false;
-                    }
-                }
-            ]
-        },
-        renderHTML({ HTMLAttributes }) {
-            const { type, title, content } = HTMLAttributes;
-            const colors = {
-                good: '#22c55e',
-                regular: '#f97316',
-                bad: '#ef4444'
-            };
-            const color = (colors as any)[type] || '#22c55e';
-            
-            return [
-                'div', 
-                { 
-                    'data-type': type, 
-                    class: 'my-8 rounded-xl border p-6 relative overflow-hidden',
-                    style: `border-color: ${color}33; background-color: ${color}0D;` // 20% alpha border, 5% alpha bg
-                },
-                ['div', { class: 'absolute top-0 left-0 h-full w-1', style: `background-color: ${color}` }],
-                ['div', { class: 'flex items-start gap-4' },
-                    ['div', { class: 'rounded-full p-2 shrink-0 flex items-center justify-center', style: `background-color: ${color}33` },
-                        ['span', { class: 'material-symbols-outlined text-sm', style: `color: ${color} !important;` }, 'speed']
-                    ],
-                    ['div', {},
-                        ['h4', { class: 'text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display' }, title],
-                        ['p', { class: 'text-slate-600 dark:text-slate-300 text-sm leading-relaxed' }, content]
-                    ]
-                ]
-            ];
-        },
-    });
-
-    // Para evitar ejecución prematura en Astro e hidratar correctamente el script del lado del cliente
     document.addEventListener("DOMContentLoaded", () => {
-        const editorElement = document.getElementById('tiptap-editor');
         const inputContent = document.getElementById('contentMarkdown') as HTMLInputElement;
         const fileExtInput = document.getElementById('fileExtension') as HTMLInputElement;
         const form = document.getElementById('nuevo-post-form');
 
-        // Referencias de Modales
-        const modalImage = document.getElementById('modal-image');
-        const modalYoutube = document.getElementById('modal-youtube');
-        const modalCuriosity = document.getElementById('modal-curiosity');
-        const modalPoint = document.getElementById('modal-point');
-        const modalImageContent = document.getElementById('modal-image-content');
-        const modalYoutubeContent = document.getElementById('modal-youtube-content');
-        const modalCuriosityContent = document.getElementById('modal-curiosity-content');
-        const modalPointContent = document.getElementById('modal-point-content');
-        
-        // Configuración dinámica modal puntos
-        const pointModalTitle = document.getElementById('point-modal-title');
-        const pointModalIcon = document.getElementById('point-modal-icon');
-        const btnInsertPoint = document.getElementById('btn-insert-point');
-        let currentPointType = 'good';
-        
         // Referencias para comportamiento especial de Tráilers
         const categorySelect = document.getElementById('category') as HTMLSelectElement;
         const sourceNameContainer = document.getElementById('sourceNameContainer');
-        const sourceUrlContainer = document.getElementById('sourceUrlContainer');
         const sourceUrlLabel = document.getElementById('sourceUrlLabel');
         const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
 
@@ -763,7 +337,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 const category = categorySelect.value;
                 const isTrailer = category === 'Tráilers';
                 const isCritica = category === 'Críticas';
-                
+
                 // Comportamiento Tráilers
                 if (isTrailer) {
                     if (sourceNameContainer) sourceNameContainer.classList.add('hidden');
@@ -799,99 +373,22 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 }
             });
         }
-        
+
         // Referencias Preview Portada Global
         const mainImageUrl = document.getElementById('imageUrl') as HTMLInputElement;
         const mainImageFile = document.getElementById('imageFile') as HTMLInputElement;
         const coverPreviewContainer = document.getElementById('coverPreviewContainer');
         const coverPreviewImage = document.getElementById('coverPreviewImage') as HTMLImageElement;
         const coverPreviewError = document.getElementById('coverPreviewError');
-        
-        if (editorElement) {
-            // Referencias inmediatas a los botones
-            const btns = {
-                bold: document.querySelector('[data-tiptap-btn="bold"]'),
-                italic: document.querySelector('[data-tiptap-btn="italic"]'),
-                underline: document.querySelector('[data-tiptap-btn="underline"]'),
-                h1: document.querySelector('[data-tiptap-btn="h1"]'),
-                h2: document.querySelector('[data-tiptap-btn="h2"]'),
-                h3: document.querySelector('[data-tiptap-btn="h3"]'),
-            };
 
-            const editor = new Editor({
-                element: editorElement,
-                extensions: [
-                    StarterKit.configure({
-                        hardBreak: false,
-                    }),
-                    Image.configure({
-                        inline: false,
-                    }),
-                    Youtube.configure({ inline: false }),
-                    Underline,
-                    Markdown.configure({
-                        html: true,
-                    }),
-                    Curiosity,
-                    Point
-                ],
-                content: '<p></p>',
-                editorProps: {
-                    attributes: {
-                        class: 'focus:outline-none',
-                        'data-placeholder': 'Comienza a escribir la publicación aquí...'
-                    },
-                },
-                onUpdate: ({ editor }) => {
-                    // TipTap Markdown extrae el texto puro MD que usaremos después en colecciones
-                    const mdText = editor.storage.markdown.getMarkdown()
-                        .replace(/(!\[[^\]]*\]\([^)]*\))\n?(#{1,6} )/g, '$1\n\n$2');
-                    inputContent.value = mdText;
-                    
-                    // Detectar si hay un iframe de youtube presente y forzar a que sea MDX!
-                    if (fileExtInput) {
-                        if (editor.getHTML().includes('<iframe') || mdText.includes('<iframe')) {
-                            fileExtInput.value = '.mdx';
-                        } else {
-                            fileExtInput.value = '.md';
-                        }
-                    }
-                    
-                    updateActiveButtons(editor);
-                },
-                onSelectionUpdate: ({ editor }) => {
-                    updateActiveButtons(editor);
-                }
-            });
+        // Editor Tiptap compartido (toolbar + modales)
+        const editor = initPostEditor();
 
-            // Registrar listeners para los botones de texto
-            btns.bold?.addEventListener('click', () => { editor.chain().focus().toggleBold().run() });
-            btns.italic?.addEventListener('click', () => { editor.chain().focus().toggleItalic().run() });
-            btns.underline?.addEventListener('click', () => { editor.chain().focus().toggleUnderline().run() });
-            btns.h1?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 1 }).run() });
-            btns.h2?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 2 }).run() });
-            btns.h3?.addEventListener('click', () => { editor.chain().focus().toggleHeading({ level: 3 }).run() });
-
-            // Detecta y sombrea como actio el formato detectado por Cursor
-            function updateActiveButtons(ed: any) {
-                setBtnState(btns.bold, ed.isActive('bold'));
-                setBtnState(btns.italic, ed.isActive('italic'));
-                setBtnState(btns.underline, ed.isActive('underline'));
-                setBtnState(btns.h1, ed.isActive('heading', { level: 1 }));
-                setBtnState(btns.h2, ed.isActive('heading', { level: 2 }));
-                setBtnState(btns.h3, ed.isActive('heading', { level: 3 }));
-            }
-
-            function setBtnState(btn: Element | null | undefined, isActive: boolean) {
-                if (!btn) return;
-                if (isActive) btn.classList.add('tiptap-btn-active');
-                else btn.classList.remove('tiptap-btn-active');
-            }
-
+        if (editor) {
             // Manejar validación y submit a la API real
             form?.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
+
                 const titleInput = document.getElementById('title') as HTMLInputElement;
                 const descInput = document.getElementById('description') as HTMLTextAreaElement;
                 const catInput = document.getElementById('category') as HTMLSelectElement;
@@ -906,22 +403,21 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                 const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
                 const btnText = document.getElementById('btn-text');
                 const btnIcon = document.getElementById('btn-icon');
-                
+
                 if (submitBtn) submitBtn.disabled = true;
                 if (btnText) btnText.textContent = 'Publicando...';
                 if (btnIcon) btnIcon.textContent = 'hourglass_empty';
 
                 try {
                     // Recopilar tags (separar por comas y limpiar espacios)
-                    // Recopilar tags (separar por comas y limpiar espacios)
                     const tagsInput = (document.getElementById('tags') as HTMLInputElement).value;
                     const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : [];
-                    
+
                     // Fuente y Video
                     const sourceNameInput = document.getElementById('sourceName') as HTMLInputElement;
                     const sourceUrlInput = document.getElementById('sourceUrl') as HTMLInputElement;
                     const category = catInput.value;
-                    
+
                     let fuente = undefined;
                     let videoUrl = undefined;
                     let rating = undefined;
@@ -933,7 +429,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                         const sName = sourceNameInput.value;
                         const sUrl = sourceUrlInput.value;
                         fuente = (sName || sUrl) ? { nombre: sName, url: sUrl } : undefined;
-                        
+
                         rating = parseInt(ratingInput.value);
                         fichaTecnica = {
                             sinopsis: sinopsisInput.value,
@@ -966,7 +462,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                             headers: { 'Content-Type': file.type, 'x-filename': encodeURIComponent(file.name) },
                             body: file
                         });
-                        
+
                         if (uploadRes.ok) {
                             const uploadData = await uploadRes.json();
                             finalImageUrl = uploadData.url;
@@ -1013,7 +509,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     });
 
                     const result = await publishRes.json();
-                    
+
                     if (result.success) {
                         alert('¡El artículo ha sido publicado exitosamente!');
                         setTimeout(() => {
@@ -1022,7 +518,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     } else {
                         throw new Error(result.error || 'Error desconocido por parte de GitHub.');
                     }
-                    
+
                 } catch (error: any) {
                     console.error("Error al publicar:", error);
                     alert(`Error de plataforma: ${error.message}`);
@@ -1031,194 +527,18 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     if (btnIcon) btnIcon.textContent = 'public';
                 }
             });
-
-            // --- Lógica Modales Media ---
-            const openModal = (modal: HTMLElement | null, content: HTMLElement | null) => {
-                modal?.classList.remove('hidden');
-                setTimeout(() => content?.classList.remove('scale-95', 'opacity-0'), 10);
-            };
-
-            const closeModal = (modal: HTMLElement | null, content: HTMLElement | null) => {
-                content?.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => modal?.classList.add('hidden'), 200);
-            };
-
-            document.getElementById('btn-image-modal')?.addEventListener('click', () => {
-                openModal(modalImage, modalImageContent);
-            });
-            
-            document.getElementById('btn-video-modal')?.addEventListener('click', () => {
-                openModal(modalYoutube, modalYoutubeContent);
-            });
-            
-            document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', () => {
-                closeModal(modalImage, modalImageContent);
-                closeModal(modalYoutube, modalYoutubeContent);
-                closeModal(modalCuriosity, modalCuriosityContent);
-                closeModal(modalPoint, modalPointContent);
-            }));
-
-            document.getElementById('btn-curiosity-modal')?.addEventListener('click', () => {
-                openModal(modalCuriosity, modalCuriosityContent);
-            });
-
-            // Insertar Bloque de Curiosidad
-            document.getElementById('btn-insert-curiosity')?.addEventListener('click', () => {
-                const titleInput = document.getElementById('curiosity-title') as HTMLInputElement;
-                const contentInput = document.getElementById('curiosity-content') as HTMLTextAreaElement;
-                const title = titleInput?.value;
-                const content = contentInput?.value;
-
-                if (title && content) {
-                    const cleanContent = content.replace(/\r?\n|\r/g, " ");
-                    // Usar el comando insertContent con el HTML exacto como solicitó el usuario, 
-                    // pero con el data-type para que el editor lo reconozca como nuestro nodo Curiosity
-                    const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined" style="font-size: 20px;">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${cleanContent}</p></div></div></div>`;
-                    
-                    editor.commands.insertContent(html);
-                    
-                    if (titleInput) titleInput.value = '';
-                    if (contentInput) contentInput.value = '';
-                    closeModal(modalCuriosity, modalCuriosityContent);
-                } else {
-                    alert("Por favor llena ambos campos (Título y Contenido).");
-                }
-            });
-
-            // Botones para abrir Modal Puntos
-            const setupPointButton = (id: string, type: string, title: string, color: string) => {
-                const btn = document.getElementById(id);
-                btn?.addEventListener('click', () => {
-                    currentPointType = type;
-                    
-                    // Configurar título por defecto según el tipo
-                    const pointTitleInput = document.getElementById('point-title') as HTMLInputElement;
-                    if (pointTitleInput) {
-                        const defaultTitles: Record<string, string> = {
-                            good: 'Lo bueno',
-                            regular: 'Lo regular',
-                            bad: 'Lo malo'
-                        };
-                        pointTitleInput.value = defaultTitles[type] || '';
-                    }
-
-                    if (pointModalTitle) {
-                        (pointModalTitle.querySelector('span') as HTMLElement).textContent = title;
-                    }
-                    if (pointModalIcon) {
-                        pointModalIcon.style.color = color;
-                    }
-                    if (btnInsertPoint) {
-                        btnInsertPoint.style.backgroundColor = color;
-                        btnInsertPoint.textContent = `Insertar punto ${type === 'good' ? 'positivo' : type === 'regular' ? 'regular' : 'negativo'}`;
-                    }
-                    
-                    openModal(modalPoint, modalPointContent);
-                });
-            };
-
-            setupPointButton('btn-good-modal', 'good', 'Agregar punto positivo', '#22c55e');
-            setupPointButton('btn-regular-modal', 'regular', 'Agregar punto regular', '#f97316');
-            setupPointButton('btn-bad-modal', 'bad', 'Agregar punto negativo', '#ef4444');
-
-            // Lógica de inserción de puntos
-            btnInsertPoint?.addEventListener('click', () => {
-                const titleInput = document.getElementById('point-title') as HTMLInputElement;
-                const contentInput = document.getElementById('point-content') as HTMLTextAreaElement;
-                const title = titleInput?.value;
-                const content = contentInput?.value;
-
-                if (title && content) {
-                    editor.commands.insertContent({
-                        type: 'point',
-                        attrs: {
-                            type: currentPointType,
-                            title,
-                            content
-                        }
-                    });
-
-                    // Reset y cerrar
-                    if (titleInput) titleInput.value = '';
-                    if (contentInput) contentInput.value = '';
-                    closeModal(modalPoint, modalPointContent);
-                } else {
-                    alert("Por favor llena ambos campos (Título y Contenido).");
-                }
-            });
-
-            // Insertar Imagen desde UI
-            document.getElementById('btn-insert-image')?.addEventListener('click', async () => {
-                const urlInput = document.getElementById('tiptap-img-url') as HTMLInputElement;
-                const fileInput = document.getElementById('tiptap-img-file') as HTMLInputElement;
-                const insertBtn = document.getElementById('btn-insert-image') as HTMLButtonElement;
-                const urlValue = urlInput?.value.trim();
-
-                if (fileInput?.files && fileInput.files[0]) {
-                    const file = fileInput.files[0];
-                    const originalLabel = insertBtn?.textContent || 'Insertar en el artículo';
-                    if (insertBtn) { insertBtn.disabled = true; insertBtn.textContent = 'Subiendo...'; }
-
-                    try {
-                        const uploadRes = await fetch('/api/posts/upload-image', {
-                            method: 'POST',
-                            headers: { 'Content-Type': file.type, 'x-filename': encodeURIComponent(file.name) },
-                            body: file
-                        });
-                        const uploadData = await uploadRes.json();
-                        if (uploadRes.ok && uploadData.success) {
-                            const imageSrc = uploadData.previewUrl || uploadData.url;
-                            editor.chain().focus().setImage({ src: imageSrc }).run();
-                            if (urlInput) urlInput.value = '';
-                            if (fileInput) fileInput.value = '';
-                            closeModal(modalImage, modalImageContent);
-                        } else {
-                            alert(`No se pudo subir la imagen: ${uploadData.error || 'Error desconocido'}`);
-                        }
-                    } catch (e: any) {
-                        alert(`Error al subir la imagen: ${e.message}`);
-                    } finally {
-                        if (insertBtn) { insertBtn.disabled = false; insertBtn.textContent = originalLabel; }
-                    }
-                    return;
-                }
-
-                if (urlValue) {
-                    editor.chain().focus().setImage({ src: urlValue }).run();
-                    if (urlInput) urlInput.value = '';
-                    if (fileInput) fileInput.value = '';
-                    closeModal(modalImage, modalImageContent);
-                } else {
-                    alert("Por favor ingresa un enlace o selecciona un archivo para tu imagen.");
-                }
-            });
-
-            // Insertar YouTube desde UI
-            document.getElementById('btn-insert-youtube')?.addEventListener('click', () => {
-                const urlInput = document.getElementById('tiptap-yt-url') as HTMLInputElement;
-                const url = urlInput?.value;
-
-                if (url) {
-                    editor.chain().focus().setYoutubeVideo({ src: url }).run();
-                    if (urlInput) urlInput.value = '';
-                    closeModal(modalYoutube, modalYoutubeContent);
-                } else {
-                    alert("Agrega un enlace de YouTube válido.");
-                }
-            });
         }
 
         // --- Lógica Preview Portada General ---
         let previewTimeout: number | undefined;
 
         const updateCoverPreview = (src: string) => {
-            console.log("[Cover Preview] Analizando fuente de imagen:", src);
             if (!src) {
                 coverPreviewContainer?.classList.add('hidden');
                 coverPreviewContainer?.classList.remove('flex');
                 return;
             }
-            
+
             coverPreviewContainer?.classList.remove('hidden');
             coverPreviewContainer?.classList.add('flex');
             coverPreviewImage?.classList.add('hidden');
@@ -1228,17 +548,13 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             if (coverPreviewImage) {
                 // Al adjuntar los eventos directamente a la imagen en el DOM garantizamos visibilidad
                 coverPreviewImage.onload = () => {
-                    console.log("[Cover Preview] Imagen cargada correctamente en el DOM.");
                     coverPreviewImage.classList.remove('hidden');
                 };
                 coverPreviewImage.onerror = () => {
-                    console.error("[Cover Preview] Falló la carga de la imagen:", src);
                     coverPreviewError?.classList.remove('hidden');
                     coverPreviewError?.classList.add('flex');
                 };
                 coverPreviewImage.src = src;
-            } else {
-                console.error("[Cover Preview] NO se encontró el elemento <img> en el HTML.");
             }
         };
 
@@ -1248,7 +564,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             if (val) {
                 if (mainImageFile) mainImageFile.value = ''; // Prioridad visual al link
             }
-            
+
             clearTimeout(previewTimeout);
             previewTimeout = window.setTimeout(() => updateCoverPreview(val), 500);
         });

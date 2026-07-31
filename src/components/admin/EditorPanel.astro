@@ -1,0 +1,80 @@
+---
+// Área del editor enriquecido (Tiptap): toolbar + zona de escritura + inputs ocultos.
+// La lógica del editor vive en src/lib/tiptap-editor.ts (initPostEditor) y los
+// modales que usan estos botones en EditorModals.astro.
+interface Props {
+    /** Extensión inicial del archivo (".md" o ".mdx"). */
+    fileExtension?: string;
+}
+
+const { fileExtension = ".md" } = Astro.props;
+---
+
+<div class="space-y-4">
+    <label class="block text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+        <span class="material-symbols-outlined text-[20px] text-primary">edit_note</span>
+        Contenido del artículo
+    </label>
+
+    <!-- TIPTAP EDITOR -->
+    <div class="w-full rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
+
+        <!-- Toolbar -->
+        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
+            <!-- Format Buttons -->
+            <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita (Ctrl+B)">
+                <span class="font-serif font-black text-lg">N</span>
+            </button>
+            <button type="button" data-tiptap-btn="italic" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic" title="Itálica (Ctrl+I)">
+                <span class="font-serif font-black text-lg">I</span>
+            </button>
+            <button type="button" data-tiptap-btn="underline" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none underline line-through decoration-transparent" title="Subrayado (Ctrl+U)">
+                <span class="font-serif font-black text-lg">U</span>
+            </button>
+
+            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+
+            <!-- Media Buttons -->
+            <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
+                <span class="material-symbols-outlined text-[20px]">image</span>
+            </button>
+            <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video de YouTube">
+                <span class="material-symbols-outlined text-[20px]">smart_display</span>
+            </button>
+            <button type="button" id="btn-curiosity-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Bloque de Curiosidad">
+                <span class="material-symbols-outlined text-[20px]">star</span>
+            </button>
+
+            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+
+            <!-- Rating Blocks -->
+            <button type="button" id="btn-good-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-green-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto positivo">
+                <span class="material-symbols-outlined text-[20px]">schedule</span>
+            </button>
+            <button type="button" id="btn-regular-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-orange-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto regular">
+                <span class="material-symbols-outlined text-[20px]">schedule</span>
+            </button>
+            <button type="button" id="btn-bad-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-red-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto negativo">
+                <span class="material-symbols-outlined text-[20px]">schedule</span>
+            </button>
+
+            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+
+            <!-- Heading Buttons -->
+            <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Título principal">
+                <span class="text-[15px]">H1</span>
+            </button>
+            <button type="button" data-tiptap-btn="h2" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Subtítulo">
+                <span class="text-sm">H2</span>
+            </button>
+            <button type="button" data-tiptap-btn="h3" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Sección">
+                <span class="text-[12px]">H3</span>
+            </button>
+        </div>
+
+        <!-- Escritura Area -->
+        <div id="tiptap-editor" class="p-6 prose prose-slate dark:prose-invert max-w-none text-slate-900 dark:text-slate-200 min-h-[400px] max-h-[600px] overflow-y-auto outline-none bg-transparent prose-headings:font-display prose-headings:font-bold prose-a:text-primary prose-strong:text-primary prose-a:no-underline hover:prose-a:underline"></div>
+        <input type="hidden" name="contentMarkdown" id="contentMarkdown">
+        <input type="hidden" name="fileExtension" id="fileExtension" value={fileExtension}>
+    </div>
+</div>
