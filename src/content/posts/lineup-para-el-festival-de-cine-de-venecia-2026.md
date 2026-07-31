@@ -61,7 +61,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *Woman Unknown*, dir. May el-Toukhy
 
-## **Venice Spotlight**
+### **Venice Spotlight**
 
 - *Sumo: Spirit Weighs Nothing*, dir. Erik Shirai (Película de apertura)
 
@@ -79,7 +79,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *Serpenti*, dir. Roberto de Paolis Maino
 
-# **Orizzonti Competition**
+### **Orizzonti Competition**
 
 - *La Ragazza con la Leica*, dir. Alina Marazzi (Película de apertura)
 
