@@ -1,9 +1,10 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from '../types/database';
 
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '';
 
-let client: ReturnType<typeof createClient>;
+let client: SupabaseClient<Database>;
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('Supabase URL or Anon Key is missing from environment variables. UI elements relying on this will be non-functional, but no crash will occur.');
@@ -23,7 +24,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
     }
   } as any;
 } else {
-  client = createClient(supabaseUrl, supabaseAnonKey);
+  client = createClient<Database>(supabaseUrl, supabaseAnonKey);
 }
 
 export const supabase = client;
