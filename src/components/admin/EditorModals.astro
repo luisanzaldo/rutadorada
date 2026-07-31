@@ -143,8 +143,13 @@
         border-color: #224249;
     }
 
-    /* Regla absoluta para que todo el texto en negritas dentro del área de edición sea del color primario (dorado) */
-    .ProseMirror strong, .ProseMirror b {
+    /* Las negritas sólo son doradas en modo oscuro; en modo claro se ven como negritas tradicionales */
+    .dark .ProseMirror strong, .dark .ProseMirror b {
+        color: #F2AF0D !important;
+    }
+
+    /* Los subtítulos h1, h2 y h3 son siempre dorados (modo claro y oscuro) */
+    .ProseMirror h1, .ProseMirror h2, .ProseMirror h3 {
         color: #F2AF0D !important;
     }
 

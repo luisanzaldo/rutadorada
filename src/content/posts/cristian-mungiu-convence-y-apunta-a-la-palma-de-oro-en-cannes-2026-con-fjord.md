@@ -4,7 +4,7 @@ description: "Gran recibimiento para Fjord, la última película del rumano Cris
 pubDate: 2026-05-18T18:16:06.358Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/05/Fjord-Family-Picture-Photo-Credit-Tudor-Panduru-copy.jpg?w=681&h=383&crop=1"
+image: "/images/posts/cristian-mungiu-convence-y-apunta-a-la-palma-de-oro-en-cannes-2026-con-fjord.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

@@ -5,7 +5,7 @@ pubDate: 2026-07-16T15:26:01.930Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2026/07/andrew-garfield-in-uprising.jpg?w=1600&h=900&fit=crop"
+image: "/images/posts/2026-07-16-trailer-the-uprising.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

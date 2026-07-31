@@ -5,7 +5,7 @@ pubDate: 2026-06-21T17:31:08.905Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/02/Toy-Story-5-1.jpg"
+image: "/images/posts/2026-06-21-la-gran-apertura-de-toy-story-5.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

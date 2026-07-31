@@ -4,7 +4,7 @@ description: "Críticas de La bola negra, película de Los Javis que ha deslumbr
 pubDate: 2026-05-21T17:43:52.953Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://cdn.theplaylist.net/wp-content/uploads/2026/05/19191612/TheBlackBallCannes.jpg"
+image: "/images/posts/los-javis-conquistan-a-la-critica-y-al-publico-en-cannes-2026-con-la-bola-negra.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

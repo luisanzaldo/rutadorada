@@ -4,7 +4,7 @@ description: "El tercer largometraje de Gael García Bernal, “Hombre al agua�
 pubDate: 2026-07-24T04:30:25.320Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/Hombre-al-agua-de-Gael-Garcia-Bernal-estara-en-el-Festival-de-Cine-de-Toronto.jpg"
+image: "/images/posts/2026-07-24-hombre-al-agua-debutara-en-venecia-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "FICM"

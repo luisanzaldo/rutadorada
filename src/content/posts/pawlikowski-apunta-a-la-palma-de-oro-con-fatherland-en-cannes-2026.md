@@ -4,7 +4,7 @@ description: "Críticas de la película Fatherland de Paweł Pawlikowski, en su 
 pubDate: 2026-05-14T16:43:29.729Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/04/image001.jpg?w=681&h=383&crop=1"
+image: "/images/posts/pawlikowski-apunta-a-la-palma-de-oro-con-fatherland-en-cannes-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

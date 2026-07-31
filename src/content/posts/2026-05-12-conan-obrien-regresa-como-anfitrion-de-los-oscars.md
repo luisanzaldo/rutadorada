@@ -5,7 +5,7 @@ pubDate: 2026-05-12T22:42:52.190Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/03/conan-obrien.jpg"
+image: "/images/posts/2026-05-12-conan-obrien-regresa-como-anfitrion-de-los-oscars.jpg"
 category: "Premios"
 fuente:
   nombre: "The Wrap"

@@ -5,7 +5,7 @@ pubDate: 2026-05-12T17:23:24.692Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/05/Cannes-jury.jpg?w=1440&h=810&crop=1"
+image: "/images/posts/2026-05-12-la-apertura-del-festival-de-cannes.jpg"
 category: "Premios"
 fuente:
   nombre: "The Hollywood Reporter"

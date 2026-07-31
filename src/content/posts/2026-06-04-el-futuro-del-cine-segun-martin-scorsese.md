@@ -4,7 +4,7 @@ description: "El director de \"Goodfellas\" se une a la empresa de inteligencia 
 pubDate: 2026-06-04T14:40:23.301Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://static01.nyt.com/images/2020/01/05/arts/05martin-scorsese3/05martin-scorsese3-videoSixteenByNineJumbo1600.jpg"
+image: "/images/posts/2026-06-04-el-futuro-del-cine-segun-martin-scorsese.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

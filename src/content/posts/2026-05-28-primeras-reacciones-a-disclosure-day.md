@@ -5,7 +5,7 @@ pubDate: 2026-05-28T00:02:50.302Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/05/MCDDIDA_UV003.jpg"
+image: "/images/posts/2026-05-28-primeras-reacciones-a-disclosure-day.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

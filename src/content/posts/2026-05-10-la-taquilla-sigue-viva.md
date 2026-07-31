@@ -5,7 +5,7 @@ pubDate: 2026-05-10T16:19:49.901Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/04/MCDDEWE_WD032.jpg"
+image: "/images/posts/2026-05-10-la-taquilla-sigue-viva.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

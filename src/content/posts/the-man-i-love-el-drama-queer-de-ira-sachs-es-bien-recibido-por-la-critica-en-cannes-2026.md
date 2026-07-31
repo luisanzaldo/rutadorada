@@ -4,7 +4,7 @@ description: "Críticas de la última película de Ira Sachs, proyectada en Cann
 pubDate: 2026-05-20T23:54:54.374Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://m.media-amazon.com/images/M/MV5BNmU1YWExN2UtNjg2OC00ZWE1LTlhODAtMDQ1MzJhMzMxZGY0XkEyXkFqcGc@._V1_.jpg"
+image: "/images/posts/the-man-i-love-el-drama-queer-de-ira-sachs-es-bien-recibido-por-la-critica-en-cannes-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

@@ -4,7 +4,7 @@ description: "Amazon cancela la distribución de \"Artificial\", la nueva pelíc
 pubDate: 2026-06-19T15:50:07.588Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2025/04/2210183994.jpg?w=1000&h=667&crop=1"
+image: "/images/posts/amazon-siente-miedo-y-se-echa-para-atras-con-artificial-lo-nuevo-de-guadagnino.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

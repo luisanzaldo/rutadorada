@@ -5,7 +5,7 @@ pubDate: 2026-05-24T17:14:49.515Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://i0.wp.com/www.thewrap.com/wp-content/uploads/2026/02/The-Mandalorian-and-Grogu-1.jpg?fit=1200%2C675&quality=89&ssl=1"
+image: "/images/posts/2026-05-24-the-mandalorian-and-grogu-y-obsession-dominan-la-taquilla.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

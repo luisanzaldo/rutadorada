@@ -5,7 +5,7 @@ pubDate: 2026-05-27T18:36:45.938Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/05/Punky-Duck.jpg"
+image: "/images/posts/2026-05-27-amazon-impulsa-la-produccion-con-inteligencia-artificial.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

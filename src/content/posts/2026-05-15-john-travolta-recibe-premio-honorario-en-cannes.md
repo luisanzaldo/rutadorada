@@ -4,7 +4,7 @@ description: "John Travolta sorprendido con Palme d'Or honorario en Cannes"
 pubDate: 2026-05-15T17:41:38.608Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://variety.com/wp-content/uploads/2026/05/john.jpg"
+image: "/images/posts/2026-05-15-john-travolta-recibe-premio-honorario-en-cannes.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

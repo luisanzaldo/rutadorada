@@ -4,7 +4,7 @@ description: "Críticas de Coward, la reciente película de Lukas Dhont después
 pubDate: 2026-05-21T22:39:33.367Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/05/COWARD-200189-H-2026.jpg?w=1296&h=730&crop=1"
+image: "/images/posts/en-el-dia-queer-de-cannes-tambien-lukas-dhont-anima-a-la-critica-con-coward.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

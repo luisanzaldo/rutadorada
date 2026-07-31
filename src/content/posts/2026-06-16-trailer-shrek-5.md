@@ -5,7 +5,7 @@ pubDate: 2026-06-16T15:51:23.725Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://blob.posta.com.mx/images/2025/02/27/shrek-5-1-f15e797b-focus-0-0-1479-828.webp"
+image: "/images/posts/2026-06-16-trailer-shrek-5.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

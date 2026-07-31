@@ -5,7 +5,7 @@ pubDate: 2026-06-07T15:16:53.614Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/03/marlon-wayans-scary-movie-6.jpg"
+image: "/images/posts/2026-06-07-la-comedia-scary-movie-arrasa-en-taquilla.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

@@ -4,7 +4,7 @@ description: "Netflix asegura la distribución de 'Ashes' en los mercados de hab
 pubDate: 2026-05-12T14:17:54.575Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/05/Ashes.webp"
+image: "/images/posts/netflix-adquiere-lo-nuevo-de-diego-luna-para-america-latina-espana-y-portugal.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

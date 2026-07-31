@@ -4,7 +4,7 @@ description: "Reacciones de la crítica de la nueva película del norteamericano
 pubDate: 2026-05-16T22:54:28.762Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/05/paper-tiger-cannes.jpg?w=1000&h=667&crop=1"
+image: "/images/posts/la-critica-en-cannes-2026-aclama-de-forma-casi-unanime-paper-tiger.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

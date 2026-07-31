@@ -5,7 +5,7 @@ pubDate: 2026-05-31T17:01:25.780Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2025/06/Kane-Parsons.jpg"
+image: "/images/posts/2026-05-31-la-invasion-del-terror.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

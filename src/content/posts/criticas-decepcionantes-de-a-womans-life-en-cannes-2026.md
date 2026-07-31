@@ -4,7 +4,7 @@ description: "Críticas de la película A Woman’s Life vista en la selección 
 pubDate: 2026-05-13T17:55:49.238Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/05/A-Womans-Life-jpeg.webp"
+image: "/images/posts/criticas-decepcionantes-de-a-womans-life-en-cannes-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

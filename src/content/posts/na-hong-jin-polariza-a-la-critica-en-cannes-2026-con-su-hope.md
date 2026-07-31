@@ -4,7 +4,7 @@ description: "Críticas de Hope, la película más polarizante hasta ahora de la
 pubDate: 2026-05-17T22:52:48.235Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://m.media-amazon.com/images/M/MV5BM2Y0M2E0ZmYtNTk4OS00NTU0LThhNzgtOWU3OGUxZDk3Yjg5XkEyXkFqcGc@._V1_.jpg"
+image: "/images/posts/na-hong-jin-polariza-a-la-critica-en-cannes-2026-con-su-hope.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

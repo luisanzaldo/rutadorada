@@ -4,7 +4,7 @@ description: "Ryusuke Hamaguchi, director de Drive My Car, convence a la crític
 pubDate: 2026-05-15T16:17:01.826Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/05/ALL-OF-A-SUDDEN-Film-Still-1-1.webp?w=1000&h=667&crop=1"
+image: "/images/posts/hamaguchi-convence-a-la-critica-en-cannes-2026-con-su-demandante-all-of-a-sudden.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

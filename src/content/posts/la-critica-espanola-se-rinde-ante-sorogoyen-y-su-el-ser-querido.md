@@ -4,7 +4,7 @@ description: "Las críticas de medios españoles están alabando el último trab
 pubDate: 2026-05-16T17:58:39.211Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCIX-HOsNTJnJ4Oa7fjZqBIWGMbj782nQQC5BOZSyFwI2ogCwfETkT9gkO&s=10"
+image: "/images/posts/la-critica-espanola-se-rinde-ante-sorogoyen-y-su-el-ser-querido.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

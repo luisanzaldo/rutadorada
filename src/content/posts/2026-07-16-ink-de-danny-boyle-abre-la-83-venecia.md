@@ -4,7 +4,7 @@ description: "El nuevo drama de Danny Boyle, “Ink”, con Jack O’Connell, Gu
 pubDate: 2026-07-16T15:34:30.740Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/07/Ink.jpg"
+image: "/images/posts/2026-07-16-ink-de-danny-boyle-abre-la-83-venecia.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

@@ -4,7 +4,7 @@ description: "Resumen de la taquilla de verano con \"Disclosure Day\" y \"Obsess
 pubDate: 2026-06-14T23:02:12.620Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsyAaLCwOObCAC9rUovL5XbXQhyphenhyphenF17Ii1VYUgJWU8NzScyK6ZQydQQPVnBNJOKZBJv1p4vv_rlYUVVf1d5bZra3qOxAfqoFBP1beqg7BxnvMoV6h9xh_d0jmgf91jFZg_3Pxd1BmazE8Qa-lI2k-icDeykKzJ6gCb53orHdd5lSt3f3Qb0KrxEKSqSrYr2/s1920/disclousre.png"
+image: "/images/posts/2026-06-14-la-taquilla-de-verano-se-calienta.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

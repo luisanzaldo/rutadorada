@@ -4,7 +4,7 @@ description: "15 películas que pueden aparecer en el lineup de la 83.ª edició
 pubDate: 2026-07-17T17:55:36.680Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyIpZELfrvSOKI7nVuregOdglTryHxNQWb5Z3eA_z_rA&s=10"
+image: "/images/posts/posible-lineup-de-la-83-edicion-del-festival-internacional-de-cine-de-venecia.jpg"
 category: "Premios"
 fuente:
   nombre: "The Hollywood Reporter"

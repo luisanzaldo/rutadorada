@@ -5,7 +5,7 @@ pubDate: 2026-07-22T16:41:39.820Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://i0.wp.com/awardswatch.com/wp-content/uploads/2026/07/bafta3-scaled.jpg?fit=1200%2C800&ssl=1"
+image: "/images/posts/2026-07-22-bafta-amplia-lista-britanica-y-refuerza-normas-de-ia.jpg"
 category: "Premios"
 fuente:
   nombre: "AwardsWatch"

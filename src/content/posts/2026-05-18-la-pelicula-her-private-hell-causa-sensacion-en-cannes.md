@@ -5,7 +5,7 @@ pubDate: 2026-05-18T22:56:16.223Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/05/GettyImages-2276971199.jpg"
+image: "/images/posts/2026-05-18-la-pelicula-her-private-hell-causa-sensacion-en-cannes.jpg"
 category: "Premios"
 fuente:
   nombre: "Deadline"

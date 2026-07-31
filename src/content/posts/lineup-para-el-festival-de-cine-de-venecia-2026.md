@@ -4,7 +4,7 @@ description: "El Festival Internacional de Cine de Venecia ha anunciado oficialm
 pubDate: 2026-07-23T15:08:39.802Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://laestatuilla.com/wp-content/uploads/2024/09/palmares-venecia-2024-leon-de-oro-2024.jpg"
+image: "/images/posts/lineup-para-el-festival-de-cine-de-venecia-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

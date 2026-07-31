@@ -5,7 +5,7 @@ pubDate: 2026-06-10T05:24:47.861Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/06/MCDTOST_WD035.jpg"
+image: "/images/posts/2026-06-10-primeras-reacciones-de-toy-story-5.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

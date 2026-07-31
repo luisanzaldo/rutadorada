@@ -4,7 +4,7 @@ description: "Críticas de la última película de Asghar Farhadi Parallel Tales
 pubDate: 2026-05-14T20:37:37.654Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/05/Parallel-Tales-Histoires-Paralleles-200638-H-2026.jpg?w=3000"
+image: "/images/posts/farhadi-decepciona-con-parallel-tales-seleccion-oficial-cannes-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

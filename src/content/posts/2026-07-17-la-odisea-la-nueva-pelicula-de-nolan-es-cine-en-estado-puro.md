@@ -4,7 +4,7 @@ description: "Crítica de la última película de Christopher Nolan, La odisea, 
 pubDate: 2026-07-17T19:32:34.535Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://people.com/thmb/sojmOVaqk_oxn5YeHE90EDNRl5Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/matt-damon-the-odyssey-021725-1-33088753391b490b9dddc2ed4beeb46b.jpg"
+image: "/images/posts/2026-07-17-la-odisea-la-nueva-pelicula-de-nolan-es-cine-en-estado-puro.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

@@ -5,7 +5,7 @@ pubDate: 2026-05-07T19:56:39.325Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://media.gq.com.mx/photos/693704b0864950cc57cc5d5c/16:9/w_2560%2Cc_limit/Golden_Globes_2026_2250072499.jpg"
+image: "/images/posts/2026-05-07-la-fecha-de-los-golden-globes.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

@@ -4,7 +4,7 @@ description: "Ovación de 9 minutos para Teenage Sex And Death At Camp Miasma"
 pubDate: 2026-05-13T20:41:23.694Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/04/CampMiasma_Still_1_MUBI.jpg"
+image: "/images/posts/2026-05-13-teenage-sex-and-death-at-camp-miasma-ovacionada-en-cannes.jpg"
 category: "Premios"
 fuente:
   nombre: "Deadline"

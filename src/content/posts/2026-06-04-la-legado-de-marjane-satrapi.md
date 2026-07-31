@@ -4,7 +4,7 @@ description: "Fallece la directora de Persepolis y Radioactive a los 56 años"
 pubDate: 2026-06-04T14:58:23.552Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://static.eldiario.es/clip/b1d6e945-b951-49ec-86a0-7f071c3f9435_16-9-discover-aspect-ratio_default_0_x1641y552.jpg"
+image: "/images/posts/2026-06-04-la-legado-de-marjane-satrapi.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"
