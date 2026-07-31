@@ -13,7 +13,6 @@ readTime: "4 min read"
 tags: ["Venecia"]
 ---
 
-
 El Festival Internacional de Cine de Venecia ha anunciado oficialmente la programación para su 83.ª edición, que se celebrará del 2 al 12 de septiembre de 2026.
 
 La apertura del festival estará marcada por el esperado estreno mundial de ***Ink***, un drama biográfico dirigido por el aclamado cineasta británico **Danny Boyle**. Por su parte, la encargada de clausurar el evento fuera de competición será la cinta italiana ***Dio Ride***, del director **Giovanni Veronesi**. En cuanto a los galardones y el liderazgo del certamen, la actriz y directora **Maggie Gyllenhaal** asumirá el importante rol de presidenta del jurado de la Competición Oficial. Además, esta edición rendirá un homenaje especial a las trayectorias de **George Clooney** y **Ellen Burstyn**, quienes recibirán premios honoríficos por su invaluable aporte a la industria.
@@ -62,7 +61,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *Woman Unknown*, dir. May el-Toukhy
 
-**Venice Spotlight**
+### **Venice Spotlight**
 
 - *Sumo: Spirit Weighs Nothing*, dir. Erik Shirai (Película de apertura)
 
@@ -80,7 +79,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *Serpenti*, dir. Roberto de Paolis Maino
 
-**Orizzonti Competition**
+### **Orizzonti Competition**
 
 - *La Ragazza con la Leica*, dir. Alina Marazzi (Película de apertura)
 
@@ -116,7 +115,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *What Belongs to Others*, dir. Grzegorz Debowski
 
-**Venice Open – Films on Film**
+### **Venice Open – Films on Film**
 
 - *Intermission*, dir. Yonfan
 
@@ -130,7 +129,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *Twist and Shoot Mister Suzuki*, dir. Yves Montmayeur
 
-**Venice Open – Non Fiction (No Ficción / Documental)**
+### **Venice Open – Non Fiction (No Ficción / Documental)**
 
 - *Be Brave*, dir. Francesco Carrozzini
 
@@ -170,7 +169,7 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 
 - *What Loves Builds*, dir. Russell Crowe
 
-**Venice Open – Fiction (Ficción)**
+### **Venice Open – Fiction (Ficción)**
 
 - *Arrested Memory*, dir. Sabu
 
@@ -193,4 +192,3 @@ La carrera por el codiciado León de Oro presenta una competencia feroz con tít
 - *Scherzetto*, dir. Mario Martone
 
 - *Un Bon Avocat*, dir. Tristan Seguela
-
