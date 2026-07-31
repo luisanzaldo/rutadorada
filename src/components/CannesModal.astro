@@ -231,12 +231,15 @@
             }
         }
 
-        function openModal() {
+        // Arrow function (y no declaración) para conservar el narrowing de `modal`
+        // que hace el guard de arriba: una función declarada se hoistea y TS la
+        // analiza como si pudiera llamarse antes de ese guard.
+        const openModal = () => {
             if (!modal.open) {
                 modal.showModal();
                 loadSnapshot();
             }
-        }
+        };
 
         trigger?.addEventListener('click', (e) => {
             e.preventDefault();

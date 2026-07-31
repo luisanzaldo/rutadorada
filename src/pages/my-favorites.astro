@@ -64,6 +64,9 @@ const validSlugs = allPosts.map(p => `posts/${p.slug}`);
     <script>
         import { supabase } from "../lib/supabase";
 
+        /** Fila de la tabla `favoritos` tal como la pedimos en el select. */
+        type FavoriteRow = { articulo_id: string };
+
         const favoritesGrid = document.getElementById("favorites-grid");
         const noFavorites = document.getElementById("no-favorites");
 
@@ -98,7 +101,7 @@ const validSlugs = allPosts.map(p => `posts/${p.slug}`);
             renderFavorites(filteredFavorites);
         }
 
-        function renderFavorites(favorites) {
+        function renderFavorites(favorites: FavoriteRow[]) {
             if (!favoritesGrid) return;
 
             const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;

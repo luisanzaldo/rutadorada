@@ -64,7 +64,7 @@ const feedUrl = "https://www.rutadoradafilms.com/rss.xml";
 
     const rssTriggerButtons = document.querySelectorAll('.rss-trigger');
 
-    function openRssModal(e) {
+    function openRssModal(e?: Event) {
         if(e) e.preventDefault();
         
         rssModal?.classList.remove('hidden');

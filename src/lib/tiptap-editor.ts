@@ -259,11 +259,27 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         setTimeout(() => modal?.classList.add('hidden'), 200);
     };
 
+    // Los modales de media se reutilizan en cada inserción, así que hay que dejarlos
+    // en blanco al abrirlos: si no, arrastran la URL/archivo de la inserción anterior.
+    const resetImageModal = () => {
+        const urlInput = document.getElementById('tiptap-img-url') as HTMLInputElement | null;
+        const fileInput = document.getElementById('tiptap-img-file') as HTMLInputElement | null;
+        if (urlInput) urlInput.value = '';
+        if (fileInput) fileInput.value = '';
+    };
+
+    const resetYoutubeModal = () => {
+        const urlInput = document.getElementById('tiptap-yt-url') as HTMLInputElement | null;
+        if (urlInput) urlInput.value = '';
+    };
+
     document.getElementById('btn-image-modal')?.addEventListener('click', () => {
+        resetImageModal();
         openModal(modalImage, modalImageContent);
     });
 
     document.getElementById('btn-video-modal')?.addEventListener('click', () => {
+        resetYoutubeModal();
         openModal(modalYoutube, modalYoutubeContent);
     });
 
@@ -384,8 +400,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
                 if (uploadRes.ok && uploadData.success) {
                     const imageSrc = uploadData.previewUrl || uploadData.url;
                     editor.chain().focus().setImage({ src: imageSrc }).run();
-                    if (urlInput) urlInput.value = '';
-                    if (fileInput) fileInput.value = '';
+                    resetImageModal();
                     closeModal(modalImage, modalImageContent);
                 } else {
                     alert(`No se pudo subir la imagen: ${uploadData.error || 'Error desconocido'}`);
@@ -400,8 +415,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
 
         if (urlValue) {
             editor.chain().focus().setImage({ src: urlValue }).run();
-            if (urlInput) urlInput.value = '';
-            if (fileInput) fileInput.value = '';
+            resetImageModal();
             closeModal(modalImage, modalImageContent);
         } else {
             alert("Por favor ingresa un enlace o selecciona un archivo para tu imagen.");
@@ -415,7 +429,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
 
         if (url) {
             editor.chain().focus().setYoutubeVideo({ src: url }).run();
-            if (urlInput) urlInput.value = '';
+            resetYoutubeModal();
             closeModal(modalYoutube, modalYoutubeContent);
         } else {
             alert("Agrega un enlace de YouTube válido.");

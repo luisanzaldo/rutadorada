@@ -71,7 +71,7 @@ const arcRotation = (rating / 100) * 240 - 120;
                 const tx = 100 + 52 * Math.cos(rad);
                 const ty = 100 + 52 * Math.sin(rad);
                 return (
-                    <g key={i}>
+                    <g>
                         <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#F2AF0D" stroke-opacity="0.6" stroke-width="2" />
                         <text x={tx} y={ty} fill="#F2AF0D" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="central">{tickVal}</text>
                     </g>
