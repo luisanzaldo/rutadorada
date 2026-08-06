@@ -22,10 +22,10 @@ Para la 80ª edición de los EE BAFTA Film Awards, prevista el 21 de febrero
 
 Con más de 700 interpretaciones presentadas en las cuatro categorías de actuación, BAFTA ha optado por abrir el proceso de votación a los miembros del *Casting Chapter*. Estos profesionales votarán junto a los del *Acting Chapter* en las fases de longlist y nominación, aportando una visión adicional del talento frente a cámara. El jurado de longlist seguirá eligiendo cinco actores o actrices para completar la lista final, manteniendo seis nominaciones por categoría.
 
-<div class="my-8 rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/5 p-6 relative overflow-hidden">
-<div class="absolute top-0 left-0 h-full w-1 bg-[#D4AF37]"></div>
+<div class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div>
 <div class="flex items-start gap-4">
-<div class="rounded-full bg-[#D4AF37]/20 p-2 text-[#D4AF37] shrink-0 flex items-center justify-center">
+<div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
     </svg>

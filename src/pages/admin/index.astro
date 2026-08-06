@@ -239,7 +239,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                         {navItems.map((item) => {
                             const isActive = !item.external && item.id === activeSection;
                             const baseClass = "flex items-center gap-3 px-4 py-3 rounded-xl border text-sm font-bold transition-all whitespace-nowrap lg:whitespace-normal flex-shrink-0";
-                            const activeClass = "bg-primary/10 border-primary/40 text-primary shadow-[0_0_15px_rgba(212,175,55,0.15)]";
+                            const activeClass = "bg-primary/10 border-primary/40 text-primary shadow-[0_0_15px_rgba(242,175,13,0.15)]";
                             const inactiveClass = "bg-white/5 dark:bg-card-dark/60 border-slate-200 dark:border-[#224249]/60 text-slate-700 dark:text-slate-300 hover:border-primary/40 hover:text-primary";
                             const linkHref = item.external && item.href ? item.href : `/admin?section=${item.id}`;
                             const linkTarget = item.external ? "_blank" : undefined;
@@ -300,7 +300,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     <span class="text-2xl">✏️</span> Publicaciones
                                 </h2>
                                 <div class="flex items-center gap-3 flex-wrap">
-                                    <form action="/admin" method="get" class="flex items-stretch rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 focus-within:border-primary/60 focus-within:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all overflow-hidden">
+                                    <form action="/admin" method="get" class="flex items-stretch rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 focus-within:border-primary/60 focus-within:shadow-[0_0_0_3px_rgba(242,175,13,0.15)] transition-all overflow-hidden">
                                         <input type="hidden" name="section" value="publicaciones" />
                                         <input
                                             type="text"
@@ -320,7 +320,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                             </svg>
                                         </button>
                                     </form>
-                                    <a href="/admin/nuevo-post" class="bg-primary text-[#0b1618] px-6 py-2.5 flex items-center gap-2 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                                    <a href="/admin/nuevo-post" class="bg-primary text-[#0b1618] px-6 py-2.5 flex items-center gap-2 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(242,175,13,0.3)]">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                                         </svg>
@@ -436,7 +436,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                             {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
                                                 <a href={buildPageHref(i)} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                                                     i === validCurrentPage
-                                                        ? "bg-[#F2AF0D] text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                                                        ? "bg-[#F2AF0D] text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(242,175,13,0.3)]"
                                                         : "bg-white/5 dark:bg-card-dark border-slate-200 dark:border-[#F2AF0D]/20 text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#F2AF0D]/10 hover:border-slate-300 dark:hover:border-[#F2AF0D]"
                                                 }`}>
                                                     {i}
@@ -472,7 +472,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                     Sincronizado con Notion
                                 </span>
                             </div>
-                            <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-card-dark shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+                            <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-[#224249] bg-white dark:bg-card-dark shadow-[0_0_20px_rgba(242,175,13,0.05)]">
                                 <iframe
                                     id="calendar-iframe"
                                     src="https://funny-horn-a3b.notion.site/ebd//34e288e2c3ae808d914cf51c10f47763"
@@ -485,7 +485,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                 ></iframe>
                             </div>
 
-                            <div class="mt-8 rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/80 dark:bg-card-dark p-5 sm:p-6 shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+                            <div class="mt-8 rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/80 dark:bg-card-dark p-5 sm:p-6 shadow-[0_0_20px_rgba(242,175,13,0.05)]">
                                 <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
                                     <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
                                         <span class="text-xl">🤖</span> Asistente del calendario
@@ -517,13 +517,13 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         placeholder="Ej: Mañana reunión con productora como Reunión en Tarea"
                                         autocomplete="off"
                                         rows="2"
-                                        class="flex-1 resize-y min-h-[3rem] max-h-48 rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary/60 focus:shadow-[0_0_0_3px_rgba(212,175,55,0.15)] transition-all"
+                                        class="flex-1 resize-y min-h-[3rem] max-h-48 rounded-xl border border-slate-200 dark:border-[#224249] bg-white/5 dark:bg-card-dark/60 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary/60 focus:shadow-[0_0_0_3px_rgba(242,175,13,0.15)] transition-all"
                                         required
                                     ></textarea>
                                     <button
                                         type="submit"
                                         id="calendar-chat-send"
-                                        class="bg-primary text-[#0b1618] px-5 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 self-stretch"
+                                        class="bg-primary text-[#0b1618] px-5 py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(242,175,13,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 self-stretch"
                                     >
                                         <span id="calendar-chat-send-label">Enviar</span>
                                     </button>
@@ -695,7 +695,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                                     : "—"}
                                             </p>
                                         </div>
-                                        <div class="bg-white/5 dark:bg-card-dark border border-primary/30 rounded-2xl p-5 shadow-[0_0_15px_rgba(212,175,55,0.08)]">
+                                        <div class="bg-white/5 dark:bg-card-dark border border-primary/30 rounded-2xl p-5 shadow-[0_0_15px_rgba(242,175,13,0.08)]">
                                             <p class="text-[11px] font-bold uppercase tracking-widest text-primary mb-2">Nuevos · 7 días</p>
                                             <p class="font-display font-bold text-3xl text-slate-900 dark:text-white">{userSummary.nuevos_7d.toLocaleString("es-ES")}</p>
                                         </div>
@@ -849,7 +849,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         <button
                                             id="cannes-refresh-btn"
                                             type="button"
-                                            class="bg-primary text-[#0b1618] px-5 py-2.5 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                            class="bg-primary text-[#0b1618] px-5 py-2.5 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(242,175,13,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -1128,10 +1128,10 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                         const goldFill = (ctx) => {
                             const { chart } = ctx;
                             const { ctx: c, chartArea } = chart;
-                            if (!chartArea) return 'rgba(212, 175, 55, 0.2)';
+                            if (!chartArea) return 'rgba(242, 175, 13, 0.2)';
                             const g = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-                            g.addColorStop(0, 'rgba(212, 175, 55, 0.35)');
-                            g.addColorStop(1, 'rgba(212, 175, 55, 0)');
+                            g.addColorStop(0, 'rgba(242, 175, 13, 0.35)');
+                            g.addColorStop(1, 'rgba(242, 175, 13, 0)');
                             return g;
                         };
 
@@ -1358,7 +1358,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                         snapshot.headers.map((h, i) => {
                             const align = i === 0 ? 'left' : 'center';
                             const isPromedio = i === 1;
-                            const headerBg = isPromedio ? 'background:rgba(212,175,55,0.08);' : '';
+                            const headerBg = isPromedio ? 'background:rgba(242,175,13,0.08);' : '';
                             return '<th style="text-align:' + align + ';padding:10px 6px;font-family:\'Cinzel\',serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#F2AF0D;font-weight:700;vertical-align:bottom;' + headerBg + '">' +
                                 renderPosterHeader(h) + '</th>';
                         }).join('') +
@@ -1381,7 +1381,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                             : (hasContent ? '#fafaf9' : '#78716c');
                                     const weight = isTitle ? '500' : (isPromedio ? '800' : '600');
                                     const fontSize = isTitle ? '16px' : '17px';
-                                    const cellBg = isPromedio ? 'background:rgba(212,175,55,0.05);' : '';
+                                    const cellBg = isPromedio ? 'background:rgba(242,175,13,0.05);' : '';
                                     return '<td style="text-align:' + align + ';padding:6px 8px;color:' + color + ';font-weight:' + weight + ';font-family:\'Plus Jakarta Sans\',system-ui,sans-serif;font-style:normal;font-size:' + fontSize + ';border-bottom:1px solid #292524;line-height:1.25;vertical-align:middle;' + cellBg + '">' +
                                         cellToInlineHtml(cell) + '</td>';
                                 }).join('') +

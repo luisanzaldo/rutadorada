@@ -248,7 +248,7 @@ const formatDate = (date: Date) => {
                 const btn = document.createElement("button");
                 btn.className = `w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                     i === currentPage
-                        ? "bg-[#F2AF0D] text-slate-900 dark:text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                        ? "bg-[#F2AF0D] text-slate-900 dark:text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(242,175,13,0.3)]"
                         : "bg-slate-100 dark:bg-background-input border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D]"
                 }`;
                 btn.textContent = i.toString();
@@ -403,7 +403,7 @@ const formatDate = (date: Date) => {
 
     .topic-filter.active {
         @apply bg-[#F2AF0D] text-slate-900 dark:text-white font-bold;
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        box-shadow: 0 0 15px rgba(242, 175, 13, 0.3);
     }
 
     #archive-grid {
