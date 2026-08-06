@@ -113,7 +113,7 @@ const archiveHref = `${baseUrl}/archive`;
 
                 <h1
                     id="hero-title"
-                    class="ff-display font-semibold normal-case tracking-[-0.02em] leading-[0.95] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-3"
+                    class="hero-title ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-3"
                 >
                     {first.title}
                 </h1>
@@ -301,6 +301,14 @@ const archiveHref = `${baseUrl}/archive`;
     }
     .ff-sans {
         font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+
+    /* Título: interlineado que respeta descendentes (g, j, p, y) y
+       padding extra para que line-clamp no recorte la última línea */
+    .hero-title {
+        line-height: 1.08;
+        padding-bottom: 0.16em;
+        margin-bottom: -0.16em;
     }
 
     /* Stills crossfade + slow drift */
