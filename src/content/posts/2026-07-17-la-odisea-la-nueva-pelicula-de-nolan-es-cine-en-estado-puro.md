@@ -1,5 +1,5 @@
 ---
-title: "La odisea: la nueva película de Nolan es cine en estado puro"
+title: "\"La Odisea\": la nueva película de Nolan es cine en estado puro"
 description: "Crítica de la última película de Christopher Nolan, La odisea, una épica espectacular realizada al muy estilo clásico pero que adapta el relato a nuestros tiempos"
 pubDate: 2026-07-17T19:32:34.535Z
 author: "Moncho"
@@ -18,6 +18,7 @@ fichaTecnica:
 readTime: "3 min read"
 tags: ["Fantástico"]
 ---
+
 
 ## Cine en estado puro  
 La odisea de Christopher Nolan se presenta como cine en estado puro, pues la espectacularidad no se queda en una fachada vacía sino que se sustenta en una historia bien desarrollada y adaptada a los tiempos actuales. La técnica se convierte en un fiel aliado de la dirección, con una fotografía deslumbrante de Hoyte van Hoytema que realza cada escenario, una partitura impactante de Ludwig Göransson que subraya la tensión narrativa, y un sonido vibrante que envuelve al espectador y sincroniza perfectamente con las imágenes proyectadas en pantalla.  
