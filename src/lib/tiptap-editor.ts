@@ -133,6 +133,97 @@ export interface PostEditorOptions {
     initialMarkdown?: string;
 }
 
+/** Sombrea el botón de la toolbar cuando el cursor está sobre ese formato. */
+function setBtnState(btn: Element | null | undefined, isActive: boolean) {
+    if (!btn) return;
+    if (isActive) btn.classList.add('tiptap-btn-active');
+    else btn.classList.remove('tiptap-btn-active');
+}
+
+/**
+ * Editor de una sola línea para el título y la descripción del post: sólo
+ * admite negrita e itálica y guarda el resultado como Markdown en línea
+ * (**negrita**, *itálica*) dentro del input oculto con ese mismo id, que es lo
+ * que viaja al frontmatter. Espera el markup de RichTextInput.astro: el área
+ * editable es #<id>-editor y el input oculto es #<id>.
+ */
+export function initInlineEditor(id: string): Editor | null {
+    const editorElement = document.getElementById(`${id}-editor`);
+    const valueInput = document.getElementById(id);
+    if (!editorElement || !(valueInput instanceof HTMLInputElement)) return null;
+
+    const element = editorElement;
+    const input = valueInput;
+    const field = element.closest('[data-rich-field]');
+    const boldBtn = field?.querySelector('[data-rich-btn="bold"]');
+    const italicBtn = field?.querySelector('[data-rich-btn="italic"]');
+
+    const editor = new Editor({
+        element,
+        extensions: [
+            // Sólo párrafo + negrita/itálica: nada de títulos, listas ni bloques.
+            StarterKit.configure({
+                blockquote: false,
+                bulletList: false,
+                code: false,
+                codeBlock: false,
+                hardBreak: false,
+                heading: false,
+                horizontalRule: false,
+                link: false,
+                listItem: false,
+                listKeymap: false,
+                orderedList: false,
+                strike: false,
+                underline: false,
+                trailingNode: false,
+            }),
+            // html: true para que el valor inicial (ya convertido a HTML) entre
+            // como negrita/itálica y no como texto literal.
+            Markdown.configure({ html: true }),
+        ],
+        // El valor guardado llega ya convertido a HTML desde el servidor, así se
+        // evita que Markdown interprete el texto del título como bloques.
+        content: element.dataset.initialHtml || '',
+        editorProps: {
+            attributes: { class: 'focus:outline-none' },
+            // Campo de una línea: Enter no debe partir el texto en párrafos.
+            handleKeyDown: (_view, event) => event.key === 'Enter',
+        },
+        onUpdate: () => syncValue(),
+        onSelectionUpdate: () => updateButtons(),
+    });
+
+    function syncValue() {
+        const markdown = editor.storage.markdown.getMarkdown()
+            // El campo se guarda en una sola línea del frontmatter.
+            .replace(/\s*\n+\s*/g, ' ')
+            // Markdown escapa caracteres que aquí no interpretamos (\[, \_, \`...);
+            // el asterisco sí se conserva escapado porque marca el énfasis.
+            .replace(/\\([^*])/g, '$1')
+            // El serializador convierte < y > en entidades; el frontmatter
+            // guarda el texto tal cual y ya se escapa al pintarlo.
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .trim();
+        input.value = markdown;
+        element.classList.toggle('is-empty', editor.isEmpty);
+        updateButtons();
+    }
+
+    function updateButtons() {
+        setBtnState(boldBtn, editor.isActive('bold'));
+        setBtnState(italicBtn, editor.isActive('italic'));
+    }
+
+    boldBtn?.addEventListener('click', () => { editor.chain().focus().toggleBold().run() });
+    italicBtn?.addEventListener('click', () => { editor.chain().focus().toggleItalic().run() });
+
+    syncValue();
+
+    return editor;
+}
+
 /**
  * Crea el editor Tiptap del panel admin y conecta la toolbar y los modales
  * (imagen, YouTube, curiosidad y puntos de valoración). Espera el markup de
@@ -240,12 +331,6 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         setBtnState(btns.h1, ed.isActive('heading', { level: 1 }));
         setBtnState(btns.h2, ed.isActive('heading', { level: 2 }));
         setBtnState(btns.h3, ed.isActive('heading', { level: 3 }));
-    }
-
-    function setBtnState(btn: Element | null | undefined, isActive: boolean) {
-        if (!btn) return;
-        if (isActive) btn.classList.add('tiptap-btn-active');
-        else btn.classList.remove('tiptap-btn-active');
     }
 
     // --- Lógica Modales Media ---

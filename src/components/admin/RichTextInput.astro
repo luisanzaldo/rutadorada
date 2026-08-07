@@ -1,0 +1,106 @@
+---
+// Campo de texto con formato para el título y la descripción del post.
+// Se apoya en un editor Tiptap reducido (sólo negrita e itálica) que vive en
+// src/lib/tiptap-editor.ts (initInlineEditor) y deja el resultado en Markdown
+// en línea dentro del input oculto #<id>, que es lo que se envía a la API.
+import { renderRichText } from "../../lib/richText";
+
+interface Props {
+    /** Id del campo: el input oculto usa este id y el área editable "<id>-editor". */
+    id: string;
+    label: string;
+    /** Valor guardado (Markdown en línea) al editar un post existente. */
+    value?: string;
+    placeholder?: string;
+    /** Clases del contenedor externo (por ejemplo para el grid del formulario). */
+    wrapperClass?: string;
+    /** Clases del área editable, para ajustar tipografía y alto. */
+    editorClass?: string;
+}
+
+const {
+    id,
+    label,
+    value = "",
+    placeholder = "",
+    wrapperClass = "space-y-2",
+    editorClass = "min-h-[1.5rem] font-medium text-lg",
+} = Astro.props;
+
+const initialHtml = renderRichText(value);
+---
+
+<div class={wrapperClass}>
+    <label for={`${id}-editor`} class="block text-sm font-bold text-slate-700 dark:text-slate-200">
+        {label}
+    </label>
+
+    <div
+        data-rich-field={id}
+        class="rich-field w-full rounded-xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] overflow-hidden focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all"
+    >
+        <div class="flex items-center gap-1.5 px-2 py-1.5 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
+            <button
+                type="button"
+                data-rich-btn="bold"
+                class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none"
+                title="Negrita (Ctrl+B)"
+            >
+                <span class="font-serif font-black text-base">N</span>
+            </button>
+            <button
+                type="button"
+                data-rich-btn="italic"
+                class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic"
+                title="Itálica (Ctrl+I)"
+            >
+                <span class="font-serif font-black text-base">I</span>
+            </button>
+            <span class="ml-1 text-[11px] text-slate-400 dark:text-slate-500">
+                Selecciona una palabra y aplícale negrita o itálica
+            </span>
+        </div>
+
+        <div
+            id={`${id}-editor`}
+            data-initial-html={initialHtml}
+            data-placeholder={placeholder}
+            class={`rich-field-editor px-4 py-3 text-slate-900 dark:text-white leading-relaxed ${editorClass}`}
+        >
+        </div>
+    </div>
+
+    <input type="hidden" id={id} name={id} value={value} />
+</div>
+
+<style is:global>
+    /* El área editable de estos campos es de una o dos líneas, no el bloque
+       alto que usa el editor del contenido (ver EditorModals.astro). */
+    .rich-field-editor {
+        position: relative;
+    }
+    .rich-field-editor .ProseMirror {
+        min-height: 0;
+    }
+    .rich-field-editor .ProseMirror p {
+        margin: 0;
+    }
+
+    /* Placeholder propio: se activa desde initInlineEditor cuando está vacío. */
+    .rich-field-editor.is-empty::before {
+        content: attr(data-placeholder);
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+        color: #94a3b8; /* slate-400 */
+        font-weight: 400;
+        pointer-events: none;
+    }
+
+    /* A diferencia del cuerpo del artículo, aquí la negrita no es dorada:
+       el campo debe verse como se verá el título publicado. */
+    .dark .rich-field-editor .ProseMirror strong,
+    .dark .rich-field-editor .ProseMirror b {
+        color: inherit !important;
+    }
+</style>

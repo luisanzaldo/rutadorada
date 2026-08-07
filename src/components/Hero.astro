@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { renderRichText } from "../lib/richText";
 
 const baseUrl = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 
@@ -21,7 +22,8 @@ const featured = latest.slice(0, 5).map((p) => {
     const videoUrl = p.data.videoUrl || "";
     const isTrailer = videoUrl !== "";
     return {
-        title: p.data.title,
+        // El título admite negritas e itálicas escritas desde el panel admin
+        title: renderRichText(p.data.title),
         category: p.data.category,
         date: fmtDate(p.data.pubDate),
         read: (p.data.readTime || "").replace(/read/i, "").trim() || "—",
@@ -35,7 +37,7 @@ const featured = latest.slice(0, 5).map((p) => {
 });
 
 const marquee = latest.map((p) => ({
-    title: p.data.title,
+    title: renderRichText(p.data.title),
     href: p.data.videoUrl || `${baseUrl}/posts/${p.slug}`,
 }));
 
@@ -114,9 +116,8 @@ const archiveHref = `${baseUrl}/archive`;
                 <h1
                     id="hero-title"
                     class="hero-title ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-3"
-                >
-                    {first.title}
-                </h1>
+                    set:html={first.title}
+                ></h1>
 
                 <span
                     class="hero-cta ff-sans mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
@@ -223,9 +224,10 @@ const archiveHref = `${baseUrl}/archive`;
                         {marquee.map((m) => (
                             <a href={m.href} class="marquee-item">
                                 <span class="text-[#F2AF0D] mx-4 sm:mx-6">&#10038;</span>
-                                <span class="text-[#0c0a09]/70 hover:text-[#0c0a09] dark:text-[#F3ECDD]/70 dark:hover:text-[#F3ECDD] transition-colors">
-                                    {m.title}
-                                </span>
+                                <span
+                                    class="text-[#0c0a09]/70 hover:text-[#0c0a09] dark:text-[#F3ECDD]/70 dark:hover:text-[#F3ECDD] transition-colors"
+                                    set:html={m.title}
+                                />
                             </a>
                         ))}
                     </div>
@@ -497,7 +499,8 @@ const archiveHref = `${baseUrl}/archive`;
             current = i;
             const s = featured[i];
             figs.forEach((el, n) => el.classList.toggle("is-active", n === i));
-            if (titleEl) titleEl.textContent = s.title;
+            // s.title llega ya como HTML seguro (sólo <strong> y <em>)
+            if (titleEl) titleEl.innerHTML = s.title;
             if (ctaText)
                 ctaText.textContent = s.isTrailer ? "Ver tráiler" : "Leer la nota";
             if (arrowIcon) arrowIcon.classList.toggle("hidden", s.isTrailer);

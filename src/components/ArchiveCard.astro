@@ -1,4 +1,6 @@
 ---
+import { renderRichText } from "../lib/richText";
+
 interface Props {
     title: string;
     description: string;
@@ -16,6 +18,10 @@ const { title, description, image, category, date, readTime, slug, videoUrl, tag
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 const url = videoUrl || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
+
+// El título y la descripción admiten negrita e itálica en línea
+const titleHtml = renderRichText(title);
+const descriptionHtml = renderRichText(description);
 ---
 
 <article
@@ -51,12 +57,12 @@ const triggerClass = videoUrl ? "video-trigger" : "";
         <div class="flex flex-col flex-1 p-5 gap-3 text-left">
             <h3
                 class="archive-title text-slate-900 dark:text-white text-xl font-bold leading-tight transition-colors"
-            >
-                {title}
-            </h3>
-            <p class="text-slate-600 dark:text-text-muted text-sm line-clamp-2">
-                {description}
-            </p>
+                set:html={titleHtml}
+            />
+            <p
+                class="text-slate-600 dark:text-text-muted text-sm line-clamp-2"
+                set:html={descriptionHtml}
+            />
             <div
                 class="mt-auto pt-4 flex items-center justify-between border-t border-slate-200 dark:border-[#224249]/50"
             >

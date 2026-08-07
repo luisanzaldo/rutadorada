@@ -1,4 +1,6 @@
 ---
+import { renderRichText, stripRichText } from "../lib/richText";
+
 interface Props {
     title: string;
     description: string;
@@ -31,6 +33,11 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 const url = videoUrl || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
 const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
+
+// El título y la descripción admiten negrita e itálica en línea
+const titleHtml = renderRichText(title);
+const descriptionHtml = renderRichText(description);
+const plainTitle = stripRichText(title);
 ---
 
 {
@@ -41,7 +48,7 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                 <div class="aspect-w-16 aspect-h-9 h-[28rem] sm:h-96 md:h-[32rem] w-full relative">
                     <img
     src={finalImage}
-    alt={title}
+    alt={plainTitle}
     class="article-image object-cover w-full h-full"
     loading="lazy"
     decoding="async"
@@ -60,12 +67,14 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                             {readTime}
                         </span>
                     </div>
-                    <h3 class="article-title text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 transition-colors break-words line-clamp-3 sm:line-clamp-4">
-                        {title}
-                    </h3>
-                    <p class="text-slate-200 sm:text-slate-300 text-sm sm:text-base mb-3 sm:mb-4 line-clamp-2 max-w-2xl">
-                        {description}
-                    </p>
+                    <h3
+                        class="article-title text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 transition-colors break-words line-clamp-3 sm:line-clamp-4"
+                        set:html={titleHtml}
+                    />
+                    <p
+                        class="text-slate-200 sm:text-slate-300 text-sm sm:text-base mb-3 sm:mb-4 line-clamp-2 max-w-2xl"
+                        set:html={descriptionHtml}
+                    />
                     <div class="flex items-center">
                         {authorImage && (
                             <img
@@ -95,7 +104,7 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                     </div>
                     <img
     src={finalImage}
-    alt={title}
+    alt={plainTitle}
     class="article-image w-full h-full object-cover"
     loading="lazy"
     decoding="async"
@@ -118,12 +127,14 @@ const finalImage = image.startsWith('/') ? `${baseUrl}${image}` : image;
                         </svg>
                         {readTime}
                     </div>
-                    <h3 class="article-title text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3 transition-colors leading-tight break-words">
-                        {title}
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">
-                        {description}
-                    </p>
+                    <h3
+                        class="article-title text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3 transition-colors leading-tight break-words"
+                        set:html={titleHtml}
+                    />
+                    <p
+                        class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3 flex-grow"
+                        set:html={descriptionHtml}
+                    />
                     <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
                         <div class="flex items-center">
                             <span class="text-xs font-medium text-slate-700 dark:text-slate-300">

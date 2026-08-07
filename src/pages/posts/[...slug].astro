@@ -8,6 +8,7 @@ import PostSidebarRight from "../../components/PostSidebarRight.astro";
 import Comments from "../../components/Comments.astro";
 import ShareModal from "../../components/ShareModal.astro";
 import Speedometer from "../../components/Speedometer.astro";
+import { renderRichText, stripRichText } from "../../lib/richText";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -56,11 +57,17 @@ const formatDate = (date: Date) => {
 
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 const finalImage = post.data.image ? (post.data.image.startsWith('/') ? `${baseUrl}${post.data.image}` : post.data.image) : '';
+
+// El título y la descripción admiten negrita e itálica en línea: HTML para la
+// página y texto plano para los metadatos.
+const titleHtml = renderRichText(post.data.title);
+const plainTitle = stripRichText(post.data.title);
+const plainDescription = stripRichText(post.data.description);
 ---
 
-<Layout 
-    title={`${post.data.title} | RutaDorada`} 
-    description={post.data.description}
+<Layout
+    title={`${plainTitle} | RutaDorada`}
+    description={plainDescription}
     image={finalImage}
 >
     <Header />
@@ -93,9 +100,8 @@ const finalImage = post.data.image ? (post.data.image.startsWith('/') ? `${baseU
 
                         <h1
                             class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6"
-                        >
-                            {post.data.title}
-                        </h1>
+                            set:html={titleHtml}
+                        />
 
                         {
                             post.data.tags && post.data.tags.length > 0 && (
@@ -217,7 +223,7 @@ const finalImage = post.data.image ? (post.data.image.startsWith('/') ? `${baseU
                             <div class="relative w-full rounded-2xl overflow-hidden mb-12 shadow-[0_20px_50px_-15px_rgba(217,119,6,0.3)] border border-slate-200 dark:border-white/10 group">
                                 <img
     src={finalImage}
-    alt={`Portada de ${post.data.title}`}
+    alt={`Portada de ${plainTitle}`}
     class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-1000 group-hover:scale-105"
     loading="lazy"
     decoding="async"

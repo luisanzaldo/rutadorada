@@ -236,6 +236,27 @@
     /* subtítulos: semibold */
   }
 
+  /* Los títulos admiten énfasis en línea escrito desde el panel admin
+     (**negrita** y *itálica*): al ir dentro de un heading ya semibold/bold
+     necesitan un peso explícito para que la negrita se distinga. */
+  h1 strong,
+  h2 strong,
+  h3 strong,
+  h4 strong,
+  h5 strong,
+  h6 strong {
+    font-weight: 800;
+  }
+
+  h1 em,
+  h2 em,
+  h3 em,
+  h4 em,
+  h5 em,
+  h6 em {
+    font-style: italic;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
   }

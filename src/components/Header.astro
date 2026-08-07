@@ -1,10 +1,15 @@
 ---
 import { getCollection } from "astro:content";
+import { renderRichText, stripRichText } from "../lib/richText";
 
 const allPosts = await getCollection("posts");
+// title/description en texto plano para poder buscar sin tropezar con las
+// marcas de énfasis, y ya en HTML para pintar los resultados.
 const searchablePosts = allPosts.map((post) => ({
-    title: post.data.title,
-    description: post.data.description,
+    title: stripRichText(post.data.title),
+    description: stripRichText(post.data.description),
+    titleHtml: renderRichText(post.data.title),
+    descriptionHtml: renderRichText(post.data.description),
     slug: post.slug,
     category: post.data.category,
     tags: post.data.tags || [],
@@ -621,8 +626,8 @@ const socialLinks = [
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-bold text-primary uppercase tracking-widest">${post.category}</span>
                 </div>
-                <h4 class="text-slate-100 font-bold group-hover:text-[#F2AF0D] transition-colors">${post.title}</h4>
-                <p class="text-sm text-slate-500 line-clamp-1 mt-1">${post.description}</p>
+                <h4 class="text-slate-100 font-bold group-hover:text-[#F2AF0D] transition-colors">${post.titleHtml}</h4>
+                <p class="text-sm text-slate-500 line-clamp-1 mt-1">${post.descriptionHtml}</p>
             </a>
         `,
             )
