@@ -53,6 +53,14 @@ const startIndex = (validCurrentPage - 1) * postsPerPage;
 const endIndex = startIndex + postsPerPage;
 const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
+// Ventana deslizante: máximo 10 botones, mostrando 4 páginas por delante de la actual
+const maxVisiblePages = 10;
+const pagesAhead = 4;
+let windowStart = Math.max(1, validCurrentPage - (maxVisiblePages - 1 - pagesAhead));
+const windowEnd = Math.min(totalPages, windowStart + maxVisiblePages - 1);
+windowStart = Math.max(1, windowEnd - maxVisiblePages + 1);
+const visiblePages = Array.from({ length: windowEnd - windowStart + 1 }, (_, i) => windowStart + i);
+
 const buildPageHref = (page: number) => {
     const params = new URLSearchParams();
     params.set('section', 'publicaciones');
@@ -435,7 +443,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                                         )}
 
                                         <div class="flex items-center gap-2">
-                                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
+                                            {visiblePages.map((i) => (
                                                 <a href={buildPageHref(i)} class={`flex items-center justify-center w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                                                     i === validCurrentPage
                                                         ? "bg-[#F2AF0D] text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(242,175,13,0.3)]"
