@@ -1,7 +1,7 @@
 ---
 title: "*La Odisea* se une al club del billón"
 description: "*La Odisea* de Christopher Nolan supera los mil millones, consolidándose como su tercer éxito de la talla del *The Dark Knight Rises*."
-pubDate: 2026-08-07T18:11:46.450Z
+pubDate: 2026-08-07T18:12:48.574Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -16,15 +16,15 @@ tags: ["Box Office"]
 
 ## Un regreso histórico al club del billón
 
-Después de una espera de catorce años, Christopher Nolan vuelve a iluminar la lista de películas que han cruzado la barrera del billón de dólares. *The Odyssey*, producida por Universal y Syncopy, se convirtió en la quinta cinta de 2026 en alcanzar esa cifra a nivel mundial, sumando más de 450 millones de dólares en la taquilla norteamericana y estimándose entre 25 y 35 millones adicionales en su último fin de semana.
+Después de una espera de catorce años, Christopher Nolan vuelve a iluminar la lista de películas que han cruzado la barrera del billón de dólares. *La Odisea*, producida por Universal y Syncopy, se convirtió en la quinta cinta de 2026 en alcanzar esa cifra a nivel mundial, sumando más de 450 millones de dólares en la taquilla norteamericana y estimándose entre 25 y 35 millones adicionales en su último fin de semana.
 
 ## La fórmula del éxito: formatos premium y estrategia global
 
-A diferencia de sus predecesoras, *The Odyssey* perdió la exclusividad de IMAX al compartir la pantalla con *Spider-Man: Brand New Day* de Sony/Marvel, pero mantuvo un descenso de asistencia inferior al 50 % en su cuarto fin de semana. La demanda por la proyección en IMAX 70 mm y otros formatos analógicos premium ha sido el motor que ha sostenido su rendimiento, demostrando que el público sigue anhelando la experiencia cinematográfica tradicional.
+A diferencia de sus predecesoras, *La Odisea* perdió la exclusividad de IMAX al compartir la pantalla con *Spider-Man: Brand New Day* de Sony/Marvel, pero mantuvo un descenso de asistencia inferior al 50 % en su cuarto fin de semana. La demanda por la proyección en IMAX 70 mm y otros formatos analógicos premium ha sido el motor que ha sostenido su rendimiento, demostrando que el público sigue anhelando la experiencia cinematográfica tradicional.
 
 ## Un récord R‑rated al alcance
 
-Con un ingreso de 227 millones de dólares en su segundo fin de semana, la película registró una caída apenas del 3 % en territorios internacionales y del 27 % en Estados Unidos, la reducción más baja jamás observada para un estreno que superó los 100 millones en el mercado doméstico. Este sólido arrastre coloca a *The Odyssey* a la caza del récord de mayor recaudación para una película con clasificación R, actualmente ostentado por *Deadpool & Wolverine* (1.33 billones).
+Con un ingreso de 227 millones de dólares en su segundo fin de semana, la película registró una caída apenas del 3 % en territorios internacionales y del 27 % en Estados Unidos, la reducción más baja jamás observada para un estreno que superó los 100 millones en el mercado doméstico. Este sólido arrastre coloca a *La Odisea* a la caza del récord de mayor recaudación para una película con clasificación R, actualmente ostentado por *Deadpool & Wolverine* (1.33 billones).
 
 ## Expansión en Asia y la carrera hacia el top de Universal
 
@@ -32,4 +32,4 @@ El estreno en Corea del Sur marca el inicio de la fase asiática, seguida por el
 
 ## Un impulso inesperado para el cine analógico
 
-Más allá de los números, *The Odyssey* ha revitalizado el interés por los formatos analógicos, demostrando que la combinación de una narrativa épica, un elenco de lujo encabezado por Matt Damon, Tom Holland y Anne Hathaway, y la preferencia por la gran pantalla pueden coexistir con la era digital. El éxito de Nolan vuelve a colocar al cine de calidad en el centro de la conversación, recordándonos que la magia del celuloide sigue viva.
+Más allá de los números, *La Odisea* ha revitalizado el interés por los formatos analógicos, demostrando que la combinación de una narrativa épica, un elenco de lujo encabezado por Matt Damon, Tom Holland y Anne Hathaway, y la preferencia por la gran pantalla pueden coexistir con la era digital. El éxito de Nolan vuelve a colocar al cine de calidad en el centro de la conversación, recordándonos que la magia del celuloide sigue viva.
