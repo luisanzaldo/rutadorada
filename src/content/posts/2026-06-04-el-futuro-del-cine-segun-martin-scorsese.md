@@ -10,8 +10,9 @@ fuente:
   nombre: "Variety"
   url: "https://variety.com/"
 readTime: "2 min read"
-tags: ["Hollywood"]
+tags: ["Industria"]
 ---
+
 
 
 ## Introducción
@@ -42,3 +43,4 @@ La inteligencia artificial puede revolucionar la forma en que se crean las pelí
 
 ## Conclusión
 La unión de Scorsese a Black Forest Labs es un paso importante hacia la aceptación de la IA en la industria cinematográfica. A medida que más directores y productores comienzan a experimentar con la IA, es probable que veamos un cambio significativo en la forma en que se crean las películas. La IA puede ser una herramienta poderosa para mejorar la eficiencia y reducir los costos, pero también plantea preguntas sobre la autoría y la creatividad en la creación de películas.
+
