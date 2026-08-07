@@ -4,15 +4,15 @@ description: "Amazon lanza el Fondo de Creadores GenAI y anuncia tres series ani
 pubDate: 2026-05-27T18:36:45.938Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
 image: "/images/posts/2026-05-27-amazon-impulsa-la-produccion-con-inteligencia-artificial.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"
   url: "https://www.thewrap.com/"
 readTime: "2 min read"
-tags: ["Amazon Prime"]
+tags: ["Industria"]
 ---
+
 
 ## Introducción a la inteligencia artificial en la producción de Amazon
 Amazon ha anunciado el lanzamiento de su Fondo de Creadores GenAI, una iniciativa conjunta entre Amazon MGM y Amazon Web Services (AWS) que busca empoderar la creatividad humana mediante el uso de herramientas de inteligencia artificial. Como parte de este esfuerzo, la empresa ha ordenado la producción de tres series animadas que utilizarán herramientas de generación de inteligencia artificial.
