@@ -224,9 +224,21 @@ const formatDate = (date: Date) => {
     let currentTag: string | null = null;
     let currentPage = 1;
     const itemsPerPage = 9;
+    const maxPageButtons = 10;
 
     // Filtered items based on topic and tag
     let filteredItems: HTMLElement[] = Array.from(getArchiveItems());
+
+    // El primer render no lleva fade: evita el parpadeo al cargar la página
+    let isFirstRender = true;
+
+    const goToPage = (page: number) => {
+        currentPage = page;
+        updatePagination();
+        // "instant" ignora el scroll-behavior: smooth global (global.css),
+        // así se ve de inmediato la parte superior de la página elegida.
+        window.scrollTo({ top: 0, behavior: "instant" });
+    };
 
     const updatePagination = () => {
         const totalPages = Math.ceil(filteredItems.length / itemsPerPage) || 1;
@@ -241,10 +253,18 @@ const formatDate = (date: Date) => {
         if (prevBtn) prevBtn.disabled = currentPage === 1;
         if (nextBtn) nextBtn.disabled = currentPage === totalPages;
 
-        // Render Page Numbers
+        // Render Page Numbers: ventana deslizante de 10 botones al estilo
+        // Google, con la página actual en la 6ª posición cuando se puede
+        // (ej. en la 7 se ven 2…11) y pegada al borde al principio o al final.
         if (pageNumbersContainer) {
             pageNumbersContainer.innerHTML = "";
-            for (let i = 1; i <= totalPages; i++) {
+            let windowStart = Math.max(1, currentPage - 5);
+            const windowEnd = Math.min(
+                totalPages,
+                windowStart + maxPageButtons - 1
+            );
+            windowStart = Math.max(1, windowEnd - maxPageButtons + 1);
+            for (let i = windowStart; i <= windowEnd; i++) {
                 const btn = document.createElement("button");
                 btn.className = `w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
                     i === currentPage
@@ -252,11 +272,7 @@ const formatDate = (date: Date) => {
                         : "bg-slate-100 dark:bg-background-input border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D]"
                 }`;
                 btn.textContent = i.toString();
-                btn.addEventListener("click", () => {
-                    currentPage = i;
-                    updatePagination();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                });
+                btn.addEventListener("click", () => goToPage(i));
                 pageNumbersContainer.appendChild(btn);
             }
         }
@@ -268,10 +284,7 @@ const formatDate = (date: Date) => {
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
 
-        // Fade effect
-        if (archiveGrid) archiveGrid.style.opacity = "0";
-
-        setTimeout(() => {
+        const paint = () => {
             getArchiveItems().forEach((item) => (item.style.display = "none"));
 
             filteredItems.forEach((item, index) => {
@@ -281,7 +294,17 @@ const formatDate = (date: Date) => {
             });
 
             if (archiveGrid) archiveGrid.style.opacity = "1";
-        }, 200);
+        };
+
+        if (isFirstRender) {
+            isFirstRender = false;
+            paint();
+            return;
+        }
+
+        // Fade effect
+        if (archiveGrid) archiveGrid.style.opacity = "0";
+        setTimeout(paint, 200);
     };
 
     const applyFilter = (topic: string | null, tag: string | null = null) => {
@@ -314,20 +337,12 @@ const formatDate = (date: Date) => {
     };
 
     prevBtn?.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updatePagination();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        if (currentPage > 1) goToPage(currentPage - 1);
     });
 
     nextBtn?.addEventListener("click", () => {
         const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            updatePagination();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        if (currentPage < totalPages) goToPage(currentPage + 1);
     });
 
     // Check for query parameters on load
@@ -408,6 +423,12 @@ const formatDate = (date: Date) => {
 
     #archive-grid {
         transition-property: opacity;
+    }
+
+    /* Antes de que el script de paginación tome el control solo se muestran
+       los primeros 9 artículos, para que nunca se vean todos de golpe. */
+    #archive-grid .archive-item:nth-child(n + 10) {
+        display: none;
     }
 
     #topic-filters::-webkit-scrollbar {
