@@ -4,8 +4,7 @@ description: "*Tus dos muertos* de Daniel Castro Zimbrón estrena en cines el 20
 pubDate: 2026-08-07T08:51:01.168Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://piedepagina.mx/wp-content/uploads/2025/11/tus-dos-muertos.jpg"
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIA6eOoL1DTEZN3oBd5WCK9quHiUWIUTarhLhzWMZ1UpN5vhncRIbUXkP&s=10"
 category: "Artículos"
 fuente:
   nombre: "FICM"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Próximamente"]
 ---
+
 
 ## Un proyecto que nació en la incubadora del FICM
 
