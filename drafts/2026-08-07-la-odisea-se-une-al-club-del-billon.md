@@ -1,7 +1,7 @@
 ---
 title: "*La Odisea* se une al club del billón"
-description: "*The Odyssey* de Christopher Nolan supera los mil millones, consolidándose como su tercer éxito de la talla del *The Dark Knight* y el *The Dark Knight Rises*."
-pubDate: 2026-08-07T18:09:56.001Z
+description: "*La Odisea* de Christopher Nolan supera los mil millones, consolidándose como su tercer éxito de la talla del *The Dark Knight Rises*."
+pubDate: 2026-08-07T18:11:46.450Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
