@@ -1,6 +1,6 @@
 ---
-title: "\"Hombre al agua\" debutará en Venecia 2026"
-description: "El tercer largometraje de Gael García Bernal, “Hombre al agua”, se estrena en el Festival de Venecia 2026, combinando drama, humor y surrealismo."
+title: "*Hombre al agua* debutará en Venecia 2026"
+description: "El tercer largometraje de Gael García Bernal, *Hombre al agua*, se estrena en el Festival de Venecia 2026, combinando drama, humor y surrealismo."
 pubDate: 2026-07-24T04:30:25.320Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
@@ -13,11 +13,9 @@ readTime: "2 min read"
 tags: ["Venecia"]
 ---
 
-
-
 ## Un nuevo paso para Gael García Bernal
 
-Después de consolidarse como actor y productor, Gael García Bernal se lanza al desafío de dirigir y protagonizar su tercera película. “Hombre al agua” llega a los cines de Venecia del 2 al 12 de septiembre, marcando la primera aparición del proyecto en un festival de la talla de la Bienal italiana. La obra también está programada para su debut norteamericano en el Festival Internacional de Cine de Toronto, lo que augura una agenda de festivales ambiciosa.
+Después de consolidarse como actor y productor, Gael García Bernal se lanza al desafío de dirigir y protagonizar su tercera película. *Hombre al agua* llega a los cines de Venecia del 2 al 12 de septiembre, marcando la primera aparición del proyecto en un festival de la talla de la Bienal italiana. La obra también está programada para su debut norteamericano en el Festival Internacional de Cine de Toronto, lo que augura una agenda de festivales ambiciosa.
 
 ## Trama que desentraña una conspiración
 
@@ -33,6 +31,4 @@ Entre los intérpretes destacan Esmeralda Pimentel, Débora Nascimento, Natalia 
 
 ## Expectativas y futuro
 
-Con una combinación de crítica social, humor y elementos oníricos, “Hombre al agua” promete ser uno de los títulos más comentados del festival. Su paso por Venecia y Toronto abre la puerta a posibles distribuciones internacionales, lo que podría consolidar a Bernal como un creador de contenido global. Los amantes del cine latinoamericano estarán atentos a cómo esta obra redefine la narrativa de poder y manipulación en el contexto contemporáneo.
-
-
+Con una combinación de crítica social, humor y elementos oníricos, *Hombre al agua* promete ser uno de los títulos más comentados del festival. Su paso por Venecia y Toronto abre la puerta a posibles distribuciones internacionales, lo que podría consolidar a Bernal como un creador de contenido global. Los amantes del cine latinoamericano estarán atentos a cómo esta obra redefine la narrativa de poder y manipulación en el contexto contemporáneo.
