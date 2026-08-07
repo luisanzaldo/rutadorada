@@ -10,8 +10,9 @@ fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
 readTime: "3 min read"
-tags: ["Cannes 2026"]
+tags: ["Cannes"]
 ---
+
 
 Ya se ha visto y han salido las primeras críticas de **Gentle Monster**, la nueva película de **Marie Kreutzer** protagonizada por **Léa Seydoux.**
 
@@ -52,3 +53,4 @@ Sin embargo, existen discrepancias notables en cuanto a la estructura y el tono.
 En conclusión, la crítica la define como una película necesaria pero difícil de ver, que destaca por su excelencia técnica y actoral, aunque se debate sobre si sus ambiciones narrativas terminan por distraer del horror central que intenta retratar.
 
 El título de la película, **Gentle Monster**, responde al alias (GentleMonster_87) que utiliza Philip (esposo del personaje de Seydoux) en la *dark web* para distribuir pornografía infantil. La obra explora precisamente la contradicción de cómo ese "monstruo" puede ser, al mismo tiempo, un esposo y padre "gentil"
+
