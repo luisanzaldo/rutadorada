@@ -10,8 +10,9 @@ fuente:
   nombre: "Deadline"
   url: "https://deadline.com/"
 readTime: "2 min read"
-tags: ["Hollywood"]
+tags: ["In Memoriam"]
 ---
+
 
 ## Introducción a una vida apasionante
 
@@ -34,3 +35,4 @@ Satrapi fue una defensora de los derechos de las mujeres y una crítica del rég
 </div>
 
 La muerte de Marjane Satrapi es una pérdida para la industria cinematográfica y para aquellos que luchan por la justicia y la igualdad. Su legado continúa inspirando a nuevas generaciones de cineastas y activistas, y su obra seguirá siendo recordada por su valentía y su pasión.
+
