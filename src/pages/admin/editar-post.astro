@@ -371,12 +371,14 @@ const duracionValue = ficha.duracion || "";
         const coverPreviewContainer = document.getElementById('coverPreviewContainer');
         const coverPreviewImage = document.getElementById('coverPreviewImage') as HTMLImageElement;
 
-        // Editor Tiptap compartido (toolbar + modales) con el contenido del post
-        const editor = initPostEditor({ initialMarkdown });
-
-        // Título y descripción también son editores Tiptap (negrita / itálica)
+        // Título y descripción también son editores Tiptap (negrita / itálica).
+        // Se montan antes que el del cuerpo para que un fallo cargando el
+        // artículo no los deje vacíos y sin poder escribir en ellos.
         initInlineEditor('title');
         initInlineEditor('description');
+
+        // Editor Tiptap compartido (toolbar + modales) con el contenido del post
+        const editor = initPostEditor({ initialMarkdown });
 
         if (!editor || !form) return;
 

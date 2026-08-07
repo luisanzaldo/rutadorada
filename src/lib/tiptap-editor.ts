@@ -128,6 +128,26 @@ const Point = Node.create({
     },
 });
 
+/**
+ * Tiptap convierte en número o booleano cualquier atributo del HTML que lo
+ * parezca ("1949" → 1949), y el serializador de Markdown revienta al llamar a
+ * .replace() sobre él. Basta una imagen con el alt numérico —![1949](...)— para
+ * tumbar la carga del editor completo, así que estos atributos se dejan como
+ * texto siempre.
+ */
+const TextImage = Image.extend({
+    addAttributes() {
+        const attributes: Record<string, any> = { ...this.parent?.() };
+        for (const name of ['src', 'alt', 'title']) {
+            attributes[name] = {
+                ...attributes[name],
+                parseHTML: (element: HTMLElement) => element.getAttribute(name),
+            };
+        }
+        return attributes;
+    },
+});
+
 export interface PostEditorOptions {
     /** Markdown inicial para pre-cargar el editor (modo edición). */
     initialMarkdown?: string;
@@ -269,7 +289,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
             StarterKit.configure({
                 hardBreak: false,
             }),
-            Image.configure({
+            TextImage.configure({
                 inline: false,
             }),
             Youtube.configure({ inline: false }),
