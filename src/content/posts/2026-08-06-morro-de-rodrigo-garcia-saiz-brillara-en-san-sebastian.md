@@ -4,7 +4,7 @@ description: "El segundo largometraje de Rodrigo García Saiz, *Morro*, compite 
 pubDate: 2026-08-06T18:00:38.363Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJrP0Wqa0M3NgSlh84QowcDV21GtjEDcrITPlhwtmfjzhpExTHwBfW6xKM&s=10"
+image: "/images/posts/2026-08-07-morro2-1786096634347.jpg"
 category: "Premios"
 fuente:
   nombre: "FICM"
@@ -12,6 +12,7 @@ fuente:
 readTime: "2 min read"
 tags: ["San Sebastián"]
 ---
+
 
 
 ## Un nuevo paso para el cine mexicano
@@ -33,4 +34,5 @@ La categoría *New Directors* del festival está dedicada a primeros y segundos 
 ## Expectativas y futuro
 
 La presencia de “Morro” en San Sebastián no solo amplifica la voz de Rodrigo García Saiz, sino que también pone de relieve la capacidad del cine mexicano para abordar temáticas de violencia y esperanza sin recurrir a clichés. Si la película logra captar la atención del jurado, podría abrir puertas a una mayor distribución internacional y consolidar a García Saiz como uno de los narradores más prometedores de su generación. Los amantes del cine de autor estarán pendientes de cómo evoluciona este proyecto después del festival.
+
 
