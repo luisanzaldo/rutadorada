@@ -10,8 +10,9 @@ fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
 readTime: "3 min read"
-tags: ["Cannes 2026"]
+tags: ["Cannes"]
 ---
+
 
 La crítica ya ha estando publicado sus reacciones de **Paper Tiger,** lo nuevo de **James Gray**. El sentir general de los medios es de una **aclamación casi unánime** hacia la dirección de James Gray y el trío actoral protagonista. La crítica coincide en que Paper Tiger es una obra profundamente personal, tensa y visualmente rica que funciona como una tragedia griega moderna sobre la familia y la ambición. Mientras que la mayoría celebra su atmósfera y peso emocional, la principal divergencia surge en la **solidez del guion**, donde algunos críticos ven una estructura clásica infalible y otros perciben falta de lógica en las decisiones de los personajes o un exceso de giros dramáticos.
 
@@ -26,3 +27,4 @@ La crítica ya ha estando publicado sus reacciones de **Paper Tiger,** lo nuevo 
 ![](https://thetitle.mx/wp-content/uploads/2026/05/scarlett-johansson-adam-driver-y-miles-teller-en-paper-tiger-estreno-en-cannes-2026-4.jpg)[**Variety**](https://variety.com/2026/film/reviews/paper-tiger-review-miles-teller-adam-driver-james-gray-1236750728/) ofrece la visión más crítica entre los medios publicados hasta ahora. Si bien reconoce a James Gray como un maestro de la dirección y del trauma familiar, considera que el guion tiene **problemas de plausibilidad**. Lo bueno, según este medio, es el sentido vívido de terror de clase media y la dirección segura. Lo malo es que encuentra la trama un tanto inverosímil.
 
 [**The Wrap**](https://www.thewrap.com/creative-content/movies/paper-tiger-review-james-gray-cannes/) resalta que la película logra un equilibrio inusual entre el suspenso y el corazón, siendo una entrada sentimental en un género que suele ser frío. Lo mejor de su análisis es cómo destaca el enfoque en los **lazos familiares** por encima de los estereotipos del thriller convencional. Elogia el trabajo de los actores principales, mencionando que Teller ofrece su papel más satisfactorio desde Whiplash.
+
