@@ -1,18 +1,18 @@
 ---
-title: "Los Oscars cambian sus reglas"
+title: "Los Oscar cambian sus reglas"
 description: "Los Oscars actualizan sus reglas para el 2027, incluyendo cambios en las categorías de actuación y la elegibilidad de películas internacionales"
 pubDate: 2026-05-01T18:50:50.554Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "/images/posts/2026-05-01-los-oscars-cambian-sus-reglas.jpg"
-category: "Artículos"
+category: "Premios"
 fuente:
   nombre: "Variety"
   url: "https://variety.com/"
 readTime: "2 min read"
 tags: ["Oscar"]
 ---
+
 
 ## Cambios en las reglas de los Oscars
 La Academia de Artes y Ciencias Cinematográficas ha aprobado un conjunto de nuevas y actualizadas reglas para los Oscars del 2027. Estos cambios reflejan la evolución de los estándares de elegibilidad, autoría y inclusión global en la industria cinematográfica.
