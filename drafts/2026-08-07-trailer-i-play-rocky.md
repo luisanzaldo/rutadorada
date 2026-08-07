@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: I Play Rocky"
 description: ""
-pubDate: 2026-08-07T07:25:02.030Z
+pubDate: 2026-08-07T07:26:17.243Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
