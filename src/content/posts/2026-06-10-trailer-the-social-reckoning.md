@@ -8,7 +8,8 @@ image: "/images/posts/2026-06-10-trailer-the-social-reckoning.jpg"
 category: "Tráilers"
 videoUrl: "https://youtu.be/gM4LkaXwGuY?si=0CitNO1GnNrL5PeT"
 readTime: "1 min read"
-tags: ["Próximamente"]
+tags: ["Cines"]
 ---
+
 
 Disfruta del tráiler de "The Social Reckoning"
