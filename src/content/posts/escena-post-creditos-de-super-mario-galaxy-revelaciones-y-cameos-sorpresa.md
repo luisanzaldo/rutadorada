@@ -4,15 +4,15 @@ description: "Descubre las sorpresas y cameos en la escena post-créditos de 'Su
 pubDate: 2026-04-02T17:18:17.726Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "/images/posts/escena-post-creditos-de-super-mario-galaxy-revelaciones-y-cameos-sorpresa.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
   url: "https://variety.com/"
-readTime: "5 min read"
-tags: ["En Cines"]
+readTime: "3 min read"
+tags: ["Cine"]
 ---
+
 
 **ALERTA DE SPOILERS:** Este artículo contiene spoilers de 'The Super Mario Galaxy Movie', actualmente en cines.
 
@@ -57,3 +57,4 @@ La princesa Daisy hace una aparición al final de 'Super Mario Galaxy', presenta
 Fox McCloud, el héroe del espacio de las series 'Star Fox', fue confirmado como parte del elenco de 'Super Mario Galaxy' poco antes del estreno. Interpretado por Glen Powell, Fox se encuentra con Mario y su grupo en un puerto espacial, y su trasfondo se presenta al estilo anime, con personajes como Falco Lombardi y Slippy Toad. Su nave Arwing es crucial para ayudar al equipo del Reino Champiñón y es parte de la escena de créditos finales.
 
 Otros cameos notables incluyen a Mr. Game & Watch, quien debutó en 'Super Smash Bros. Melee', y R.O.B., el Robotic Operating Buddy, que regresa como luchador en 'Super Smash Bros. Brawl'. Los Pikmin, acompañantes de Olimar, aparecen en el puerto espacial de 'Super Mario Galaxy'. Además, Donkey Kong, Dry Bowser, Birdo, Baby Mario, Baby Luigi, Baby Peach y Ninji también hacen apariciones significativas durante la película.
+
