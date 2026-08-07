@@ -4,7 +4,7 @@ description: "*Tus dos muertos* de Daniel Castro Zimbrón estrena en cines el 20
 pubDate: 2026-08-07T08:51:01.168Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://amexi.com.mx/wp-content/uploads/2026/03/Muestra_Cine-_Amexi_tus-dos-muertos-forense.jpg"
+image: "https://image.tmdb.org/t/p/w1280/pLdNWZiP3mJ8Dk5DAzyYrMD748T.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Próximamente"]
 ---
+
 
 
 
@@ -38,6 +39,7 @@ Con *Tus dos muertos*, Castro Zimbrón se adentra en el género del cine negro, 
 El 20 de agosto, *Tus dos muertos* llegará a las salas mexicanas, marcando el debut cinematográfico de una obra que combina rigor narrativo con una denuncia social incisiva. Para el público, representa una oportunidad de explorar, a través del entretenimiento, los entresijos de una realidad que a menudo permanece oculta. La apuesta de Castro Zimbrón es clara: ofrecer un thriller que no solo entretenga, sino que también invite a reflexionar sobre la fragilidad de la justicia en un país donde el poder sigue dictando las reglas del juego.
 
 En resumen, *Tus dos muertos* se perfila como una de las propuestas más esperadas del panorama independiente mexicano, y su llegada a la gran pantalla promete generar un debate necesario sobre la corrupción y la responsabilidad individual en medio de un sistema desigual.
+
 
 
 
