@@ -4,15 +4,15 @@ description: "Descubre las películas que podrían dominar la temporada de premi
 pubDate: 2026-03-20T20:53:21.600Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "/images/posts/50-peliculas-que-pueden-competir-en-la-temporada-de-premios-2026---parte-2.jpg"
-category: "Artículos"
+category: "Premios"
 fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
-readTime: "15 min read"
+readTime: "27 min read"
 tags: ["Temporada de Premios"]
 ---
+
 
 Continuamos con la lista de las películas que se perfilan como protagonistas de la próxima temporada de premios: desde aquellas que tendrán su estreno directo en salas de cine, las que probablemente debuten en Cannes o en festivales de otoño, hasta las que podrían llegar a la edición número 99 de los Premios Oscar. Si quieres leer la primera parte de este artículo, puedes ingresar aquí: [Parte 1](/posts/50-peliculas-temporada-premios-parte1).
 
