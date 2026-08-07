@@ -1,6 +1,6 @@
 ---
-title: "\"La Odisea\": la nueva película de Nolan es cine en estado puro"
-description: "Crítica de la última película de Christopher Nolan, La odisea, una épica espectacular realizada al muy estilo clásico pero que adapta el relato a nuestros tiempos"
+title: "*La Odisea*: la nueva película de Nolan es cine en estado puro"
+description: "Crítica de la última película de Christopher Nolan, *La Odisea*, una épica espectacular realizada al muy estilo clásico pero que adapta el relato a nuestros tiempos"
 pubDate: 2026-07-17T19:32:34.535Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
@@ -18,6 +18,7 @@ fichaTecnica:
 readTime: "3 min read"
 tags: ["Fantástico"]
 ---
+
 
 ## Cine en estado puro
 
@@ -52,3 +53,4 @@ No todo es perfección; la película muestra problemas de ritmo durante el segun
 <div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden">
 <div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-sm">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">Curiosidades</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">El perro que interpreta a Argus en la película es un podenco portugués, una raza antigua de la que Leguizamo señaló que solo existen aproximadamente 75 ejemplares en el mundo.</p></div></div>
 </div>
+
