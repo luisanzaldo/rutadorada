@@ -1,5 +1,5 @@
 ---
-title: "*Spider-Man: Brand New Day* rompe récords y apunta a 2 mil"
+title: "*Spider-Man: Brand New Day* romper récords y apunta a 2 mil millones"
 description: "*Spider-Man: Brand New Day* supera mil millones en 12 días, se ubica 12.º en la historia y persigue los 2 mil millones."
 pubDate: 2026-08-09T16:27:28.115Z
 author: "Moncho"
