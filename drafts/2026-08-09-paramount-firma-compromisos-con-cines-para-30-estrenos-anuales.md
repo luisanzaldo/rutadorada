@@ -1,7 +1,7 @@
 ---
 title: "Paramount firma compromisos con cines para 30 estrenos anuales"
-description: "Paramount asegura acuerdos con Regal y AMC para lanzar 30 películas al año, mientras Cinema United se opone al posible fusión con Warner Bros."
-pubDate: 2026-08-09T19:50:41.349Z
+description: "Paramount asegura acuerdos con Regal y AMC para lanzar 30 películas al año, mientras Cinema United se opone a la posible fusión con Warner Bros."
+pubDate: 2026-08-09T19:55:12.976Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
