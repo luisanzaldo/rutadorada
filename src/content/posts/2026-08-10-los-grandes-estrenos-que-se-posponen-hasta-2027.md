@@ -4,8 +4,7 @@ description: "Varios esperados estrenos como *Here Comes The Flood*, *The Riders
 pubDate: 2026-08-10T22:08:20.520Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://www.youtube.com/embed/HnWvg90lQt8"
+image: "https://cdn.theplaylist.net/wp-content/uploads/2026/08/10140335/HERE-COMES-THE-FLOOD_JACK-OF-SPADES_THE-RIDERS_PUSHED-TO-2027_THE-ENTERTAINMENT-SYSTEM-IS-DOWN_-1.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Próximamente"]
 ---
+
 
 ## Retrasos que redefinen la temporada
 
