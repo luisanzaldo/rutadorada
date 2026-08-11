@@ -22,7 +22,7 @@ El 64.º Festival de Cine de Nueva York (NYFF64) llega del 25 de septiembre al 1
 
 El estreno mundial de *Godzilla Minus Zero* de Takashi Yamazaki ocupa la noche de gala del 26 de septiembre. Continuando la historia iniciada en *Godzilla Minus One*, la película sitúa a la familia Shikishima en 1949, dos años después de los eventos de la entrega anterior. Con efectos visuales aún más deslumbrantes y una narrativa que mantiene el enfoque humano en la posguerra japonesa, el filme está pensado para la gran pantalla y será distribuido por GKIDS.
 
-## Dramas y documentales que no puedes perder
+## Dramas y documentales que no puedes perderte
 
 Entre los largometrajes de corte más serio destaca *A Statement* de Tom McCarthy, un conjunto de actores que recrea una crucial conferencia de 1980 sobre el cambio climático. Julianne Moore, Paul Giamatti y Evan Peters comparten protagonismo en este retrato de la urgencia ecológica.
 
