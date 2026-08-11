@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *Gentle Monster*"
-description: "Disfruta los videos y la música que te encantan, sube contenido original y compártelo con tus amigos, familiares y el resto del mundo en YouTube."
-pubDate: 2026-08-11T16:08:17.695Z
+description: "Mira el nuevo tráiler de “*Gentle Monster*”"
+pubDate: 2026-08-11T16:09:05.358Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
