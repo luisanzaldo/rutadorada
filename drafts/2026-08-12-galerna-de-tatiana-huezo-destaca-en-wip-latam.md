@@ -1,11 +1,11 @@
 ---
 title: "*Galerna* de Tatiana Huezo destaca en WIP Latam"
 description: "*Galerna* de Tatiana Huezo se incorpora al programa WIP Latam del Festival de San Sebastián, reforzando su trayectoria en el cine latinoamericano."
-pubDate: 2026-08-12T23:57:29.954Z
+pubDate: 2026-08-12T23:59:02.929Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://moreliafilmfest.com/sites/default/files/styles/large/public/2026-08/HOME_Galerna%2C%20de%20Tatiana%20Huezo..jpg?itok=LRbEGjwG"
+image: "https://moreliafilmfest.com/sites/default/files/styles/full_width/public/legacy/2021/10/Tatiana-Huezo.png?itok=CxcKWBfU"
 category: "Artículos"
 fuente:
   nombre: "FICM"
