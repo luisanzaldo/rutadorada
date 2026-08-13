@@ -4,15 +4,15 @@ description: "*Galerna* de Tatiana Huezo se incorpora al programa WIP Latam del 
 pubDate: 2026-08-12T23:59:08.690Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://moreliafilmfest.com/sites/default/files/styles/full_width/public/legacy/2021/10/Tatiana-Huezo.png?itok=CxcKWBfU"
+image: "https://www.informador.mx/__export/1777703853916/sites/elinformador/img/2026/05/02/imagen_cymkimagen_afp__20241204__1384693938__v2__highres__74thannualdirectorsguildofamericaawardsredca_crop1777703846443.jpg_914869537.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"
   url: "https://moreliafilmfest.com/"
 readTime: "3 min read"
-tags: ["San Sebastian"]
+tags: ["San Sebastián"]
 ---
+
 
 ## Un proyecto que vuelve a la frontera mexicana
 
