@@ -4,7 +4,7 @@ description: "Carlos Reygadas estrena *Heil Jupiter!* en la sección Currents de
 pubDate: 2026-08-13T19:06:41.817Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://moreliafilmfest.com/sites/default/files/styles/large/public/2026-08/HOME_Carlos%20Reygadas%20estrenara%CC%81%20HEIL%20JUPITER%21%20en%20el%2064%C2%B0%20Festival%20de%20Cine%20de%20Nueva%20York.jpg?itok=zjTkucCH"
+image: "/images/posts/2026-08-13-heil-jupiter-1786648792553.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["NYFF"]
 ---
+
 
 ## Un regreso esperado
 
@@ -30,3 +31,4 @@ El Festival de Nueva York, que se celebrará del 25 de septiembre al 12 de octub
 Los seguidores de Reygadas anticipan una película que mantenga su firma estética: planos largos, luz natural y una narrativa que se niega a explicar todo. La combinación de paisajes costeros y una entidad que juzga a los personajes sugiere una reflexión sobre la condición humana frente a fuerzas incomprensibles. Además, la presencia de otras obras de alto perfil en Currents garantiza que *Heil Jupiter!* será evaluada dentro de un marco de innovación y riesgo artístico.
 
 En conclusión, el debut de *Heil Jupiter!* en el NYFF no solo marca el regreso de un maestro del cine contemporáneo, sino que también sitúa a la producción dentro de una selección que celebra la experimentación y la profundidad temática. Los espectadores del festival tendrán la oportunidad de sumergirse en una experiencia visual y filosófica que, como prometen los organizadores, quedará grabada como un “sueño asombroso” en la memoria colectiva del cine de autor.
+
