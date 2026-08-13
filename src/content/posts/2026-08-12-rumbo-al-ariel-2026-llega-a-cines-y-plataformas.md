@@ -4,8 +4,7 @@ description: "La AMACC lanza el ciclo *Rumbo al Ariel 2026*, llevando las nomina
 pubDate: 2026-08-12T23:56:20.558Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://moreliafilmfest.com/sites/default/files/styles/large/public/2026-08/Captura%20de%20pantalla%202026-08-07%20a%20la%28s%29%202.49.35%E2%80%AFp.m..png?itok=riMbFyZq"
+image: "/images/posts/2026-08-13-ariel-1786582761057.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Ariel"]
 ---
+
 
 ## Un circuito nacional para las nominadas
 
