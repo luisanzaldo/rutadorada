@@ -4,7 +4,6 @@ description: "Carlos Reygadas estrena *Heil Jupiter!* en la sección Currents de
 pubDate: 2026-08-13T19:06:41.817Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://moreliafilmfest.com/sites/default/files/styles/large/public/2026-08/HOME_Carlos%20Reygadas%20estrenara%CC%81%20HEIL%20JUPITER%21%20en%20el%2064%C2%B0%20Festival%20de%20Cine%20de%20Nueva%20York.jpg?itok=zjTkucCH"
 category: "Artículos"
 fuente:
@@ -24,7 +23,7 @@ Ambientada en una costa aislada donde el mar golpea rocas colosales, *Heil Jupit
 
 ## El contexto del NYFF
 
-El Festival de Nueva York, que se celebra del 25 de septiembre al 12 de octubre, ha sido un escenario recurrente para la obra de Reygadas; *Luz silenciosa* recibió una gran ovación en 2007. Este año, la sección Currents se enriquece con una programación diversa que incluye *London* de Sebastian Brameshuber, *Red Rocks* de Bruno Dumont, *A Day in the Life of Jo: Chapter Phaedra* de Jacqueline Lentzou y *Biografía de Jorge Luis Borges* de Mariano Llinás. La pieza central del bloque será *Bardi* de Tala Hadid, conocida por *The Narrow Frame of Midnight* (2014), que también competirá en el Festival Internacional de Cine de Toronto (TIFF).
+El Festival de Nueva York, que se celebrará del 25 de septiembre al 12 de octubre, ha sido un escenario recurrente para la obra de Reygadas; *Luz silenciosa* recibió una gran ovación en 2007. Este año, la sección Currents se enriquece con una programación diversa que incluye *London* de Sebastian Brameshuber, *Red Rocks* de Bruno Dumont, *A Day in the Life of Jo: Chapter Phaedra* de Jacqueline Lentzou y *Biografía de Jorge Luis Borges* de Mariano Llinás. La pieza central del bloque será *Bardi* de Tala Hadid, conocida por *The Narrow Frame of Midnight* (2014), que también competirá en el Festival Internacional de Cine de Toronto (TIFF).
 
 ## Expectativas y resonancia
 
