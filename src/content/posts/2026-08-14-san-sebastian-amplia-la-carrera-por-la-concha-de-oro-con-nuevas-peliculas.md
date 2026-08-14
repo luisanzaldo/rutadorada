@@ -4,8 +4,7 @@ description: "El Festival de San Sebastián incorpora seis estrenos, entre *The 
 pubDate: 2026-08-14T17:53:24.209Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/08/THE-DEBUT.jpg"
+image: "https://nextbestpicture.com/wp-content/uploads/2026/06/The-Debut-scaled.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["San Sebastián"]
 ---
+
 
 ## *The Debut* de Jesse Eisenberg
 
