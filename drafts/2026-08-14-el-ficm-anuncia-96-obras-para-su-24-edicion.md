@@ -1,7 +1,7 @@
 ---
 title: "El *FICM* anuncia 96 obras para su 24ª edición"
 description: "El Festival Internacional de Cine de Morelia presenta su Selección Oficial 2026 con 96 títulos, 40 % dirigidos por mujeres y varios candidatos a Oscar."
-pubDate: 2026-08-14T21:26:51.770Z
+pubDate: 2026-08-14T21:28:16.995Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -31,3 +31,9 @@ Los organizadores anunciaron que los ganadores de las categorías de ficción, a
 Además del codiciado **El Ojo**, el festival otorga apoyos económicos y en especie que facilitan la continuidad de los proyectos. La edición 2026 se desarrollará del 16 al 25 de octubre, combinando funciones presenciales en Morelia, Michoacán, y proyecciones virtuales a través de nuestrocine.mx. La combinación de una programación diversa, la alta participación de mujeres y la posibilidad de acceder a nominaciones internacionales convierte a esta edición del *FICM* en una cita imperdible para cualquier amante del cine mexicano.
 
 Con una agenda que celebra la riqueza de 17 estados de la República, el *FICM* reafirma su lema #MoreliaEsCineMexicano y consolida su papel como impulsor de nuevas voces y narrativas en el panorama cinematográfico nacional e internacional.
+
+## Lista de películas
+
+- *Buenos días, buenas noches, buenas tardes*
+- *Agridulce*
+- *El rostro*
