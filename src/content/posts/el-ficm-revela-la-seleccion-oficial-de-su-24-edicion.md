@@ -4,7 +4,7 @@ description: "96 títulos que definen el pulso del cine mexicano"
 pubDate: 2026-08-14T21:42:47.926Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-08-14-images-1-1786743766563.jpg"
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXmPQrgtQUlL59JzUhqVmEp68tr92ZVaDFp_th4mxgXg&s"
 category: "Artículos"
 fuente:
   nombre: "FICM"
@@ -12,6 +12,7 @@ fuente:
 readTime: "5 min read"
 tags: ["FICM"]
 ---
+
 
 El Festival Internacional de Cine de Morelia (FICM) ha presentado oficialmente la Selección Oficial que conformará la competencia de su 24ª edición. Fiel a su misión trazada desde 2003, el certamen michoacano reafirma su compromiso con el cine nacional reuniendo un total de 96 producciones dirigidas por cineastas provenientes de 17 estados de la República.
 
@@ -232,3 +233,4 @@ El **FICM 2026** celebrará sus proyecciones del **16 al 25 de octubre** en sede
 - *Salón de belleza* | Nathalia Acevedo
 
 - *Toda una vida* | Ariel Gutiérrez
+
