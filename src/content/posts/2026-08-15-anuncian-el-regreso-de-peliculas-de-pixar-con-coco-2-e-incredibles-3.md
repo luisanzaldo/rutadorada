@@ -1,5 +1,5 @@
 ---
-title: "Anuncian el regreso de películas de Pixar con **Coco 2* * e **Incredibles 3**"
+title: "Anuncian el regreso de películas de Pixar con *Coco 2* e *Incredibles 3*"
 description: "Pixar anuncia *Incredibles 3* (verano 2028) centrado en Violet, Dash y Jack‑Jack, y *Coco 2* (noviembre 2029) con Miguel adolescente y el regreso de Ernesto de la Cruz."
 pubDate: 2026-08-15T04:27:50.836Z
 author: "Luis Anzaldo"
