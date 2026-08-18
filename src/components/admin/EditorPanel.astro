@@ -34,6 +34,16 @@ const { fileExtension = ".md" } = Astro.props;
 
             <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
 
+            <!-- Link Buttons -->
+            <button type="button" id="btn-link-modal" data-tiptap-btn="link" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar enlace (Ctrl+K)">
+                <span class="material-symbols-outlined text-[20px]">link</span>
+            </button>
+            <button type="button" id="btn-unlink" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Quitar enlace">
+                <span class="material-symbols-outlined text-[20px]">link_off</span>
+            </button>
+
+            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+
             <!-- Media Buttons -->
             <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
                 <span class="material-symbols-outlined text-[20px]">image</span>

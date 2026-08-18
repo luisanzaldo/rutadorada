@@ -1,8 +1,43 @@
 ---
-// Modales del editor Tiptap (imagen, YouTube, curiosidad y puntos de valoración)
-// más los estilos globales de ProseMirror. Se usan junto con EditorPanel.astro
-// y la lógica de src/lib/tiptap-editor.ts.
+// Modales del editor Tiptap (enlace, imagen, YouTube, curiosidad y puntos de
+// valoración) más los estilos globales de ProseMirror. Se usan junto con
+// EditorPanel.astro y la lógica de src/lib/tiptap-editor.ts.
 ---
+
+<!-- Modal Enlace -->
+<div id="modal-link" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] rounded-2xl p-6 w-full max-w-md shadow-2xl scale-95 opacity-0 transition-transform duration-200" id="modal-link-content">
+        <div class="flex justify-between items-center mb-6">
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">link</span> Insertar Enlace
+            </h4>
+            <button type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-white btn-close-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <label class="block text-xs font-semibold text-slate-500 uppercase">Texto seleccionado</label>
+                <p id="link-selection-preview" class="text-sm text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] rounded-xl px-4 py-3 truncate">
+                    —
+                </p>
+            </div>
+            <div class="space-y-2">
+                <label for="tiptap-link-url" class="block text-xs font-semibold text-slate-500 uppercase">Dirección del enlace</label>
+                <input type="url" id="tiptap-link-url" autocomplete="off" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-card-dark/50 border border-slate-200 dark:border-[#224249] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="https://..." />
+                <p class="text-[11px] text-slate-400 dark:text-slate-500">
+                    El enlace se abrirá en una pestaña nueva al publicarse.
+                </p>
+            </div>
+            <button type="button" id="btn-insert-link" class="w-full mt-4 py-3 rounded-xl bg-primary text-[#0b1618] font-bold hover:brightness-110 transition-all">
+                Aplicar enlace
+            </button>
+            <button type="button" id="btn-remove-link" class="w-full py-2.5 rounded-xl border border-slate-200 dark:border-[#224249] text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-red-500 hover:border-red-500/40 transition-all hidden">
+                Quitar enlace
+            </button>
+        </div>
+    </div>
+</div>
 
 <!-- Modal Imagen -->
 <div id="modal-image" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity">
@@ -151,6 +186,14 @@
     /* Los subtítulos h1, h2 y h3 son siempre dorados (modo claro y oscuro) */
     .ProseMirror h1, .ProseMirror h2, .ProseMirror h3 {
         color: #F2AF0D !important;
+    }
+
+    /* Los enlaces se distinguen dentro del editor igual que en el artículo */
+    .ProseMirror a {
+        color: #F2AF0D !important;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        cursor: pointer;
     }
 
     /* Media embeds en el editor */

@@ -258,10 +258,12 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
     const fileExtInput = document.getElementById('fileExtension') as HTMLInputElement | null;
 
     // Referencias de Modales
+    const modalLink = document.getElementById('modal-link');
     const modalImage = document.getElementById('modal-image');
     const modalYoutube = document.getElementById('modal-youtube');
     const modalCuriosity = document.getElementById('modal-curiosity');
     const modalPoint = document.getElementById('modal-point');
+    const modalLinkContent = document.getElementById('modal-link-content');
     const modalImageContent = document.getElementById('modal-image-content');
     const modalYoutubeContent = document.getElementById('modal-youtube-content');
     const modalCuriosityContent = document.getElementById('modal-curiosity-content');
@@ -278,6 +280,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         bold: document.querySelector('[data-tiptap-btn="bold"]'),
         italic: document.querySelector('[data-tiptap-btn="italic"]'),
         underline: document.querySelector('[data-tiptap-btn="underline"]'),
+        link: document.querySelector('[data-tiptap-btn="link"]'),
         h1: document.querySelector('[data-tiptap-btn="h1"]'),
         h2: document.querySelector('[data-tiptap-btn="h2"]'),
         h3: document.querySelector('[data-tiptap-btn="h3"]'),
@@ -288,6 +291,17 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         extensions: [
             StarterKit.configure({
                 hardBreak: false,
+                // Los enlaces del artículo siempre abren en una pestaña nueva.
+                // openOnClick: false evita que al hacer clic dentro del editor
+                // se abra la página en lugar de poder editar el texto.
+                link: {
+                    openOnClick: false,
+                    defaultProtocol: 'https',
+                    HTMLAttributes: {
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                    },
+                },
             }),
             TextImage.configure({
                 inline: false,
@@ -306,11 +320,24 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
                 class: 'focus:outline-none',
                 'data-placeholder': 'Comienza a escribir la publicación aquí...'
             },
+            handleKeyDown: (_view, event) => {
+                // Ctrl/Cmd + K abre el modal de enlace con el texto seleccionado.
+                if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+                    event.preventDefault();
+                    openLinkModal();
+                    return true;
+                }
+                return false;
+            },
         },
         onUpdate: ({ editor }) => {
             // TipTap Markdown extrae el texto puro MD que usaremos después en colecciones
             const mdText = editor.storage.markdown.getMarkdown()
-                .replace(/(!\[[^\]]*\]\([^)]*\))\n?(#{1,6} )/g, '$1\n\n$2');
+                .replace(/(!\[[^\]]*\]\([^)]*\))\n?(#{1,6} )/g, '$1\n\n$2')
+                // Cuando el texto del enlace es la propia dirección, el
+                // serializador la escribe como <https://...>; ese formato rompe
+                // el parseo de los posts .mdx, así que se deja como [url](url).
+                .replace(/<((?:https?|mailto):[^\s<>]+)>/g, '[$1]($1)');
             if (inputContent) inputContent.value = mdText;
 
             // Detectar si hay un iframe de youtube presente y forzar a que sea MDX!
@@ -348,6 +375,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         setBtnState(btns.bold, ed.isActive('bold'));
         setBtnState(btns.italic, ed.isActive('italic'));
         setBtnState(btns.underline, ed.isActive('underline'));
+        setBtnState(btns.link, ed.isActive('link'));
         setBtnState(btns.h1, ed.isActive('heading', { level: 1 }));
         setBtnState(btns.h2, ed.isActive('heading', { level: 2 }));
         setBtnState(btns.h3, ed.isActive('heading', { level: 3 }));
@@ -389,6 +417,7 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
     });
 
     document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', () => {
+        closeModal(modalLink, modalLinkContent);
         closeModal(modalImage, modalImageContent);
         closeModal(modalYoutube, modalYoutubeContent);
         closeModal(modalCuriosity, modalCuriosityContent);
@@ -480,6 +509,94 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
             closeModal(modalPoint, modalPointContent);
         } else {
             alert("Por favor llena ambos campos (Título y Contenido).");
+        }
+    });
+
+    // --- Enlaces (hipervínculos) ---
+    const linkUrlInput = document.getElementById('tiptap-link-url') as HTMLInputElement | null;
+    const linkSelectionPreview = document.getElementById('link-selection-preview');
+    const btnRemoveLink = document.getElementById('btn-remove-link');
+
+    /**
+     * Completa el protocolo cuando la dirección se escribe sin él
+     * ("ejemplo.com/nota" → "https://ejemplo.com/nota"), para que el enlace
+     * publicado no se interprete como una ruta interna del sitio.
+     */
+    function normalizeLinkUrl(value: string): string {
+        const url = value.trim();
+        if (!url) return '';
+        if (/^(https?:|mailto:|tel:|\/|#)/i.test(url)) return url;
+        return `https://${url}`;
+    }
+
+    /** Palabras del enlace que hay bajo el cursor, para mostrarlas en el modal. */
+    function getLinkTextAtCursor(): string {
+        const linkMark = editor.state.schema.marks.link;
+        if (!linkMark) return '';
+        const { $from } = editor.state.selection;
+        const node = $from.parent.childAfter($from.parentOffset).node
+            || $from.parent.childBefore($from.parentOffset).node;
+        if (node?.isText && linkMark.isInSet(node.marks)) return node.text || '';
+        return '';
+    }
+
+    function openLinkModal() {
+        const isOnLink = editor.isActive('link');
+        if (linkUrlInput) linkUrlInput.value = editor.getAttributes('link').href || '';
+        if (linkSelectionPreview) {
+            const { from, to, empty } = editor.state.selection;
+            const selected = empty ? '' : editor.state.doc.textBetween(from, to, ' ');
+            linkSelectionPreview.textContent =
+                selected || (isOnLink ? getLinkTextAtCursor() : 'Sin selección: se insertará la dirección como texto');
+        }
+        btnRemoveLink?.classList.toggle('hidden', !isOnLink);
+        openModal(modalLink, modalLinkContent);
+        setTimeout(() => linkUrlInput?.focus(), 60);
+    }
+
+    function applyLink() {
+        const href = normalizeLinkUrl(linkUrlInput?.value || '');
+        if (!href) {
+            alert('Escribe la dirección a la que debe llevar el enlace.');
+            return;
+        }
+
+        const attrs = { href, target: '_blank', rel: 'noopener noreferrer' };
+        const { empty } = editor.state.selection;
+
+        if (empty && !editor.isActive('link')) {
+            // Sin palabras seleccionadas se inserta la propia dirección enlazada,
+            // y se quita la marca para que lo que se escriba después no herede el enlace.
+            editor.chain().focus()
+                .insertContent({ type: 'text', text: href, marks: [{ type: 'link', attrs }] })
+                .unsetMark('link')
+                .run();
+        } else {
+            // extendMarkRange permite editar un enlace existente con sólo poner
+            // el cursor encima, sin tener que volver a seleccionar las palabras.
+            editor.chain().focus().extendMarkRange('link').setLink(attrs).run();
+        }
+
+        if (linkUrlInput) linkUrlInput.value = '';
+        closeModal(modalLink, modalLinkContent);
+    }
+
+    function removeLink() {
+        editor.chain().focus().extendMarkRange('link').unsetLink().run();
+        if (linkUrlInput) linkUrlInput.value = '';
+        closeModal(modalLink, modalLinkContent);
+    }
+
+    document.getElementById('btn-link-modal')?.addEventListener('click', () => openLinkModal());
+    document.getElementById('btn-insert-link')?.addEventListener('click', () => applyLink());
+    btnRemoveLink?.addEventListener('click', () => removeLink());
+    document.getElementById('btn-unlink')?.addEventListener('click', () => {
+        editor.chain().focus().extendMarkRange('link').unsetLink().run();
+    });
+    linkUrlInput?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            applyLink();
         }
     });
 
