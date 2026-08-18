@@ -11,7 +11,7 @@ fuente:
   nombre: "Deadline"
   url: "https://deadline.com/"
 readTime: "3 min read"
-tags: ["San Sebastian"]
+tags: ["San Sebastián"]
 ---
 
 ## Un vistazo al Perlak 2026  
