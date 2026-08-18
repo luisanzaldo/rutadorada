@@ -13,14 +13,13 @@ readTime: "3 min read"
 tags: ["Ariel"]
 ---
 
-
 ## Un circuito nacional para las nominadas
 
 Como parte de los preparativos de la 68ª edición de los premios Ariel, la Academia Mexicana de Artes y Ciencias Cinematográficas (AMACC) ha anunciado el regreso del ciclo *Rumbo al Ariel*. Esta iniciativa, que se consolida como una verdadera gira cultural, llevará los largometrajes y cortometrajes nominados a más de 120 salas independientes, cineclubes y espacios alternativos repartidos por todo el territorio mexicano. La idea es que el público de provincias, que a menudo queda fuera de la efervescencia de la temporada de premios, pueda disfrutar de la mejor propuesta del cine nacional antes de la ceremonia oficial.
 
 ## La experiencia digital: acceso gratuito y limitado
 
-Paralelamente a la proyección física, la AMACC ha puesto en marcha la plataforma digital *[Rumbo al Ariel](https://rumboalariel.amacc.org.mx/login) 2026*. Cada película será transmitida de forma gratuita durante una ventana de 24 horas, de jueves a domingo, iniciando el 6 de agosto. Para mantener un ambiente de “evento” y evitar la saturación, se asignan 300 boletos virtuales por función. Los accesos se habilitan 72 horas antes del estreno digital, y para reservar un asiento basta con crear una cuenta con un correo electrónico. Esta modalidad permite que, aunque el espectador no pueda asistir a una sala de su localidad, aún tenga la oportunidad de sumergirse en la propuesta nominada desde la comodidad de su hogar.
+Paralelamente a la proyección física, la AMACC ha puesto en marcha la plataforma digital [*Rumbo al Ariel 2026*](https://rumboalariel.amacc.org.mx/login). Cada película será transmitida de forma gratuita durante una ventana de 24 horas, de jueves a domingo, iniciando el 6 de agosto. Para mantener un ambiente de “evento” y evitar la saturación, se asignan 300 boletos virtuales por función. Los accesos se habilitan 72 horas antes del estreno digital, y para reservar un asiento basta con crear una cuenta con un correo electrónico. Esta modalidad permite que, aunque el espectador no pueda asistir a una sala de su localidad, aún tenga la oportunidad de sumergirse en la propuesta nominada desde la comodidad de su hogar.
 
 ## Impacto cultural y oportunidades para la industria
 
