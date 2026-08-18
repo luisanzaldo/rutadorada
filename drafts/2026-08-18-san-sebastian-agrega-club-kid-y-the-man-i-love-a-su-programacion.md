@@ -1,7 +1,7 @@
 ---
 title: "San Sebastian agrega *Club Kid* y *The Man I Love* a su programación"
 description: "San Sebastián incorpora *Club Kid* y *The Man I Love* al programa Perlak, acompañados de *Fjord*, *Coward* y otras propuestas de autor."
-pubDate: 2026-08-18T19:00:24.865Z
+pubDate: 2026-08-18T19:02:01.972Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -22,7 +22,7 @@ El festival de San Sebastián, que se celebrará del 18 al 26 de septiembre, ha 
 
 *Club Kid* marca la primera película de largometraje del guionista y creador de contenido Jordan Firstman. La trama sigue a Peter, un promotor de discotecas neoyorquino conocido por sus fiestas interminables, cuya rutina se desmorona cuando una mujer aparece en su puerta con Arlo, un niño de diez años que afirma ser su hijo. El elenco cuenta con Cara Delevingne y Diego Calva, y la película ya había llamado la atención en Cannes, donde fue incluida en la sección Un Certain Regard y adquirida por A24. La propuesta combina humor ácido, momentos de ternura inesperada y una reflexión sobre la responsabilidad que surge cuando la vida de fiesta se cruza con la paternidad.
 
-## *The Man I Love*: la crónica de Ira Sachs sobre el AIDS  
+## *The Man I Love*: la crónica de Ira Sachs sobre el sida  
 
 Ira Sachs vuelve a explorar la escena artística de Nueva York con *The Man I Love*, centrada en Jimmy George, un artista de performance que enfrenta una enfermedad terminal de sida en medio de la epidemia que devastó la comunidad creativa de la capital estadounidense. A pesar del pronóstico, Jimmy persiste en su deseo de vivir, amar y crear. El reparto incluye a Luther Ford, Tom Sturridge, Ebon Moss‑Bachrach y Rebecca Hall, ofreciendo interpretaciones que equilibran la vulnerabilidad y la rebeldía propias del periodo.
 
