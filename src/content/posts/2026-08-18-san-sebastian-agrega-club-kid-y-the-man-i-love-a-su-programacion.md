@@ -1,5 +1,5 @@
 ---
-title: "San Sebastian agrega *Club Kid* y *The Man I Love* a su programación"
+title: "San Sebastián agrega *Club Kid* y *The Man I Love* a su programación"
 description: "San Sebastián incorpora *Club Kid* y *The Man I Love* al programa Perlak, acompañados de *Fjord*, *Coward* y otras propuestas de autor."
 pubDate: 2026-08-18T19:02:22.246Z
 author: "Luis Anzaldo"
@@ -11,7 +11,7 @@ fuente:
   nombre: "Deadline"
   url: "https://deadline.com/"
 readTime: "3 min read"
-tags: ["San Sebastian"]
+tags: ["San Sebastián"]
 ---
 
 ## Un vistazo al Perlak 2026  
