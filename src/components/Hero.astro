@@ -115,12 +115,12 @@ const archiveHref = `${baseUrl}/archive`;
 
                 <h1
                     id="hero-title"
-                    class="hero-title ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-4"
+                    class="hero-title hero-swap ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-4"
                     set:html={first.title}
                 ></h1>
 
                 <span
-                    class="hero-cta ff-sans mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
+                    class="hero-cta hero-swap ff-sans mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.18em] text-[#F3ECDD] border-b border-[#F2AF0D]/40 pb-1"
                 >
                     <span id="hero-cta-text"
                         >{first.isTrailer ? "Ver tráiler" : "Leer la nota"}</span
@@ -323,9 +323,12 @@ const archiveHref = `${baseUrl}/archive`;
     }
 
     /* Stills crossfade + slow drift */
+    /* El fundido de la imagen termina casi a la vez que el relevo del texto
+       (0.28s de apagado + 0.42s de encendido), para que el titular no quede
+       sobre la imagen de la nota anterior. */
     .hero-slide {
         opacity: 0;
-        transition: opacity 1.2s ease;
+        transition: opacity 0.9s ease;
     }
     .hero-slide.is-active {
         opacity: 1;
@@ -417,6 +420,19 @@ const archiveHref = `${baseUrl}/archive`;
         opacity: 1;
     }
 
+    /* Relevo del texto entre notas: el titular y la llamada a la acción se
+       apagan, se sustituye el contenido con opacidad 0 y vuelven a aparecer.
+       Al cambiar el texto cuando no se ve, nunca queda a la vista una mezcla
+       del titular saliente con el entrante, y el texto deja de aparecer sobre
+       la imagen de la nota anterior mientras ésta todavía se está fundiendo. */
+    .hero-swap {
+        transition: opacity 0.42s ease;
+    }
+    .hero-swap.is-swapping {
+        opacity: 0;
+        transition-duration: 0.28s;
+    }
+
     .hero-arrow {
         transition: transform 0.3s ease;
     }
@@ -466,6 +482,7 @@ const archiveHref = `${baseUrl}/archive`;
         .kb-img,
         .live-dot,
         .hero-arrow,
+        .hero-swap,
         .marquee-track,
         .hero-reveal {
             animation: none !important;
@@ -504,20 +521,45 @@ const archiveHref = `${baseUrl}/archive`;
         let elapsed = 0;
         let last = performance.now();
 
-        function show(i) {
-            current = i;
+        // Duración del apagado del texto: debe coincidir con la de
+        // .hero-swap.is-swapping en la hoja de estilos de este componente.
+        const SWAP_OUT = 280;
+        const swapEls = Array.from(section.querySelectorAll(".hero-swap"));
+        let swapTimer = null;
+
+        // Escribe el contenido de la nota i. Se llama con el texto invisible.
+        function paint(i) {
             const s = featured[i];
-            figs.forEach((el, n) => el.classList.toggle("is-active", n === i));
             // s.title llega ya como HTML seguro (sólo <strong> y <em>)
             if (titleEl) titleEl.innerHTML = s.title;
             if (ctaText)
                 ctaText.textContent = s.isTrailer ? "Ver tráiler" : "Leer la nota";
             if (arrowIcon) arrowIcon.classList.toggle("hidden", s.isTrailer);
             if (playIcon) playIcon.classList.toggle("hidden", !s.isTrailer);
+        }
+
+        function show(i) {
+            current = i;
+            const s = featured[i];
+            figs.forEach((el, n) => el.classList.toggle("is-active", n === i));
+            // El destino se actualiza de inmediato para que un toque durante el
+            // relevo lleve a la nota que está entrando, no a la que sale.
             if (link) {
                 link.setAttribute("href", s.href);
                 link.setAttribute("target", s.isTrailer ? "_blank" : "_self");
             }
+
+            if (reduce || swapEls.length === 0) {
+                paint(i);
+                return;
+            }
+
+            clearTimeout(swapTimer);
+            swapEls.forEach((el) => el.classList.add("is-swapping"));
+            swapTimer = window.setTimeout(() => {
+                paint(i);
+                swapEls.forEach((el) => el.classList.remove("is-swapping"));
+            }, SWAP_OUT);
         }
 
         function go(dir) {
