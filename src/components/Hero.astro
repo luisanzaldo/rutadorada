@@ -115,7 +115,7 @@ const archiveHref = `${baseUrl}/archive`;
 
                 <h1
                     id="hero-title"
-                    class="hero-title ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-3"
+                    class="hero-title ff-display font-semibold normal-case tracking-[-0.02em] text-[2.1rem] sm:text-6xl lg:text-7xl xl:text-[5.2rem] text-[#F3ECDD] [text-wrap:balance] line-clamp-4"
                     set:html={first.title}
                 ></h1>
 
@@ -305,12 +305,21 @@ const archiveHref = `${baseUrl}/archive`;
         font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     }
 
-    /* Título: interlineado que respeta descendentes (g, j, p, y) y
-       padding extra para que line-clamp no recorte la última línea */
+    /* Manrope dibuja sus glifos dentro de una caja de 1.37em: los acentos de
+       las mayúsculas suben hasta 0.98em y los descendentes (g, j, p, y) bajan
+       0.26em. Con el interlineado anterior (1.08) esas dos zonas se solapaban
+       y las líneas del titular se encimaban. 1.2em las separa sin perder el
+       aire compacto del titular. */
     .hero-title {
-        line-height: 1.08;
-        padding-bottom: 0.16em;
-        margin-bottom: -0.16em;
+        line-height: 1.2;
+
+        /* El recorte de line-clamp cae en el hueco entre líneas: este padding
+           cubre el descendente de la última línea visible y, al quedarse corto
+           frente a ese hueco, impide que asomen los ascendentes (l, t) de la
+           línea recortada. Ambos valores están atados a em para que la relación
+           se mantenga en todos los tamaños del titular. */
+        padding-bottom: 0.09em;
+        margin-bottom: -0.09em;
     }
 
     /* Stills crossfade + slow drift */
