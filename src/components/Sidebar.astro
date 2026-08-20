@@ -26,7 +26,7 @@ const trendingTags = Array.from(tagCounts.entries())
         class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
     >
         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
-            Sobre Ruta<span class="text-[#F2AF0D]">Dorada</span>
+            Sobre Ruta<span class="text-gold">Dorada</span>
         </h3>
         <p
             class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed"
@@ -210,10 +210,10 @@ const trendingTags = Array.from(tagCounts.entries())
             if (popularByCategory.length > 0) {
                 list.innerHTML = popularByCategory.map((item, index) => `
                     <a class="group block" href="${baseUrl}/posts/${item.slug}">
-                        <span class="text-[#F2AF0D] text-xs font-bold uppercase mb-1 block">
+                        <span class="text-gold text-xs font-bold uppercase mb-1 block">
                             ${item.category}
                         </span>
-                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#F2AF0D] transition-colors">
+                        <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-gold transition-colors">
                             ${item.title}
                         </h4>
                     </a>

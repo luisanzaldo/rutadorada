@@ -201,18 +201,27 @@
 }
 
 /* Dorado para texto sobre el fondo del tema: #F2AF0D solo alcanza ~1.9:1 de
-   contraste sobre blanco, así que en tema claro el texto dorado usa el mismo
-   matiz de marca (43°) oscurecido al mínimo indispensable (~3:1, AA solo para
-   texto grande o en negritas; un dorado con 4.5:1 deja de verse dorado) y en
-   oscuro conserva el dorado de marca. Genera las utilidades text-gold /
-   border-gold / bg-gold. Para dorado sobre superficies siempre oscuras (hero,
-   nav, chips sobre imagen) sigue usándose text-primary. */
+   contraste sobre blanco, así que en tema claro el texto dorado usa el matiz
+   de marca oscurecido lo mínimo que el gusto permitió (~2.8:1; decisión
+   estética consciente: queda justo bajo el AA de 3:1 para texto grande, y un
+   dorado con 4.5:1 deja de verse dorado) y en oscuro conserva el dorado de
+   marca. Genera las utilidades text-gold / border-gold / bg-gold. Para dorado
+   sobre superficies siempre oscuras (hero, nav, chips sobre imagen) sigue
+   usándose text-primary. */
 :root {
-  --gold-readable: #C08A00;
+  --gold-readable: #C69200;
 }
 
 .dark {
   --gold-readable: #F2AF0D;
+}
+
+/* Quien activa "aumentar contraste" en su sistema operativo recibe en tema
+   claro un dorado AA (4.5:1+); el tema oscuro ya cumple de sobra (~10:1). */
+@media (prefers-contrast: more) {
+  :root:not(.dark) {
+    --gold-readable: #8E6400;
+  }
 }
 
 @theme inline {
