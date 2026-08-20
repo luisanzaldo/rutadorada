@@ -201,13 +201,14 @@
 }
 
 /* Dorado para texto sobre el fondo del tema: #F2AF0D solo alcanza ~1.9:1 de
-   contraste sobre blanco, así que en tema claro el texto dorado usa un tono
-   oscuro del mismo matiz (~5:1, AA) y en oscuro conserva el dorado de marca.
-   Genera las utilidades text-gold / border-gold / bg-gold. Para dorado sobre
-   superficies siempre oscuras (hero, nav, chips sobre imagen) sigue usándose
-   text-primary. */
+   contraste sobre blanco, así que en tema claro el texto dorado usa el mismo
+   matiz de marca (43°) oscurecido al mínimo indispensable (~3:1, AA solo para
+   texto grande o en negritas; un dorado con 4.5:1 deja de verse dorado) y en
+   oscuro conserva el dorado de marca. Genera las utilidades text-gold /
+   border-gold / bg-gold. Para dorado sobre superficies siempre oscuras (hero,
+   nav, chips sobre imagen) sigue usándose text-primary. */
 :root {
-  --gold-readable: #8E6400;
+  --gold-readable: #C08A00;
 }
 
 .dark {
