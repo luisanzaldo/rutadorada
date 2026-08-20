@@ -86,7 +86,7 @@ const plainDescription = stripRichText(post.data.description);
                     <div class="mb-10">
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span
-                                class="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-black dark:text-primary ring-1 ring-inset ring-primary/20"
+                                class="inline-flex items-center rounded-lg bg-primary/5 px-3 py-1 text-sm font-medium text-black dark:text-primary ring-1 ring-inset ring-primary/20"
                             >
                                 {post.data.category}
                             </span>
@@ -240,7 +240,7 @@ const plainDescription = stripRichText(post.data.description);
                     }
 
                     <div
-                        class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg sm:prose-h3:text-xl prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:mx-auto [&_h1]:!text-gold [&_h2]:!text-gold [&_h3]:!text-gold dark:[&_strong]:!text-primary dark:[&_b]:!text-primary"
+                        class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg sm:prose-h3:text-xl prose-a:text-black prose-a:font-bold prose-a:underline dark:prose-a:text-primary dark:prose-a:font-normal prose-img:rounded-xl prose-img:mx-auto [&_h1]:!text-black [&_h2]:!text-black [&_h3]:!text-black dark:[&_h1]:!text-primary dark:[&_h2]:!text-primary dark:[&_h3]:!text-primary dark:[&_strong]:!text-primary dark:[&_b]:!text-primary"
                     >
                         <Content />
                     </div>
@@ -253,7 +253,7 @@ const plainDescription = stripRichText(post.data.description);
                                     href={post.data.fuente.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-gold hover:underline ml-1"
+                                    class="text-black dark:text-primary font-bold dark:font-normal underline ml-1"
                                 >
                                     {post.data.fuente.nombre}
                                 </a>

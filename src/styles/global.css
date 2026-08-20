@@ -200,16 +200,14 @@
   }
 }
 
-/* Dorado para texto sobre el fondo del tema: #F2AF0D solo alcanza ~1.9:1 de
-   contraste sobre blanco, así que en tema claro el texto dorado usa el matiz
-   de marca oscurecido lo mínimo que el gusto permitió (~2.8:1; decisión
-   estética consciente: queda justo bajo el AA de 3:1 para texto grande, y un
-   dorado con 4.5:1 deja de verse dorado) y en oscuro conserva el dorado de
-   marca. Genera las utilidades text-gold / border-gold / bg-gold. Para dorado
-   sobre superficies siempre oscuras (hero, nav, chips sobre imagen) sigue
-   usándose text-primary. */
+/* Dorado de acento (utilidades text-gold / border-gold / bg-gold). Decisión
+   editorial: los subtítulos e hipervínculos van en negro en tema claro (eso
+   resuelve el contraste), y el dorado queda solo como acento y en las
+   iluminaciones de hover, donde se usa el color de marca pleno. La variable
+   existe para que quien activa "aumentar contraste" en su sistema operativo
+   reciba en tema claro un dorado AA (#F2AF0D solo da ~1.9:1 sobre blanco). */
 :root {
-  --gold-readable: #C69200;
+  --gold-readable: #F2AF0D;
 }
 
 .dark {

@@ -58,7 +58,7 @@ const descriptionHtml = renderRichText(description);
                     >{date} • {readTime}</span
                 >
                 <div
-                    class={`archive-arrow material-symbols-outlined text-gold text-[20px] transition-transform`}
+                    class={`archive-arrow material-symbols-outlined text-black dark:text-gold text-[20px] transition-transform`}
                 >
                     arrow_forward
                 </div>
@@ -99,6 +99,7 @@ const descriptionHtml = renderRichText(description);
 
         .archive-card-link:hover .archive-arrow {
             transform: translateX(4px);
+            color: var(--gold-readable, #F2AF0D);
         }
 
         .archive-card-container:hover {
