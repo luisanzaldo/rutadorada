@@ -1,0 +1,305 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ArchiveCard from "../../components/ArchiveCard.astro";
+import { slugifyTag } from "../../lib/tags";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    // slug -> nombre original de la etiqueta (el primero que aparezca)
+    const tagMap = new Map<string, string>();
+    posts.forEach((post) => {
+        (post.data.tags || []).forEach((tag: string) => {
+            const slug = slugifyTag(tag);
+            if (!tagMap.has(slug)) tagMap.set(slug, tag);
+        });
+    });
+    return Array.from(tagMap.entries()).map(([slug, tagName]) => ({
+        params: { etiqueta: slug },
+        props: { tagName },
+    }));
+}
+
+interface Props {
+    tagName: string;
+}
+
+const { tagName } = Astro.props;
+const tagSlug = slugifyTag(tagName);
+
+const taggedPosts = (await getCollection("posts"))
+    .filter((p) => (p.data.tags || []).some((t: string) => slugifyTag(t) === tagSlug))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) => {
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+};
+---
+
+<Layout title={`${tagName} | RutaDorada`}>
+    <Header />
+
+    <main class="flex-1 flex justify-center py-8 px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-[1200px] gap-8">
+            <!-- Title Section -->
+            <div class="flex flex-col gap-4 border-b border-slate-200 dark:border-[#224249] pb-8">
+                <span
+                    class="text-[#F2AF0D] text-sm font-bold uppercase tracking-widest"
+                >
+                    Etiqueta
+                </span>
+                <h1
+                    class="text-slate-900 dark:text-white text-4xl md:text-5xl font-bold leading-tight tracking-[-0.033em]"
+                >
+                    {tagName}
+                </h1>
+                <p
+                    class="text-slate-500 dark:text-text-muted text-lg font-normal leading-normal max-w-2xl"
+                >
+                    {taggedPosts.length === 1
+                        ? `1 publicación etiquetada con "${tagName}" en todas las secciones.`
+                        : `${taggedPosts.length} publicaciones etiquetadas con "${tagName}" en todas las secciones.`}
+                </p>
+            </div>
+
+            <!-- Sorting -->
+            <div class="flex justify-end items-center gap-2 w-full">
+                <span class="text-slate-500 dark:text-text-muted text-sm">Ordenar por:</span>
+                <button
+                    class="flex items-center gap-1 text-slate-900 dark:text-white text-sm font-medium hover:text-[#F2AF0D] transition-colors"
+                    id="sort-toggle"
+                >
+                    <span id="sort-label">Más recientes</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="text-[#F2AF0D]"
+                    >
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Article Grid -->
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-100 transition-opacity duration-300"
+                id="archive-grid"
+            >
+                {
+                    taggedPosts.map((post) => (
+                        <div
+                            class="archive-item h-full"
+                            data-date={post.data.pubDate.getTime()}
+                        >
+                            <ArchiveCard
+                                title={post.data.title}
+                                description={post.data.description}
+                                image={post.data.image}
+                                category={post.data.category}
+                                date={formatDate(post.data.pubDate)}
+                                readTime={post.data.readTime}
+                                slug={post.slug}
+                                videoUrl={post.data.videoUrl}
+                                tags={post.data.tags}
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Pagination Section -->
+            <div
+                class="flex flex-col items-center justify-center gap-6 pt-12 pb-8 border-t border-slate-200 dark:border-[#224249] mt-8"
+            >
+                <div class="flex items-center gap-2" id="pagination-controls">
+                    <button
+                        id="prev-page"
+                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-background-input border border-primary/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
+                        aria-label="Previous page"
+                    >
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform"
+                            >chevron_left</span
+                        >
+                    </button>
+
+                    <div id="page-numbers" class="flex items-center gap-2">
+                        <!-- Numbers will be injected here -->
+                    </div>
+
+                    <button
+                        id="next-page"
+                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-background-input border border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D] transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
+                        aria-label="Next page"
+                    >
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:translate-x-0.5 transition-transform"
+                            >chevron_right</span
+                        >
+                    </button>
+                </div>
+                <div
+                    class="text-xs font-medium text-slate-500 dark:text-text-muted uppercase tracking-widest"
+                    id="pagination-info"
+                >
+                    Page 1 of 1
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    const archiveGrid = document.getElementById("archive-grid");
+    const getArchiveItems = () => document.querySelectorAll(".archive-item") as NodeListOf<HTMLElement>;
+    const sortToggle = document.getElementById("sort-toggle");
+    const sortLabel = document.getElementById("sort-label");
+
+    // Pagination Elements
+    const prevBtn = document.getElementById("prev-page") as HTMLButtonElement;
+    const nextBtn = document.getElementById("next-page") as HTMLButtonElement;
+    const pageNumbersContainer = document.getElementById("page-numbers");
+    const paginationInfo = document.getElementById("pagination-info");
+
+    let currentSort = "newest";
+    let currentPage = 1;
+    const itemsPerPage = 9;
+    const maxPageButtons = 10;
+
+    let sortedItems: HTMLElement[] = Array.from(getArchiveItems());
+
+    // El primer render no lleva fade: evita el parpadeo al cargar la página
+    let isFirstRender = true;
+
+    const goToPage = (page: number) => {
+        currentPage = page;
+        updatePagination();
+        // "instant" ignora el scroll-behavior: smooth global (global.css),
+        // así se ve de inmediato la parte superior de la página elegida.
+        window.scrollTo({ top: 0, behavior: "instant" });
+    };
+
+    const updatePagination = () => {
+        const totalPages = Math.ceil(sortedItems.length / itemsPerPage) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        // Update Info
+        if (paginationInfo)
+            paginationInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+        // Update Buttons
+        if (prevBtn) prevBtn.disabled = currentPage === 1;
+        if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+
+        // Render Page Numbers: ventana deslizante de 10 botones al estilo
+        // Google, con la página actual en la 6ª posición cuando se puede
+        // (ej. en la 7 se ven 2…11) y pegada al borde al principio o al final.
+        if (pageNumbersContainer) {
+            pageNumbersContainer.innerHTML = "";
+            let windowStart = Math.max(1, currentPage - 5);
+            const windowEnd = Math.min(
+                totalPages,
+                windowStart + maxPageButtons - 1
+            );
+            windowStart = Math.max(1, windowEnd - maxPageButtons + 1);
+            for (let i = windowStart; i <= windowEnd; i++) {
+                const btn = document.createElement("button");
+                btn.className = `w-10 h-10 rounded-lg border transition-all text-sm font-bold ${
+                    i === currentPage
+                        ? "bg-[#F2AF0D] text-slate-900 dark:text-white border-[#F2AF0D] shadow-[0_0_15px_rgba(242,175,13,0.3)]"
+                        : "bg-slate-100 dark:bg-background-input border-[#F2AF0D]/20 text-slate-900 dark:text-white hover:bg-[#F2AF0D]/10 hover:border-[#F2AF0D]"
+                }`;
+                btn.textContent = i.toString();
+                btn.addEventListener("click", () => goToPage(i));
+                pageNumbersContainer.appendChild(btn);
+            }
+        }
+
+        renderCurrentPage();
+    };
+
+    const renderCurrentPage = () => {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        const paint = () => {
+            getArchiveItems().forEach((item) => (item.style.display = "none"));
+
+            sortedItems.forEach((item, index) => {
+                if (index >= start && index < end) {
+                    item.style.display = "block";
+                }
+            });
+
+            if (archiveGrid) archiveGrid.style.opacity = "1";
+        };
+
+        if (isFirstRender) {
+            isFirstRender = false;
+            paint();
+            return;
+        }
+
+        // Fade effect
+        if (archiveGrid) archiveGrid.style.opacity = "0";
+        setTimeout(paint, 200);
+    };
+
+    prevBtn?.addEventListener("click", () => {
+        if (currentPage > 1) goToPage(currentPage - 1);
+    });
+
+    nextBtn?.addEventListener("click", () => {
+        const totalPages = Math.ceil(sortedItems.length / itemsPerPage);
+        if (currentPage < totalPages) goToPage(currentPage + 1);
+    });
+
+    // Sorting
+    sortToggle?.addEventListener("click", () => {
+        currentSort = currentSort === "newest" ? "oldest" : "newest";
+        if (sortLabel)
+            sortLabel.textContent =
+                currentSort === "newest" ? "Más recientes" : "Más antiguos";
+
+        sortedItems = Array.from(getArchiveItems()).sort((a, b) => {
+            const dateA = parseInt(a.getAttribute("data-date") || "0");
+            const dateB = parseInt(b.getAttribute("data-date") || "0");
+            return currentSort === "newest" ? dateB - dateA : dateA - dateB;
+        });
+
+        // Update items in the DOM and re-render
+        sortedItems.forEach((item) => archiveGrid?.appendChild(item));
+        currentPage = 1;
+        updatePagination();
+    });
+
+    updatePagination();
+</script>
+
+<style>
+    #archive-grid {
+        transition-property: opacity;
+    }
+
+    /* Antes de que el script de paginación tome el control solo se muestran
+       los primeros 9 artículos, para que nunca se vean todos de golpe. */
+    #archive-grid .archive-item:nth-child(n + 10) {
+        display: none;
+    }
+</style>

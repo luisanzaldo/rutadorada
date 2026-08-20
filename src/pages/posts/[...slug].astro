@@ -9,6 +9,7 @@ import Comments from "../../components/Comments.astro";
 import ShareModal from "../../components/ShareModal.astro";
 import Speedometer from "../../components/Speedometer.astro";
 import { renderRichText, stripRichText } from "../../lib/richText";
+import { getTagUrl } from "../../lib/tags";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -107,9 +108,13 @@ const plainDescription = stripRichText(post.data.description);
                             post.data.tags && post.data.tags.length > 0 && (
                                 <div class="flex flex-wrap gap-2 mb-6">
                                     {post.data.tags.map((tag: string) => (
-                                        <span class="px-3 py-1 rounded-lg bg-primary text-sm font-bold text-[#102023] shadow-sm cursor-default">
+                                        <a
+                                            href={getTagUrl(tag)}
+                                            class="px-3 py-1 rounded-lg bg-primary text-sm font-bold text-[#102023] shadow-sm hover:bg-[#b8952b] transition-colors"
+                                            title={`Ver todos los posts con la etiqueta ${tag}`}
+                                        >
                                             {tag}
-                                        </span>
+                                        </a>
                                     ))}
                                 </div>
                             )

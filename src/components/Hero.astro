@@ -425,12 +425,27 @@ const archiveHref = `${baseUrl}/archive`;
        Al cambiar el texto cuando no se ve, nunca queda a la vista una mezcla
        del titular saliente con el entrante, y el texto deja de aparecer sobre
        la imagen de la nota anterior mientras ésta todavía se está fundiendo. */
-    .hero-swap {
-        transition: opacity 0.42s ease;
-    }
     .hero-swap.is-swapping {
-        opacity: 0;
-        transition-duration: 0.28s;
+        animation: hero-relay 780ms ease both;
+    }
+    /* La meseta en opacidad 0 (218ms - 390ms) es lo que vuelve fiable el
+       relevo: el texto se reescribe dentro de esa ventana, así que aunque el
+       navegador atienda tarde el temporizador —cosa habitual mientras el dedo
+       arrastra— el cambio sigue cayendo con el titular invisible. Con una
+       transición el margen era un instante y ahí se superponían los títulos. */
+    @keyframes hero-relay {
+        0% {
+            opacity: 1;
+        }
+        28% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .hero-arrow {
@@ -523,9 +538,15 @@ const archiveHref = `${baseUrl}/archive`;
 
         // Duración del apagado del texto: debe coincidir con la de
         // .hero-swap.is-swapping en la hoja de estilos de este componente.
-        const SWAP_OUT = 280;
+        // Punto de reescritura: centro de la meseta de opacidad 0.
+        const SWAP_HOLD = 300;
+        // Tope de espera por si la animación nunca llega a avisar.
+        const SWAP_GIVE_UP = 900;
         const swapEls = Array.from(section.querySelectorAll(".hero-swap"));
+        const fadeEl = swapEls[0] || null;
+        let pending = null;
         let swapTimer = null;
+        let swapDeadline = 0;
 
         // Escribe el contenido de la nota i. Se llama con el texto invisible.
         function paint(i) {
@@ -536,6 +557,53 @@ const archiveHref = `${baseUrl}/archive`;
                 ctaText.textContent = s.isTrailer ? "Ver tráiler" : "Leer la nota";
             if (arrowIcon) arrowIcon.classList.toggle("hidden", s.isTrailer);
             if (playIcon) playIcon.classList.toggle("hidden", !s.isTrailer);
+        }
+
+        function commitSwap() {
+            if (pending === null) return;
+            // El texto sólo se reescribe cuando de verdad ya no se ve. Un
+            // temporizador por sí solo no lo garantiza: mientras el dedo
+            // arrastra, el navegador puede empezar el fundido un par de cuadros
+            // tarde y entonces el relevo caía con el titular todavía visible,
+            // dejando el saliente y el entrante superpuestos.
+            const visible =
+                fadeEl && parseFloat(getComputedStyle(fadeEl).opacity) > 0.02;
+            if (visible && performance.now() < swapDeadline) {
+                requestAnimationFrame(commitSwap);
+                return;
+            }
+            const i = pending;
+            pending = null;
+            clearTimeout(swapTimer);
+            swapTimer = null;
+            paint(i);
+        }
+
+        function queueSwap(i) {
+            // Si ya hay un apagado en marcha sólo se cambia el destino, sin
+            // reiniciarlo: así una ráfaga de deslizamientos no aplaza el relevo
+            // una y otra vez, y el titular acaba en la nota donde se soltó.
+            const running = pending !== null;
+            pending = i;
+            if (running) return;
+            swapDeadline = performance.now() + SWAP_GIVE_UP;
+            swapEls.forEach((el) => {
+                // Reiniciar la animación aunque la clase ya estuviera puesta.
+                el.classList.remove("is-swapping");
+                void el.offsetWidth;
+                el.classList.add("is-swapping");
+            });
+            swapTimer = window.setTimeout(commitSwap, SWAP_HOLD);
+        }
+
+        if (fadeEl) {
+            fadeEl.addEventListener("animationend", (e) => {
+                if (e.animationName !== "hero-relay" || e.target !== fadeEl) return;
+                // Red de seguridad: si el relevo no llegó a escribirse (pestaña
+                // oculta, temporizador descartado), se escribe ahora.
+                commitSwap();
+                swapEls.forEach((el) => el.classList.remove("is-swapping"));
+            });
         }
 
         function show(i) {
@@ -554,12 +622,7 @@ const archiveHref = `${baseUrl}/archive`;
                 return;
             }
 
-            clearTimeout(swapTimer);
-            swapEls.forEach((el) => el.classList.add("is-swapping"));
-            swapTimer = window.setTimeout(() => {
-                paint(i);
-                swapEls.forEach((el) => el.classList.remove("is-swapping"));
-            }, SWAP_OUT);
+            queueSwap(i);
         }
 
         function go(dir) {

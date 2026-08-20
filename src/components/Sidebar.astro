@@ -2,38 +2,21 @@
 import { getCollection } from "astro:content";
 import CannesCard from "./CannesCard.astro";
 import { renderRichText } from "../lib/richText";
+import { getTagUrl } from "../lib/tags";
 const allPosts = await getCollection("posts");
 
-const tagCategoryMap = new Map<string, string>();
+// Etiquetas ordenadas por frecuencia de uso (top 8)
+const tagCounts = new Map<string, number>();
 allPosts.forEach(post => {
-    const category = post.data.category;
     (post.data.tags || []).forEach(tag => {
-        if (!tagCategoryMap.has(tag)) {
-            tagCategoryMap.set(tag, category);
-        }
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
     });
 });
 
-const uniqueTags = Array.from(tagCategoryMap.keys());
-// Sort by frequency (simple version: show top 8)
-const trendingTags = uniqueTags.slice(0, 8).map(tag => ({
-    name: tag,
-    category: tagCategoryMap.get(tag) as string
-}));
-
-const getCategoryUrl = (category: string) => {
-    let path = "";
-    switch (category) {
-        case "Artículos": path = "/articulos"; break;
-        case "Críticas": path = "/criticas"; break;
-        case "Premios": path = "/premios"; break;
-        case "Tráilers": path = "/trailers"; break;
-        default: path = "/archive"; break;
-    }
-    const base = import.meta.env.BASE_URL;
-    return `${base === '/' ? '' : base}${path}`;
-};
-
+const trendingTags = Array.from(tagCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([name]) => ({ name }));
 
 ---
 
@@ -110,7 +93,7 @@ const getCategoryUrl = (category: string) => {
                 trendingTags.map((tag) => (
                     <a
                         class="px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-primary hover:text-[#102023] transition-colors capitalize"
-                        href={`${getCategoryUrl(tag.category)}?tag=${tag.name.toLowerCase()}`}
+                        href={getTagUrl(tag.name)}
                     >
                         #{tag.name}
                     </a>
