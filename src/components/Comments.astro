@@ -51,7 +51,7 @@ const { slug } = Astro.props;
             <a
                 href="/login"
                 id="login-redirect-link"
-                class="inline-block bg-white dark:bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                class="inline-block bg-white dark:bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-sm font-medium hover:border-primary hover:text-gold transition-colors"
             >
                 Iniciar sesión
             </a>
@@ -176,7 +176,7 @@ const { slug } = Astro.props;
       <div class="group relative">
         <div class="flex gap-4">
             <div class="flex-shrink-0">
-             <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary font-bold text-sm">
+             <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-gold font-bold text-sm">
                 ${getInitials(comment.author_name)}
              </div>
            </div>
@@ -187,7 +187,7 @@ const { slug } = Astro.props;
                         ${comment.author_name || "Usuario"}
                     </span>
                     <span class="text-[10px] text-slate-500">${new Date(comment.created_at).toLocaleDateString()}</span>
-                    ${userRole === "admin" ? '<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-bold">Admin View</span>' : ""}
+                    ${userRole === "admin" ? '<span class="text-[10px] bg-primary/10 text-gold px-1.5 py-0.5 rounded uppercase font-bold">Admin View</span>' : ""}
                 </div>
                 ${
                     userRole === "admin" ||

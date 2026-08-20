@@ -86,7 +86,7 @@ const plainDescription = stripRichText(post.data.description);
                     <div class="mb-10">
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span
-                                class="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20"
+                                class="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-gold ring-1 ring-inset ring-primary/20"
                             >
                                 {post.data.category}
                             </span>
@@ -240,7 +240,7 @@ const plainDescription = stripRichText(post.data.description);
                     }
 
                     <div
-                        class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg sm:prose-h3:text-xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:mx-auto [&_h1]:!text-primary [&_h2]:!text-primary [&_h3]:!text-primary dark:[&_strong]:!text-primary dark:[&_b]:!text-primary"
+                        class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg sm:prose-h3:text-xl prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:mx-auto [&_h1]:!text-gold [&_h2]:!text-gold [&_h3]:!text-gold dark:[&_strong]:!text-primary dark:[&_b]:!text-primary"
                     >
                         <Content />
                     </div>
@@ -253,7 +253,7 @@ const plainDescription = stripRichText(post.data.description);
                                     href={post.data.fuente.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-primary hover:underline ml-1"
+                                    class="text-gold hover:underline ml-1"
                                 >
                                     {post.data.fuente.nombre}
                                 </a>
@@ -269,19 +269,19 @@ const plainDescription = stripRichText(post.data.description);
                                 </h3>
                                 <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
                                     <div>
-                                        <span class="font-bold text-primary block mb-1">Sinopsis:</span>
+                                        <span class="font-bold text-gold block mb-1">Sinopsis:</span>
                                         <p class="text-xs leading-relaxed">{post.data.fichaTecnica.sinopsis}</p>
                                     </div>
                                     <div>
-                                        <span class="font-bold text-primary block mb-1">Director:</span>
+                                        <span class="font-bold text-gold block mb-1">Director:</span>
                                         <p class="text-xs">{post.data.fichaTecnica.director}</p>
                                     </div>
                                     <div>
-                                        <span class="font-bold text-primary block mb-1">Cast:</span>
+                                        <span class="font-bold text-gold block mb-1">Cast:</span>
                                         <p class="text-xs">{post.data.fichaTecnica.cast}</p>
                                     </div>
                                     <div>
-                                        <span class="font-bold text-primary block mb-1">Duración:</span>
+                                        <span class="font-bold text-gold block mb-1">Duración:</span>
                                         <p class="text-xs">{post.data.fichaTecnica.duracion}</p>
                                     </div>
                                 </div>

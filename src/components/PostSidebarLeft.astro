@@ -12,7 +12,7 @@ const { slug } = Astro.props;
     <!-- Like Button -->
     <button
         id="like-btn-desktop"
-        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-primary transition-colors"
+        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-gold transition-colors"
         data-slug={slug}
     >
         <div
@@ -43,7 +43,7 @@ const { slug } = Astro.props;
     <!-- Comment Button -->
     <button
         id="comment-btn-desktop"
-        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-primary transition-colors"
+        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-gold transition-colors"
     >
         <div
             class="p-1.5 rounded-full group-hover:bg-primary/10 transition-colors"
@@ -73,7 +73,7 @@ const { slug } = Astro.props;
     <!-- Bookmark Button -->
     <button
         id="bookmark-btn-desktop"
-        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-primary transition-colors"
+        class="group flex flex-col items-center gap-0 text-slate-400 hover:text-gold transition-colors"
     >
         <div
             class="p-1.5 rounded-full group-hover:bg-primary/10 transition-colors"
@@ -102,7 +102,7 @@ const { slug } = Astro.props;
 
     <!-- Share Button -->
     <button
-        class="group flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors trigger-share-modal"
+        class="group flex flex-col items-center gap-1 text-slate-400 hover:text-gold transition-colors trigger-share-modal"
         aria-label="Compartir"
     >
         <div
@@ -135,7 +135,7 @@ const { slug } = Astro.props;
     <div class="flex items-center justify-around">
         <button
             id="like-btn-mobile"
-            class="flex flex-col items-center gap-0 text-slate-400 hover:text-primary active:text-primary"
+            class="flex flex-col items-center gap-0 text-slate-400 hover:text-gold active:text-gold"
             data-slug={slug}
         >
             <svg
@@ -162,7 +162,7 @@ const { slug } = Astro.props;
         </button>
         <button
             id="comment-btn-mobile"
-            class="flex flex-col items-center gap-0 text-slate-400 hover:text-primary active:text-primary"
+            class="flex flex-col items-center gap-0 text-slate-400 hover:text-gold active:text-gold"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -184,7 +184,7 @@ const { slug } = Astro.props;
         </button>
         <button
             id="bookmark-btn-mobile"
-            class="flex flex-col items-center gap-0 text-slate-400 hover:text-primary active:text-primary"
+            class="flex flex-col items-center gap-0 text-slate-400 hover:text-gold active:text-gold"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ const { slug } = Astro.props;
             <span class="text-[10px] font-medium" id="bookmark-count-mobile">--</span>
         </button>
         <button
-            class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary active:text-primary trigger-share-modal"
+            class="flex flex-col items-center gap-1 text-slate-400 hover:text-gold active:text-gold trigger-share-modal"
             aria-label="Compartir"
         >
             <svg
@@ -386,10 +386,10 @@ const { slug } = Astro.props;
             if (!icon) return;
             // icon.style.fontVariationSettings = `'FILL' ${isLiked ? 1 : 0}, 'wght' 300`;
             if (isLiked) {
-                icon.classList.add("text-primary");
+                icon.classList.add("text-gold");
                 icon.setAttribute("fill", "currentColor");
             } else {
-                icon.classList.remove("text-primary");
+                icon.classList.remove("text-gold");
                 icon.setAttribute("fill", "none");
             }
         };
@@ -412,10 +412,10 @@ const { slug } = Astro.props;
             if (!icon) return;
             // icon.style.fontVariationSettings = `'FILL' ${isBookmarked ? 1 : 0}, 'wght' 300`;
             if (isBookmarked) {
-                icon.classList.add("text-primary");
+                icon.classList.add("text-gold");
                 icon.setAttribute("fill", "currentColor");
             } else {
-                icon.classList.remove("text-primary");
+                icon.classList.remove("text-gold");
                 icon.setAttribute("fill", "none");
             }
         };

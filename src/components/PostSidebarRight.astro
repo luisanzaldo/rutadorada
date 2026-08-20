@@ -36,19 +36,19 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                     </h3>
                     <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
                         <div>
-                            <span class="font-bold text-primary block mb-1">Sinopsis:</span>
+                            <span class="font-bold text-gold block mb-1">Sinopsis:</span>
                             <p class="text-xs leading-relaxed">{fichaTecnica.sinopsis}</p>
                         </div>
                         <div>
-                            <span class="font-bold text-primary block mb-1">Director:</span>
+                            <span class="font-bold text-gold block mb-1">Director:</span>
                             <p class="text-xs">{fichaTecnica.director}</p>
                         </div>
                         <div>
-                            <span class="font-bold text-primary block mb-1">Cast:</span>
+                            <span class="font-bold text-gold block mb-1">Cast:</span>
                             <p class="text-xs">{fichaTecnica.cast}</p>
                         </div>
                         <div>
-                            <span class="font-bold text-primary block mb-1">Duración:</span>
+                            <span class="font-bold text-gold block mb-1">Duración:</span>
                             <p class="text-xs">{fichaTecnica.duracion}</p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                         <!-- Scroll action button -->
                         <button 
                             id="toc-scroll-down" 
-                            class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white dark:bg-[#162a2f] w-7 h-7 rounded-full shadow border border-slate-200 dark:border-[#224249] flex items-center justify-center text-primary hover:scale-110 transition-all opacity-0 pointer-events-none z-10"
+                            class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white dark:bg-[#162a2f] w-7 h-7 rounded-full shadow border border-slate-200 dark:border-[#224249] flex items-center justify-center text-gold hover:scale-110 transition-all opacity-0 pointer-events-none z-10"
                             aria-label="Ver más contenidos"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -202,8 +202,8 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
         
         if (activeLink && indicator && nav) {
             // Update classes
-            tocLinks.forEach(link => link.classList.remove('text-primary', 'dark:text-primary', 'font-bold'));
-            activeLink.classList.add('text-primary', 'dark:text-primary', 'font-bold');
+            tocLinks.forEach(link => link.classList.remove('text-gold', 'font-bold'));
+            activeLink.classList.add('text-gold', 'font-bold');
             
             const linkTop = activeLink.offsetTop;
             const linkHeight = activeLink.offsetHeight;

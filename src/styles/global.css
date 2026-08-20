@@ -200,6 +200,24 @@
   }
 }
 
+/* Dorado para texto sobre el fondo del tema: #F2AF0D solo alcanza ~1.9:1 de
+   contraste sobre blanco, así que en tema claro el texto dorado usa un tono
+   oscuro del mismo matiz (~5:1, AA) y en oscuro conserva el dorado de marca.
+   Genera las utilidades text-gold / border-gold / bg-gold. Para dorado sobre
+   superficies siempre oscuras (hero, nav, chips sobre imagen) sigue usándose
+   text-primary. */
+:root {
+  --gold-readable: #8E6400;
+}
+
+.dark {
+  --gold-readable: #F2AF0D;
+}
+
+@theme inline {
+  --color-gold: var(--gold-readable);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
