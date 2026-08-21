@@ -11,7 +11,7 @@ fuente:
   nombre: "Audiovisual451"
   url: "https://www.audiovisual451.com/"
 readTime: "3 min read"
-tags: ["Próximamente"]
+tags: ["Industria"]
 ---
 
 ## Inversión sin precedentes
