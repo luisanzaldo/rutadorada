@@ -1,7 +1,7 @@
 ---
-title: "*Prime Video* lanza una apuesta de 2.000 millones en Latinoamérica"
-description: "*Prime Video* anuncia una inversión histórica de más de 2.000 millones de dólares para producir y transmitir contenido local y deporte en la región."
-pubDate: 2026-08-21T12:47:07.815Z
+title: "*Prime Video* lanza una apuesta de 2,000 millones en Latinoamérica"
+description: "*Prime Video* anuncia una inversión histórica de más de 2,000 millones de dólares para producir y transmitir contenido local y deporte en la región."
+pubDate: 2026-08-21T12:48:18.702Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -16,7 +16,7 @@ tags: ["Próximamente"]
 
 ## Inversión sin precedentes
 
-Durante la primera edición de *Prime Video Presents Latinoamérica*, celebrada en la Ciudad de México, la plataforma de Amazon reveló que destinará más de 2.000 millones de dólares entre 2027 y 2030. La cifra, que supera cualquier compromiso anterior en la zona, está pensada para duplicar la producción original en México, Brasil, Argentina, Colombia y Chile. Kelly Day, vicepresidenta internacional de *Prime Video*, subrayó que la apuesta no se centra en un solo país ni en un género, sino que busca potenciar el talento y las audiencias de toda la región.
+Durante la primera edición de *Prime Video Presents Latinoamérica*, celebrada en la Ciudad de México, la plataforma de Amazon reveló que destinará más de 2,000 millones de dólares entre 2027 y 2030. La cifra, que supera cualquier compromiso anterior en la zona, está pensada para duplicar la producción original en México, Brasil, Argentina, Colombia y Chile. Kelly Day, vicepresidenta internacional de *Prime Video*, subrayó que la apuesta no se centra en un solo país ni en un género, sino que busca potenciar el talento y las audiencias de toda la región.
 
 ## Un calendario de estrenos
 
