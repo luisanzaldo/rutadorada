@@ -19,67 +19,81 @@ const { fileExtension = ".md" } = Astro.props;
     <!-- TIPTAP EDITOR -->
     <div class="w-full rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-[#224249] flex flex-col focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary/50 transition-all overflow-hidden shadow-sm">
 
-        <!-- Toolbar -->
-        <div class="flex flex-wrap items-center gap-1.5 p-3 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
-            <!-- Format Buttons -->
-            <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita (Ctrl+B)">
-                <span class="font-serif font-black text-lg">N</span>
-            </button>
-            <button type="button" data-tiptap-btn="italic" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic" title="Itálica (Ctrl+I)">
-                <span class="font-serif font-black text-lg">I</span>
-            </button>
-            <button type="button" data-tiptap-btn="underline" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none underline line-through decoration-transparent" title="Subrayado (Ctrl+U)">
-                <span class="font-serif font-black text-lg">U</span>
-            </button>
+        <!--
+            Toolbar. Cada grupo va dentro de su propio contenedor flex: así el
+            ajuste de línea sólo puede ocurrir ENTRE grupos y nunca parte uno por
+            la mitad ni deja un icono suelto. El separador viaja como primer hijo
+            del grupo que abre, para que tampoco pueda quedar huérfano al final
+            de una fila. Con estos márgenes la barra mide ~664px y entra completa
+            en los 728px útiles del panel (main max-w-4xl > card p-10 > toolbar p-3).
+        -->
+        <div class="flex flex-wrap items-center gap-x-1 gap-y-2 p-3 bg-slate-50 dark:bg-card-dark/50 border-b border-slate-200 dark:border-[#224249]">
 
-            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+            <!-- Encabezados -->
+            <div class="flex items-center gap-1" role="group" aria-label="Encabezados">
+                <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Título principal">
+                    <span class="text-[15px]">H1</span>
+                </button>
+                <button type="button" data-tiptap-btn="h2" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Subtítulo">
+                    <span class="text-sm">H2</span>
+                </button>
+                <button type="button" data-tiptap-btn="h3" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Sección">
+                    <span class="text-[12px]">H3</span>
+                </button>
+            </div>
 
-            <!-- Link Buttons -->
-            <button type="button" id="btn-link-modal" data-tiptap-btn="link" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar enlace (Ctrl+K)">
-                <span class="material-symbols-outlined text-[20px]">link</span>
-            </button>
-            <button type="button" id="btn-unlink" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Quitar enlace">
-                <span class="material-symbols-outlined text-[20px]">link_off</span>
-            </button>
+            <!-- Formato de texto -->
+            <div class="flex items-center gap-1" role="group" aria-label="Formato de texto">
+                <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-1"></div>
+                <button type="button" data-tiptap-btn="bold" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Negrita (Ctrl+B)">
+                    <span class="font-serif font-black text-lg">N</span>
+                </button>
+                <button type="button" data-tiptap-btn="italic" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none italic" title="Itálica (Ctrl+I)">
+                    <span class="font-serif font-black text-lg">I</span>
+                </button>
+                <button type="button" data-tiptap-btn="underline" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none underline line-through decoration-transparent" title="Subrayado (Ctrl+U)">
+                    <span class="font-serif font-black text-lg">U</span>
+                </button>
+            </div>
 
-            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
+            <!-- Enlaces -->
+            <div class="flex items-center gap-1" role="group" aria-label="Enlaces">
+                <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-1"></div>
+                <button type="button" id="btn-link-modal" data-tiptap-btn="link" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar enlace (Ctrl+K)">
+                    <span class="material-symbols-outlined text-[20px]">link</span>
+                </button>
+                <button type="button" id="btn-unlink" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Quitar enlace">
+                    <span class="material-symbols-outlined text-[20px]">link_off</span>
+                </button>
+            </div>
 
-            <!-- Media Buttons -->
-            <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
-                <span class="material-symbols-outlined text-[20px]">image</span>
-            </button>
-            <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video de YouTube">
-                <span class="material-symbols-outlined text-[20px]">smart_display</span>
-            </button>
-            <button type="button" id="btn-curiosity-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Bloque de Curiosidad">
-                <span class="material-symbols-outlined text-[20px]">star</span>
-            </button>
+            <!-- Multimedia y bloques -->
+            <div class="flex items-center gap-1" role="group" aria-label="Multimedia y bloques">
+                <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-1"></div>
+                <button type="button" id="btn-image-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Imagen">
+                    <span class="material-symbols-outlined text-[20px]">image</span>
+                </button>
+                <button type="button" id="btn-video-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Video de YouTube">
+                    <span class="material-symbols-outlined text-[20px]">smart_display</span>
+                </button>
+                <button type="button" id="btn-curiosity-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Insertar Bloque de Curiosidad">
+                    <span class="material-symbols-outlined text-[20px]">star</span>
+                </button>
+            </div>
 
-            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
-
-            <!-- Rating Blocks -->
-            <button type="button" id="btn-good-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-green-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto positivo">
-                <span class="material-symbols-outlined text-[20px]">schedule</span>
-            </button>
-            <button type="button" id="btn-regular-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-orange-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto regular">
-                <span class="material-symbols-outlined text-[20px]">schedule</span>
-            </button>
-            <button type="button" id="btn-bad-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-red-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto negativo">
-                <span class="material-symbols-outlined text-[20px]">schedule</span>
-            </button>
-
-            <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-2"></div>
-
-            <!-- Heading Buttons -->
-            <button type="button" data-tiptap-btn="h1" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Título principal">
-                <span class="text-[15px]">H1</span>
-            </button>
-            <button type="button" data-tiptap-btn="h2" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Subtítulo">
-                <span class="text-sm">H2</span>
-            </button>
-            <button type="button" data-tiptap-btn="h3" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none font-bold" title="Sección">
-                <span class="text-[12px]">H3</span>
-            </button>
+            <!-- Puntos de valoración -->
+            <div class="flex items-center gap-1" role="group" aria-label="Puntos de valoración">
+                <div class="w-px h-6 bg-slate-300 dark:bg-[#224249] mx-1"></div>
+                <button type="button" id="btn-good-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-green-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto positivo">
+                    <span class="material-symbols-outlined text-[20px]">speed</span>
+                </button>
+                <button type="button" id="btn-regular-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-orange-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto regular">
+                    <span class="material-symbols-outlined text-[20px]">speed</span>
+                </button>
+                <button type="button" id="btn-bad-modal" class="p-2 w-10 h-10 rounded-xl flex items-center justify-center text-red-500 hover:bg-slate-200 dark:hover:bg-[#224249] transition-colors focus:outline-none" title="Agregar punto negativo">
+                    <span class="material-symbols-outlined text-[20px]">speed</span>
+                </button>
+            </div>
         </div>
 
         <!-- Escritura Area -->

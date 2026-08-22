@@ -2,7 +2,6 @@ import { Editor, Node } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Youtube from '@tiptap/extension-youtube';
-import Underline from '@tiptap/extension-underline';
 import { Markdown } from 'tiptap-markdown';
 
 // Extensión personalizada para el bloque de Curiosidad
@@ -270,10 +269,16 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
     const modalPointContent = document.getElementById('modal-point-content');
 
     // Configuración dinámica modal puntos
-    const pointModalTitle = document.getElementById('point-modal-title');
+    const pointModalLabel = document.getElementById('point-modal-label');
     const pointModalIcon = document.getElementById('point-modal-icon');
     const btnInsertPoint = document.getElementById('btn-insert-point');
     let currentPointType = 'good';
+
+    // Point y Curiosity son nodos atómicos: no se pueden editar escribiendo dentro.
+    // Al hacer doble clic se reabre su modal con los valores actuales y se guarda la
+    // posición del nodo aquí; null significa que el modal insertará uno nuevo.
+    let editingPointPos: number | null = null;
+    let editingCuriosityPos: number | null = null;
 
     // Referencias inmediatas a los botones
     const btns = {
@@ -307,7 +312,6 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
                 inline: false,
             }),
             Youtube.configure({ inline: false }),
-            Underline,
             Markdown.configure({
                 html: true,
             }),
@@ -325,6 +329,17 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
                 if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
                     event.preventDefault();
                     openLinkModal();
+                    return true;
+                }
+                return false;
+            },
+            handleDoubleClickOn: (_view, _pos, node, nodePos) => {
+                if (node.type.name === 'point') {
+                    openPointModalForEdit(node.attrs, nodePos);
+                    return true;
+                }
+                if (node.type.name === 'curiosity') {
+                    openCuriosityModalForEdit(node.attrs, nodePos);
                     return true;
                 }
                 return false;
@@ -392,6 +407,31 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         setTimeout(() => modal?.classList.add('hidden'), 200);
     };
 
+    /**
+     * Inserta un bloque (punto o curiosidad) detrás del contenido actual.
+     *
+     * insertContent sustituye lo que haya seleccionado y, al insertar un nodo
+     * atómico, éste queda seleccionado. Sin mover antes el cursor, insertar dos
+     * bloques seguidos hacía que el segundo reemplazara al primero sin avisar.
+     */
+    const insertBlock = (attrs: Record<string, any>, type: 'point' | 'curiosity') => {
+        editor.chain().focus().insertContentAt(editor.state.selection.to, { type, attrs }).run();
+    };
+
+    /**
+     * Reescribe los atributos del bloque que hay en `pos` conservando su lugar en
+     * el documento. Se usa al guardar un punto o una curiosidad que ya existía, en
+     * lugar de insertar uno nuevo.
+     */
+    const replaceNodeAttrs = (pos: number, attrs: Record<string, any>) => {
+        editor.commands.command(({ tr, dispatch }) => {
+            const node = tr.doc.nodeAt(pos);
+            if (!node) return false;
+            if (dispatch) tr.setNodeMarkup(pos, undefined, { ...node.attrs, ...attrs });
+            return true;
+        });
+    };
+
     // Los modales de media se reutilizan en cada inserción, así que hay que dejarlos
     // en blanco al abrirlos: si no, arrastran la URL/archivo de la inserción anterior.
     const resetImageModal = () => {
@@ -417,6 +457,9 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
     });
 
     document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', () => {
+        // Cancelar deja el bloque intacto: se descarta la edición en curso.
+        editingPointPos = null;
+        editingCuriosityPos = null;
         closeModal(modalLink, modalLinkContent);
         closeModal(modalImage, modalImageContent);
         closeModal(modalYoutube, modalYoutubeContent);
@@ -424,24 +467,52 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         closeModal(modalPoint, modalPointContent);
     }));
 
+    const curiosityTitleInput = () => document.getElementById('curiosity-title') as HTMLInputElement | null;
+    const curiosityContentInput = () => document.getElementById('curiosity-content') as HTMLTextAreaElement | null;
+    const btnInsertCuriosity = document.getElementById('btn-insert-curiosity');
+
     document.getElementById('btn-curiosity-modal')?.addEventListener('click', () => {
+        editingCuriosityPos = null;
+        const titleInput = curiosityTitleInput();
+        const contentInput = curiosityContentInput();
+        if (titleInput) titleInput.value = '';
+        if (contentInput) contentInput.value = '';
+        if (btnInsertCuriosity) btnInsertCuriosity.textContent = 'Insertar bloque';
         openModal(modalCuriosity, modalCuriosityContent);
     });
 
-    // Insertar Bloque de Curiosidad
-    document.getElementById('btn-insert-curiosity')?.addEventListener('click', () => {
-        const titleInput = document.getElementById('curiosity-title') as HTMLInputElement;
-        const contentInput = document.getElementById('curiosity-content') as HTMLTextAreaElement;
+    /** Reabre el modal sobre una curiosidad ya existente (doble clic en el bloque). */
+    function openCuriosityModalForEdit(attrs: Record<string, any>, pos: number) {
+        editingCuriosityPos = pos;
+        const titleInput = curiosityTitleInput();
+        const contentInput = curiosityContentInput();
+        if (titleInput) titleInput.value = attrs.title || '';
+        if (contentInput) contentInput.value = attrs.content || '';
+        if (btnInsertCuriosity) btnInsertCuriosity.textContent = 'Guardar cambios';
+        openModal(modalCuriosity, modalCuriosityContent);
+    }
+
+    // Insertar o actualizar Bloque de Curiosidad
+    btnInsertCuriosity?.addEventListener('click', () => {
+        const titleInput = curiosityTitleInput();
+        const contentInput = curiosityContentInput();
         const title = titleInput?.value;
         const content = contentInput?.value;
 
         if (title && content) {
+            // El bloque se guarda como una sola línea de HTML dentro del Markdown:
+            // un salto de línea partiría ese html_block y al reabrir el post el
+            // editor ya no lo reconocería como nodo.
             const cleanContent = content.replace(/\r?\n|\r/g, " ");
-            // HTML con data-type para que el editor lo reconozca como nodo Curiosity
-            const html = `<div data-type="curiosity" class="my-8 rounded-xl border border-[#F2AF0D]/20 bg-[#F2AF0D]/5 p-6 relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-1 bg-[#F2AF0D]"></div><div class="flex items-start gap-4"><div class="rounded-full bg-[#F2AF0D]/20 p-2 text-[#F2AF0D] shrink-0 flex items-center justify-center"><span class="material-symbols-outlined" style="font-size: 20px;">star</span></div><div><h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 uppercase font-display">${title}</h4><p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">${cleanContent}</p></div></div></div>`;
+            const attrs = { title, content: cleanContent };
 
-            editor.commands.insertContent(html);
+            if (editingCuriosityPos !== null) {
+                replaceNodeAttrs(editingCuriosityPos, attrs);
+            } else {
+                insertBlock(attrs, 'curiosity');
+            }
 
+            editingCuriosityPos = null;
             if (titleInput) titleInput.value = '';
             if (contentInput) contentInput.value = '';
             closeModal(modalCuriosity, modalCuriosityContent);
@@ -450,60 +521,78 @@ export function initPostEditor(options: PostEditorOptions = {}): Editor | null {
         }
     });
 
+    // Rótulo por defecto y color de cada tipo de punto, compartidos por la
+    // inserción (toolbar) y la edición (doble clic sobre el bloque).
+    const POINT_TYPES: Record<string, { noun: string; title: string; color: string }> = {
+        good: { noun: 'positivo', title: 'Lo bueno', color: '#22c55e' },
+        regular: { noun: 'regular', title: 'Lo regular', color: '#f97316' },
+        bad: { noun: 'negativo', title: 'Lo malo', color: '#ef4444' },
+    };
+
+    const pointTitleInput = () => document.getElementById('point-title') as HTMLInputElement | null;
+    const pointContentInput = () => document.getElementById('point-content') as HTMLTextAreaElement | null;
+
+    /** Ajusta cabecera, color y texto del botón del modal de puntos. */
+    const dressPointModal = (type: string, heading: string, action: string) => {
+        const { color } = POINT_TYPES[type] || POINT_TYPES.good;
+        currentPointType = type;
+        if (pointModalLabel) pointModalLabel.textContent = heading;
+        if (pointModalIcon) pointModalIcon.style.color = color;
+        if (btnInsertPoint) {
+            btnInsertPoint.style.backgroundColor = color;
+            btnInsertPoint.textContent = action;
+        }
+    };
+
     // Botones para abrir Modal Puntos
-    const setupPointButton = (id: string, type: string, title: string, color: string) => {
-        const btn = document.getElementById(id);
-        btn?.addEventListener('click', () => {
-            currentPointType = type;
-
-            // Configurar título por defecto según el tipo
-            const pointTitleInput = document.getElementById('point-title') as HTMLInputElement;
-            if (pointTitleInput) {
-                const defaultTitles: Record<string, string> = {
-                    good: 'Lo bueno',
-                    regular: 'Lo regular',
-                    bad: 'Lo malo'
-                };
-                pointTitleInput.value = defaultTitles[type] || '';
-            }
-
-            if (pointModalTitle) {
-                (pointModalTitle.querySelector('span') as HTMLElement).textContent = title;
-            }
-            if (pointModalIcon) {
-                pointModalIcon.style.color = color;
-            }
-            if (btnInsertPoint) {
-                btnInsertPoint.style.backgroundColor = color;
-                btnInsertPoint.textContent = `Insertar punto ${type === 'good' ? 'positivo' : type === 'regular' ? 'regular' : 'negativo'}`;
-            }
-
+    const setupPointButton = (id: string, type: string) => {
+        const { noun, title } = POINT_TYPES[type];
+        document.getElementById(id)?.addEventListener('click', () => {
+            editingPointPos = null;
+            const titleInput = pointTitleInput();
+            const contentInput = pointContentInput();
+            if (titleInput) titleInput.value = title;
+            if (contentInput) contentInput.value = '';
+            dressPointModal(type, `Agregar punto ${noun}`, `Insertar punto ${noun}`);
             openModal(modalPoint, modalPointContent);
         });
     };
 
-    setupPointButton('btn-good-modal', 'good', 'Agregar punto positivo', '#22c55e');
-    setupPointButton('btn-regular-modal', 'regular', 'Agregar punto regular', '#f97316');
-    setupPointButton('btn-bad-modal', 'bad', 'Agregar punto negativo', '#ef4444');
+    setupPointButton('btn-good-modal', 'good');
+    setupPointButton('btn-regular-modal', 'regular');
+    setupPointButton('btn-bad-modal', 'bad');
 
-    // Lógica de inserción de puntos
+    /** Reabre el modal sobre un punto ya existente (doble clic en el bloque). */
+    function openPointModalForEdit(attrs: Record<string, any>, pos: number) {
+        editingPointPos = pos;
+        const type = POINT_TYPES[attrs.type] ? attrs.type : 'good';
+        const titleInput = pointTitleInput();
+        const contentInput = pointContentInput();
+        if (titleInput) titleInput.value = attrs.title || '';
+        if (contentInput) contentInput.value = attrs.content || '';
+        dressPointModal(type, `Editar punto ${POINT_TYPES[type].noun}`, 'Guardar cambios');
+        openModal(modalPoint, modalPointContent);
+    }
+
+    // Lógica de inserción / actualización de puntos
     btnInsertPoint?.addEventListener('click', () => {
-        const titleInput = document.getElementById('point-title') as HTMLInputElement;
-        const contentInput = document.getElementById('point-content') as HTMLTextAreaElement;
+        const titleInput = pointTitleInput();
+        const contentInput = pointContentInput();
         const title = titleInput?.value;
         const content = contentInput?.value;
 
         if (title && content) {
-            editor.commands.insertContent({
-                type: 'point',
-                attrs: {
-                    type: currentPointType,
-                    title,
-                    content
-                }
-            });
+            const cleanContent = content.replace(/\r?\n|\r/g, " ");
+            const attrs = { type: currentPointType, title, content: cleanContent };
+
+            if (editingPointPos !== null) {
+                replaceNodeAttrs(editingPointPos, attrs);
+            } else {
+                insertBlock(attrs, 'point');
+            }
 
             // Reset y cerrar
+            editingPointPos = null;
             if (titleInput) titleInput.value = '';
             if (contentInput) contentInput.value = '';
             closeModal(modalPoint, modalPointContent);
