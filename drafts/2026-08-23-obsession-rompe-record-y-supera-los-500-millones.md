@@ -1,7 +1,7 @@
 ---
 title: "*Obsession* rompe récord y supera los 500 millones"
-description: "*Obsession* se vuelve la primera película original de los 2020s en superar los $500 millones, rompiendo récords de presupuesto y de adquisición en festivales."
-pubDate: 2026-08-23T15:38:52.845Z
+description: "*Obsession* se vuelve la primera película original de los 2020s en superar los $500 millones"
+pubDate: 2026-08-23T15:40:13.257Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
