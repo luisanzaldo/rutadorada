@@ -1,7 +1,7 @@
 ---
 title: "*Spider-Man: Brand New Day* supera los 2 mil 200 millones"
-description: "La cuarta entrega de *Spider-Man: Brand New Day* alcanza 2 mil 200 millones en taquilla mundial,"
-pubDate: 2026-08-23T15:59:33.656Z
+description: "La cuarta entrega de *Spider-Man: Brand New Day* alcanza 2 mil 200 millones en taquilla mundial"
+pubDate: 2026-08-23T16:02:31.053Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -16,7 +16,7 @@ tags: ["Box Office"]
 
 ## Éxito imparable de *Spider-Man: Brand New Day*
 
-En su cuarta semana en salas, la nueva aventura de Tom Holland sigue dominando la taquilla global con una recaudación de **$2.22 mil millones**. La película ha sumado **$855 millones** en EE. UU., lo que la coloca a la espera de superar el total mundial de la aclamada animación china *Ne Zha 2*. Con $39 millones en su último fin de semana, *Spider-Man: Brand New Day* mantiene la posición número uno, consolidándose como la más taquillera del año en territorio estadounidense.
+En su cuarta semana en salas, la nueva aventura de Tom Holland sigue dominando la taquilla global con una recaudación de **2 mil 200 millones de dólares**. La película ha sumado **$855 millones** en EE. UU., lo que la coloca a la espera de superar el total mundial de la aclamada animación china *Ne Zha 2*. Con $39 millones en su último fin de semana, *Spider-Man: Brand New Day* mantiene la posición número uno, consolidándose como la más taquillera del año en territorio estadounidense.
 
 ## La batalla contra *Insidious: Out of the Further*
 
