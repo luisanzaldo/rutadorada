@@ -1,10 +1,9 @@
 ---
-title: "Los primeros elegidos para el Oscar internacional: *Coward*, *Possible Love* y *Everytime*"
+title: "Elegidos para el Oscar internacional: *Coward*, *Possible Love* y *Everytime*"
 description: "Belgica, Corea del Sur y Alemania ya anunciaron sus candidaturas al Oscar internacional, destacando *Coward*, *Possible Love* y *Everytime* entre los favoritos."
 pubDate: 2026-08-25T21:42:34.646Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://www.youtube.com/embed/vyRlBGfVlvQ"
 category: "Artículos"
 fuente:
@@ -24,7 +23,7 @@ Lee Chang‑dong vuelve a la palestra con *Possible Love*, su seguimiento de la 
 
 ## Alemania presenta tres contendientes
 
-Alemania ha sorprendido al presentar tres películas para la competición internacional. La primera, *Yellow Letters* de İlker Çatak, ganó el Oso de Oro en Berlín 2026. La segunda, *Shame and Money* de Visar Morina, se llevó el Gran Premio del Jurado Internacional en Sundance. La tercera, *Everytime* de Sandra Wollner, obtuvo el premio Un Certain Regard en Cannes y será distribuida por 1‑2 Special en EE. UU. a inicios de 2027. Esta triple oferta muestra la fuerza del cine alemán en la escena global.
+Alemania ha sorprendido al presentar tres películas precandidatas a su elección final para la competición internacional. La primera, *Yellow Letters* de İlker Çatak, ganó el Oso de Oro en Berlín 2026. La segunda, *Shame and Money* de Visar Morina, se llevó el Gran Premio del Jurado Internacional en Sundance. La tercera y finalmente seleccionada, *Everytime* de Sandra Wollner, obtuvo el premio Un Certain Regard en Cannes y será distribuida por 1‑2 Special en EE. UU. a inicios de 2027. Esta triple oferta muestra la fuerza del cine alemán en la escena global.
 
 ## Otros candidatos tempranos
 
