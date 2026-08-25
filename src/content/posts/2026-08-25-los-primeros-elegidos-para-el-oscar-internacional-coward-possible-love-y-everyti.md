@@ -4,7 +4,7 @@ description: "Belgica, Corea del Sur y Alemania ya anunciaron sus candidaturas a
 pubDate: 2026-08-25T21:42:34.646Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.youtube.com/embed/vyRlBGfVlvQ"
+image: "https://m.media-amazon.com/images/M/MV5BZDcyMGQwNmMtMjdjZi00YTI2LWFiNWItODJiYWIwNjNkNThhXkEyXkFqcGc@._V1_.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Oscar"]
 ---
+
 
 ## Bélgica apuesta por *Coward*
 
@@ -38,3 +39,4 @@ Aún quedan en el aire varias decisiones: *All of a Sudden* de Ryusuke Hamaguchi
 Esta edición marca la primera vez que la Academia otorga la calificación automática al Oscar internacional a los ganadores de ciertos festivales de élite. La medida ha acelerado la lista de postulaciones, permitiendo que más películas entren ya calificadas, lo que eleva la competitividad y la calidad del grupo final.
 
 Con la fecha límite del 30 de septiembre a la vuelta de la esquina, se espera que el número de candidaturas supere los 90 títulos, una ligera subida respecto al año anterior. El escenario está listo para una carrera emocionante, donde la combinación de premios de festivales y estrategias de distribución determinará quién llevará la estatuilla dorada al final de la temporada.
+
