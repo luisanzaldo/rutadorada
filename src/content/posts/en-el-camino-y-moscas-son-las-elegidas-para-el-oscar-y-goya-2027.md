@@ -1,6 +1,6 @@
 ---
 title: "*En el camino* y *Moscas* son las elegidas para el Oscar y Goya 2027"
-description: "La AMAAC selecciona *En el camino* y *Moscas* para el Oscar y Goya 2027"
+description: "La AMACC selecciona *En el camino* y *Moscas* para el Oscar y Goya 2027"
 pubDate: 2026-08-25T22:54:42.732Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
@@ -13,9 +13,9 @@ readTime: "2 min read"
 tags: ["Oscar"]
 ---
 
-La Academia Mexicana de Artes y Ciencias Cinematográficas (AMAAC) ha revelado la producción elegida para representar a la cinematografía nacional en el certamen más influyente de la industria: los **Premios Oscar** de la Academia de Hollywood; así como los **Premios Goya** de la Academia de España.
+La Academia Mexicana de Artes y Ciencias Cinematográficas (AMACC) ha revelado la producción elegida para representar a la cinematografía nacional en el certamen más influyente de la industria: los **Premios Oscar** de la Academia de Hollywood; así como los **Premios Goya** de la Academia de España.
 
-En esta ocasión, la AMAAC apuesta por dos cineastas con un sello autoral inconfundible que han demostrado una sólida trayectoria en el circuito internacional de festivales.
+En esta ocasión, la AMACC apuesta por dos cineastas con un sello autoral inconfundible que han demostrado una sólida trayectoria en el circuito internacional de festivales.
 
 ### *En el camino* (David Pablos) — Rumbo al Oscar a Mejor Película Internacional
 
@@ -27,7 +27,7 @@ La encargada de buscar un lugar entre las nominadas al Oscar a **Mejor Película
 
 ### *Moscas* (Fernando Eimbcke) — Rumbo al Goya a Mejor Película Iberoamericana
 
-Para la categoría de **Mejor Película Iberoamericana** en los Premios Goya, la elección de la AMAAC recayó en *Moscas*, la nueva obra del cineasta **Fernando Eimbcke** (*Temporada de patos*, *Lake Tahoe*).
+Para la categoría de **Mejor Película Iberoamericana** en los Premios Goya, la elección de la AMACC recayó en *Moscas*, la nueva obra del cineasta **Fernando Eimbcke** (*Temporada de patos*, *Lake Tahoe*).
 
 - **El recorrido:** *Moscas* tuvo su estreno internacional en la sección oficial de la Berlinale, donde la crítica especializada destacó la sutileza narrative del director mexicano.
 
