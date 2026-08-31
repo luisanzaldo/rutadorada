@@ -1,7 +1,7 @@
 ---
 title: "*Naomi Watts* recibe el Donostia y presenta *The Housewife*"
 description: "*Naomi Watts* será galardonada con el Donostia *en* San Sebastián y estrenará su nueva película *The Housewife*, basada *en* hechos reales de 1964."
-pubDate: 2026-08-31T21:20:24.951Z
+pubDate: 2026-08-31T21:27:31.219Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -10,7 +10,7 @@ category: "Artículos"
 fuente:
   nombre: "Deadline"
   url: "https://deadline.com/"
-readTime: "3 min read"
+readTime: "2 min read"
 tags: ["San Sebastián"]
 ---
 
@@ -20,11 +20,11 @@ El Festival de San Sebastián ha anunciado que entregará este año el prestigio
 
 ## El estreno de *The Housewife*
 
-En la misma noche, la actriz presentará su nuevo proyecto, *The Housewife*. Dirigida por **Ben Shirinian** y escrita por **Alyssa Hill**, la cinta se basa en una historia real ambientada en 1964. La trama sigue a una joven periodista que, tras descubrir la pista de un posible oficial nazi oculto en Nueva York, se infiltra en la vida de la esposa del sospechoso, una mujer encantadora que oculta secretos peligrosos. La película tuvo su estreno mundial en el Toronto Film Festival a principios de septiembre antes de llegar a San Sebastián.
+En la misma noche, la actriz presentará su nuevo proyecto, *The Housewife*. Dirigida por **Ben Shirinian** y escrita por **Alyssa Hill**, la cinta se basa en una historia real ambientada en 1964. La trama sigue a una joven periodista que, tras descubrir la pista de un posible oficial nazi oculto en Nueva York, se infiltra en la vida de la esposa del sospechoso, una mujer encantadora que oculta secretos peligrosos. La película tendrá su estreno mundial en el Toronto Film Festival a principios de septiembre antes de llegar a San Sebastián.
 
 ## Un vistazo al elenco y al argumento
 
-El reparto de *The Housewife* reúne a varios nombres de peso. **Tye Sheridan** interpreta al intrépido reportero, mientras que **Luke Evans** encarna al enigmático exoficial nazi. **Michael Imperioli** aporta su experiencia a un papel de apoyo, y **Lena Olin** brinda la fuerza y la sutileza necesarias para la compleja protagonista femenina. La combinación de estos actores promete una química intensa que eleva la narrativa de espionaje y moralidad en la posguerra.
+El reparto de *The Housewife* reúne a varios nombres de peso. **Tye Sheridan** interpreta al intrépido reportero, mientras que **Luke Evans** encarna al enigmático exoficial nazi. **Michael Imperioli** aporta su experiencia a un papel de apoyo.
 
 ## El legado de Naomi Watts
 
