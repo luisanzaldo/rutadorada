@@ -1,7 +1,7 @@
 ---
 title: "*Naomi Watts* recibe el Donostia y presenta *The Housewife*"
 description: "*Naomi Watts* será galardonada con el Donostia *en* San Sebastián y estrenará su nueva película *The Housewife*, basada *en* hechos reales de 1964."
-pubDate: 2026-08-31T21:27:31.219Z
+pubDate: 2026-08-31T21:30:51.444Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -10,7 +10,7 @@ category: "Artículos"
 fuente:
   nombre: "Deadline"
   url: "https://deadline.com/"
-readTime: "2 min read"
+readTime: "3 min read"
 tags: ["San Sebastián"]
 ---
 
@@ -24,7 +24,7 @@ En la misma noche, la actriz presentará su nuevo proyecto, *The Housewife*. Dir
 
 ## Un vistazo al elenco y al argumento
 
-El reparto de *The Housewife* reúne a varios nombres de peso. **Tye Sheridan** interpreta al intrépido reportero, mientras que **Luke Evans** encarna al enigmático exoficial nazi. **Michael Imperioli** aporta su experiencia a un papel de apoyo.
+El reparto de *The Housewife* reúne a varios nombres de peso. **Tye Sheridan** interpreta al intrépido reportero, mientras que **Luke Evans** encarna al enigmático exoficial nazi. **Michael Imperioli** aporta su experiencia a un papel de apoyo y **Lena Olin** brinda la fuerza y la sutileza necesarias para la compleja protagonista femenina. La combinación de estos actores promete una química intensa que eleva la narrativa de espionaje y moralidad en la posguerra.
 
 ## El legado de Naomi Watts
 
