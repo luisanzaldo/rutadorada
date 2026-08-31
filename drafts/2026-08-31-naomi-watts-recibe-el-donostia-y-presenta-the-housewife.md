@@ -1,7 +1,7 @@
 ---
 title: "*Naomi Watts* recibe el Donostia y presenta *The Housewife*"
 description: "*Naomi Watts* será galardonada con el Donostia *en* San Sebastián y estrenará su nueva película *The Housewife*, basada *en* hechos reales de 1964."
-pubDate: 2026-08-31T21:30:51.444Z
+pubDate: 2026-08-31T21:35:11.518Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
