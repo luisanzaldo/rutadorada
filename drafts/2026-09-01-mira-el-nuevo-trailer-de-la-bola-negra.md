@@ -1,7 +1,7 @@
 ---
-title: "Mira el nuevo tráiler de *LA BOLA NEGRA*"
-description: "Descubre el impactante teaser de *LA BOLA NEGRA*, la nueva producción de Netflix que combina suspense y drama en una trama que no podrás olvidar."
-pubDate: 2026-09-01T16:52:53.734Z
+title: "Mira el nuevo tráiler de *La bola negra*"
+description: "Te compartimos el nuevo tráiler de *La bola negra*"
+pubDate: 2026-09-01T16:54:07.789Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
