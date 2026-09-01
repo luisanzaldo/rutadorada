@@ -1,7 +1,7 @@
 ---
 title: "Mira el nuevo tráiler de *La bola negra*"
 description: "Te compartimos el nuevo tráiler de *La bola negra*"
-pubDate: 2026-09-01T16:54:41.623Z
+pubDate: 2026-09-01T16:55:13.936Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -12,5 +12,4 @@ tags: ["Cines"]
 videoUrl: "https://youtu.be/IRHtqjHYPew?si=E0b2lotO79mCJcFu"
 ---
 
-Disfruta del tráiler de *LA BOLA NEGRA*.
 *La bola negra*
