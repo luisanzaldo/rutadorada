@@ -1,10 +1,9 @@
 ---
-title: "Llega *Artificial* de Luca Guadagnino al NYFF 2026"
-description: "El esperado estreno de *Artificial* de Luca Guadagnino se estrena en el New York Film Festival 2026, con un elenco de lujo y una mirada crítica a la IA."
+title: "*Artificial* de Luca Guadagnino se verá en NYFF 2026"
+description: "El esperado estreno de *Artificial* de Luca Guadagnino se verá por primera vez en el New York Film Festival 2026, con un elenco de lujo y una mirada crítica a la IA."
 pubDate: 2026-09-01T17:08:16.479Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/FotoJet-2026-09-01T154819.226.jpg?w=1920&h=1080&crop=1"
 category: "Artículos"
 fuente:
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["NYFF"]
 ---
+
 
 ## Estreno mundial y contexto del festival
 
