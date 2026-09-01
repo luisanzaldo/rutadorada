@@ -14,7 +14,7 @@ readTime: "3 min read"
 tags: ["Venecia"]
 ---
 
-## La postura de barbera ante la política  
+## La postura de Barbera ante la política  
 En la rueda de prensa previa a la 83ª edición, el director artístico Alberto Barbera dejó claro que el festival no emitirá declaraciones políticas para “tomar lados”. Según sus palabras, Venecia se concibe como un espacio de libertad de expresión donde el público, los críticos y los artistas pueden confrontarse sin que la organización se convierta en árbitro de conflictos internacionales. Esta postura, aunque defensiva, surge en medio de una oleada de demandas de grupos activistas que exigen una posición explícita respecto a la guerra en Gaza y otras crisis.
 
 ## La ausencia de cine israelí y sus explicaciones  
