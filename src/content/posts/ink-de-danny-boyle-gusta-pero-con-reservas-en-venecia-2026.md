@@ -1,6 +1,6 @@
 ---
-title: "*INK* de Danny Boyle gusta, pero con reservas, en Venecia 2026"
-description: "Críticas de *INK*, nueva película de Danny Boyle vista en Venecia 2026 que compite por el León de Oro"
+title: "*Ink* de Danny Boyle gusta, pero con reservas, en Venecia 2026"
+description: "Críticas de *Ink*, nueva película de Danny Boyle vista en Venecia 2026 que compite por el León de Oro"
 pubDate: 2026-09-02T21:21:20.617Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
