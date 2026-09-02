@@ -370,6 +370,7 @@ const duracionValue = ficha.duracion || "";
         const mainImageFile = document.getElementById('imageFile') as HTMLInputElement;
         const coverPreviewContainer = document.getElementById('coverPreviewContainer');
         const coverPreviewImage = document.getElementById('coverPreviewImage') as HTMLImageElement;
+        const coverPreviewError = document.getElementById('coverPreviewError');
 
         // Título y descripción también son editores Tiptap (negrita / itálica).
         // Se montan antes que el del cuerpo para que un fallo cargando el
@@ -468,16 +469,87 @@ const duracionValue = ficha.duracion || "";
             updateCategoryFields(); // Ejecutar al cargar para posts existentes
         }
 
-        // Preview Portada
-        mainImageUrl?.addEventListener('input', () => {
-            const src = mainImageUrl.value;
-            if (src && coverPreviewImage && coverPreviewContainer) {
+        // --- Lógica Preview Portada ---
+        // La previsualización refleja siempre la última acción: o el vínculo
+        // pegado o el archivo subido, nunca los dos a la vez.
+        let previewTimeout: number | undefined;
+        let objectUrl: string | null = null;
+        // Vínculo que había en el campo antes de elegir un archivo local. Se
+        // conserva para devolverlo si la subida falla al guardar.
+        let stashedImageUrl = '';
+
+        const updateCoverPreview = (src: string) => {
+            // Liberar el blob anterior en cuanto dejamos de mostrarlo
+            if (objectUrl && !src.startsWith('blob:')) {
+                URL.revokeObjectURL(objectUrl);
+                objectUrl = null;
+            }
+
+            if (!src) {
+                coverPreviewContainer?.classList.add('hidden');
+                coverPreviewContainer?.classList.remove('flex');
+                return;
+            }
+
+            coverPreviewContainer?.classList.remove('hidden');
+            coverPreviewContainer?.classList.add('flex');
+            coverPreviewImage?.classList.add('hidden');
+            coverPreviewError?.classList.add('hidden');
+            coverPreviewError?.classList.remove('flex');
+
+            if (coverPreviewImage) {
+                // Al adjuntar los eventos directamente a la imagen en el DOM garantizamos visibilidad
+                coverPreviewImage.onload = () => {
+                    coverPreviewImage.classList.remove('hidden');
+                };
+                coverPreviewImage.onerror = () => {
+                    coverPreviewError?.classList.remove('hidden');
+                    coverPreviewError?.classList.add('flex');
+                };
                 coverPreviewImage.src = src;
-                coverPreviewImage.onload = () => coverPreviewImage.classList.remove('hidden');
-                coverPreviewContainer.classList.remove('hidden');
-                coverPreviewContainer.classList.add('flex');
+            }
+        };
+
+        // Escuchar URL con debounce (retraso breve para evitar sobrecargar)
+        mainImageUrl?.addEventListener('input', (e) => {
+            const val = (e.target as HTMLInputElement).value;
+            if (val) {
+                if (mainImageFile) mainImageFile.value = ''; // Prioridad visual al link
+            }
+            stashedImageUrl = ''; // El usuario toma el control del campo: el respaldo ya no aplica
+
+            clearTimeout(previewTimeout);
+            previewTimeout = window.setTimeout(() => updateCoverPreview(val), 500);
+        });
+
+        // Escuchar Archivo local (inmediato)
+        mainImageFile?.addEventListener('change', (e) => {
+            const file = (e.target as HTMLInputElement).files?.[0];
+            if (file) {
+                if (mainImageUrl) {
+                    if (mainImageUrl.value) stashedImageUrl = mainImageUrl.value;
+                    mainImageUrl.value = ''; // Quitar el vínculo: manda la imagen subida
+                }
+                if (objectUrl) URL.revokeObjectURL(objectUrl);
+                objectUrl = URL.createObjectURL(file);
+                updateCoverPreview(objectUrl);
+            } else {
+                updateCoverPreview(mainImageUrl?.value || ''); // Regresar a url anterior si cancela subida
             }
         });
+
+        // Devuelve al campo el vínculo que se quitó al elegir el archivo. Descarta
+        // también el archivo para que la previsualización siga coincidiendo con
+        // lo que se va a guardar.
+        const restoreStashedUrl = () => {
+            if (!stashedImageUrl || !mainImageUrl) return;
+            const restored = stashedImageUrl;
+            stashedImageUrl = '';
+            mainImageUrl.value = restored;
+            if (mainImageFile) mainImageFile.value = '';
+            clearTimeout(previewTimeout);
+            updateCoverPreview(restored);
+        };
 
         // Submit logic
         form.addEventListener('submit', async (e) => {
@@ -544,6 +616,7 @@ const duracionValue = ficha.duracion || "";
 
                 let finalImageUrl = mainImageUrl.value;
                 if (mainImageFile.files?.[0]) {
+                  try {
                     const file = mainImageFile.files[0];
                     if (file.size > 4.5 * 1024 * 1024) {
                         throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
@@ -568,6 +641,10 @@ const duracionValue = ficha.duracion || "";
                         }
                         throw new Error(`Error al subir imagen: ${errorDetail}`);
                     }
+                  } catch (uploadErr) {
+                    restoreStashedUrl();
+                    throw uploadErr;
+                  }
                 }
 
                 const payload = {

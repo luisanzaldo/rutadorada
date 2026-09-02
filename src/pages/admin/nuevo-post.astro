@@ -445,6 +445,7 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                     // Lógica imagen de Portada (Subida Local vs URL)
                     let finalImageUrl = mainImageUrl.value || '';
                     if (mainImageFile.files && mainImageFile.files.length > 0) {
+                      try {
                         const file = mainImageFile.files[0];
                         if (file.size > 4.5 * 1024 * 1024) {
                             throw new Error(`La imagen es demasiado grande (${(file.size / (1024 * 1024)).toFixed(2)}MB). El límite es de 4.5MB. Por favor, comprímela antes de subirla.`);
@@ -473,6 +474,10 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
                             console.error(`Upload API Error (${status}):`, errorDetail);
                             throw new Error(`No se pudo subir la imagen. Motivo: ${errorDetail}`);
                         }
+                      } catch (uploadErr) {
+                        restoreStashedUrl();
+                        throw uploadErr;
+                      }
                     }
 
                     // Construir JSON
@@ -524,6 +529,9 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
 
         // --- Lógica Preview Portada General ---
         let previewTimeout: number | undefined;
+        // Vínculo que había en el campo antes de elegir un archivo local. Se
+        // conserva para devolverlo si la subida falla al publicar.
+        let stashedImageUrl = '';
 
         const updateCoverPreview = (src: string) => {
             if (!src) {
@@ -551,12 +559,26 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
             }
         };
 
+        // Devuelve al campo el vínculo que se quitó al elegir el archivo. Descarta
+        // también el archivo para que la previsualización siga coincidiendo con
+        // lo que se va a guardar.
+        const restoreStashedUrl = () => {
+            if (!stashedImageUrl || !mainImageUrl) return;
+            const restored = stashedImageUrl;
+            stashedImageUrl = '';
+            mainImageUrl.value = restored;
+            if (mainImageFile) mainImageFile.value = '';
+            clearTimeout(previewTimeout);
+            updateCoverPreview(restored);
+        };
+
         // Escuchar URL con debounce (retraso breve para evitar sobrecargar)
         mainImageUrl?.addEventListener('input', (e) => {
             const val = (e.target as HTMLInputElement).value;
             if (val) {
                 if (mainImageFile) mainImageFile.value = ''; // Prioridad visual al link
             }
+            stashedImageUrl = ''; // El usuario toma el control del campo: el respaldo ya no aplica
 
             clearTimeout(previewTimeout);
             previewTimeout = window.setTimeout(() => updateCoverPreview(val), 500);
@@ -566,7 +588,10 @@ const title = "Nuevo Post | Panel Admin RutaDorada";
         mainImageFile?.addEventListener('change', (e) => {
             const file = (e.target as HTMLInputElement).files?.[0];
             if (file) {
-                if (mainImageUrl) mainImageUrl.value = ''; // Limpiar URL field si la hay
+                if (mainImageUrl) {
+                    if (mainImageUrl.value) stashedImageUrl = mainImageUrl.value;
+                    mainImageUrl.value = ''; // Limpiar URL field si la hay
+                }
                 const url = URL.createObjectURL(file);
                 updateCoverPreview(url);
             } else {
