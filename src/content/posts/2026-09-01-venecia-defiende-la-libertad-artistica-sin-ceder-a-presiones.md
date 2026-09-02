@@ -4,8 +4,7 @@ description: "El director Alberto Barbera asegura que el Festival de Venecia pro
 pubDate: 2026-09-01T19:01:56.116Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
-image: "https://variety.com/wp-content/uploads/2025/07/Alberto-Barbera.jpg"
+image: "/images/posts/2026-09-02-barbera-1788318379018.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Venecia"]
 ---
+
 
 ## La postura de Barbera ante la política  
 En la rueda de prensa previa a la 83ª edición, el director artístico Alberto Barbera dejó claro que el festival no emitirá declaraciones políticas para “tomar lados”. Según sus palabras, Venecia se concibe como un espacio de libertad de expresión donde el público, los críticos y los artistas pueden confrontarse sin que la organización se convierta en árbitro de conflictos internacionales. Esta postura, aunque defensiva, surge en medio de una oleada de demandas de grupos activistas que exigen una posición explícita respecto a la guerra en Gaza y otras crisis.
