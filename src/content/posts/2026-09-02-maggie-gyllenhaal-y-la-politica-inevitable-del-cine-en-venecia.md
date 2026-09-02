@@ -1,5 +1,5 @@
 ---
-title: "Maggie Gyllenhaal sobre la escasez de directoras en Venecia \"Es un problema sistémico\""
+title: "Maggie Gyllenhaal sobre la escasez de directoras en Venecia: \"Es un problema sistémico\""
 description: "Maggie Gyllenhaal afirma que el cine es inevitablemente político y denuncia la escasa presencia femenina."
 pubDate: 2026-09-02T15:24:24.737Z
 author: "Moncho"
@@ -12,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Venecia"]
 ---
+
 
 
 ## La política como eje natural del séptimo arte  
@@ -30,3 +31,4 @@ El panel de siete miembros incluye a la tunecina Kaouther Ben Hania, al cineasta
 Alberto Barbera, director artístico, describió la edición como la más política de los últimos años, citando obras como *Naza* (co‑dirigida por los creadores de *No Other Land*). Barbera reiteró que Venecia se concibe como un refugio para la libre expresión y el enfrentamiento entre artistas y espectadores.
 
 En suma, la intervención de Maggie Gyllenhaal dejó claro que la política y el cine están indisolublemente ligados, y que la industria debe romper barreras estructurales para que más voces femeninas accedan a la gran pantalla. Solo así el festival podrá cumplir su promesa de ser un verdadero espacio de diálogo y empatía global.
+
