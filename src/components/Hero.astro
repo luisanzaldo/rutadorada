@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { renderRichText } from "../lib/richText";
+import { getTrailerUrl } from "../lib/trailers";
 
 const baseUrl = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 
@@ -32,13 +33,21 @@ const featured = latest.slice(0, 5).map((p) => {
             : p.data.image,
         videoUrl,
         isTrailer,
-        href: isTrailer ? videoUrl : `${baseUrl}/posts/${p.slug}`,
+        slug: p.slug,
+        // El tráiler abre la ventana modal; su href es la URL compartible
+        href: isTrailer ? getTrailerUrl(p.slug) : `${baseUrl}/posts/${p.slug}`,
     };
 });
 
 const marquee = latest.map((p) => ({
     title: renderRichText(p.data.title),
-    href: p.data.videoUrl || `${baseUrl}/posts/${p.slug}`,
+    // Igual que las tarjetas: el tráiler abre la ventana modal y su href es la
+    // URL compartible del tráiler.
+    href: p.data.videoUrl
+        ? getTrailerUrl(p.slug)
+        : `${baseUrl}/posts/${p.slug}`,
+    videoUrl: p.data.videoUrl || "",
+    slug: p.slug,
 }));
 
 const first = featured[0];
@@ -222,7 +231,12 @@ const archiveHref = `${baseUrl}/archive`;
                         aria-hidden={dup === 1 ? "true" : undefined}
                     >
                         {marquee.map((m) => (
-                            <a href={m.href} class="marquee-item">
+                            <a
+                                href={m.href}
+                                class={`marquee-item ${m.videoUrl ? "video-trigger" : ""}`}
+                                data-video-url={m.videoUrl || undefined}
+                                data-video-slug={m.videoUrl ? m.slug : undefined}
+                            >
                                 <span class="text-[#F2AF0D] mx-4 sm:mx-6">&#10038;</span>
                                 <span
                                     class="text-[#0c0a09]/70 hover:text-[#0c0a09] dark:text-[#F3ECDD]/70 dark:hover:text-[#F3ECDD] transition-colors"
@@ -290,6 +304,7 @@ const archiveHref = `${baseUrl}/archive`;
         id="hero-video-trigger"
         class="video-trigger hidden"
         data-video-url=""
+        data-video-slug=""
         aria-hidden="true"
         tabindex="-1"></a>
 </section>
@@ -614,7 +629,6 @@ const archiveHref = `${baseUrl}/archive`;
             // relevo lleve a la nota que está entrando, no a la que sale.
             if (link) {
                 link.setAttribute("href", s.href);
-                link.setAttribute("target", s.isTrailer ? "_blank" : "_self");
             }
 
             if (reduce || swapEls.length === 0) {
@@ -649,6 +663,7 @@ const archiveHref = `${baseUrl}/archive`;
                 if (!s.isTrailer || !s.videoUrl || !videoTrigger) return;
                 e.preventDefault();
                 videoTrigger.setAttribute("data-video-url", s.videoUrl);
+                videoTrigger.setAttribute("data-video-slug", s.slug);
                 videoTrigger.click();
             });
         }

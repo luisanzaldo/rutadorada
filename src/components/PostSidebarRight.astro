@@ -1,5 +1,6 @@
 ---
 import { renderRichText, stripRichText } from "../lib/richText";
+import { getTrailerUrl } from "../lib/trailers";
 
 interface RelatedPost {
     title: string;
@@ -106,13 +107,13 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                         {
                             relatedPosts.map((post) => {
                                 const isTrailer = post.category === "Tráilers" && post.videoUrl;
-                                const url = isTrailer ? post.videoUrl : `/posts/${post.slug}`;
+                                const url = isTrailer ? getTrailerUrl(post.slug) : `/posts/${post.slug}`;
                                 const triggerClass = isTrailer ? "video-trigger" : "";
                                 return (
                                     <a
                                         href={url}
                                         class={`group block rounded-xl bg-slate-50 dark:bg-background-card p-4 border border-transparent hover:border-[#F2AF0D]/50 transition-all shadow-sm ${triggerClass}`}
-                                        { ...(isTrailer ? { "data-video-url": post.videoUrl } : {}) }
+                                        { ...(isTrailer ? { "data-video-url": post.videoUrl, "data-video-slug": post.slug } : {}) }
                                     >
                                         <div class="mb-3 overflow-hidden rounded-lg h-32 w-full bg-slate-200 dark:bg-[#102023] relative">
                                             <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 to-transparent opacity-60" />

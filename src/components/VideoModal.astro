@@ -2,13 +2,31 @@
 ---
 <dialog id="video-modal" class="bg-transparent m-auto p-0 backdrop:backdrop-blur-md backdrop:bg-black/80 w-full max-w-5xl aspect-video rounded-xl shadow-2xl overflow-hidden border border-white/10 outline-none">
     <div class="relative w-full h-full bg-black flex flex-col items-center justify-center">
-        <!-- Close button -->
-        <button id="close-video" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors border border-white/20 shadow-lg cursor-pointer" aria-label="Cerrar video">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <!-- Controles: copiar el link del tráiler y cerrar -->
+        <div class="absolute top-4 right-4 z-50 flex items-center gap-2">
+            <button id="share-video" type="button" class="hidden bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors border border-white/20 shadow-lg cursor-pointer" aria-label="Copiar link del tráiler" title="Copiar link para compartir">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+            </button>
+            <!-- Close button -->
+            <button id="close-video" class="bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors border border-white/20 shadow-lg cursor-pointer" aria-label="Cerrar video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Aviso de "link copiado" -->
+        <div id="video-share-toast" class="hidden absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-primary text-background-dark text-xs font-bold py-2 px-4 rounded-full shadow-lg pointer-events-none">
+            Link copiado
+        </div>
+
         <!-- The player container (either iframe or video) -->
         <div id="video-container" class="w-full h-full flex items-center justify-center bg-black relative">
         </div>
@@ -16,97 +34,201 @@
 </dialog>
 
 <script>
+    import { TRAILER_PARAM, getTrailerUrl } from "../lib/trailers";
+
+    // Al abrir un tráiler, su URL compartible (/posts/<slug>?trailer=1) pasa a la
+    // barra del navegador y el botón de compartir la copia al portapapeles. Quien
+    // reciba ese link cae en la página del post con el tráiler ya abierto encima.
+
+    let bound = false;
+
     function setupVideoModals() {
         const modal = document.getElementById('video-modal') as HTMLDialogElement | null;
         const closeBtn = document.getElementById('close-video');
+        const shareBtn = document.getElementById('share-video');
+        const toast = document.getElementById('video-share-toast');
         const videoContainer = document.getElementById('video-container');
 
         if (!modal || !closeBtn || !videoContainer) return;
+        // Los listeners viven en document/window, así que basta con montarlos una vez
+        if (bound) return;
+        bound = true;
 
-        // Clean up any existing listeners on close button by replacing it to avoid duplicates
-        const newCloseBtn = closeBtn.cloneNode(true);
-        if (closeBtn.parentNode) {
-            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
-        }
+        // Link compartible del tráiler abierto; null si ese tráiler no tiene post.
+        let shareUrl: string | null = null;
+        // ¿Esta ventana agregó una entrada al historial al abrirse?
+        let pushedHistory = false;
+        // Cierre disparado por el propio historial: no hay que volver a tocarlo.
+        let closingFromHistory = false;
 
-        const closeModal = () => {
-            modal.close();
-            videoContainer.innerHTML = '';
-        };
+        const buildPlayer = (url: string): boolean => {
+            let embedUrl = url;
+            let isIframe = true;
 
-        newCloseBtn.addEventListener('click', closeModal);
+            if (url.includes('youtube.com/watch?v=')) {
+                const videoId = new URL(url).searchParams.get('v');
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (url.includes('youtu.be/')) {
+                const videoId = new URL(url).pathname.substring(1);
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (url.trim().toLowerCase().endsWith('.mp4')) {
+                isIframe = false;
+            }
 
-        const onModalClick = (e: MouseEvent) => {
-            const rect = modal.getBoundingClientRect();
-            const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-                                rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-            if (!isInDialog) {
-                closeModal();
+            // Validar que la URL use un protocolo seguro antes de inyectarla en el DOM
+            try {
+                const safeEmbedUrl = new URL(embedUrl);
+                if (!['https:', 'http:'].includes(safeEmbedUrl.protocol)) return false;
+                const safeUrl = isIframe ? safeEmbedUrl : new URL(url);
+                if (!['https:', 'http:'].includes(safeUrl.protocol)) return false;
+
+                videoContainer.innerHTML = '';
+                if (isIframe) {
+                    const iframe = document.createElement('iframe');
+                    iframe.setAttribute('src', safeEmbedUrl.href);
+                    iframe.className = 'w-full h-full border-0 absolute top-0 left-0';
+                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    iframe.setAttribute('allowfullscreen', '');
+                    videoContainer.appendChild(iframe);
+                } else {
+                    const video = document.createElement('video');
+                    video.setAttribute('src', safeUrl.href);
+                    video.className = 'w-full h-full outline-none';
+                    video.setAttribute('controls', '');
+                    video.setAttribute('autoplay', '');
+                    videoContainer.appendChild(video);
+                }
+                return true;
+            } catch {
+                return false; // URL malformada, no hacer nada
             }
         };
 
-        // Remove and re-add just in case
-        modal.removeEventListener('click', onModalClick as EventListener);
-        modal.addEventListener('click', onModalClick as EventListener);
+        // ¿La URL actual ya es la de este tráiler? (se llegó por el link compartido)
+        const isTrailerUrl = (slug: string) => {
+            const path = window.location.pathname.replace(/\/+$/, '');
+            return path.endsWith(`/posts/${slug}`) &&
+                new URLSearchParams(window.location.search).has(TRAILER_PARAM);
+        };
+
+        const openTrailer = (trigger: Element) => {
+            const url = trigger.getAttribute('data-video-url');
+            if (!url || !buildPlayer(url)) return;
+
+            const slug = trigger.getAttribute('data-video-slug') || '';
+            shareUrl = slug ? new URL(getTrailerUrl(slug), window.location.origin).href : null;
+            shareBtn?.classList.toggle('hidden', !shareUrl);
+
+            if (!modal.open) modal.showModal();
+
+            // El link del tráiler queda en la barra del navegador: se puede copiar
+            // desde ahí y el botón "atrás" cierra la ventana.
+            if (shareUrl && !isTrailerUrl(slug)) {
+                window.history.pushState({ trailer: slug }, '', shareUrl);
+                pushedHistory = true;
+            }
+        };
+
+        // Abre el tráiler que pide la URL, si su disparador está en esta página
+        const openFromUrl = () => {
+            if (modal.open) return;
+            if (!new URLSearchParams(window.location.search).has(TRAILER_PARAM)) return;
+            const slug = window.location.pathname.replace(/\/+$/, '').split('/').pop();
+            if (!slug) return;
+            const trigger = document.querySelector(`.video-trigger[data-video-slug="${CSS.escape(slug)}"]`);
+            if (trigger) openTrailer(trigger);
+        };
+
+        // Un solo listener delegado sirve a las tarjetas de cualquier página y al
+        // disparador oculto que el hero rellena sobre la marcha.
+        document.addEventListener('click', (e) => {
+            const target = e.target as Element | null;
+            if (!target || typeof target.closest !== 'function') return;
+            const trigger = target.closest('.video-trigger');
+            if (!trigger) return;
+            // Cmd/Ctrl+clic abre el link del tráiler en otra pestaña, como cualquier enlace
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            e.preventDefault();
+            openTrailer(trigger);
+        });
+
+        closeBtn.addEventListener('click', () => modal.close());
+
+        modal.addEventListener('click', (e: MouseEvent) => {
+            const rect = modal.getBoundingClientRect();
+            const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                                rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+            if (!isInDialog) modal.close();
+        });
 
         modal.addEventListener('close', () => {
-           videoContainer.innerHTML = '';
+            videoContainer.innerHTML = '';
+            shareUrl = null;
+            shareBtn?.classList.add('hidden');
+
+            if (closingFromHistory) {
+                pushedHistory = false;
+                return;
+            }
+
+            if (pushedHistory) {
+                pushedHistory = false;
+                window.history.back(); // vuelve a la página desde la que se abrió
+                return;
+            }
+
+            // Se entró directo por el link del tráiler: se quita el parámetro para
+            // que recargar la página ya no vuelva a abrir la ventana.
+            const params = new URLSearchParams(window.location.search);
+            if (params.has(TRAILER_PARAM)) {
+                params.delete(TRAILER_PARAM);
+                const query = params.toString();
+                window.history.replaceState(null, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash);
+            }
         });
 
-        const triggers = document.querySelectorAll('.video-trigger');
-        triggers.forEach(trigger => {
-            // we remove any previous listeners by cloning or just tracking we assigned them
-            // since this depends on `.video-trigger`, cloning the trigger is an option but might destroy other handlers.
-            // astro:page-load handles clean state so it's usually fine
-            
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                const url = trigger.getAttribute('data-video-url');
-                if (!url) return;
-
-                let embedUrl = url;
-                let isIframe = true;
-
-                if (url.includes('youtube.com/watch?v=')) {
-                    const videoId = new URL(url).searchParams.get('v');
-                    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                } else if (url.includes('youtu.be/')) {
-                    const videoId = new URL(url).pathname.substring(1);
-                    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                } else if (url.trim().toLowerCase().endsWith('.mp4')) {
-                    isIframe = false;
-                }
-
-                // Validar que la URL use un protocolo seguro antes de inyectarla en el DOM
-                try {
-                    const safeEmbedUrl = new URL(embedUrl);
-                    if (!['https:', 'http:'].includes(safeEmbedUrl.protocol)) return;
-                    const safeUrl = isIframe ? safeEmbedUrl : new URL(url);
-                    if (!['https:', 'http:'].includes(safeUrl.protocol)) return;
-
-                    videoContainer.innerHTML = '';
-                    if (isIframe) {
-                        const iframe = document.createElement('iframe');
-                        iframe.setAttribute('src', safeEmbedUrl.href);
-                        iframe.className = 'w-full h-full border-0 absolute top-0 left-0';
-                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                        iframe.setAttribute('allowfullscreen', '');
-                        videoContainer.appendChild(iframe);
-                    } else {
-                        const video = document.createElement('video');
-                        video.setAttribute('src', safeUrl.href);
-                        video.className = 'w-full h-full outline-none';
-                        video.setAttribute('controls', '');
-                        video.setAttribute('autoplay', '');
-                        videoContainer.appendChild(video);
-                    }
-                } catch {
-                    return; // URL malformada, no hacer nada
-                }
-
-                modal.showModal();
-            });
+        window.addEventListener('popstate', () => {
+            if (modal.open) {
+                closingFromHistory = true;
+                modal.close();
+                closingFromHistory = false;
+            } else {
+                openFromUrl();
+            }
         });
+
+        const showToast = (text: string) => {
+            if (!toast) return;
+            toast.textContent = text;
+            toast.classList.remove('hidden');
+            window.setTimeout(() => toast.classList.add('hidden'), 2000);
+        };
+
+        const copyToClipboard = async (url: string) => {
+            try {
+                await navigator.clipboard.writeText(url);
+                showToast('Link copiado');
+            } catch (e) {
+                // Fallback ultraconservador: input temporal + execCommand. Va dentro
+                // del dialog porque el resto de la página queda inerte al abrirlo.
+                const tmp = document.createElement('input');
+                tmp.value = url;
+                tmp.style.position = 'fixed';
+                tmp.style.opacity = '0';
+                modal.appendChild(tmp);
+                tmp.select();
+                try { document.execCommand('copy'); showToast('Link copiado'); }
+                catch (err) { showToast('No se pudo copiar'); }
+                tmp.remove();
+            }
+        };
+
+        shareBtn?.addEventListener('click', () => {
+            if (shareUrl) copyToClipboard(shareUrl);
+        });
+
+        // Link compartido: abrir la ventana en cuanto carga la página
+        openFromUrl();
     }
 
     document.addEventListener('DOMContentLoaded', setupVideoModals);

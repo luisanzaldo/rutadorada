@@ -1,6 +1,7 @@
 ---
 import { renderRichText } from "../lib/richText";
 import { getTagUrl } from "../lib/tags";
+import { getTrailerUrl } from "../lib/trailers";
 
 interface Props {
     title: string;
@@ -17,7 +18,9 @@ interface Props {
 const { title, description, image, category, date, readTime, slug, videoUrl, tags } =
     Astro.props;
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
-const url = videoUrl || `${baseUrl}/posts/${slug}`;
+// El href del tráiler es su URL compartible; el clic abre la ventana modal
+const videoHref = videoUrl ? (slug ? getTrailerUrl(slug) : videoUrl) : null;
+const url = videoHref || `${baseUrl}/posts/${slug}`;
 const triggerClass = videoUrl ? "video-trigger" : "";
 
 // El título y la descripción admiten negrita e itálica en línea
@@ -32,6 +35,7 @@ const descriptionHtml = renderRichText(description);
         href={url}
         class={`archive-card-link flex flex-col h-full w-full ${triggerClass}`}
         data-video-url={videoUrl}
+        data-video-slug={slug}
     >
         <div
             class="w-full h-48 bg-cover bg-center relative block"

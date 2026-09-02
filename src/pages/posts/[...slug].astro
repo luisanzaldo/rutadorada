@@ -231,7 +231,41 @@ const plainDescription = stripRichText(post.data.description);
                     </div>
 
                     {
-                        post.data.category !== "Tráilers" && finalImage && (
+                        /* El tráiler se ve en la ventana modal: el póster la abre y
+                           además es el disparador que usa el link compartido
+                           (/posts/<slug>?trailer=1) para desplegarla al cargar. */
+                        post.data.videoUrl && (
+                            <a
+                                href={post.data.videoUrl}
+                                class={`video-trigger group relative block w-full rounded-2xl overflow-hidden mb-12 dark:shadow-[0_20px_50px_-15px_rgba(217,119,6,0.3)] border border-slate-200 dark:border-white/10 ${finalImage ? "" : "min-h-[220px] bg-[#0c0a09]"}`}
+                                data-video-url={post.data.videoUrl}
+                                data-video-slug={post.slug}
+                                aria-label={`Ver el tráiler de ${plainTitle}`}
+                            >
+                                {finalImage && (
+                                    <img
+                                        src={finalImage}
+                                        alt={`Portada de ${plainTitle}`}
+                                        class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-1000 group-hover:scale-105"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                )}
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09]/70 via-[#0c0a09]/10 to-transparent pointer-events-none" />
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="inline-flex items-center gap-3 rounded-full bg-primary/95 py-3 px-6 text-sm font-bold uppercase tracking-[0.18em] text-[#102023] shadow-xl transition-transform group-hover:scale-105">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M8 5.14v14l11-7-11-7z" />
+                                        </svg>
+                                        Ver tráiler
+                                    </span>
+                                </div>
+                            </a>
+                        )
+                    }
+
+                    {
+                        !post.data.videoUrl && post.data.category !== "Tráilers" && finalImage && (
                             <div class="relative w-full rounded-2xl overflow-hidden mb-12 dark:shadow-[0_20px_50px_-15px_rgba(217,119,6,0.3)] border border-slate-200 dark:border-white/10 group">
                                 <img
     src={finalImage}
