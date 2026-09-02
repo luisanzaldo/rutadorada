@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *INK*"
-description: "Descubre el teaser oficial de *INK*, la nueva película de Danny Boyle con Jack O'Connell y Guy Pearce, que promete un thriller visualmente impactante."
-pubDate: 2026-09-02T15:30:32.566Z
+description: "que promete ser un Thriller..."
+pubDate: 2026-09-02T15:31:17.866Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
