@@ -9,7 +9,7 @@ category: "Artículos"
 fuente:
   nombre: "Redacción"
   url: "https://www.rutadoradafilms.com"
-readTime: "6 min read"
+readTime: "7 min read"
 tags: ["Venecia"]
 ---
 
@@ -17,7 +17,7 @@ El recibimiento crítico de la película *Ink* (dirigida por Danny Boyle y escri
 
 Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O'Connell (como el editor Larry Lamb) y Guy Pearce (como Rupert Murdoch), así como la dirección vibrante y el estilo "punk" de Danny Boyle, que consigue que la historia no se sienta como una simple obra de teatro filmada. Sin embargo, casi todos los críticos coinciden en los mismos puntos débiles: un personaje femenino para Claire Foy que está desaprovechado, una dirección que por momentos resulta estéticamente agotadora o sobrecargada, y un final moralista y poco sutil que resulta demasiado obvio al intentar conectar el origen del tabloide *The Sun* en 1969 con figuras políticas modernas como Donald Trump.
 
-**1. Next Best Picture / Josh Parham**
+**1. Next Best Picture / Josh Parham [https://nextbestpicture.com/ink/](https://nextbestpicture.com/ink/)**
 
 - **Clasificación:** Positiva (Calificación: 7/10).
 
@@ -27,7 +27,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** El ritmo decae en la segunda mitad debido a un cambio de tono que frena el impulso de la película. El guion peca a veces de ser demasiado obvio y explícito al describir las motivaciones de los personajes. El personaje de Claire Foy está muy poco desarrollado.
 
-**2. IndieWire / Ryan Lattanzio**
+**2. IndieWire / Ryan Lattanzio** ['Ink' Movie Review: Danny Boyle's Rupert Murdoch Movie Is Apocalyptic](https://www.indiewire.com/criticism/movies/ink-movie-review-danny-boyle-rupert-murdoch-1235213549/)
 
 - **Clasificación:** Positiva (Calificación: B).
 
@@ -37,7 +37,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** Visualmente está "sobrecocida" debido al exceso de planos holandeses y efectos de edición que pueden cansar. El paralelismo final que conecta el nacimiento de este tabloide con el ascenso de Donald Trump es carente de sutileza y predecible.
 
-**3. Deadline / Pete Hammond**
+**3. Deadline / Pete Hammond** ['Ink' Review: Danny Boyle Origin Story Of The Sun & Rupert Murdoch](https://deadline.com/2026/09/ink-review-danny-boyle-rupert-murdoch-the-sun-1237062989/)
 
 - **Clasificación:** Positiva (Reseña sumamente entusiasta).
 
@@ -47,7 +47,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** No se destaca aspectos técnicos o narrativos negativos de la película en sí, aunque el tramo final resulta escalofriante debido a la frialdad con la que se muestra que la verdad está en venta.
 
-**4. Variety / Guy Lodge**
+**4. Variety / Guy Lodge** ['Ink' Review: Danny Boyle's Gripping, Sizzling Tabloid Drama](https://variety.com/2026/film/reviews/ink-review-1236849047/)
 
 - **Clasificación:** Positiva.
 
@@ -57,7 +57,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** La película es demasiado suave con el personaje de Rupert Murdoch, tratando de presentarlo casi como la "conciencia moral" de la historia. El montaje del final que conecta la trama con Fox News y Facebook es pesado y poco sutil.
 
-**5. Screen Daily / Tim Grierson**
+**5. Screen Daily / Tim Grierson** [‘Ink' review: Jack O’Connell is magnetic as ‘The Sun’ tabloid editor Larry Lamb in Danny Boyle’s feverish Venice opener | Reviews | Screen](https://www.screendaily.com/festivals/ink-review-jack-oconnell-is-magnetic-as-the-sun-tabloid-editor-larry-lamb-in-danny-boyles-feverish-venice-opener/5219901.article)
 
 - **Clasificación:** Regular.
 
@@ -67,7 +67,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** La película pierde toda su estimulante energía cuando la trama se vuelve trágica en la segunda mitad. El tono final se vuelve moralista y sermoneador. El paralelismo con el clickbait moderno se siente tosco en lugar de agudo. El personaje de Claire Foy parece más un arquetipo literario para guiar las simpatías del espectador que una persona compleja.
 
-**6. Cineuropa / David Katz**
+**6. Cineuropa / David Katz** [Review: Ink - Cineuropa](https://cineuropa.org/en/newsdetail/494737)
 
 - **Clasificación:** Regular.
 
@@ -77,7 +77,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** El guion evita profundizar en la psicología interna de Larry Lamb y Rupert Murdoch. La analogía final sobre la degradación de los medios actuales es demasiado generalizada y poco sutil, y la crítica global de la película termina siendo demasiado moderada en comparación con la gravedad del tema.
 
-**7. The Playlist / Marshall Shaffer**
+**7. The Playlist / Marshall Shaffer** [‘Ink’ Review: Danny Boyle’s Punk-Rock Rupert Murdoch Drama Moves Fast, But The Headlines Don’t Always Stick \[Venice\]](https://theplaylist.net/ink-review-danny-boyle-jack-oconnell-guy-pearce-20260902/)
 
 - **Clasificación:** Positiva (Calificación: B).
 
@@ -87,7 +87,7 @@ Lo más elogiado de forma unánime son las extraordinarias actuaciones de Jack O
 
 - **Puntos negativos (Lo menos):** La película se enfoca tanto en el "qué" que descuida el "quién", pasando tan rápido por los hechos que no da espacio a que los personajes se desarrollen o tengan un momento que resuma su conflicto ideológico. El montaje final con Donald Trump e Elon Musk resulta un adorno obvio e innecesario. Claire Foy tiene un papel plano e ingrato.
 
-**8. The Wrap / Ben Croll**
+**8. The Wrap / Ben Croll** [Ink Review: Rupert Murdoch Movie Charts a Race to the Bottom](https://www.thewrap.com/creative-content/movies/ink-review-rupert-murdoch-movie-guy-pearce-jack-oconnell/)
 
 - **Clasificación:** Regular.
 
