@@ -10,6 +10,7 @@ import ShareModal from "../../components/ShareModal.astro";
 import Speedometer from "../../components/Speedometer.astro";
 import { renderRichText, stripRichText } from "../../lib/richText";
 import { getTagUrl } from "../../lib/tags";
+import { getCategoryUrl } from "../../lib/categories";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -21,6 +22,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
+
+// Null si la categoría no tiene sección propia: en ese caso la etiqueta no enlaza
+const categoryUrl = getCategoryUrl(post.data.category);
 
 const allPosts = await getCollection("posts");
 
@@ -85,15 +89,18 @@ const plainDescription = stripRichText(post.data.description);
                 <article class="col-span-1 lg:col-span-8 w-full">
                     <div class="mb-10">
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span
-                                class="inline-flex items-center rounded-lg bg-primary/5 px-3 py-1 text-sm font-medium text-black dark:text-primary ring-1 ring-inset ring-primary/20"
-                            >
-                                {post.data.category}
-                            </span>
                             {
-                                post.data.subCategory && (
-                                    <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-[#224249]/50 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300">
-                                        {post.data.subCategory}
+                                categoryUrl ? (
+                                    <a
+                                        href={categoryUrl}
+                                        class="inline-flex items-center rounded-lg bg-primary/5 px-3 py-1 text-sm font-medium text-black dark:text-primary ring-1 ring-inset ring-primary/20 hover:bg-primary/15 hover:ring-primary/40 transition-colors"
+                                        title={`Ver todos los posts de ${post.data.category}`}
+                                    >
+                                        {post.data.category}
+                                    </a>
+                                ) : (
+                                    <span class="inline-flex items-center rounded-lg bg-primary/5 px-3 py-1 text-sm font-medium text-black dark:text-primary ring-1 ring-inset ring-primary/20">
+                                        {post.data.category}
                                     </span>
                                 )
                             }
