@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *INK*"
-description: "que promete ser un Thriller..."
-pubDate: 2026-09-02T15:31:17.866Z
+description: "Descubre el teaser oficial de la nueva película de Danny Boyle, que promete ser un thriller impactante"
+pubDate: 2026-09-02T15:32:29.019Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
