@@ -1,10 +1,9 @@
 ---
-title: "Maggie Gyllenhaal y la política inevitable del cine en Venecia"
+title: "Maggie Gyllenhaal sobre la escasez de directoras en Venecia \"Es un problema sistémico\""
 description: "Maggie Gyllenhaal afirma que el cine es inevitablemente político y denuncia la escasa presencia femenina."
 pubDate: 2026-09-02T15:24:24.737Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://variety.com/wp-content/uploads/2026/09/GettyImages-2293134821.jpg"
 category: "Artículos"
 fuente:
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Venecia"]
 ---
+
 
 ## La política como eje natural del séptimo arte  
 En la conferencia de prensa del jurado principal, Maggie Gyllenhaal respondió con humor a la pregunta sobre si el cine debía involucrarse en la política. “Ok, mejor meternos en el tema”, dijo, para luego argumentar que la película es, por esencia, un espejo que refleja la realidad y abre una vía de empatía. Según ella, cualquier historia, por más controvertida que sea, permite al espectador reconocer la humanidad en el “otro”, incluso cuando se trata de los personajes más corruptos o perversos.
