@@ -4,7 +4,6 @@ description: "*Fjord* de Cristian Mungiu, ganador de la Palma de Oro, representa
 pubDate: 2026-09-03T15:41:20.180Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://variety.com/wp-content/uploads/2026/09/Fjord.jpg"
 category: "Artículos"
 fuente:
@@ -20,7 +19,7 @@ En la última edición del Festival de Cannes, *Fjord* se alzó con la codiciada
 
 ## El elenco y la producción internacional
 
-El drama protagonizan Sebastian Stan y Renate Reinsve, cuyas interpretaciones aportan una carga emocional que complementa la fotografía de Tudor Vladimir Panduru. La edición está a cargo de Mircea Olteanu y el diseño de producción de Simona Pădurețu, creando una atmósfera que refleja la crudeza de los paisajes nórdicos que inspiran el título. La coproducción reúne a Rumanía, Francia, Noruega, Suecia, Dinamarca y Finlandia, bajo la batuta de Mobra Films y colaboradores como Why Not Productions, Eye Eye Pictures y Film i Väst. El proyecto recibió apoyo del Centro Nacional de Cine rumano, Eurimages y el programa Creative Europe MEDIA.
+El drama lo protagonizan Sebastian Stan y Renate Reinsve, cuyas interpretaciones aportan una carga emocional que complementa la fotografía de Tudor Vladimir Panduru. La edición está a cargo de Mircea Olteanu y el diseño de producción de Simona Pădurețu, que crea una atmósfera que refleja la crudeza de los paisajes nórdicos que inspiran el título. La coproducción reúne a Rumanía, Francia, Noruega, Suecia, Dinamarca y Finlandia, bajo la batuta de Mobra Films y colaboradores como Why Not Productions, Eye Eye Pictures y Film i Väst. El proyecto recibió apoyo del Centro Nacional de Cine rumano, Eurimages y el programa Creative Europe MEDIA.
 
 ## Ruta hacia los Oscar y nuevas reglas
 
