@@ -40,7 +40,7 @@ La mayoría coincide casi de forma unánime en la **extraordinaria e impecable a
   - El peculiar diseño de vestuario de Maeve Paterson, que otorga un "look" único y memorable a las protagonistas.
 - **Puntos negativos (-):**
   - La fábula se deshilacha sin remedio y deja múltiples hilos de la historia completamente abandonados.
-  - Herzog se muestra más interesado en la excentricidad superficial (*quirk factor*) que en profundizar verdaderamente en la psicología de las hermanas, lo que hace que el filme se sienta "precioso" pero poco perceptivo.
+  - Herzog se muestra más interesado en la excentricidad superficial que en profundizar verdaderamente en la psicología de las hermanas, lo que hace que el filme se sienta "precioso" pero poco perceptivo.
   - La banda sonora de Ernst Reijseger termina por agotar.
 
 **3. (*IndieWire* / Ryan Lattanzio)** ['Bucking Fastard' Review: Werner Herzog Directs Mara Sisters as Twins](https://www.indiewire.com/criticism/movies/bucking-fastard-review-werner-herzog-mara-sisters-twins-1235214547/)
