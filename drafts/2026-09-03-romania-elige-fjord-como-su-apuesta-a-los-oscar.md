@@ -1,7 +1,7 @@
 ---
 title: "Romania elige *Fjord* como su apuesta a los Oscar"
 description: "Rumanía ha seleccionado *Fjord* de Cristian Mungiu como su candidato al Oscar a Mejor Película Internacional, tras ganar la Palma de Oro en Cannes."
-pubDate: 2026-09-03T06:19:34.398Z
+pubDate: 2026-09-03T06:24:57.893Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -15,7 +15,7 @@ tags: ["Oscar"]
 ---
 
 ## La apuesta de rumanía
-Rumanía ha anunciado que su representante para la 99ª edición de los Premios de la Academia será *Fjord*, la última obra del aclamado director Cristian Mungiu. La decisión llega tras la victoria de la película en el Festival de Cannes, donde se alzó con la Palma de Oro, lo que le garantiza automáticamente la elegibilidad en la categoría de Mejor Película Internacional. La selección oficial será presentada en la ceremonia de los Oscar el 14 de marzo de 2027, y los críticos ya la catalogan como una de las favoritas no solo en su categoría, sino también en guion original.
+Rumanía ha anunciado que su representante para la 99ª edición de los Premios de la Academia será *Fjord*, la última obra del aclamado director Cristian Mungiu. La decisión llega tras la victoria de la película en el Festival de Cannes, donde se alzó con la Palma de Oro, lo que le garantiza automáticamente la elegibilidad en la categoría de Mejor Película Internacional. Los críticos ya la catalogan como una de las favoritas no solo en su categoría, sino también en guion original.
 
 ## Un drama de fe y política
 *Fjord* narra la historia de una familia conservadora que se traslada de Rumanía a un pequeño pueblo costero de Noruega. Los protagonistas, interpretados por Renate Reinsve y Sebastian Stan, son padres fundamentalistas que pronto se ven envueltos en un escándalo de presunto abuso infantil. El conflicto desencadena un juicio que pone a prueba los límites de la tolerancia, la fe religiosa y las políticas progresistas del entorno. La película alterna diálogos en rumano, noruego e inglés, lo que refuerza su carácter transnacional y su capacidad para resonar con audiencias de distintas latitudes.
