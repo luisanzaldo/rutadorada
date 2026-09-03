@@ -71,8 +71,8 @@ Los aspectos **menos logrados** o más criticados son:
 - **Lo más (Positivo):** Celebra la carismática e hipnótica presencia de Malkovich, quien resulta un deleite a pesar de que su personaje no sea creíble. Resalta la belleza idílica y el contraste sagrado de Isla de Pascua capturada por Davis.
 - **Lo menos (Negativo):** Denuncia una preocupante frivolidad moral al intentar que empaticemos con un agente cínico de la CIA en medio de tragedias reales que costaron miles de vidas humanas (como el golpe en Chile o el asesinato de Lumumba). Califica la primera mitad de apática y la segunda de caótica y apresurada.
 
-**8.  (The Guardian - Peter Bradshaw)** [Wild Horse Nine review: Malkovich and Rockwell head to Easter Island for McDonagh’s acid bromance | Film | The Guardian](https://www.theguardian.com/film/2026/sep/03/wild-horse-nine-review-sam-rockwell-john-malkovich-martin-mcdonagh)
+**8. (The Guardian - Peter Bradshaw)** [Wild Horse Nine review: Malkovich and Rockwell head to Easter Island for McDonagh’s acid bromance | Film | The Guardian](https://www.theguardian.com/film/2026/sep/03/wild-horse-nine-review-sam-rockwell-john-malkovich-martin-mcdonagh)
 
-- **Clasificación:** **Crítica Regular**(Considera que "no es un clásico de McDonagh" aunque tiene buenas réplicas).
+- **Clasificación:** **Crítica Regular** (Considera que "no es un clásico de McDonagh" aunque tiene buenas réplicas).
 - **Lo más (Positivo):** Alaba los diálogos ácidos, la interacción verbal hostil de Malkovich y Rockwell y el humor visual sombrío extraído de las estatuas de la isla.
 - **Lo menos (Negativo):** Argumenta que la adaptación al ambiente estadounidense e histórico diluye el encanto del director, traduciéndose en violencia excesiva, machismo esforzado y menor comedia. Considera el guion un refrito descolorido de *In Bruges* y acusa al final de ser insensible al ignorar despiadadamente la seguridad de la familia de Lee.
