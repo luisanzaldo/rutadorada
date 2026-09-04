@@ -4,8 +4,7 @@ description: "Descubre la programación, premios y la constelación de cineastas
 pubDate: 2026-09-04T21:48:54.182Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://www.sansebastianfestival.com/admin_img/pag/f1_23284.jpg?t=6a9b38014a04c?"
+image: "https://images.ecestaticos.com/8ck_NhaBK2TumdOHQSyAd2_fJsE=/27x0:1683x1242/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F883%2Fd80%2Fa1c%2F883d80a1cbb50af3175ea3f156b08d3e.jpg"
 category: "Artículos"
 fuente:
   nombre: "sansebastianfestival"
@@ -13,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["San Sebastián"]
 ---
+
 
 ## Programación y fechas clave  
 Del 18 al 26 de septiembre se celebra la 74ª edición del Festival de San Sebastián, una cita que se extiende durante ocho días en la ciudad vasca. La agenda incluye proyecciones en salas como Kursaal, el Teatro Victoria Eugenia y el Velódromo, además de espacios alternativos como Tabakalera y el Antiguo Berri. Cada jornada está dividida por secciones temáticas, entre las que destacan la *Sección Oficial*, *New Directors*, *Horizontes Latinos*, *Zabaltegi-Tabakalera*, *Perlak* y la retrospectiva dedicada a José Giovanni.
