@@ -15,7 +15,7 @@ tags: ["Venecia"]
 
 El recibimiento crítico de *It Will Happen Tonight (Succederà questa notte)*, dirigida por el italiano Nanni Moretti, ha sido **decepcionante**. Por un lado, algunos analistas la valoran como un melodrama romántico clásico, inteligente, luminoso y sumamente disfrutable, que logra equilibrar la comedia y la melancolía. Por otro lado, los sectores más duros de la crítica la acusan de ser una comedia romántica predecible, excesivamente melodramática, cursi y repleta de estereotipos anticuados o coincidencias inverosímiles. A pesar de estas diferencias, existe un consenso casi unánime en alabar la **potente química de su pareja protagonista** (Jasmine Trinca y Louis Garrel), así como en destacar una **secuencia de baile callejero** al ritmo de *"She's a Rainbow"* de The Rolling Stones como el momento más alegre e inspirado de la película.
 
-1. [**Josh Parham / Next Best Picture**](https://nextbestpicture.com/it-will-happen-tonight/)
+1. [**Next Best Picture / Josh Parham**](https://nextbestpicture.com/it-will-happen-tonight/)
 
 - **Clasificación:** **Negativa** (Calificación final: **4/10**).
 - **Lo más destacado (Puntos positivos):** Destaca las actuaciones del reparto, en especial la de algunos personajes secundarios que se roban el espectáculo, como Hippolyte Girardot (que interpreta al padre de Matteo) gracias a su carismática presencia en pantalla. Asimismo, rescata momentos de dirección ingeniosos, particularmente la encantadora escena de baile en la calle con la canción de The Rolling Stones.
@@ -39,7 +39,7 @@ El recibimiento crítico de *It Will Happen Tonight (Succederà questa notte)*, 
 - **Lo más destacado (Puntos positivos):** Reconoce que los protagonistas interpretados por Garrel y Trinca son sumamente agradables y fáciles de querer.
 - **Lo menos destacado (Puntos negativos):** Describe el largometraje como una propuesta predecible, rancia y anticuada, que se siente fuera de lugar en los festivales de cine contemporáneos. Critica el uso de estereotipos obsoletos (como la suegra controladora de caricatura o el padre anciano obsesionado con el sexo y el Viagra). Adicionalmente, califica de ofensiva e inexplicable una escena en España donde una niña de la calle aparece cubierta de moscas, un recurso que considera innecesario y gratuito.
 
-![](https://m.media-amazon.com/images/M/MV5BMjQ1MzZhMzgtNzQ0Yy00YTVlLTgxNDctNTA0ZDNjYTZkNmIwXkEyXkFqcGc@._V1_.jpg)5. [**Screen Daily / Lee Marshall**](https://www.screendaily.com/reviews/it-will-happen-tonight-review-nanni-morettis-latest-is-unashamedly-melodramatic-italian-romance/5220068.article)
+![](https://m.media-amazon.com/images/M/MV5BMjQ1MzZhMzgtNzQ0Yy00YTVlLTgxNDctNTA0ZDNjYTZkNmIwXkEyXkFqcGc@._V1_.jpg)5\. [**Screen Daily / Lee Marshall**](https://www.screendaily.com/reviews/it-will-happen-tonight-review-nanni-morettis-latest-is-unashamedly-melodramatic-italian-romance/5220068.article)
 
 - **Clasificación:** **Regular**
 - **Lo más destacado (Puntos positivos):** Alaba la innegable potencia y química de la pareja principal. Aplaude efusivamente la escena de baile callejero de *"She's a Rainbow"*, calificándola como lo mejor de la película por su capacidad de transmitir la fuerza del amor. Asimismo, destaca la evocadora banda sonora de Alberto Iglesias y la belleza visual de sus variadas localizaciones europeas.
