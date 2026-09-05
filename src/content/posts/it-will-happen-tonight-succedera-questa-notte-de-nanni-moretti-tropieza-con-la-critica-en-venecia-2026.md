@@ -1,5 +1,5 @@
 ---
-title: "*It Will Happen Tonight (Succederà questa notte)* de Nanni Moretti tropieza con la crítica en Venecia 2026"
+title: "*It Will Happen Tonight* de Nanni Moretti tropieza con la crítica en Venecia 2026"
 description: "Probablemente sean las peores críticas del italiano Nanni Moretti en años recientes."
 pubDate: 2026-09-05T21:03:48.504Z
 author: "Moncho"
@@ -12,6 +12,7 @@ fuente:
 readTime: "6 min read"
 tags: ["Venecia"]
 ---
+
 
 El recibimiento crítico de *It Will Happen Tonight (Succederà questa notte)*, dirigida por el italiano Nanni Moretti, ha sido **decepcionante**. Por un lado, algunos analistas la valoran como un melodrama romántico clásico, inteligente, luminoso y sumamente disfrutable, que logra equilibrar la comedia y la melancolía. Por otro lado, los sectores más duros de la crítica la acusan de ser una comedia romántica predecible, excesivamente melodramática, cursi y repleta de estereotipos anticuados o coincidencias inverosímiles. A pesar de estas diferencias, existe un consenso casi unánime en alabar la **potente química de su pareja protagonista** (Jasmine Trinca y Louis Garrel), así como en destacar una **secuencia de baile callejero** al ritmo de *"She's a Rainbow"* de The Rolling Stones como el momento más alegre e inspirado de la película.
 
@@ -56,3 +57,4 @@ El recibimiento crítico de *It Will Happen Tonight (Succederà questa notte)*, 
 - **Clasificación:** **Positiva**
 - **Lo más destacado (Puntos positivos):** Elogia el guion (coescrito por Moretti, Pontremoli y Santella), afirmando que los escritores están en la cima de su juego al retratar dinámicas familiares complejas de forma comprensible. Destaca a Jasmine Trinca, quien está "en excelente forma como una mujer sensual apasionadamente enamorada", y la sólida presencia de Louis Garrel. Considera que es una comedia agradable, ágil, llena de sorpresas y que fluye con gran naturalidad del humor hacia los sentimientos más serios.
 - **Lo menos destacado (Puntos negativos):** Advierte que es un filme mucho más tranquilo y menos cáustico de lo que los seguidores habituales de Nanni Moretti esperarían, habiendo dejado de lado sus habituales discursos sobre la política de izquierda italiana.
+
