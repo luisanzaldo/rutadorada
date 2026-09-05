@@ -1,5 +1,5 @@
 ---
-title: "Robert Pattinson brilla en *Primetime*, y recibe los mayores elogios en su carrera en Venecia 2026"
+title: "Robert Pattinson brilla en *Primetime* y recibe los mayores elogios en su carrera en Venecia 2026"
 description: "Reacciones críticas de *Primetime* en Venecia 2026"
 pubDate: 2026-09-05T20:41:19.685Z
 author: "Moncho"
@@ -19,7 +19,7 @@ La crítica coincide de manera casi unánime en que **la actuación de Robert Pa
 
 Sin embargo, el filme también genera un consenso más **regular o tibio** en su apartado narrativo. Varios críticos señalan que el guion recurre a **artilugios dramáticos innecesarios** (como subtramas de infidelidad matrimonial o un trasfondo forzado en la India) y que la película **carece de una verdadera postura moral o de nuevas reflexiones intelectuales** en comparación con el aclamado documental *Predators* de 2025, limitándose a reproducir el morbo televisivo sin profundizar en sus consecuencias.
 
-[**1. Next Best Picture / Ema Sasic)**](https://nextbestpicture.com/primetime/)
+1. [**Next Best Picture / Ema Sasic**](https://nextbestpicture.com/primetime/)
 
 - **Clasificación:** **Crítica Positiva** (Calificación: **7/10**).
 - **Lo más destacado (Puntos Positivos):**
@@ -30,7 +30,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - El ritmo y la tensión decaen cuando el guion se enfoca en los problemas matrimoniales e infidelidades de Hansen, considerándolo un recurso trillado que no aporta nada.
   - Actrices de gran nivel como **Anna Faris** y **Merritt Wever** están muy desaprovechadas debido a la falta de tiempo en pantalla o material sustancioso.
 
-[**2. (The Hollywood Reporter / David Rooney)**](https://www.hollywoodreporter.com/movies/movie-reviews/primetime-review-robert-pattinson-chris-hansen-1236691706/)
+2. [**The Hollywood Reporter / David Rooney**](https://www.hollywoodreporter.com/movies/movie-reviews/primetime-review-robert-pattinson-chris-hansen-1236691706/)
 
 - **Clasificación:** **Crítica Positiva**.
 - **Lo más destacado (Puntos Positivos):**
@@ -40,7 +40,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - Resulta ser un filme vistoso pero superficial que no aporta nuevas conclusiones ni muestra suficiente curiosidad intelectual o psicológica en comparación con el documental *Predators*.
   - La experiencia de ver plasmados todos los detalles escabrosos de la humillación pública televisada puede llegar a ser **visceralmente desagradable y nauseabunda**.
 
-[**3. (IndieWire / Ryan Lattanzio)**](https://www.indiewire.com/criticism/movies/a24-primetime-movie-review-robert-pattinson-chris-hansen-1235215068/)
+3. [**IndieWire / Ryan Lattanzio**](https://www.indiewire.com/criticism/movies/a24-primetime-movie-review-robert-pattinson-chris-hansen-1235215068/)
 
 - **Clasificación:** **Crítica Positiva** (Calificación: **B**).
 - **Lo más destacado (Puntos Positivos):**
@@ -51,7 +51,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - El protagonista se presenta tan desquiciado desde el inicio que **apenas tiene un arco de evolución** o transformación a lo largo de la historia.
   - Al igual que otros medios, opina que la película carece de una perspectiva realmente novedosa sobre el tema.
 
-[**4. (Variety / Jessica Kiang)**](https://variety.com/2026/film/reviews/primetime-review-robert-pattinson-1236846988/)
+4. [**Variety / Jessica Kiang**](https://variety.com/2026/film/reviews/primetime-review-robert-pattinson-1236846988/)
 
 - **Clasificación:** **Crítica Positiva**.
 - **Lo más destacado (Puntos Positivos):**
@@ -62,9 +62,9 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - El enfoque claustrofóbico y cerrado en la mente de Hansen deja muy poco espacio para dar un contexto más amplio.
   - Considera un error del guion intentar justificar la obsesión psicológica de Hansen mediante un viaje a la India en el pasado, tildándolo de un recurso de género de terror demasiado obvio.
 
-![](https://m.media-amazon.com/images/M/MV5BMDZkZGRiYmItNWJmMC00MGY0LWI3YzAtOTRiNTA1YzQ1MTZlXkEyXkFqcGc@._V1_.jpg)[**5.(Deadline / Damon Wise)**](https://deadline.com/2026/09/primetime-review-robert-pattinson-lance-oppenheim-venice-1237068867/)
+![](https://m.media-amazon.com/images/M/MV5BMDZkZGRiYmItNWJmMC00MGY0LWI3YzAtOTRiNTA1YzQ1MTZlXkEyXkFqcGc@._V1_.jpg)5. [**Deadline / Damon Wise**](https://deadline.com/2026/09/primetime-review-robert-pattinson-lance-oppenheim-venice-1237068867/)
 
-- **Clasificación:** **Crítica Positiva**. 
+- **Clasificación:** **Crítica Positiva**.
 - **Lo más destacado (Puntos Positivos):**
   - **La metamorfosis de Robert Pattinson**: Califica su actuación como una mezcla fascinante entre Jerry Maguire y el Conde Drácula, afirmando que el actor podría estar entrando formalmente en su "período de Christian Bale" al asumir personajes tan oscuros.
   - **La fuerza del elenco secundario**: Elogia enormemente a la "soberbia" Merritt Wever, cuya profesionalidad se tensa brillantemente hasta quebrarse en el clímax, y al "ingenuo" Skyler Gisondo como "Decoy Dan" Plum, a quien compara físicamente con Howdy Doody y cuyo arco funciona como el ancla de la ambición en la trama.
@@ -73,7 +73,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - **Tono melodramático por momentos**: Señala que, debido a su intensidad, la película en ocasiones se siente más como una parodia o crítica de una miniserie (aún inexistente) de Ryan Murphy que como una deconstrucción del show real.
   - **Riesgo ante la Academia**: Advierte que su temática y tono sumamente oscuros podrían ahuyentar a los votantes de los Óscar, trazando un paralelo con lo que ocurrió en su momento con el thriller *Nightcrawler* en 2014.
 
-[**6. (Screen Daily / Nikki Baughan)**](https://www.screendaily.com/reviews/primetime-review-robert-pattinson-is-to-catch-a-predator-host-chris-hansen-in-visually-striking-dramatically-contrived-thriller/5220065.article)
+6. [**Screen Daily / Nikki Baughan**](https://www.screendaily.com/reviews/primetime-review-robert-pattinson-is-to-catch-a-predator-host-chris-hansen-in-visually-striking-dramatically-contrived-thriller/5220065.article)
 
 - **Clasificación:** **Crítica Regular**.
 - **Lo más destacado (Puntos Positivos):**
@@ -83,7 +83,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - Es descrita como una dramatización efectista y artificial sobre un tema real muy complejo.
   - Señala que la película no ahonda en el trauma psicológico de los involucrados en el programa de televisión y que falla al intentar descifrar la verdadera esencia o motivaciones del Chris Hansen real.
 
-[**7. (AwardsWatch / Martin Tsai)**](https://awardswatch.com/primetime-review-robert-pattinson-is-prey-and-predator-in-lance-oppenheims-sometimes-ambiguous-thriller-b-venice/)
+7. [**AwardsWatch / Martin Tsai**](https://awardswatch.com/primetime-review-robert-pattinson-is-prey-and-predator-in-lance-oppenheims-sometimes-ambiguous-thriller-b-venice/)
 
 - **Clasificación:** **Crítica Regular** (Calificación: **B**).
 - **Lo más destacado (Puntos Positivos):**
@@ -93,7 +93,7 @@ Sin embargo, el filme también genera un consenso más **regular o tibio** en su
   - Critica severamente que la película deje la moralidad del show intacta y evite emitir juicios, lo que califica como una "abdicación de responsabilidad".
   - Tilda de frustrante que el clímax y el epílogo decidan enfocarse de manera casi exclusiva en el personaje del señuelo Dan Plum en vez de ofrecer un verdadero cierre para el papel de Hansen o las consecuencias culturales de sus stings.
 
-[**8. (BBC / Nicholas Barber)**](https://www.bbc.com/culture/article/20260905-primetime-review-robert-pattinson-is-extraordinary-as-controversial-paedophile-hunter-chris-hansen)
+8. [**BBC / Nicholas Barber**](https://www.bbc.com/culture/article/20260905-primetime-review-robert-pattinson-is-extraordinary-as-controversial-paedophile-hunter-chris-hansen)
 
 - **Clasificación:** **Crítica Positiva** (Calificación: **★★★★★ / 5 de 5 estrellas**).
 - **Lo más destacado (Puntos Positivos):**
