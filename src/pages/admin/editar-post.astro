@@ -43,6 +43,7 @@ try {
     const response = await fetch(githubUrl, {
         headers: {
             "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "User-Agent": "RutaDorada-CMS",
             "Accept": "application/vnd.github.v3+json",
         },
     });

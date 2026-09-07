@@ -52,6 +52,7 @@ export const POST: APIRoute = async ({ request }) => {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'User-Agent': 'RutaDorada-CMS',
         'Accept': 'application/vnd.github.v3+json',
       },
     });
@@ -87,7 +88,7 @@ export const POST: APIRoute = async ({ request }) => {
         try {
           // Obtener SHA de la imagen
           const imgGetRes = await fetch(imgUrlGitHub, {
-            headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}` }
+            headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'User-Agent': 'RutaDorada-CMS' }
           });
           
           if (imgGetRes.ok) {
@@ -99,6 +100,7 @@ export const POST: APIRoute = async ({ request }) => {
               method: 'DELETE',
               headers: {
                 'Authorization': `Bearer ${GITHUB_TOKEN}`,
+                'User-Agent': 'RutaDorada-CMS',
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
@@ -119,6 +121,7 @@ export const POST: APIRoute = async ({ request }) => {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'User-Agent': 'RutaDorada-CMS',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

@@ -62,6 +62,7 @@ export const POST: APIRoute = async ({ request }) => {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'User-Agent': 'RutaDorada-CMS',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
