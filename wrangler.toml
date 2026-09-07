@@ -1,0 +1,13 @@
+# Configuración de Cloudflare Pages.
+#
+# El panel de Cloudflare ya no expone la creación de proyectos Pages, así que el
+# proyecto se crea y despliega con wrangler. Tener la config aquí en vez de en el
+# dashboard la vuelve versionable y revisable.
+#
+# nodejs_compat es obligatorio: el bundle conserva una referencia a process.env
+# (fallback en auth.ts y upload-image.ts) que sin el flag lanza ReferenceError.
+
+name = "rutadorada"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-07"
+compatibility_flags = ["nodejs_compat"]
