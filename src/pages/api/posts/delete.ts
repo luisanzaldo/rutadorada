@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getSession } from '../../../lib/auth';
+import { deletePostBySlug, slugDesdeRuta } from '../../../lib/postsDb';
 
 export const prerender = false;
 
@@ -138,15 +139,16 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // 7. Disparar Deploy Hook de Vercel (Opcional)
-    const VERCEL_DEPLOY_HOOK = import.meta.env.VERCEL_DEPLOY_HOOK;
-    if (VERCEL_DEPLOY_HOOK) {
-      fetch(VERCEL_DEPLOY_HOOK).catch(err => {
-        console.error("Error al disparar Vercel Deploy Hook:", err);
-      });
-    }
+    // 7. Escritura doble: borrar también la fila en Supabase.
+    //
+    // Sin esto la nota sobrevive en la base como fantasma. Ya pasó una vez, y no
+    // se nota hasta que alguien compara: el sitio deja de mostrarla pero la base
+    // sigue teniéndola, y el día que el sitio lea de la base, reaparece.
+    const slug = slugDesdeRuta(postPath);
+    const db = await deletePostBySlug(slug);
+    if (!db.ok) console.error('Escritura doble: falló el borrado en Supabase para', slug, '→', db.error);
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, db: db.ok ? 'ok' : `falló: ${db.error}` }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });

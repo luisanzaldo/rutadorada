@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getSession } from '../../../lib/auth';
+import { upsertPost, slugDesdeRuta, type PostRow } from '../../../lib/postsDb';
 
 export const prerender = false;
 
@@ -157,14 +158,53 @@ ${content}
       });
     }
 
-    // 6. Disparar Deploy Hook de Vercel
-    const VERCEL_DEPLOY_HOOK = import.meta.env.VERCEL_DEPLOY_HOOK;
-    if (VERCEL_DEPLOY_HOOK) {
-      fetch(VERCEL_DEPLOY_HOOK).catch(() => {});
-    }
+    // 6. Escritura doble: la misma nota va a Supabase.
+    //
+    // Se hace DESPUÉS de GitHub y a propósito: mientras el sitio se compile desde
+    // los markdown, git es la ruta crítica y un fallo de Supabase no debe impedir
+    // que la nota salga publicada. El resultado viaja en la respuesta para que el
+    // CMS lo muestre, y `scripts/import-posts.mjs --commit --prune` reconcilia.
+    const row: PostRow = {
+      slug: slugDesdeRuta(filePath),
+      status: 'published',
+      title,
+      description,
+      body: content,
+      pub_date: pubDate || new Date().toISOString(),
+      author: author || '',
+      author_image: null,
+      category,
+      tags: Array.isArray(tags) ? tags : [],
+      read_time: readTime || '3 min read',
+      featured: false,
+      rating: category === 'Críticas' && rating !== undefined ? Number(rating) : null,
+      letterboxd: letterboxd || null,
+      video_url: videoUrl || null,
+      image_url: image || '',
+      image_credit: null,
+      image_source: typeof image === 'string' && image.startsWith('http') ? image : null,
+      ficha_tecnica: category === 'Críticas' && rating !== undefined
+        ? {
+            sinopsis: fichaTecnica?.sinopsis || '',
+            director: fichaTecnica?.director || '',
+            cast: fichaTecnica?.cast || '',
+            duracion: fichaTecnica?.duracion || '',
+          }
+        : null,
+      fuente: category !== 'Tráilers'
+        ? { nombre: fuente?.nombre || 'Redacción', url: fuente?.url || 'https://www.rutadoradafilms.com' }
+        : null,
+    };
+
+    const db = await upsertPost(row);
+    if (!db.ok) console.error('Escritura doble: falló Supabase para', row.slug, '→', db.error);
 
     // 7. Respuesta Exitosa
-    return new Response(JSON.stringify({ success: true, path: filePath }), {
+    return new Response(JSON.stringify({
+      success: true,
+      path: filePath,
+      db: db.ok ? 'ok' : `falló: ${db.error}`,
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
