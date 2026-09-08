@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *Artificial*"
-description: "*Mira el tráiler de la última película de Luca Guadagnino: *Artificial*"
-pubDate: 2026-09-08T16:25:41.581Z
+description: "Mira el tráiler de la última película de Luca Guadagnino: *Artificial*"
+pubDate: 2026-09-08T16:26:58.448Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
@@ -12,4 +12,4 @@ tags: ["Cines"]
 videoUrl: "https://youtu.be/rDZplZFnbOk?si=nuBAawmP-r3AWKkJ"
 ---
 
-Disfruta del tráiler de *Artificial*.
+Mira el tráiler de la última película de Luca Guadagnino: *Artificial*
