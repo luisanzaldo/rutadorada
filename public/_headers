@@ -1,32 +1,30 @@
 # Cabeceras de caché para Cloudflare Pages.
 #
-# Sin este archivo, Pages servía el HTML con s-maxage=604800: siete días de caché
-# en el borde. Una nota editada o borrada podía seguir viéndose durante una semana,
-# y de hecho pasó — un post eliminado siguió sirviéndose nueve horas después.
+# OJO con el orden: en _headers las reglas que casan NO se sobrescriben entre sí,
+# se ACUMULAN. Una regla específica después de /* produce dos Cache-Control
+# concatenados y contradictorios, y ante eso Cloudflare aplica su propio criterio
+# (se observaron 4 horas donde el archivo pedía 5 minutos). Por eso lo específico
+# va primero y el comodín al final.
 #
-# En Vercel el HTML salía con "public, max-age=0, must-revalidate", que revalida en
-# cada visita. Esto restaura ese comportamiento, que es el correcto para un sitio
-# cuyo contenido cambia a diario.
-#
-# Los assets con hash en el nombre sí pueden cachearse para siempre: si cambian,
-# cambia su nombre.
+# Sin este archivo, Pages servía el HTML con s-maxage=604800: siete días. Una nota
+# editada o borrada podía tardar una semana en actualizarse, y de hecho pasó.
 
-/*
-  Cache-Control: public, max-age=0, must-revalidate
-
+# Nombres con hash: si el contenido cambia, cambia la URL. Caché eterna.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Las imágenes generadas por el prebuild se llaman <slug>.jpg: si se cambia la URL
-# de origen de una nota, el contenido cambia pero el nombre no. Con una caché larga,
-# la imagen vieja seguía sirviéndose durante horas. Cinco minutos es suficiente para
-# absorber picos de tráfico y hace que una sustitución se vea casi de inmediato.
-# La fase 4 elimina la causa: en R2 las URLs llevarán hash del contenido.
+# Las genera el prebuild como <slug>.jpg: al cambiar la URL de origen de una nota
+# cambia el contenido pero no el nombre, así que la caché no puede ser larga.
+# La fase 4 elimina la causa; en R2 las URLs llevarán hash del contenido.
 /images/*
   Cache-Control: public, max-age=300, must-revalidate
 
 /icons/*
   Cache-Control: public, max-age=86400
+
+# Todo lo demás es HTML, que debe revalidar siempre.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
