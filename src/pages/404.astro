@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+// Astro genera 404.html a partir de este archivo y Cloudflare Pages lo sirve,
+// con el código 404, ante cualquier ruta que no exista. Sin esta página el sitio
+// respondía 200 con la portada a cualquier URL inventada: para los buscadores,
+// cada enlace roto y cada nota borrada era una página válida duplicada de la home.
+
+const title = "Página no encontrada | RutaDorada";
+const description = "La página que buscas no existe o fue retirada. Vuelve a la portada o explora las secciones de RutaDorada Films.";
+
+const secciones = [
+    { nombre: "Artículos", href: "/articulos", icono: "article" },
+    { nombre: "Críticas",  href: "/criticas",  icono: "reviews" },
+    { nombre: "Premios",   href: "/premios",   icono: "trophy" },
+    { nombre: "Tráilers",  href: "/trailers",  icono: "movie" },
+];
+---
+
+<Layout title={title} description={description}>
+    <Header />
+    <main class="flex-grow relative overflow-hidden py-20 px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] mix-blend-screen opacity-30"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div
+                class="bg-white/80 dark:bg-[#0b1618] border border-slate-200 dark:border-[#224249] rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm"
+            >
+                <div class="text-center">
+                    <p class="text-gold font-bold tracking-widest uppercase text-sm mb-4">
+                        Error 404
+                    </p>
+                    <h1 class="font-display font-bold text-4xl sm:text-5xl text-slate-900 dark:text-white mb-5">
+                        ESCENA NO ENCONTRADA
+                    </h1>
+                    <p class="text-slate-700 dark:text-slate-300 text-lg leading-relaxed max-w-xl mx-auto">
+                        Esta página no está en el montaje final. Puede que la hayamos
+                        retirado, o que el enlace traiga una letra de más.
+                    </p>
+                </div>
+
+                <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+                    <a
+                        href="/"
+                        class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F2AF0D] px-6 py-3 font-bold text-slate-900 transition-transform hover:scale-105"
+                    >
+                        <span class="material-symbols-outlined text-[20px]">home</span>
+                        Volver a la portada
+                    </a>
+                    <a
+                        href="/archive"
+                        class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-[#224249] px-6 py-3 font-bold text-slate-900 dark:text-white transition-colors hover:border-[#F2AF0D]/60"
+                    >
+                        <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                        Ver el archivo
+                    </a>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-slate-200 dark:border-[#224249]">
+                    <p class="text-center text-slate-600 dark:text-slate-400 text-sm mb-5">
+                        O sigue por alguna de nuestras secciones
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {secciones.map((s) => (
+                            <a
+                                href={s.href}
+                                class="group flex flex-col items-center gap-2 rounded-xl border border-transparent bg-slate-50 dark:bg-[#162a2f] p-4 transition-all hover:border-[#F2AF0D]/50"
+                            >
+                                <span class="material-symbols-outlined text-[22px] text-gold">{s.icono}</span>
+                                <span class="text-sm font-bold text-slate-900 dark:text-white">{s.nombre}</span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
