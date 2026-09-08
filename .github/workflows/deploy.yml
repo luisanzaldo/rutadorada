@@ -37,8 +37,12 @@ jobs:
 
       - run: npm ci
 
-      - name: Construir
-        run: npm run build
+      # Astro solo inlinea import.meta.env desde un archivo .env. Si las variables
+      # llegan únicamente como entorno del proceso —como pasa en CI— compila
+      # process.env.LO_QUE_SEA, que en Cloudflare Workers es un objeto vacío: los
+      # secretos llegan undefined y todo el panel admin falla en silencio.
+      # Por eso se materializa el .env antes de construir.
+      - name: Generar .env para el build
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
@@ -57,6 +61,34 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_CALENDAR_DATA_SOURCE_ID: ${{ secrets.NOTION_CALENDAR_DATA_SOURCE_ID }}
+        run: |
+          for v in PUBLIC_SUPABASE_URL PUBLIC_SUPABASE_ANON_KEY PUBLIC_GA4_MEASUREMENT_ID \
+                   PUBLIC_CLARITY_PROJECT_ID PUBLIC_COOKIEYES_ID SUPABASE_SERVICE_ROLE_KEY \
+                   JWT_SECRET HASH_LUISANZALDO_B64 HASH_RAMONFIGUEROA_B64 GITHUB_REPO \
+                   GITHUB_TOKEN GOOGLE_API_KEY CANNES_SHEET_ID CANNES_SHEET_RANGE \
+                   GROQ_API_KEY NOTION_TOKEN NOTION_CALENDAR_DATA_SOURCE_ID; do
+            printf '%s=%s\n' "$v" "${!v}" >> .env
+          done
+          echo "Variables escritas: $(wc -l < .env)"
+
+      - name: Construir
+        run: npm run build
+
+      # Salvaguarda: si un secreto no se inlinea, queda como process.env en el bundle
+      # y en Cloudflare Workers eso es un objeto vacio, asi que llega undefined y el
+      # panel admin falla en silencio. Fue exactamente lo que paso al montar el CI.
+      #
+      # Se vigilan los secretos de los que dependen login y publicacion. Queda fuera
+      # SUPABASE_SERVICE_ROLE_KEY: aparece como process.env en el chunk de cannes por
+      # como Vite reparte los modulos, aunque su valor si se inlinea donde se usa.
+      - name: Verificar que los secretos se inlinearon
+        run: |
+          if grep -rq "process\.env\.JWT_SECRET\|process\.env\.HASH_\|process\.env\.GITHUB_TOKEN\|process\.env\.GITHUB_REPO" dist/_worker.js; then
+            echo "ERROR: hay secretos sin inlinear en el bundle (quedaron como process.env)."
+            grep -rho "process\.env\.[A-Z_]*" dist/_worker.js | sort -u
+            exit 1
+          fi
+          echo "OK: los secretos se inlinearon correctamente."
 
       - name: Desplegar
         run: npx --yes wrangler@3 pages deploy dist --project-name=rutadorada --branch=main
