@@ -43,7 +43,7 @@ Tras inaugurar la Mostra de Venecia, *Ink* de **Danny Boyle** fascinó en Tellur
 
 ![](https://m.media-amazon.com/images/M/MV5BZTMwMzcxZDMtN2NkZi00NzQyLTkyZTYtNTdiNWRhZDQxYWFkXkEyXkFqcGc@._V1_.jpg)
 
-### **Las que ya se había visto en Cannes y salen reforzadas**
+### **Las que ya se habían visto en Cannes y salen reforzadas**
 
 La ganadora de la Palma de Oro en Cannes, *Fjord* de **Cristian Mungiu**, tuvo su estreno norteamericano en Telluride con una acogida crítica excelente. Se consolida como una de las grandes favoritas a Mejor Película Internacional (representa a Rumanía) y Guion Original, con posibilidades de colarse en Mejor Película si su distribuidora (**NEON**) replica la estrategia de campaña utilizada con anteriores películas ganadoras de Cannes. El paso por Telluride de *La bola negra* confirmó la fuerte apuesta de Netflix en EE. UU. (donde le otorgará una ventana en cines de 47 días). La respuesta del público y la crítica fue eufórica, y apunta a Mejor Película Internacional (España), Dirección, Actriz Secundaria para Penélope Cruz e incluso Mejor Película. Tras ganar el premio a Mejor Dirección en Cannes, *Fatherland* de **Paweł Pawlikowski** se proyectó en Telluride donde recibió elogios por la fotografía en blanco y negro de Łukasz Żal y las actuaciones de Sandra Hüller y Hanns Zischler. Sale reforzada para Mejor Película Internacional, Fotografía, Dirección y una posible candidatura para Sandra Hüller como Mejor Actriz. *Minotaur* de **Andrey Zvyagintsev** también refuerza sus posibilidades para Mejor Película Internacional, en espera del país que tramite su representación oficial.
 
