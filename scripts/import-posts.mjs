@@ -1,8 +1,14 @@
 /**
  * Importa las notas de src/content/posts a la tabla public.posts de Supabase.
  *
- *   node scripts/import-posts.mjs            → simulacro, no escribe nada
- *   node scripts/import-posts.mjs --commit   → escribe de verdad
+ *   node scripts/import-posts.mjs                    → simulacro, no escribe nada
+ *   node scripts/import-posts.mjs --commit           → inserta y actualiza
+ *   node scripts/import-posts.mjs --commit --prune   → además borra las huérfanas
+ *
+ * El upsert por sí solo nunca elimina: una nota borrada de git sobrevive para
+ * siempre en la base. --prune cierra ese hueco borrando las filas cuyo slug ya
+ * no existe en src/content/posts. Va aparte y no por defecto porque borrar es
+ * la única operación de este script que no se puede deshacer.
  *
  * El simulacro valida cada nota contra las restricciones de la tabla y reporta
  * lo que encontraría, para que ningún problema de datos aparezca a mitad de una
@@ -14,6 +20,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const COMMIT = process.argv.includes('--commit');
+const PRUNE  = process.argv.includes('--prune');
 const DIR = path.join(process.cwd(), 'src/content/posts');
 
 // --- credenciales ---------------------------------------------------------
@@ -109,6 +116,16 @@ for (const r of rows) {
   vistos.add(r.slug);
 }
 
+// --- huérfanas: en la base pero ya no en git -------------------------------
+const slugsGit = new Set(rows.map(r => r.slug));
+let huerfanas = [];
+{
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/posts?select=slug`, {
+    headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}` },
+  });
+  if (res.ok) huerfanas = (await res.json()).map(x => x.slug).filter(s => !slugsGit.has(s));
+}
+
 // --- informe --------------------------------------------------------------
 console.log(`\nNotas leídas: ${rows.length}`);
 console.log(`  con cuerpo vacío:      ${rows.filter(r => !r.body).length}`);
@@ -119,6 +136,12 @@ console.log(`  con video:             ${rows.filter(r => r.video_url).length}`);
 const porCat = {};
 for (const r of rows) porCat[r.category] = (porCat[r.category] || 0) + 1;
 console.log('  por categoría:         ' + Object.entries(porCat).map(([k, v]) => `${k}=${v}`).join(', '));
+
+if (huerfanas.length) {
+  console.log(`\nHuérfanas en la base, ya no están en git (${huerfanas.length}):`);
+  huerfanas.forEach(h => console.log('    - ' + h));
+  console.log(PRUNE ? '  → se borrarán (--prune)' : '  → se conservan; usa --prune para borrarlas');
+}
 
 if (avisos.length) {
   console.log(`\nAvisos, no bloquean la importación (${avisos.length}):`);
@@ -179,4 +202,16 @@ for (let i = 0; i < rows.length; i += LOTE) {
   escritas += lote.length;
   console.log(`  ${escritas}/${rows.length}`);
 }
+if (PRUNE && huerfanas.length) {
+  console.log(`\nBorrando ${huerfanas.length} huérfanas…`);
+  for (const slug of huerfanas) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/posts?slug=eq.${encodeURIComponent(slug)}`, {
+      method: 'DELETE',
+      headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, Prefer: 'return=minimal' },
+    });
+    console.log(`  ${res.ok ? 'borrada' : 'FALLÓ (' + res.status + ')'}: ${slug}`);
+    if (!res.ok) process.exit(1);
+  }
+}
+
 console.log('\nListo.\n');
