@@ -13,7 +13,7 @@ readTime: "6 min read"
 tags: ["Venecia"]
 ---
 
-Pese al tropiezo crítico de *El hijo* (Venecia, 2022), la expectativa alrededor de la nueva película de **Florian Zeller** se mantiene alta: no hay que olvidar que es el autor de *El padre* (2020), una auténtica obra maestra.
+Pese al tropiezo crítico de *El hijo* (Venecia, 2022), la expectativa alrededor de la nueva película de **Florian Zeller** se mantenía alta: no hay que olvidar que es el autor de *El padre* (2020), una auténtica obra maestra.
 
 Pero la crítica ha dictado sentencia. El recibimiento general de ***Bunker*** por parte de la crítica especializada es **decepcionante**.
 
