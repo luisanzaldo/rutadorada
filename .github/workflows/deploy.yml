@@ -96,3 +96,23 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Reconcilia la tabla posts de Supabase con lo que hay en git.
+      #
+      # El endpoint /api/posts/publish ya escribe en la base en el acto, así que
+      # este paso es una red de seguridad con dos funciones: cubre al bot de
+      # Telegram, que sigue commiteando directo a GitHub sin pasar por el endpoint,
+      # y atrapa cualquier desfase por un fallo puntual de Supabase al publicar.
+      #
+      # Usa el .env que generó el paso de construcción, que sigue en el workspace.
+      #
+      # ┌─────────────────────────────────────────────────────────────────────┐
+      # │ QUITAR ESTE PASO EN LA FASE 5                                       │
+      # │                                                                     │
+      # │ --prune borra las filas cuyo slug no esté en src/content/posts. Eso  │
+      # │ es correcto mientras git sea la fuente de verdad. En cuanto el sitio │
+      # │ lea de la base, git deja de serlo y este paso borraría contenido     │
+      # │ que solo viva en Supabase.                                          │
+      # └─────────────────────────────────────────────────────────────────────┘
+      - name: Sincronizar Supabase con git
+        run: node scripts/import-posts.mjs --commit --prune
