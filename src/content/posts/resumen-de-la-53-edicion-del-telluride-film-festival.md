@@ -13,7 +13,7 @@ readTime: "6 min read"
 tags: ["Telluride"]
 ---
 
-Concentrado en apenas cuatro días frenéticos, el **Festival de Cine de Telluride** volvió a demostrar por qué es el maratón cinematográfico más intenso del año. Entre proyecciones sorpresa, ovaciones en salas repletas y debates a la salida de cada función, el fin de semana de la 53.ª edición del Festival de Telluride fue el epicentro absoluto de la conversación cinéfila. Tras un maratón de estrenos sin pausa, el festival nos deja un mapa clarísimo de los títulos, interpretaciones y sorpresas que van a dominar toda la temporada de premios hasta llegar al Oscar el domingo 14 de marzo de 2027.
+Concentrado en apenas cuatro días frenéticos (del 4 al 7 de septiembre de 2026), el **Festival de Cine de Telluride** volvió a demostrar por qué es el maratón cinematográfico más intenso del año. Entre proyecciones sorpresa, ovaciones en salas repletas y debates a la salida de cada función, el fin de semana de la 53.ª edición del Festival de Telluride fue el epicentro absoluto de la conversación cinéfila. Tras un maratón de estrenos sin pausa, el festival nos deja un mapa clarísimo de los títulos, interpretaciones y sorpresas que van a dominar toda la temporada de premios hasta llegar al Oscar el domingo 14 de marzo de 2027.
 
 ### **Las que tuvieron su estreno mundial**
 
