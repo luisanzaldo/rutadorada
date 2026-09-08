@@ -17,6 +17,7 @@ on:
       - 'drafts/**'
       - 'scheduled/**'
       - 'rss-state.json'
+      - '*.sql'
   workflow_dispatch:
 
 # El bot puede publicar varias veces seguidas; basta con desplegar el último estado.
