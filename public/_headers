@@ -20,8 +20,13 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Las imágenes generadas por el prebuild se llaman <slug>.jpg: si se cambia la URL
+# de origen de una nota, el contenido cambia pero el nombre no. Con una caché larga,
+# la imagen vieja seguía sirviéndose durante horas. Cinco minutos es suficiente para
+# absorber picos de tráfico y hace que una sustitución se vea casi de inmediato.
+# La fase 4 elimina la causa: en R2 las URLs llevarán hash del contenido.
 /images/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=300, must-revalidate
 
 /icons/*
   Cache-Control: public, max-age=86400
