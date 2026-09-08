@@ -1,0 +1,27 @@
+# Cabeceras de caché para Cloudflare Pages.
+#
+# Sin este archivo, Pages servía el HTML con s-maxage=604800: siete días de caché
+# en el borde. Una nota editada o borrada podía seguir viéndose durante una semana,
+# y de hecho pasó — un post eliminado siguió sirviéndose nueve horas después.
+#
+# En Vercel el HTML salía con "public, max-age=0, must-revalidate", que revalida en
+# cada visita. Esto restaura ese comportamiento, que es el correcto para un sitio
+# cuyo contenido cambia a diario.
+#
+# Los assets con hash en el nombre sí pueden cachearse para siempre: si cambian,
+# cambia su nombre.
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=86400
+
+/icons/*
+  Cache-Control: public, max-age=86400
