@@ -4,12 +4,12 @@ description: "Mira el tráiler de la última película de Luca Guadagnino: *Arti
 pubDate: 2026-09-08T16:27:11.662Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/El-drama-termino-Artificial-de-Luca-Guadagnino-tiene-nuevo-hogar.jpg"
+image: "https://m.media-amazon.com/images/M/MV5BMzM4OTA0ZjAtNTc4Ny00Y2E0LTkwNjctN2I1MGNmY2U1YjIwXkEyXkFqcGc@._V1_.jpg"
 category: "Tráilers"
-readTime: "2 min"
-tags: ["Cines"]
 videoUrl: "https://youtu.be/rDZplZFnbOk?si=nuBAawmP-r3AWKkJ"
+readTime: "1 min read"
+tags: ["Cines"]
 ---
+
 
 Mira el tráiler de la última película de Luca Guadagnino: *Artificial*
