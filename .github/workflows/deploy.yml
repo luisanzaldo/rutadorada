@@ -108,6 +108,43 @@ jobs:
           done
           echo "Variables escritas: $(wc -l < .env)"
 
+      # El endpoint /api/posts/publish ya escribe en la base en el acto, así que
+      # este paso es una red de seguridad con dos funciones: cubre al bot de
+      # Telegram, que sigue commiteando directo a GitHub sin pasar por el endpoint,
+      # y atrapa cualquier desfase por un fallo puntual de Supabase al publicar.
+      #
+      # Va ANTES de construir y después de generar el .env, del que toma las
+      # credenciales. El orden es crítico desde que el sitio lee de la base: si
+      # corriera tras el despliegue —como hacía cuando el build leía los
+      # markdown— una nota del bot entraría en Supabase después de que el sitio
+      # ya se hubiera construido sin ella, y no aparecería hasta el siguiente
+      # despliegue.
+      #
+      # ┌─────────────────────────────────────────────────────────────────────┐
+      # │ NO RETIRAR ESTE PASO MIENTRAS EL BOT COMMITEE DIRECTO A GIT         │
+      # │                                                                     │
+      # │ El bot NO escribe en Supabase: solo commitea markdown. Este         │
+      # │ --commit es el único puente por el que sus notas llegan a la base.  │
+      # │ Sin él, el bot publicaría, esto desplegaría, y no se vería nada.    │
+      # │                                                                     │
+      # │ El puente sobra en la FASE 6, cuando el bot pase a llamar al        │
+      # │ endpoint. No antes. Una versión anterior de este aviso decía        │
+      # │ "quitar este paso en la fase 5", y seguirlo dejaba al bot mudo.     │
+      # └─────────────────────────────────────────────────────────────────────┘
+      #
+      # --prune se retiró al empezar la fase 5. Borraba las filas cuyo slug no
+      # estuviera en src/content/posts: correcto mientras git sea la fuente de
+      # verdad, destructivo en cuanto el sitio lea de la base y haya contenido
+      # que viva solo en Supabase.
+      #
+      # Sin la bandera el script SIGUE LISTANDO las huérfanas en este log, pero
+      # no las toca. Conviene mirarlas: el bot puede borrar una nota publicada
+      # (deletePost en su github.js) sin limpiar Supabase, y esa fila quedaría
+      # como fantasma —invisible hoy, visible en cuanto el sitio lea de la base.
+      # Se limpian a mano con --prune hasta que la fase 6 cierre esa ruta.
+      - name: Sincronizar Supabase con git
+        run: node scripts/import-posts.mjs --commit
+
       - name: Construir
         run: npm run build
 
@@ -135,34 +172,3 @@ jobs:
 
       # Reconcilia la tabla posts de Supabase con lo que hay en git.
       #
-      # El endpoint /api/posts/publish ya escribe en la base en el acto, así que
-      # este paso es una red de seguridad con dos funciones: cubre al bot de
-      # Telegram, que sigue commiteando directo a GitHub sin pasar por el endpoint,
-      # y atrapa cualquier desfase por un fallo puntual de Supabase al publicar.
-      #
-      # Usa el .env que generó el paso de construcción, que sigue en el workspace.
-      #
-      # ┌─────────────────────────────────────────────────────────────────────┐
-      # │ NO RETIRAR ESTE PASO MIENTRAS EL BOT COMMITEE DIRECTO A GIT         │
-      # │                                                                     │
-      # │ El bot NO escribe en Supabase: solo commitea markdown. Este         │
-      # │ --commit es el único puente por el que sus notas llegan a la base.  │
-      # │ Sin él, el bot publicaría, esto desplegaría, y no se vería nada.    │
-      # │                                                                     │
-      # │ El puente sobra en la FASE 6, cuando el bot pase a llamar al        │
-      # │ endpoint. No antes. Una versión anterior de este aviso decía        │
-      # │ "quitar este paso en la fase 5", y seguirlo dejaba al bot mudo.     │
-      # └─────────────────────────────────────────────────────────────────────┘
-      #
-      # --prune se retiró al empezar la fase 5. Borraba las filas cuyo slug no
-      # estuviera en src/content/posts: correcto mientras git sea la fuente de
-      # verdad, destructivo en cuanto el sitio lea de la base y haya contenido
-      # que viva solo en Supabase.
-      #
-      # Sin la bandera el script SIGUE LISTANDO las huérfanas en este log, pero
-      # no las toca. Conviene mirarlas: el bot puede borrar una nota publicada
-      # (deletePost en su github.js) sin limpiar Supabase, y esa fila quedaría
-      # como fantasma —invisible hoy, visible en cuanto el sitio lea de la base.
-      # Se limpian a mano con --prune hasta que la fase 6 cierre esa ruta.
-      - name: Sincronizar Supabase con git
-        run: node scripts/import-posts.mjs --commit
