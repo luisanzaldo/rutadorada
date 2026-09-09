@@ -142,13 +142,20 @@ function credenciales(env?: Entorno) {
   return { url, key };
 }
 
-async function traerFilas(env?: Entorno): Promise<FilaPost[]> {
+/**
+ * Todas las notas publicadas, con las columnas que se pidan.
+ *
+ * Expuesta porque no toda vista quiere la misma forma: el índice de búsqueda
+ * necesita los cuerpos y no necesita casi nada más, y traerse las columnas de
+ * un listado completo para descartarlas sería el derroche que esta capa evita.
+ */
+export async function consultarPublicadas<T>(columnas: string, env?: Entorno): Promise<T[]> {
   const { url, key } = credenciales(env);
-  const filas: FilaPost[] = [];
+  const filas: T[] = [];
 
   for (let desde = 0; ; desde += PAGINA) {
     const q = new URL(`${url}/rest/v1/posts`);
-    q.searchParams.set('select', COLUMNAS);
+    q.searchParams.set('select', columnas);
     q.searchParams.set('status', 'eq.published');
     q.searchParams.set('order', 'pub_date.desc');
     q.searchParams.set('limit', String(PAGINA));
@@ -159,7 +166,7 @@ async function traerFilas(env?: Entorno): Promise<FilaPost[]> {
     });
     if (!res.ok) throw new Error(`Supabase ${res.status}: ${await res.text()}`);
 
-    const lote: FilaPost[] = await res.json();
+    const lote: T[] = await res.json();
     filas.push(...lote);
     if (lote.length < PAGINA) return filas;
   }
@@ -179,7 +186,7 @@ let enVuelo: Promise<EntradaPost[]> | null = null;
 
 export function getPosts(env?: Entorno): Promise<EntradaPost[]> {
   if (enVuelo) return enVuelo;
-  enVuelo = traerFilas(env)
+  enVuelo = consultarPublicadas<FilaPost>(COLUMNAS, env)
     .then((filas) => filas.map(filaAEntrada))
     .finally(() => {
       enVuelo = null;

@@ -1,20 +1,8 @@
 ---
-import { getCollection } from "astro:content";
-import { renderRichText, stripRichText } from "../lib/richText";
-
-const allPosts = await getCollection("posts");
-// title/description en texto plano para poder buscar sin tropezar con las
-// marcas de énfasis, y ya en HTML para pintar los resultados.
-const searchablePosts = allPosts.map((post) => ({
-    title: stripRichText(post.data.title),
-    description: stripRichText(post.data.description),
-    titleHtml: renderRichText(post.data.title),
-    descriptionHtml: renderRichText(post.data.description),
-    slug: post.slug,
-    category: post.data.category,
-    tags: post.data.tags || [],
-    body: post.body,
-}));
+// El índice del buscador ya no se arma aquí. Iba inline en cada página —815 KB
+// de los 912 que pesaba una nota— y se descargaba y parseaba en cada visita,
+// buscara alguien o no. Ahora lo sirve /api/search-index.json y el cliente lo
+// pide la primera vez que se abre la lupa.
 const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 // Navegación principal (se renderiza en desktop y en el menú móvil)
@@ -545,7 +533,7 @@ const socialLinks = [
     </div>
 </div>
 
-<script define:vars={{ searchablePosts, baseUrl }}>
+<script define:vars={{ baseUrl }}>
     const searchBtn = document.getElementById("search-btn");
     const searchModal = document.getElementById("search-modal");
     const searchBackdrop = document.getElementById("search-backdrop");
@@ -553,9 +541,39 @@ const socialLinks = [
     const searchResults = document.getElementById("search-results");
     const resultsCount = document.getElementById("results-count");
 
+    // Se pide una vez y se reutiliza el resto de la sesión.
+    let indice = null;
+    let cargaEnCurso = null;
+
+    function cargarIndice() {
+        if (indice) return Promise.resolve(indice);
+        if (!cargaEnCurso) {
+            cargaEnCurso = fetch(`${baseUrl}/api/search-index.json`)
+                .then((r) => {
+                    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                    return r.json();
+                })
+                .then((datos) => {
+                    indice = datos;
+                    return datos;
+                })
+                .catch((e) => {
+                    // Un fallo puntual no puede dejar el buscador inservible
+                    // el resto de la sesión: se olvida el intento y el
+                    // siguiente vuelve a probar.
+                    cargaEnCurso = null;
+                    throw e;
+                });
+        }
+        return cargaEnCurso;
+    }
+
     function openSearch() {
         searchModal.classList.remove("hidden");
         document.body.style.overflow = "hidden";
+        // Se precarga al abrir, para que al terminar de escribir ya esté.
+        // Aquí el fallo se ignora: lo reporta handleSearch si llega el caso.
+        cargarIndice().catch(() => {});
         setTimeout(() => searchInput.focus(), 50);
     }
 
@@ -634,15 +652,36 @@ const socialLinks = [
             .join("");
     }
 
-    function handleSearch() {
+    async function handleSearch() {
         const query = searchInput.value.toLowerCase().trim();
         if (query === "") {
             renderResults([]);
             return;
         }
 
+        if (!indice) {
+            searchResults.innerHTML =
+                '<div class="text-center py-10 text-slate-500">Buscando…</div>';
+            if (resultsCount) resultsCount.textContent = "";
+        }
+
+        let datos;
+        try {
+            datos = await cargarIndice();
+        } catch (e) {
+            searchResults.innerHTML =
+                '<div class="text-center py-10 text-slate-500">No se pudo cargar el buscador. Inténtalo de nuevo en un momento.</div>';
+            if (resultsCount) resultsCount.textContent = "";
+            return;
+        }
+
+        // El usuario pudo seguir escribiendo mientras cargaba el índice. Si la
+        // consulta ya no es esta, la pinta la invocación que corresponda y esta
+        // se descarta, para que no gane la que termine más tarde.
+        if (searchInput.value.toLowerCase().trim() !== query) return;
+
         const words = query.split(/\s+/);
-        const results = searchablePosts.filter((post) => {
+        const results = datos.filter((post) => {
             const searchStr =
                 `${post.title} ${post.description} ${post.category} ${(post.tags || []).join(" ")} ${post.body || ""}`.toLowerCase();
             return words.every((word) => searchStr.includes(word));
