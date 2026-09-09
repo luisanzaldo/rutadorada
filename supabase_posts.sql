@@ -1,8 +1,15 @@
 -- Tabla de contenido para RutaDorada Films.
 --
--- Sustituye a los archivos markdown de src/content/posts como fuente de verdad.
--- Mientras dure la migración conviven ambos: el endpoint de publicación escribe
--- en los dos sitios (escritura doble) hasta que el sitio lea de aquí.
+-- El sitio LEE de esta tabla: src/lib/posts.ts la consulta y src/lib/render.ts
+-- convierte el markdown al servir. Pero la fuente de verdad de QUÉ notas existen
+-- sigue siendo git: import-posts.mjs sube lo que haya en src/content/posts y su
+-- --prune borra las filas cuyo slug ya no esté ahí.
+--
+-- Esa convivencia es PERMANENTE, no un paso intermedio. El plan de migración
+-- preveía apagar la escritura doble y dejar solo la base, y esa fase se descartó
+-- a conciencia: el bot de Telegram commitea markdown a git y no escribe en
+-- Supabase, así que el upsert del CI es el único puente por el que sus notas
+-- llegan aquí. Retirarlo lo dejaría publicando en el vacío.
 --
 -- Decisiones que conviene entender antes de tocar nada:
 --
