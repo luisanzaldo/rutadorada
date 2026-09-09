@@ -7,7 +7,7 @@ export const prerender = false;
 
 export const POST: APIRoute = async ({ request, cookies }) => {
     try {
-        // En Vercel, el header Content-Type debe ser application/json
+        // El cuerpo se parsea como JSON, así que se exige el Content-Type acorde
         const contentType = request.headers.get('content-type');
         if (!contentType || !contentType.includes('application/json')) {
             return new Response(

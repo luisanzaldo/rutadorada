@@ -2,8 +2,8 @@
 #
 # Sustituye a la integración Git del panel de Cloudflare, que ya no se ofrece al
 # crear proyectos nuevos. Tener el despliegue aquí también deja el filtrado de
-# builds en código: paths-ignore cumple la misma función que el ignoreCommand de
-# vercel.json, pero versionado y revisable.
+# builds en código, versionado y revisable: paths-ignore decide qué commits
+# construyen.
 #
 # Los borradores y la programación no alteran el sitio publicado (nada en src/ ni
 # en scripts/ los lee), así que no merecen un build.

@@ -1,3 +1,0 @@
-{
-  "ignoreCommand": "files=$(git diff HEAD^ HEAD --name-only 2>/dev/null); if [ -z \"$files\" ]; then exit 1; fi; total=$(printf '%s\\n' \"$files\" | wc -l); ign=$(printf '%s\\n' \"$files\" | grep -E '^(drafts/|scheduled/|rss-state\\.json$)' | wc -l); if [ \"$total\" -eq \"$ign\" ]; then exit 0; else exit 1; fi"
-}
