@@ -4,9 +4,7 @@ description: "El 24° Festival Internacional de Cine de Morelia presenta ocho la
 pubDate: 2026-09-08T21:32:08.593Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://img.rutadoradafilms.com/c7044a63ecd5a085.jpg"
-imageSource: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Nx4JsFfH2DfwW4Q-_iPbIxXZk7NAxgmxCMH4p9V4Qvz7fo1vVesPZw6A&s=10"
+image: "https://m.media-amazon.com/images/M/MV5BMmEzYWMxNTgtMDQxYy00ZTk2LTk0MzYtMjEyNmQ4ZDdkYmNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
 category: "Artículos"
 fuente:
   nombre: "Moreliafilmfest"
@@ -14,6 +12,7 @@ fuente:
 readTime: "4 min read"
 tags: ["FICM"]
 ---
+
 
 El Festival Internacional de Cine de Morelia celebra, una vez más, su larga alianza con la Semana de la Crítica de Cannes. Gracias a este convenio, la edición 24 del FICM exhibirá una selección de obras que fueron parte de la 65ª edición del programa paralelo de la capital francesa, con la presencia de Ava Cahen, directora artística de la sección.
 
