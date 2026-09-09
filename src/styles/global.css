@@ -135,7 +135,12 @@
   font-weight: 100 700;
   /* El eje de variable de Material Symbols se define por default como variable o font-variation-settings */
   font-display: swap;
-  src: url('/fonts/material-symbols-outlined-variable.woff2') format('woff2');
+  /* Subconjunto: solo los 23 iconos que el sitio usa, de los ~4.200 que trae la
+     fuente completa. 3,7 MB -> 17 KB. El hash va en el nombre porque /fonts/* se
+     sirve con immutable a un ano: si cambiara el contenido sin cambiar la URL,
+     quien ya tuviera la vieja en cache seguiria con ella. Para regenerarlo:
+     scripts/subset-icon-font.py */
+  src: url('/fonts/material-symbols-subset-ac0a5d76.woff2') format('woff2');
 }
 
 /* Regla necesaria para soportar los íconos de forma nativa sin el stylesheet de Google */
