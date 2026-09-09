@@ -1,5 +1,5 @@
 ---
-title: "Jack Altman critica la aparición de *Artificial* en su tráiler"
+title: "Jack Altman critica el tráiler de *Artificial*"
 description: "El hermano de Sam Altman, Jack, expresa su descontento con el trailer de *Artificial*, donde Andrew Garfield interpreta al CEO de OpenAI."
 pubDate: 2026-09-09T03:44:28.646Z
 author: "Luis Anzaldo"
