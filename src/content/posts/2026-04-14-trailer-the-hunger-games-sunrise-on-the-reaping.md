@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: The Hunger Games: Sunrise on the Reaping"
-description: ""
+description: "Mira el nuevo tráiler de *The Hunger Games: Sunrise on the Reaping*."
 pubDate: 2026-04-14T03:27:59.094Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"

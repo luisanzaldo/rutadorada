@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: La Odisea"
-description: ""
+description: "Mira el nuevo tráiler de *La Odisea*."
 pubDate: 2026-07-01T22:08:32.989Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"

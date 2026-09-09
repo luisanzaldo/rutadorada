@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: La Odisea"
-description: ""
+description: "Mira el nuevo tráiler de *La Odisea*."
 pubDate: 2026-05-05T04:50:56.339Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"

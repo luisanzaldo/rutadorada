@@ -1,6 +1,6 @@
 ---
 title: "Tráiler de Fatherland de Paweł Pawlikowski"
-description: ""
+description: "Mira el nuevo tráiler de *FATHERLAND*."
 pubDate: 2026-05-29T06:39:27.710Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"

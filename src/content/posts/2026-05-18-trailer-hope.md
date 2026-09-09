@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: HOPE"
-description: ""
+description: "Mira el nuevo tráiler de *HOPE*."
 pubDate: 2026-05-18T02:13:51.628Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"

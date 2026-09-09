@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: Behemoth!"
-description: ""
+description: "Mira el nuevo tráiler de *Behemoth!*"
 pubDate: 2026-07-16T15:22:33.300Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"

@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: GODZILLA MINUS ZERO"
-description: ""
+description: "Mira el nuevo tráiler de *GODZILLA MINUS ZERO*."
 pubDate: 2026-04-14T23:37:11.499Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"

@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: La bola negra"
-description: ""
+description: "Mira el nuevo tráiler de *La bola negra*."
 pubDate: 2026-07-16T15:19:54.047Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"

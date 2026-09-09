@@ -1,6 +1,6 @@
 ---
 title: "Tráiler: El Día de la Revelación"
-description: ""
+description: "Mira el nuevo tráiler de *El Día de la Revelación*."
 pubDate: 2026-05-28T16:37:25.809Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
