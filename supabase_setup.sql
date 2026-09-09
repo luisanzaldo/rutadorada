@@ -194,3 +194,65 @@ CREATE TRIGGER on_auth_user_created
 INSERT INTO public.profiles (id, role)
 SELECT id, 'user' FROM auth.users
 ON CONFLICT (id) DO NOTHING;
+
+-- ---------------------------------------------------------------------
+-- 9. TRIGGER: el nombre del autor de un comentario lo fija el servidor
+--
+-- El cliente insertaba author_name tal cual y la política RLS solo
+-- comprueba user_id, así que cualquier usuario autenticado podía enviar
+-- el nombre que quisiera en cada comentario. El render ya escapa el
+-- valor (Comments.astro), pero el dato debe nacer limpio: este trigger
+-- ignora lo que mande el cliente y toma el nombre de la cuenta que firma
+-- el comentario, con la misma prioridad que usa el cliente para
+-- mostrarlo: full_name, luego la parte local del email, luego 'Usuario'.
+--
+-- SECURITY DEFINER porque auth.users no es legible por authenticated.
+-- Solo actúa si hay user_id; una fila sin él (service_role) se deja tal
+-- cual. No hace falta cubrir UPDATE: authenticated no tiene ese GRANT.
+-- ---------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION public.comentarios_set_author_name()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE
+  v_name TEXT;
+BEGIN
+  IF NEW.user_id IS NULL THEN
+    RETURN NEW;
+  END IF;
+
+  SELECT COALESCE(
+           NULLIF(BTRIM(u.raw_user_meta_data->>'full_name'), ''),
+           NULLIF(split_part(u.email, '@', 1), ''),
+           'Usuario'
+         )
+    INTO v_name
+    FROM auth.users AS u
+   WHERE u.id = NEW.user_id;
+
+  -- Si el usuario no existe, la FK ya rechaza la fila; el COALESCE cubre
+  -- el caso teórico de que el SELECT no devuelva nada.
+  NEW.author_name := LEFT(COALESCE(v_name, 'Usuario'), 80);
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS comentarios_set_author_name ON public.comentarios;
+CREATE TRIGGER comentarios_set_author_name
+  BEFORE INSERT ON public.comentarios
+  FOR EACH ROW EXECUTE FUNCTION public.comentarios_set_author_name();
+
+-- Opcional, NO se ejecuta solo: alinea los comentarios ya existentes con
+-- el nombre actual de su cuenta. Reescribe author_name de todo el
+-- histórico, así que queda comentado para que sea una decisión consciente.
+--
+-- UPDATE public.comentarios AS c
+--    SET author_name = LEFT(COALESCE(
+--          NULLIF(BTRIM(u.raw_user_meta_data->>'full_name'), ''),
+--          NULLIF(split_part(u.email, '@', 1), ''),
+--          'Usuario'), 80)
+--   FROM auth.users AS u
+--  WHERE u.id = c.user_id;
