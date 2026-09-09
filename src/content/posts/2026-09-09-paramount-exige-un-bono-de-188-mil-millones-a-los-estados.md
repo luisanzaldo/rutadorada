@@ -1,5 +1,5 @@
 ---
-title: "Paramount pide un bono de 1.88 mil millones a los estados"
+title: "Paramount pide un bono de 1.8 mil millones a los estados"
 description: "Paramount presiona a California y a la WGA para que cubran con un bono de *$1.88 mil millones* los daños del retraso del mega‑merger con Warner Bros."
 pubDate: 2026-09-09T02:57:56.162Z
 author: "Luis Anzaldo"
@@ -13,10 +13,9 @@ readTime: "3 min read"
 tags: ["Industria"]
 ---
 
-
 ## Contexto del conflicto
 
-El gigante cinematográfico Paramount ha intensificado su campaña contra una veintena de estados, encabezados por California, y contra la Writers Guild of America (WGA). La demanda central consiste en que estos entes deben garantizar un bono de **$1.88 mil millones** para cubrir las pérdidas que la compañía alegaría si su intento de fusionarse con Warner Bros. resulta exitoso. La petición se sustenta en la normativa antimonopolio y en los procedimientos federales que regulan las medidas cautelares.
+El gigante de cine Paramount ha intensificado su campaña contra una veintena de estados, encabezados por California, y contra la Writers Guild of America (WGA). La demanda central consiste en que estos entes deben garantizar un bono de **$1.88 mil millones** para cubrir las pérdidas que la compañía alegaría si su intento de fusionarse con Warner Bros. resulta exitoso. La petición se sustenta en la normativa antimonopolio y en los procedimientos federales que regulan las medidas cautelares.
 
 ## El bloqueo judicial y sus consecuencias
 
