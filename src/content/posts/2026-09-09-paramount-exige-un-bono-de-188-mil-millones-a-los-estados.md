@@ -5,7 +5,8 @@ pubDate: 2026-09-09T02:57:56.162Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/ellisoncinemacon.jpg?w=1440&h=810&crop=1"
+image: "https://img.rutadoradafilms.com/f00e44957fb3bed1.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/ellisoncinemacon.jpg?w=1440&h=810&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"

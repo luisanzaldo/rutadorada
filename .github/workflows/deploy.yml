@@ -62,17 +62,48 @@ jobs:
       # Se commitea con GITHUB_TOKEN a propósito: GitHub no dispara workflows con
       # los eventos que genera ese token, así que no hay bucle de despliegues.
       # Con un PAT sí lo habría.
+      #
+      # NO puede tumbar el despliegue. Lo que importa para el sitio ya ocurrió:
+      # las imágenes están en R2 y el frontmatter reescrito está en el workspace
+      # que se va a construir. Este commit solo lo persiste en git, y si no se
+      # puede, la siguiente publicación lo repite — la ingesta es idempotente.
+      #
+      # El bot publica en ráfaga: empuja el borrador, la nota y el descarte con
+      # un segundo de diferencia. El workflow arranca sobre la nota, así que
+      # cuando llega aquí el remoto puede haber avanzado ya. Sin el rebase, el
+      # push se rechaza por non-fast-forward y antes eso abortaba el despliegue
+      # entero, dejando la nota publicada en git pero fuera del sitio.
       - name: Commitear el frontmatter migrado
+        continue-on-error: true
         run: |
-          if [ -n "$(git status --porcelain src/content/posts)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/content/posts
-            git commit -m "ingest: mover a R2 las imágenes de las notas nuevas"
-            git push
-          else
+          if [ -z "$(git status --porcelain src/content/posts)" ]; then
             echo "Sin cambios: todas las imágenes ya estaban en R2."
+            exit 0
           fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/posts
+          git commit -m "ingest: mover a R2 las imágenes de las notas nuevas"
+
+          for intento in 1 2 3; do
+            if git push; then
+              echo "Frontmatter migrado empujado en el intento $intento."
+              exit 0
+            fi
+            echo "El remoto se movió; reintento $intento de 3."
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "AVISO: el rebase no se pudo completar."
+              break
+            fi
+            sleep 3
+          done
+
+          echo "AVISO: no se pudo persistir el frontmatter migrado en git."
+          echo "El despliegue continúa: R2 y el workspace ya están correctos,"
+          echo "y la ingesta lo repetirá en la siguiente publicación."
+          exit 0
 
       # Astro solo inlinea import.meta.env desde un archivo .env. Si las variables
       # llegan únicamente como entorno del proceso —como pasa en CI— compila
