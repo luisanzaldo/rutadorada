@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/5286738998e0a4a1.jpg"
 imageSource: "https://variety.com/wp-content/uploads/2026/05/ALL-OF-A-SUDDEN_Courtesy-of-NEON-e1778778122990.jpg"
+imageCredit: "Variety"
 category: "Artículos"
 fuente:
   nombre: "Variety"

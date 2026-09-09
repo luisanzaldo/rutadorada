@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/186cf35ebb2a8274.jpg"
 imageSource: "https://cms.indieshortsmag.com/wp-content/uploads/2026/09/Telluride-Film-Festival-Indie-Shorts-Mag-Short-Film-Festival-News-1024x576.jpg"
+imageCredit: "Indie Shorts Mag"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

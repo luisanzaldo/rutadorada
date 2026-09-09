@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/497be261b79afd34.jpg"
 imageSource: "https://www.informador.mx/__export/1777703853916/sites/elinformador/img/2026/05/02/imagen_cymkimagen_afp__20241204__1384693938__v2__highres__74thannualdirectorsguildofamericaawardsredca_crop1777703846443.jpg_914869537.jpg"
+imageCredit: "El Informador"
 category: "Artículos"
 fuente:
   nombre: "FICM"

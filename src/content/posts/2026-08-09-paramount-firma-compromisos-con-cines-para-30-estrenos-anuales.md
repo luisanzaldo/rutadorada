@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/0a6e2a423b9782e0.jpg"
 imageSource: "https://elceo.com/wp-content/uploads/2026/02/warner_paramount_adquisicion.jpg"
+imageCredit: "El CEO"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

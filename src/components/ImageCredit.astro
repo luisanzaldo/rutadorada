@@ -1,0 +1,27 @@
+---
+/**
+ * Pie de crédito de una imagen.
+ *
+ * Existe como componente y no como dos bloques sueltos porque la portada se
+ * pinta en dos sitios de la página de nota —el enlace del tráiler y la imagen
+ * normal— y un pie que se vea distinto según el tipo de nota es un defecto que
+ * nadie mira dos veces.
+ *
+ * No renderiza nada si no hay crédito: no es lo mismo una imagen sin atribuir
+ * que una imagen atribuida a la nada.
+ */
+interface Props {
+    credito?: string;
+}
+
+const { credito } = Astro.props;
+const texto = credito?.trim();
+---
+
+{
+    texto && (
+        <figcaption class="mt-2 px-1 text-right text-xs text-slate-500 dark:text-slate-400">
+            Imagen: {texto}
+        </figcaption>
+    )
+}

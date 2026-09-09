@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/eb2ee2a8882d2363.jpg"
 imageSource: "https://lastmovieoutpost.com/wp-content/uploads/2025/02/bucking_fastard_kate_rooney_mara.jpg"
+imageCredit: "Last Movie Outpost"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

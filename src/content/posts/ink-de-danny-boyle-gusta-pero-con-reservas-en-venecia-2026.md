@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/af7034ee7090086d.jpg"
 imageSource: "https://cineuropa.org/imgCache/2026/09/02/1788351754331_0620x0413_102x0x1090x726_1788368443360.jpg"
+imageCredit: "Cineuropa"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

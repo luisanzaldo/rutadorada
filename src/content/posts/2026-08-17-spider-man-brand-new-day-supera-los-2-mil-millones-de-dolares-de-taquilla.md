@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/fe5f9145828a6c2e.jpg"
 imageSource: "https://cdn.forbes.com.mx/2026/08/Spider-Man-Brand-New-Day-taquilla.webp"
+imageCredit: "Forbes México"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

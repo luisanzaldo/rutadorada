@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/7d911e17a6a064fa.jpg"
 imageSource: "https://images.mubicdn.net/images/film/461295/cache-1125343-1775794253/image-w1280.jpg?size=800x"
+imageCredit: "MUBI"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Netflix"]

@@ -6,6 +6,7 @@ author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 image: "https://img.rutadoradafilms.com/5774d864ebefc5b5.jpg"
 imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/INK_02437_R.jpg?w=1296&h=730&crop=1"
+imageCredit: "The Hollywood Reporter"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"

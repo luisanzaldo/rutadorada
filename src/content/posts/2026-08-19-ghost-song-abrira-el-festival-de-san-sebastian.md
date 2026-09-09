@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/0776e9d766df899d.jpg"
 imageSource: "https://deadline.com/wp-content/uploads/2026/08/fp_741866_36949.jpg"
+imageCredit: "Deadline"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

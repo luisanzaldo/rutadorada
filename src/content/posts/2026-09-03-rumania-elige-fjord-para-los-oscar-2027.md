@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/e3aef4b2736f40e9.jpg"
 imageSource: "https://variety.com/wp-content/uploads/2026/09/Fjord.jpg"
+imageCredit: "Variety"
 category: "Artículos"
 fuente:
   nombre: "Variety"

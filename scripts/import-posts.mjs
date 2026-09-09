@@ -81,7 +81,7 @@ for (const file of files) {
     letterboxd: vacio(fm.letterboxd),
     video_url: vacio(fm.videoUrl),
     image_url: img,
-    image_credit: null,
+    image_credit: vacio(fm.imageCredit),
     // La procedencia es de dónde salió la imagen, no dónde vive ahora.
     //
     // `imageSource` es explícito desde la fase 4 y manda. La heurística solo
@@ -136,6 +136,7 @@ let huerfanas = [];
 console.log(`\nNotas leídas: ${rows.length}`);
 console.log(`  con cuerpo vacío:      ${rows.filter(r => !r.body).length}`);
 console.log(`  con procedencia ajena: ${rows.filter(r => r.image_source).length}`);
+console.log(`  con crédito de imagen: ${rows.filter(r => r.image_credit).length}`);
 console.log(`  con ficha técnica:     ${rows.filter(r => r.ficha_tecnica).length}`);
 console.log(`  con fuente:            ${rows.filter(r => r.fuente).length}`);
 console.log(`  con video:             ${rows.filter(r => r.video_url).length}`);

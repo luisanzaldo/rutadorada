@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/299d4f0bc67c8eb5.jpg"
 imageSource: "https://www.thewrap.com/wp-content/uploads/2026/07/The-Odyssey-2026.jpg"
+imageCredit: "The Wrap"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

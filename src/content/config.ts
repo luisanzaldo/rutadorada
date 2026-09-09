@@ -14,6 +14,10 @@ const posts = defineCollection({
         // Procedencia de la portada cuando venía de un medio ajeno. Se guarda al
         // migrarla a R2, porque a partir de ahí la URL ya no delata su origen.
         imageSource: z.string().optional(),
+        // Crédito editorial de la portada: a quién se atribuye la imagen. Es
+        // distinto de imageSource, que es la URL de donde se descargó — una es
+        // para el lector y la otra para la trazabilidad.
+        imageCredit: z.string().optional(),
         category: z.string(),
         readTime: z.string(),
         featured: z.boolean().default(false),

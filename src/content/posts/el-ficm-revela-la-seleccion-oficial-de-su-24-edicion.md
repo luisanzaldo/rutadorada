@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/8f4e0b706a3ad3a6.jpg"
 imageSource: "https://palomaynacho.com/wp-content/uploads/2026/08/FICM-2026-portada.jpg"
+imageCredit: "Paloma y Nacho"
 category: "Artículos"
 fuente:
   nombre: "FICM"

@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/6ab58574068e9be2.jpg"
 imageSource: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/Bunker-con-Penelope-Cruz-y-Javier-Bardem-se-proyectara-en-TIFF-2026.jpg"
+imageCredit: "The Hollywood Reporter"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

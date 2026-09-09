@@ -6,6 +6,7 @@ author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 image: "https://img.rutadoradafilms.com/9ed8f9e45d63a5ab.jpg"
 imageSource: "https://ew.com/thmb/8FjbMKtfZD466U0yDMTNQb4hCgw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Peter-Jackson-Cannes-Film-Festival-051326-97aec4f1dcea4a5db3cce304fac1d04a.jpg"
+imageCredit: "Entertainment Weekly"
 category: "Artículos"
 fuente:
   nombre: "Fotogramas"

@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/711e354ad8aba7d5.jpg"
 imageSource: "https://media.mimorelia.com/p/1ceb281475c7f25616a570c70b013566/adjuntos/383/imagenes/100/268/0100268307/790x0/697x329:717x349/cine.jpg"
+imageCredit: "Mi Morelia"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

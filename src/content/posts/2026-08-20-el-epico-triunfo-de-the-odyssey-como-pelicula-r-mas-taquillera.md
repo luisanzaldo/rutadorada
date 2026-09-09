@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/58d7140c3f23355a.jpg"
 imageSource: "https://variety.com/wp-content/uploads/2026/08/The-Odyssey.jpg"
+imageCredit: "Variety"
 category: "Artículos"
 fuente:
   nombre: "Variety"

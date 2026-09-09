@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/2326a7df7d311c9a.jpg"
 imageSource: "https://deadline.com/wp-content/uploads/2026/03/Wild-Horse-Nine.jpg"
+imageCredit: "Deadline"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

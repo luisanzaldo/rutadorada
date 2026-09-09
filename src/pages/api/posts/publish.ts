@@ -35,6 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
       author, 
       letterboxd, 
       image, 
+      imageCredit,
       category, 
       tags, 
       fuente, 
@@ -121,6 +122,12 @@ export const POST: APIRoute = async ({ request }) => {
     
     // Solo agregar fuente si no es un tráiler o si tiene datos explícitos
     const videoUrlLine = videoUrl ? `videoUrl: "${videoUrl.replace(/"/g, '\\"')}"` : "";
+    // El crédito de la portada solo se escribe si existe: una línea vacía en el
+    // frontmatter haría que todas las notas declararan un crédito en blanco, y
+    // no es lo mismo «sin crédito» que «crédito vacío».
+    const imageCreditLine = typeof imageCredit === 'string' && imageCredit.trim()
+        ? `imageCredit: "${imageCredit.trim().replace(/"/g, '\\"')}"`
+        : "";
     const sourceBlock = category !== 'Tráilers' ? `fuente:
   nombre: "${fuenteName}"
   url: "${fuenteUrl}"` : "";
@@ -143,7 +150,7 @@ pubDate: ${pubDate || new Date().toISOString()}
 author: "${safeAuthor}"
 letterboxd: "${safeLetterboxd}"
 image: "${safeImage}"
-category: "${category}"
+${imageCreditLine ? imageCreditLine + '\n' : ''}category: "${category}"
 ${sourceBlock ? sourceBlock + '\n' : ''}${videoUrlLine ? videoUrlLine + '\n' : ''}${criticaBlock}readTime: "${readTime || '3 min read'}"
 tags: ${JSON.stringify(Array.isArray(tags) ? tags : [])}
 ---
@@ -202,7 +209,7 @@ ${content}
       letterboxd: letterboxd || null,
       video_url: videoUrl || null,
       image_url: image || '',
-      image_credit: null,
+      image_credit: typeof imageCredit === 'string' && imageCredit.trim() ? imageCredit.trim() : null,
       image_source: typeof image === 'string' && image.startsWith('http') ? image : null,
       ficha_tecnica: category === 'Críticas' && rating !== undefined
         ? {

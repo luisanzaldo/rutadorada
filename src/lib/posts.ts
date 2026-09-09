@@ -61,6 +61,7 @@ export type EntradaPost = {
     authorImage?: string;
     image: string;
     imageSource?: string;
+    imageCredit?: string;
     category: string;
     readTime?: string;
     featured: boolean;
@@ -98,6 +99,7 @@ export function filaAEntrada(fila: FilaPost): EntradaPost {
       authorImage: opcional(fila.author_image),
       image: fila.image_url,
       imageSource: opcional(fila.image_source),
+      imageCredit: opcional(fila.image_credit),
       category: fila.category,
       readTime: opcional(fila.read_time),
       featured: fila.featured ?? false,

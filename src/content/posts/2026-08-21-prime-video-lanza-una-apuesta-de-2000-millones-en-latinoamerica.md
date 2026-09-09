@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/1cf2ad497285b656.jpg"
 imageSource: "https://www.audiovisual451.com/wp-content/uploads/2026/08/La-Oficina-Prime-Video.jpg"
+imageCredit: "Audiovisual451"
 category: "Artículos"
 fuente:
   nombre: "Audiovisual451"

@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/e685e2f761161800.jpg"
 imageSource: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/Godzilla-Minus-Zero-scaled.jpg"
+imageCredit: "Next Best Picture"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

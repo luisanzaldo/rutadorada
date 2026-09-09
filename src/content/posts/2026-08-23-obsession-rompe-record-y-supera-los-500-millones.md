@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/bb2150898b3bb6fd.jpg"
 imageSource: "https://www.thewrap.com/wp-content/uploads/2026/05/Obsession-2026.jpg"
+imageCredit: "The Wrap"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

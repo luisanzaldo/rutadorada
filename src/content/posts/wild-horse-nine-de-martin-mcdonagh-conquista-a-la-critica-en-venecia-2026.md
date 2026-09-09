@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/25282a1952e4c5e8.jpg"
 imageSource: "https://variety.com/wp-content/uploads/2026/06/Wild-Horse-Nine.jpg?w=1000&h=563&crop=1"
+imageCredit: "Variety"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

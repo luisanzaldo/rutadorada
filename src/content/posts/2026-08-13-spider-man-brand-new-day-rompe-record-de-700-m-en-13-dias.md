@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/9146e17821d1ce0b.jpg"
 imageSource: "https://deadline.com/wp-content/uploads/2026/08/MCDSPMA_SP140.jpg"
+imageCredit: "Deadline"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/c0e590a89484716a.jpg"
 imageSource: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/TIFF-2026.jpg"
+imageCredit: "Next Best Picture"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

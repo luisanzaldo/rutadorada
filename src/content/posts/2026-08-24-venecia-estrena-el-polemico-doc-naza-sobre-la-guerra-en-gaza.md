@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/29ab005052af96b4.jpg"
 imageSource: "https://deadline.com/wp-content/uploads/2026/08/Naza.jpg"
+imageCredit: "Deadline"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

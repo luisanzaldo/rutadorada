@@ -6,6 +6,7 @@ author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 image: "https://img.rutadoradafilms.com/a0c63940cc4fbf17.jpg"
 imageSource: "https://nextbestpicture.com/wp-content/uploads/2026/06/The-Debut-scaled.jpg"
+imageCredit: "Next Best Picture"
 category: "Premios"
 fuente:
   nombre: "Variety"

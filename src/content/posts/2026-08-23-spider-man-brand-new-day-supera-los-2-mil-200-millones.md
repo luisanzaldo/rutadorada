@@ -7,6 +7,7 @@ letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
 image: "https://img.rutadoradafilms.com/2bfa58c67ed9d9d6.jpg"
 imageSource: "https://www.thewrap.com/wp-content/uploads/2026/08/spider-man-brand-new-day-image.jpg"
+imageCredit: "The Wrap"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

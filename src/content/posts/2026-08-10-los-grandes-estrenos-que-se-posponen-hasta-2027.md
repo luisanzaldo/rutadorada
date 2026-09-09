@@ -6,6 +6,7 @@ author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/f1793e6070d8628c.jpg"
 imageSource: "https://cdn.theplaylist.net/wp-content/uploads/2026/08/10140335/HERE-COMES-THE-FLOOD_JACK-OF-SPADES_THE-RIDERS_PUSHED-TO-2027_THE-ENTERTAINMENT-SYSTEM-IS-DOWN_-1.jpg"
+imageCredit: "The Playlist"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"

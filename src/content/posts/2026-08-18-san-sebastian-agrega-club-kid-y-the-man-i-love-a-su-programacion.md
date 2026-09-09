@@ -6,6 +6,7 @@ author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 image: "https://img.rutadoradafilms.com/8af3463e06fb33fa.jpg"
 imageSource: "https://deadline.com/wp-content/uploads/2026/05/Club-Kid_Credit-Adam-Newport-Berra.jpg"
+imageCredit: "Deadline"
 category: "Premios"
 fuente:
   nombre: "Deadline"
