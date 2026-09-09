@@ -1,11 +1,10 @@
 ---
-title: "DAU, la épica de Ilya Khrzhanovsky, conquista a la crítica en Venecia 2026"
-description: "Reacciones de la crítica de DAU, película que se perfila para estar en el palmarés"
+title: "*DAU*, la épica de Ilya Khrzhanovsky, conquista a la crítica en Venecia 2026"
+description: "Reacciones de la crítica de *DAU*, película que se perfila para estar en el palmarés"
 pubDate: 2026-09-09T17:52:21.326Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/f45a7119c4469301.jpg"
-imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/113571-DAU_-_Official_still__Credits_Phenomen_Berlin_-H-2026.jpg?w=1296"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
@@ -13,6 +12,7 @@ fuente:
 readTime: "5 min read"
 tags: ["Venecia"]
 ---
+
 
 El recibimiento general de la película ***DAU***, dirigida por Ilya Khrzhanovsky y presentada en la competición del Festival de Venecia de 2026, ha sido **predominantemente positivo** entre la crítica especializada. La gran mayoría coincide en calificarla como un **acontecimiento cinematográfico monumental, audaz e hipnótico**, aplaudiendo su colosal diseño de producción, su alto nivel técnico y su incisiva reflexión sobre la tiranía soviética y la responsabilidad ética de la ciencia.
 
@@ -65,3 +65,4 @@ No obstante, el sentir general también destaca que se trata de una experiencia 
 - **Clasificación**: **Regular** (Calificación: C).
 - **Lo más destacado (Puntos positivos)**: Valora la **textura del celuloide** e imágenes de gran belleza en locaciones llamativas. Destaca la química natural de la pareja protagonista y momentos aislados de verdadera tensión en los interrogatorios del KGB.
 - **Lo menos destacado (Puntos negativos)**: Sostiene que la película **"se desinfla" y resulta reiterativa y dispersa**. Critica que la cámara a menudo descuida la narrativa dramática para perderse en los fondos, el uso de no-actores poco pulidos y la insistencia en machacar discursos filosóficos ya expuestos sin mayor rigor dramático.
+
