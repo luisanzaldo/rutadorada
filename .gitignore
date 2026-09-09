@@ -33,3 +33,6 @@ tmp/
 
 # Fase 4: variantes de imagen antes de subirlas a R2. No se versionan.
 .r2-staging/
+
+# Caché local de wrangler pages dev. No se versiona.
+.wrangler/
