@@ -132,18 +132,26 @@ jobs:
       # │ "quitar este paso en la fase 5", y seguirlo dejaba al bot mudo.     │
       # └─────────────────────────────────────────────────────────────────────┘
       #
-      # --prune se retiró al empezar la fase 5. Borraba las filas cuyo slug no
-      # estuviera en src/content/posts: correcto mientras git sea la fuente de
-      # verdad, destructivo en cuanto el sitio lea de la base y haya contenido
-      # que viva solo en Supabase.
-      #
-      # Sin la bandera el script SIGUE LISTANDO las huérfanas en este log, pero
-      # no las toca. Conviene mirarlas: el bot puede borrar una nota publicada
-      # (deletePost en su github.js) sin limpiar Supabase, y esa fila quedaría
-      # como fantasma —invisible hoy, visible en cuanto el sitio lea de la base.
-      # Se limpian a mano con --prune hasta que la fase 6 cierre esa ruta.
+      # ┌─────────────────────────────────────────────────────────────────────┐
+      # │ --prune SE QUITA EN LA FASE 6, NO ANTES                             │
+      # │                                                                     │
+      # │ Borra las filas cuyo slug no esté en src/content/posts. Es correcto  │
+      # │ mientras git sea un superconjunto de la base, y hoy lo es:           │
+      # │                                                                     │
+      # │   · el CMS escribe git PRIMERO y la base después, así que una nota   │
+      # │     no puede existir solo en Supabase                                │
+      # │   · el bot solo escribe git                                          │
+      # │                                                                     │
+      # │ Y hace falta: el bot borra notas de GitHub sin tocar la base         │
+      # │ (deletePost en su github.js). Como el sitio ya lee de Supabase, sin  │
+      # │ --prune una nota que el bot borre SEGUIRÍA APARECIENDO publicada.    │
+      # │                                                                     │
+      # │ Deja de ser correcto cuando algo pueda vivir solo en la base: en la  │
+      # │ fase 6, al mover borradores y programados ahí y apagar la escritura  │
+      # │ doble. Ese es el momento, no el cambio de lectura.                   │
+      # └─────────────────────────────────────────────────────────────────────┘
       - name: Sincronizar Supabase con git
-        run: node scripts/import-posts.mjs --commit
+        run: node scripts/import-posts.mjs --commit --prune
 
       - name: Construir
         run: npm run build
