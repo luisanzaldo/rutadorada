@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getPosts } from "../../lib/posts";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import AdminDesktopOnly from "../../components/AdminDesktopOnly.astro";
@@ -29,7 +29,7 @@ const sectionParam = Astro.url.searchParams.get("section") as Section | null;
 const activeSection: Section = sectionParam && validSections.includes(sectionParam) ? sectionParam : "publicaciones";
 
 // 4. Obtener todas las publicaciones (solo necesarias para "publicaciones")
-const allPosts = await getCollection("posts");
+const allPosts = await getPosts();
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Búsqueda por título

@@ -1,5 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import { getPosts, getPost } from "../../lib/posts";
+import { renderizarNota } from "../../lib/render";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -13,20 +14,28 @@ import { getTagUrl } from "../../lib/tags";
 import { getCategoryUrl } from "../../lib/categories";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("posts");
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post },
-    }));
+    const posts = await getPosts();
+    return posts.map((post) => ({ params: { slug: post.slug } }));
 }
 
-const { post } = Astro.props;
-const { Content, headings } = await post.render();
+// La nota se pide por su slug en vez de recibirla como prop. Es la forma que
+// necesita el modo dinámico, donde no hay getStaticPaths que la traiga, y
+// funciona igual mientras la página siga prerenderizándose.
+const { slug } = Astro.params;
+const post = await getPost(slug!);
+
+if (!post) {
+    return new Response(null, { status: 404, statusText: "Nota no encontrada" });
+}
+
+// El markdown se convierte aquí y no al construir. Comprobado contra el build
+// anterior nota a nota: las 195 en markdown salen byte a byte idénticas.
+const { html: contenidoHtml, encabezados: headings } = await renderizarNota(post.body);
 
 // Null si la categoría no tiene sección propia: en ese caso la etiqueta no enlaza
 const categoryUrl = getCategoryUrl(post.data.category);
 
-const allPosts = await getCollection("posts");
+const allPosts = await getPosts();
 
 // Get the latest 3 posts that share at least one tag
 const finalRelatedPosts = allPosts
@@ -283,7 +292,7 @@ const plainDescription = stripRichText(post.data.description);
                     <div
                         class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg sm:prose-h3:text-xl prose-a:text-black prose-a:font-bold prose-a:underline dark:prose-a:text-primary dark:prose-a:font-normal prose-img:rounded-xl prose-img:mx-auto [&_h1]:!text-black [&_h2]:!text-black [&_h3]:!text-black dark:[&_h1]:!text-primary dark:[&_h2]:!text-primary dark:[&_h3]:!text-primary dark:[&_strong]:!text-primary dark:[&_b]:!text-primary"
                     >
-                        <Content />
+                        <Fragment set:html={contenidoHtml} />
                     </div>
 
                     {

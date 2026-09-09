@@ -1,9 +1,9 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getPosts } from '../lib/posts';
 import { stripRichText } from '../lib/richText';
 
 export async function GET(context) {
-    const posts = await getCollection('posts');
+    const posts = await getPosts();
 
     return rss({
         title: 'Ruta Dorada Films',

@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { getPosts } from "../lib/posts";
 import { renderRichText } from "../lib/richText";
 import { getTrailerUrl } from "../lib/trailers";
 
 const baseUrl = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 
-const allPosts = await getCollection("posts");
+const allPosts = await getPosts();
 const latest = allPosts
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 8);

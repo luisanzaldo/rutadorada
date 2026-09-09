@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getPosts } from "../lib/posts";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -21,7 +21,7 @@ interface Props {
 
 const { category, allLabel } = Astro.props;
 
-const allPosts = (await getCollection("posts"))
+const allPosts = (await getPosts())
     .filter((p) => p.data.category === category)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 

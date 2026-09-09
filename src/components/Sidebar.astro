@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+import { getPosts } from "../lib/posts";
 import CannesCard from "./CannesCard.astro";
 import { renderRichText } from "../lib/richText";
 import { getTagUrl } from "../lib/tags";
-const allPosts = await getCollection("posts");
+const allPosts = await getPosts();
 
 // Etiquetas ordenadas por frecuencia de uso (top 8)
 const tagCounts = new Map<string, number>();
@@ -13,8 +13,11 @@ allPosts.forEach(post => {
     });
 });
 
+// El desempate alfabético evita que la lista dependa del orden en que llegan
+// las notas: con solo ordenar por frecuencia, dos etiquetas igual de usadas
+// cambiaban de sitio si cambiaba la consulta que las trae.
 const trendingTags = Array.from(tagCounts.entries())
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 8)
     .map(([name]) => ({ name }));
 

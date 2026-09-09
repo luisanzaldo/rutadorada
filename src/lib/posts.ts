@@ -157,7 +157,10 @@ export async function consultarPublicadas<T>(columnas: string, env?: Entorno): P
     const q = new URL(`${url}/rest/v1/posts`);
     q.searchParams.set('select', columnas);
     q.searchParams.set('status', 'eq.published');
-    q.searchParams.set('order', 'pub_date.desc');
+    // El slug desempata: dos notas comparten pub_date y sin criterio
+    // secundario Postgres puede devolverlas en distinto orden entre
+    // consultas, lo que haría bailar el HTML sin que cambie nada.
+    q.searchParams.set('order', 'pub_date.desc,slug.asc');
     q.searchParams.set('limit', String(PAGINA));
     q.searchParams.set('offset', String(desde));
 

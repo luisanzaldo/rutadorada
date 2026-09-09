@@ -5,9 +5,9 @@ import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 import Sidebar from "../components/Sidebar.astro";
 import ArticleCard from "../components/ArticleCard.astro";
-import { getCollection } from "astro:content";
+import { getPosts } from "../lib/posts";
 
-const allPosts = await getCollection("posts");
+const allPosts = await getPosts();
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latestPosts = sortedPosts.slice(0, 9);
