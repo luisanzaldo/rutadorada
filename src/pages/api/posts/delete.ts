@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getSession } from '../../../lib/auth';
 import { deletePostBySlug, slugDesdeRuta } from '../../../lib/postsDb';
+import { resolverNotaEnGitHub } from '../../../lib/notaEnGitHub';
 
 export const prerender = false;
 
@@ -45,31 +46,22 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const postPath = `src/content/posts/${filename}`;
-    const postUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${postPath}`;
+    // `filename` llega como slug desde el panel: la base no guarda la extensión
+    // y tres notas heredadas siguen siendo .mdx. Se resuelve preguntando a
+    // GitHub en vez de suponerla, que aquí suponer mal sería borrar otra cosa.
+    const nota = await resolverNotaEnGitHub(filename, GITHUB_TOKEN, GITHUB_REPO);
 
-    // 4. Obtener contenido del post para buscar imágenes asociadas
-    const getRes = await fetch(postUrl, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${GITHUB_TOKEN}`,
-        'User-Agent': 'RutaDorada-CMS',
-        'Accept': 'application/vnd.github.v3+json',
-      },
-    });
-
-    if (!getRes.ok) {
-      const errorData = await getRes.json();
-      return new Response(JSON.stringify({ success: false, error: `Error al obtener post de GitHub: ${errorData.message}` }), {
-        status: getRes.status,
+    if (!nota) {
+      return new Response(JSON.stringify({ success: false, error: `No se encontró la nota ${filename} en el repositorio` }), {
+        status: 404,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    const postData = await getRes.json();
-    const postSha = postData.sha;
-    const base64Content = postData.content;
-    const postContent = Buffer.from(base64Content, 'base64').toString('utf-8');
+    const postPath = nota.ruta;
+    const postUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${postPath}`;
+    const postSha = nota.sha;
+    const postContent = nota.contenido;
 
     // 5. Buscar y eliminar imágenes asociadas
     // Buscamos cualquier cadena que empiece por /images/posts/

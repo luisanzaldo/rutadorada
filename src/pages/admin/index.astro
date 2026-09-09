@@ -108,7 +108,10 @@ if (activeSection === "dashboard") {
         }
 
         // Mapa slug → título para mostrar nombres legibles en lugar de slugs
-        for (const p of allPosts) slugToTitle[p.id] = stripRichText(p.data.title);
+        // Se indexa por slug, que es con lo que se consulta abajo. Antes se usaba
+        // `p.id` —el nombre del archivo— así que el mapa nunca acertaba y los
+        // rankings siempre caían al título derivado del slug.
+        for (const p of allPosts) slugToTitle[p.slug] = stripRichText(p.data.title);
     }
 }
 
@@ -366,7 +369,7 @@ const title = `${sectionTitles[activeSection]} | Panel de RutaDorada`;
                             ) : (
                             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                                 {paginatedPosts.map((post) => (
-                                    <div class="group flex flex-col bg-white/5 dark:bg-card-dark border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.id} data-title={stripRichText(post.data.title)}>
+                                    <div class="group flex flex-col bg-white/5 dark:bg-card-dark border border-slate-100 dark:border-[#224249]/50 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative" data-filename={post.slug} data-title={stripRichText(post.data.title)}>
 
                                         <!-- Cover Image Area -->
                                         <div class="relative w-full aspect-video bg-slate-100 dark:bg-background-dark overflow-hidden rounded-t-2xl">

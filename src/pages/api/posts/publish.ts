@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getSession } from '../../../lib/auth';
 import { upsertPost, slugDesdeRuta, type PostRow } from '../../../lib/postsDb';
+import { resolverNotaEnGitHub } from '../../../lib/notaEnGitHub';
 
 export const prerender = false;
 
@@ -54,6 +55,17 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
+    // Se leen aquí porque la resolución de la ruta ya los necesita.
+    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+    const GITHUB_REPO = import.meta.env.GITHUB_REPO;
+
+    if (!GITHUB_TOKEN || !GITHUB_REPO) {
+      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta.' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     // 3. Determinar Ruta de Archivo
     let filePath = "";
     if (filename) {
@@ -64,7 +76,24 @@ export const POST: APIRoute = async ({ request }) => {
           headers: { 'Content-Type': 'application/json' }
         });
       }
-      filePath = `src/content/posts/${filename}`;
+      // El panel identifica las notas por slug desde que el sitio lee de la base:
+      // Astro ya no aporta el nombre del archivo y la extensión no se puede
+      // deducir, porque tres notas heredadas siguen siendo .mdx. Si viene sin
+      // extensión se resuelve preguntando a GitHub. Sin esto, editar una nota
+      // escribiría un archivo sin extensión y dejaría el original intacto: el
+      // cambio se perdería en silencio.
+      if (/\.mdx?$/.test(filename)) {
+        filePath = `src/content/posts/${filename}`;
+      } else {
+        const nota = await resolverNotaEnGitHub(filename, GITHUB_TOKEN, GITHUB_REPO);
+        if (!nota) {
+          return new Response(JSON.stringify({ success: false, error: `No se encontró la nota ${filename} en el repositorio` }), {
+            status: 404,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        filePath = nota.ruta;
+      }
     } else {
       // Validar extensión: solo se permiten .md y .mdx
       const allowedExtensions = ['.md', '.mdx'];
@@ -123,15 +152,7 @@ ${content}
 `;
 
     // 5. Preparar Request de GitHub
-    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
-    const GITHUB_REPO = import.meta.env.GITHUB_REPO;
 
-    if (!GITHUB_TOKEN || !GITHUB_REPO) {
-      return new Response(JSON.stringify({ success: false, error: 'Configuración de servidor incompleta.' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
 
     const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
     const base64Content = Buffer.from(yamlContent, 'utf-8').toString('base64');

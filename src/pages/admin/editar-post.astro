@@ -6,6 +6,7 @@ import EditorPanel from "../../components/admin/EditorPanel.astro";
 import EditorModals from "../../components/admin/EditorModals.astro";
 import RichTextInput from "../../components/admin/RichTextInput.astro";
 import { getSession } from "../../lib/auth";
+import { resolverNotaEnGitHub } from "../../lib/notaEnGitHub";
 import { USERS } from "../../lib/users";
 import matter from "gray-matter";
 
@@ -39,27 +40,18 @@ let fileSha = "";
 let initialMarkdown = "";
 
 try {
-    const githubUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/src/content/posts/${filename}`;
-    const response = await fetch(githubUrl, {
-        headers: {
-            "Authorization": `Bearer ${GITHUB_TOKEN}`,
-            "User-Agent": "RutaDorada-CMS",
-            "Accept": "application/vnd.github.v3+json",
-        },
-    });
+    // `filename` llega como slug: la base no guarda la extensión y tres notas
+    // heredadas siguen siendo .mdx. El ayudante resuelve cuál es.
+    const nota = await resolverNotaEnGitHub(filename, GITHUB_TOKEN, GITHUB_REPO);
 
-    if (!response.ok) {
-        throw new Error(`GitHub API error: ${response.status}`);
+    if (!nota) {
+        throw new Error(`No se encontró la nota ${filename} en el repositorio`);
     }
 
-    const json = await response.json();
-    fileSha = json.sha;
-
-    // Decodificar Base64 (UTF-8 compatible)
-    const rawContent = Buffer.from(json.content, "base64").toString("utf-8");
+    fileSha = nota.sha;
 
     // Parsear frontmatter
-    const { data, content } = matter(rawContent);
+    const { data, content } = matter(nota.contenido);
     postData = data;
     initialMarkdown = content;
 } catch (err) {
