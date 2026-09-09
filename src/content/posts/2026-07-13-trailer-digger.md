@@ -1,5 +1,5 @@
 ---
-title: "Tráiler: DIGGER"
+title: "Tráiler: Digger"
 description: "Lo nuevo del mexicano Alejandro G. Iñárritu con Tom Cruise"
 pubDate: 2026-07-13T14:20:51.445Z
 author: "Moncho"
@@ -12,4 +12,4 @@ tags: ["Cines"]
 ---
 
 
-Disfruta del tráiler de *DIGGER*.
+Disfruta del tráiler de *Digger*.
