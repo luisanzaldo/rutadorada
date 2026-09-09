@@ -4,7 +4,8 @@ description: "Mis predicciones del palmarés de Cannes 2026"
 pubDate: 2026-05-23T00:53:50.450Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOZPnYW8Ro9U_sxeGylyMMGS1IYmgE9666cw6Ys-3dR5Sreg8Mgt0qJ4o&s=10"
+image: "https://img.rutadoradafilms.com/46e13a59a0f4f1a7.jpg"
+imageSource: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOZPnYW8Ro9U_sxeGylyMMGS1IYmgE9666cw6Ys-3dR5Sreg8Mgt0qJ4o&s=10"
 category: "Premios"
 fuente:
   nombre: "Redacción"

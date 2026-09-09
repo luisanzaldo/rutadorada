@@ -5,7 +5,8 @@ pubDate: 2026-09-08T21:32:08.593Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Nx4JsFfH2DfwW4Q-_iPbIxXZk7NAxgmxCMH4p9V4Qvz7fo1vVesPZw6A&s=10"
+image: "https://img.rutadoradafilms.com/c7044a63ecd5a085.jpg"
+imageSource: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Nx4JsFfH2DfwW4Q-_iPbIxXZk7NAxgmxCMH4p9V4Qvz7fo1vVesPZw6A&s=10"
 category: "Artículos"
 fuente:
   nombre: "Moreliafilmfest"
