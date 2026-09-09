@@ -5,8 +5,8 @@
 // La forma imita la salida de `supabase gen types typescript`, así que el día
 // que se generen automáticamente basta con reemplazar este archivo.
 //
-// Nota: `handle_user_deletion` no está en `supabase_setup.sql`; su firma está
-// deducida de la única llamada que existe (src/pages/settings.astro).
+// `handle_user_deletion` está en `supabase_setup.sql` (sección 10). No recibe
+// argumentos: borra la cuenta de auth.uid(), la que firma la petición.
 
 export type Json =
     | string
@@ -114,7 +114,7 @@ export type Database = {
                 Returns: number;
             };
             handle_user_deletion: {
-                Args: { p_user_id: string };
+                Args: Record<string, never>;
                 Returns: undefined;
             };
         };

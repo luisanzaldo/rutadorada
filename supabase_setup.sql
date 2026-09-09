@@ -256,3 +256,75 @@ CREATE TRIGGER comentarios_set_author_name
 --          'Usuario'), 80)
 --   FROM auth.users AS u
 --  WHERE u.id = c.user_id;
+
+-- ---------------------------------------------------------------------
+-- 10. FUNCIÓN RPC: borrado de la propia cuenta
+--
+-- Antes vivía solo en el panel de Supabase, fuera del repo, y recibía
+-- p_user_id desde el navegador. Como corre con SECURITY DEFINER, un
+-- usuario autenticado podía mandar el id de otro y borrarle la cuenta.
+--
+-- Esta versión no recibe nada: actúa sobre auth.uid(), la cuenta que
+-- firma la petición, y no hay parámetro que manipular.
+--
+-- Qué pasa con lo que dejó el usuario. Se sigue el criterio de la antigua
+-- delete_user_final, que también estaba en el panel y nadie llamaba:
+--
+--   · comentarios: se conservan sin autor ('Usuario eliminado'). Son
+--     conversación pública que otros ya leyeron.
+--   · likes, favoritos y profiles: caen por sus ON DELETE CASCADE.
+--     delete_user_final intentaba dejar los likes huérfanos para no bajar
+--     el conteo, pero likes.user_id es NOT NULL y ese UPDATE fallaba.
+--     El conteo baja en uno, que es lo honesto.
+--
+-- El bloque DO elimina TODAS las versiones anteriores, sea cual sea su
+-- firma: si quedara una con parámetro seguiría siendo invocable desde
+-- fuera aunque el cliente ya no la use. delete_user_final se retira en
+-- el mismo paso: su lógica vive aquí y estaba expuesta a anon y
+-- authenticated sin que el sitio la usara.
+-- ---------------------------------------------------------------------
+
+DO $$
+DECLARE
+  firma TEXT;
+BEGIN
+  FOR firma IN
+    SELECT p.oid::regprocedure::text
+      FROM pg_proc p
+      JOIN pg_namespace n ON n.oid = p.pronamespace
+     WHERE n.nspname = 'public' AND p.proname = 'handle_user_deletion'
+  LOOP
+    EXECUTE format('DROP FUNCTION %s', firma);
+  END LOOP;
+END
+$$;
+
+DROP FUNCTION IF EXISTS public.delete_user_final();
+
+CREATE FUNCTION public.handle_user_deletion()
+RETURNS VOID
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE
+  v_uid UUID := auth.uid();
+BEGIN
+  IF v_uid IS NULL THEN
+    RAISE EXCEPTION 'No hay sesión autenticada' USING ERRCODE = '42501';
+  END IF;
+
+  -- El trigger de la sección 9 solo actúa en INSERT; este UPDATE no lo toca.
+  UPDATE public.comentarios
+     SET user_id = NULL,
+         author_name = 'Usuario eliminado'
+   WHERE user_id = v_uid;
+
+  DELETE FROM auth.users WHERE id = v_uid;
+END;
+$$;
+
+-- Solo usuarios con sesión. Supabase concede EXECUTE a anon y authenticated
+-- en toda función nueva de public; se retira a anon explícitamente.
+REVOKE EXECUTE ON FUNCTION public.handle_user_deletion() FROM PUBLIC, anon;
+GRANT  EXECUTE ON FUNCTION public.handle_user_deletion() TO authenticated;

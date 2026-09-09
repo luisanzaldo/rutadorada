@@ -268,9 +268,10 @@ import Footer from "../components/Footer.astro";
                 if (!user) throw new Error("No hay una sesión activa");
 
                 console.log("DELETE_PROCESS: executing handle_user_deletion via RPC");
-                const { error: rpcError } = await supabase.rpc("handle_user_deletion", { 
-                    p_user_id: user.id 
-                });
+                // Sin argumentos a propósito: la función borra auth.uid(), la cuenta
+                // que firma la petición. Antes recibía p_user_id desde aquí, y cualquier
+                // usuario autenticado podía mandar el id de otro.
+                const { error: rpcError } = await supabase.rpc("handle_user_deletion");
 
                 if (rpcError) throw rpcError;
 
