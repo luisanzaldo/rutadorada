@@ -143,12 +143,26 @@ jobs:
       # Usa el .env que generó el paso de construcción, que sigue en el workspace.
       #
       # ┌─────────────────────────────────────────────────────────────────────┐
-      # │ QUITAR ESTE PASO EN LA FASE 5                                       │
+      # │ NO RETIRAR ESTE PASO MIENTRAS EL BOT COMMITEE DIRECTO A GIT         │
       # │                                                                     │
-      # │ --prune borra las filas cuyo slug no esté en src/content/posts. Eso  │
-      # │ es correcto mientras git sea la fuente de verdad. En cuanto el sitio │
-      # │ lea de la base, git deja de serlo y este paso borraría contenido     │
-      # │ que solo viva en Supabase.                                          │
+      # │ El bot NO escribe en Supabase: solo commitea markdown. Este         │
+      # │ --commit es el único puente por el que sus notas llegan a la base.  │
+      # │ Sin él, el bot publicaría, esto desplegaría, y no se vería nada.    │
+      # │                                                                     │
+      # │ El puente sobra en la FASE 6, cuando el bot pase a llamar al        │
+      # │ endpoint. No antes. Una versión anterior de este aviso decía        │
+      # │ "quitar este paso en la fase 5", y seguirlo dejaba al bot mudo.     │
       # └─────────────────────────────────────────────────────────────────────┘
+      #
+      # --prune se retiró al empezar la fase 5. Borraba las filas cuyo slug no
+      # estuviera en src/content/posts: correcto mientras git sea la fuente de
+      # verdad, destructivo en cuanto el sitio lea de la base y haya contenido
+      # que viva solo en Supabase.
+      #
+      # Sin la bandera el script SIGUE LISTANDO las huérfanas en este log, pero
+      # no las toca. Conviene mirarlas: el bot puede borrar una nota publicada
+      # (deletePost en su github.js) sin limpiar Supabase, y esa fila quedaría
+      # como fantasma —invisible hoy, visible en cuanto el sitio lea de la base.
+      # Se limpian a mano con --prune hasta que la fase 6 cierre esa ruta.
       - name: Sincronizar Supabase con git
-        run: node scripts/import-posts.mjs --commit --prune
+        run: node scripts/import-posts.mjs --commit
