@@ -4,7 +4,7 @@ description: "Tras los desafíos creativos de Fire and Ash, Disney y James Camer
 pubDate: 2026-04-08T18:21:49.338Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/el-fin-de-pandora-disney-y-james-cameron-redisenan-el-futuro-de-la-saga-avatar.jpg"
+image: "https://img.rutadoradafilms.com/960a2b3ce435b36b.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

@@ -4,7 +4,7 @@ description: "La AMACC lanza el ciclo *Rumbo al Ariel 2026*, llevando las nomina
 pubDate: 2026-08-12T23:56:20.558Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-08-13-ariel-1786582761057.jpg"
+image: "https://img.rutadoradafilms.com/d63f8b6c9e9e1513.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"

@@ -4,7 +4,8 @@ description: "*Possible Love* de Lee Chang-dong se convierte en la favorita para
 pubDate: 2026-09-08T15:38:02.136Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://m.media-amazon.com/images/M/MV5BMzJiNTcyZDktMTA3ZC00YjMxLWI0YjctMTJjMzY5YzAzNmQ0XkEyXkFqcGc@._V1_.jpg"
+image: "https://img.rutadoradafilms.com/7af67be4bae45b97.jpg"
+imageSource: "https://m.media-amazon.com/images/M/MV5BMzJiNTcyZDktMTA3ZC00YjMxLWI0YjctMTJjMzY5YzAzNmQ0XkEyXkFqcGc@._V1_.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

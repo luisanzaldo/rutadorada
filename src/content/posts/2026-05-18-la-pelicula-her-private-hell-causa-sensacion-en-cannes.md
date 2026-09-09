@@ -5,7 +5,7 @@ pubDate: 2026-05-18T22:56:16.223Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-18-la-pelicula-her-private-hell-causa-sensacion-en-cannes.jpg"
+image: "https://img.rutadoradafilms.com/7e13f34770db4ed5.jpg"
 category: "Premios"
 fuente:
   nombre: "Deadline"

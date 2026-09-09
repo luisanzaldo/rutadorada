@@ -5,7 +5,8 @@ pubDate: 2026-08-08T17:35:36.273Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/07/MCDSPMA_SP138-e1785154645459.jpg"
+image: "https://img.rutadoradafilms.com/e06edccd25cc29ca.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/07/MCDSPMA_SP138-e1785154645459.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

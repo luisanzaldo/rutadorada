@@ -16,11 +16,12 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Las genera el prebuild como <slug>.jpg: al cambiar la URL de origen de una nota
-# cambia el contenido pero no el nombre, así que la caché no puede ser larga.
-# La fase 4 elimina la causa; en R2 las URLs llevarán hash del contenido.
+# Las portadas de las notas ya no viven aquí: están en R2, servidas desde
+# img.rutadoradafilms.com con el hash del contenido en la URL y caché inmutable.
+# Lo que queda en /images son un par de imágenes fijas del sitio, cuyo nombre sí
+# es estable, así que una caché de un día es segura y no exige purgar nada.
 /images/*
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=86400
 
 /icons/*
   Cache-Control: public, max-age=86400

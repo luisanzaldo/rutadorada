@@ -5,7 +5,8 @@ pubDate: 2026-08-09T16:27:28.115Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://hips.hearstapps.com/hmg-prod/images/4d019b43-7e68-4c4a-9a4b-f1ea239f8f42.jpg?crop=1xw:0.9691970091027308xh;0,0.0309xh&resize=980:*"
+image: "https://img.rutadoradafilms.com/b8e802703cf273a4.jpg"
+imageSource: "https://hips.hearstapps.com/hmg-prod/images/4d019b43-7e68-4c4a-9a4b-f1ea239f8f42.jpg?crop=1xw:0.9691970091027308xh;0,0.0309xh&resize=980:*"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

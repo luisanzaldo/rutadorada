@@ -4,7 +4,7 @@ description: "Críticas de A Man of His Time, película de la selección oficial
 pubDate: 2026-05-20T18:44:04.432Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/a-man-of-his-time-es-bien-recibida-por-la-critica-en-cannes-2026-pero-la-llaman-tediosa.jpg"
+image: "https://img.rutadoradafilms.com/5fc99d5e865d2579.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

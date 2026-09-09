@@ -4,7 +4,7 @@ description: "Secuela de la hiperfamosa franquicia de Nintendo vistosa en su ani
 pubDate: 2026-04-12T06:07:51.769Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-04-12-super-mario-galaxy-la-pelicula-o-como-nunca-perder-la-atencion-del-publico.jpg"
+image: "https://img.rutadoradafilms.com/85e0a47a9d445610.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

@@ -5,7 +5,7 @@ pubDate: 2026-03-22T03:08:33.129Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/paapa-essiedu-enfrenta-amenazas-tras-ser-elegido-como-snape-en-nueva-serie-de-harry-potter.jpg"
+image: "https://img.rutadoradafilms.com/706c3495ebce4bee.jpg"
 category: "Artículos"
 fuente:
   nombre: "Hollywood Reporter"

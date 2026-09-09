@@ -5,7 +5,7 @@ pubDate: 2026-05-31T17:01:25.780Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-31-la-invasion-del-terror.jpg"
+image: "https://img.rutadoradafilms.com/8f84af9898f40042.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

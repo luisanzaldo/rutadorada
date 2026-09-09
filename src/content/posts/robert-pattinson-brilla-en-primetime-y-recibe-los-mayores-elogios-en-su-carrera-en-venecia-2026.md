@@ -4,7 +4,8 @@ description: "Reacciones críticas de *Primetime* en Venecia 2026"
 pubDate: 2026-09-05T20:41:19.685Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://static.labiennale.org/files/styles/full_screen_slide/public/cinema/2026/Schede_film/970x647/Venezia_83/primetime-.jpg?itok=TTpjh1Uf"
+image: "https://img.rutadoradafilms.com/79fa14845027a087.jpg"
+imageSource: "https://static.labiennale.org/files/styles/full_screen_slide/public/cinema/2026/Schede_film/970x647/Venezia_83/primetime-.jpg?itok=TTpjh1Uf"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

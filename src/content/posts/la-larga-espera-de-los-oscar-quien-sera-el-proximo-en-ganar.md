@@ -5,7 +5,7 @@ pubDate: 2026-03-24T18:49:04.760Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/la-larga-espera-de-los-oscar-quien-sera-el-proximo-en-ganar.jpg"
+image: "https://img.rutadoradafilms.com/d792c25314afddd5.jpg"
 category: "Premios"
 fuente:
   nombre: "Awards Watch"

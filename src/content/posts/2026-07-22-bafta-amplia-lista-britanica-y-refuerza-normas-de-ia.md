@@ -5,7 +5,7 @@ pubDate: 2026-07-22T16:41:39.820Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-07-22-bafta-amplia-lista-britanica-y-refuerza-normas-de-ia.jpg"
+image: "https://img.rutadoradafilms.com/e4350b84bc7d2dd4.jpg"
 category: "Premios"
 fuente:
   nombre: "AwardsWatch"

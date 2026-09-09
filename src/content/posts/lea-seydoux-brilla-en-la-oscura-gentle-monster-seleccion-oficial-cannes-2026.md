@@ -4,7 +4,7 @@ description: "Críticas de Gentle Monster, lo nuevo de la directora Marie Kreutz
 pubDate: 2026-05-15T23:03:19.590Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/lea-seydoux-brilla-en-la-oscura-gentle-monster-seleccion-oficial-cannes-2026.jpg"
+image: "https://img.rutadoradafilms.com/3046b755c6df1aad.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

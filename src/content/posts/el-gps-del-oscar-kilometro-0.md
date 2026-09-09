@@ -4,7 +4,7 @@ description: "Primeras predicciones antes de los festivales de otoño para los p
 pubDate: 2026-07-03T18:19:03.680Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-07-03-rutadoradagps-1783102743086.png"
+image: "https://img.rutadoradafilms.com/7f0897c04ccba2d1.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -75,7 +75,7 @@ Encendemos motores. Estás en el Kilómetro 0. ¡Arrancamos!
 
 10. Denis Villeneuve – Dune: Messiah
 
-![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-07-03-actoreskilometro0-1783102525409.png)
+![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/publichttps://img.rutadoradafilms.com/body/4735203b659628c4.png)
 
 ### **Mejor Actor Principal**
 

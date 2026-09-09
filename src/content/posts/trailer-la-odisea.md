@@ -4,7 +4,7 @@ description: "Tráiler oficial de La Odisea: Una épica de acción mitológica f
 pubDate: 2026-02-19T00:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/trailer-la-odisea.jpg"
+image: "https://img.rutadoradafilms.com/5fc88f6c1eb7e657.jpg"
 category: "Tráilers"
 videoUrl: "https://youtu.be/kx3pmGx24Tg?si=m9Aa3FBSTne6WEuC"
 readTime: "1 min read"

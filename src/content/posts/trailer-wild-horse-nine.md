@@ -5,7 +5,7 @@ pubDate: 2026-03-19T13:46:58.523Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-wild-horse-nine.jpg"
+image: "https://img.rutadoradafilms.com/e2b47680a567991e.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

@@ -4,7 +4,7 @@ description: "La película de Super Mario Galaxy supera los 1000 millones de dó
 pubDate: 2026-06-07T17:43:50.672Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-06-07-super-mario-galaxy-supera-los-1000-millones-de-dolares.jpg"
+image: "https://img.rutadoradafilms.com/814ee4b51f1fd4b2.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

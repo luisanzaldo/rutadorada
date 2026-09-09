@@ -5,7 +5,7 @@ pubDate: 2026-05-05T18:45:13.603Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-05-el-regreso-de-pans-labyrinth.jpg"
+image: "https://img.rutadoradafilms.com/cdc7d44933d4a5a3.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

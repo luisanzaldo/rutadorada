@@ -4,7 +4,7 @@ description: "Críticas en Cannes 2026 de la última película de Arthur Harari 
 pubDate: 2026-05-18T16:23:55.767Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/lea-seydoux-brilla-por-partida-doble-en-cannes-2026-ahora-con-the-unknown.jpg"
+image: "https://img.rutadoradafilms.com/e48dd6b4b795cd64.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

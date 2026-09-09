@@ -5,7 +5,7 @@ pubDate: 2026-03-18T12:54:26.517Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/trailer-spider-man-un-nuevo-dia.jpg"
+image: "https://img.rutadoradafilms.com/7d93ce3d1bb9f507.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

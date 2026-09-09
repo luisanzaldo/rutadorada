@@ -4,7 +4,7 @@ description: "Pixar sorprende con 'Hoppers', una historia original que combina h
 pubDate: 2026-03-11T00:02:06.615Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/hoppers-pixar-emociona-de-nuevo.jpg"
+image: "https://img.rutadoradafilms.com/d953c3973aa5f376.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

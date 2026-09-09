@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:41:33.205Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/la-historia-de-the-danish-girl-llega-al-teatro-musical.jpg"
+image: "https://img.rutadoradafilms.com/c9b1e4b0adf311f5.jpg"
 category: "Artículos"
 fuente:
   nombre: "Hollywood Reporter"

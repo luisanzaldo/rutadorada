@@ -4,7 +4,7 @@ description: "Super Mario Galaxy Movie lidera la taquilla con $629 millones"
 pubDate: 2026-04-12T17:19:27.306Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-04-12-super-mario-galaxy-supera-los-600-millones-de-dolares-de-taquilla-mundial-proyec.jpg"
+image: "https://img.rutadoradafilms.com/99ac4aa4c8d317af.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

@@ -4,7 +4,7 @@ description: "Entre las películas que se añaden están \"Victorian Psycho\", p
 pubDate: 2026-04-23T01:42:18.307Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/el-festival-de-cannes-agrega-proyecciones-a-su-programacion-de-2026.jpg"
+image: "https://img.rutadoradafilms.com/ad48e4b93e7a5cf5.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:32:10.501Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-beef-temporada-2.jpg"
+image: "https://img.rutadoradafilms.com/8ddfbc9abeb74ccb.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Netflix"]

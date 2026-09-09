@@ -5,7 +5,7 @@ pubDate: 2026-05-10T16:19:49.901Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-10-la-taquilla-sigue-viva.jpg"
+image: "https://img.rutadoradafilms.com/fb24c7f65c96e2d9.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

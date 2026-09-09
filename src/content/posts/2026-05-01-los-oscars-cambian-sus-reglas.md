@@ -4,7 +4,7 @@ description: "Los Oscars actualizan sus reglas para el 2027, incluyendo cambios 
 pubDate: 2026-05-01T18:50:50.554Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-05-01-los-oscars-cambian-sus-reglas.jpg"
+image: "https://img.rutadoradafilms.com/f5787564d97536e7.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

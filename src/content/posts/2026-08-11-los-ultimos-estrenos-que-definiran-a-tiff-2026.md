@@ -5,7 +5,8 @@ pubDate: 2026-08-11T16:13:49.480Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/TIFF-2026.jpg"
+image: "https://img.rutadoradafilms.com/c0e590a89484716a.jpg"
+imageSource: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/TIFF-2026.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

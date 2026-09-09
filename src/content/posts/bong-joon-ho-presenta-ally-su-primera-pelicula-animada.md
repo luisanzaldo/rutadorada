@@ -4,7 +4,7 @@ description: "Bong Joon Ho muestra el primer vistazo de 'Ally', su debut en el c
 pubDate: 2026-04-05T20:45:25.884Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/bong-joon-ho-presenta-ally-su-primera-pelicula-animada.jpg"
+image: "https://img.rutadoradafilms.com/fa69e63b89cc9471.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

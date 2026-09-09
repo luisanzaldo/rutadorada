@@ -5,7 +5,7 @@ pubDate: 2026-03-24T18:28:40.369Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/spider-man-brand-new-day-rompe-records-con-trailer-historico.jpg"
+image: "https://img.rutadoradafilms.com/679ba26857002cea.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

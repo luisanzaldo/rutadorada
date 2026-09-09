@@ -5,7 +5,7 @@ pubDate: 2026-04-05T14:53:53.078Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/super-mario-galaxy-movie-arrasa-en-taquilla-con-190-millones-the-drama-sorprende-con-14-millones.jpg"
+image: "https://img.rutadoradafilms.com/a4fb614cbcabeb1b.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

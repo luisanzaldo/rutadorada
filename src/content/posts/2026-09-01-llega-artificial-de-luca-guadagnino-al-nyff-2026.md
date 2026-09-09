@@ -4,7 +4,8 @@ description: "El esperado estreno de *Artificial* de Luca Guadagnino se verá po
 pubDate: 2026-09-01T17:08:16.479Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/FotoJet-2026-09-01T154819.226.jpg?w=1920&h=1080&crop=1"
+image: "https://img.rutadoradafilms.com/f9e627d2915e7925.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/FotoJet-2026-09-01T154819.226.jpg?w=1920&h=1080&crop=1"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

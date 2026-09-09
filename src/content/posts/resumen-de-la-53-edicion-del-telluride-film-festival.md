@@ -4,7 +4,8 @@ description: "Descubre las películas vistas en Telluride que salen con opciones
 pubDate: 2026-09-08T04:19:12.510Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://cms.indieshortsmag.com/wp-content/uploads/2026/09/Telluride-Film-Festival-Indie-Shorts-Mag-Short-Film-Festival-News-1024x576.jpg"
+image: "https://img.rutadoradafilms.com/186cf35ebb2a8274.jpg"
+imageSource: "https://cms.indieshortsmag.com/wp-content/uploads/2026/09/Telluride-Film-Festival-Indie-Shorts-Mag-Short-Film-Festival-News-1024x576.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

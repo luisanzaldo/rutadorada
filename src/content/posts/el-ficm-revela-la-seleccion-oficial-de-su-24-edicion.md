@@ -4,7 +4,8 @@ description: "96 títulos que definen el pulso del cine mexicano"
 pubDate: 2026-08-14T21:42:47.926Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://palomaynacho.com/wp-content/uploads/2026/08/FICM-2026-portada.jpg"
+image: "https://img.rutadoradafilms.com/8f4e0b706a3ad3a6.jpg"
+imageSource: "https://palomaynacho.com/wp-content/uploads/2026/08/FICM-2026-portada.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"

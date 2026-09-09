@@ -5,7 +5,7 @@ pubDate: 2026-05-13T16:22:42.411Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-13-espectacular-primer-trailer-de-wildwood.jpg"
+image: "https://img.rutadoradafilms.com/39002edf9cb1cebb.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

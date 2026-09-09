@@ -4,7 +4,7 @@ description: "Críticas de Moulin, la última película de László Nemes vista 
 pubDate: 2026-05-17T16:34:46.569Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/laszlo-nemes-deslumbra-tecnicamente-pero-decepciona-narrativamente-con-moulin.jpg"
+image: "https://img.rutadoradafilms.com/58b2dd1f017904ce.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

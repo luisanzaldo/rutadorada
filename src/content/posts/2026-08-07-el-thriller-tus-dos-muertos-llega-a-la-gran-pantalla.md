@@ -4,7 +4,8 @@ description: "*Tus dos muertos* de Daniel Castro Zimbrón estrena en cines el 20
 pubDate: 2026-08-07T08:51:01.168Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://image.tmdb.org/t/p/w1280/pLdNWZiP3mJ8Dk5DAzyYrMD748T.jpg"
+image: "https://img.rutadoradafilms.com/54b25f54daeacd64.jpg"
+imageSource: "https://image.tmdb.org/t/p/w1280/pLdNWZiP3mJ8Dk5DAzyYrMD748T.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"

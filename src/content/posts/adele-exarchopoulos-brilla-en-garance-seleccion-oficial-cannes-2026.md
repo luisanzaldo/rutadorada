@@ -4,7 +4,7 @@ description: "Primeras reacciones críticas de la nueva película de la director
 pubDate: 2026-05-17T19:55:09.470Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/adele-exarchopoulos-brilla-en-garance-seleccion-oficial-cannes-2026.jpg"
+image: "https://img.rutadoradafilms.com/a9f0b1eae0745a81.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

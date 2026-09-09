@@ -4,7 +4,8 @@ description: "El drama bélico *Le Faux Soir* de Michaël R. Roskam será la pel
 pubDate: 2026-08-20T15:30:05.297Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe4CddRGE2BbmjbbgIYix_qO0xikRUZEd8ffbngpUCNaKr-cmX8lBwl3s&s=10"
+image: "https://img.rutadoradafilms.com/cb2861108b0582c6.jpg"
+imageSource: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe4CddRGE2BbmjbbgIYix_qO0xikRUZEd8ffbngpUCNaKr-cmX8lBwl3s&s=10"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

@@ -4,7 +4,7 @@ description: "Conoce nuestras recomendaciones para ver en estas fechas de Pascua
 pubDate: 2026-04-03T07:04:13.814Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/semanasanta.jpg"
+image: "https://img.rutadoradafilms.com/092ce77256c68c35.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

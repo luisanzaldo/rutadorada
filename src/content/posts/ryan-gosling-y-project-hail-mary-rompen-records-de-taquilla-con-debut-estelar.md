@@ -5,7 +5,7 @@ pubDate: 2026-03-24T00:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/ryan-gosling-y-project-hail-mary-rompen-records-de-taquilla-con-debut-estelar.jpg"
+image: "https://img.rutadoradafilms.com/a3d697421764828e.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

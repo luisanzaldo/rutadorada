@@ -5,7 +5,7 @@ pubDate: 2026-07-16T15:22:33.300Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-07-16-trailer-behemoth.jpg"
+image: "https://img.rutadoradafilms.com/0cc1ad39064db4c6.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

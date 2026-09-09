@@ -5,7 +5,7 @@ pubDate: 2026-05-05T04:50:56.339Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-05-trailer-la-odisea.jpg"
+image: "https://img.rutadoradafilms.com/b8f60ed35132209d.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

@@ -5,7 +5,8 @@ pubDate: 2026-08-15T04:27:50.836Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://cdn.abcotvs.com/dip/images/16057975_032025-otrc-coco2-img.jpg"
+image: "https://img.rutadoradafilms.com/c8b05847447b772e.jpg"
+imageSource: "https://cdn.abcotvs.com/dip/images/16057975_032025-otrc-coco2-img.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"

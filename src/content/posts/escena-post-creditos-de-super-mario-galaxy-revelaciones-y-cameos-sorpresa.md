@@ -4,7 +4,7 @@ description: "Descubre las sorpresas y cameos en la escena post-créditos de 'Su
 pubDate: 2026-04-02T17:18:17.726Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/escena-post-creditos-de-super-mario-galaxy-revelaciones-y-cameos-sorpresa.jpg"
+image: "https://img.rutadoradafilms.com/7cec29a5d47c3ad7.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

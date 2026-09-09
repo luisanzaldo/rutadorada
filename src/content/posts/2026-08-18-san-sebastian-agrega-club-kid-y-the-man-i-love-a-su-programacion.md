@@ -4,7 +4,8 @@ description: "San Sebastián incorpora *Club Kid* y *The Man I Love* al programa
 pubDate: 2026-08-18T19:02:22.246Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://deadline.com/wp-content/uploads/2026/05/Club-Kid_Credit-Adam-Newport-Berra.jpg"
+image: "https://img.rutadoradafilms.com/8af3463e06fb33fa.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/05/Club-Kid_Credit-Adam-Newport-Berra.jpg"
 category: "Premios"
 fuente:
   nombre: "Deadline"

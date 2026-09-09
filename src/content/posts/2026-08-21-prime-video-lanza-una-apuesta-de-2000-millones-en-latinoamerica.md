@@ -5,7 +5,8 @@ pubDate: 2026-08-21T12:49:17.017Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.audiovisual451.com/wp-content/uploads/2026/08/La-Oficina-Prime-Video.jpg"
+image: "https://img.rutadoradafilms.com/1cf2ad497285b656.jpg"
+imageSource: "https://www.audiovisual451.com/wp-content/uploads/2026/08/La-Oficina-Prime-Video.jpg"
 category: "Artículos"
 fuente:
   nombre: "Audiovisual451"

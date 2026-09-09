@@ -4,7 +4,7 @@ description: "Universal Pictures se consolida como el estudio más estable de Ho
 pubDate: 2026-04-16T22:34:40.205Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/cinemacon-2026-resumen-universal-y-focus-features.jpg"
+image: "https://img.rutadoradafilms.com/ff9acb73c6551daa.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

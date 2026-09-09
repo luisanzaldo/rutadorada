@@ -4,7 +4,7 @@ description: "Carlos Reygadas estrena *Heil Jupiter!* en la sección Currents de
 pubDate: 2026-08-13T19:06:41.817Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-08-13-heil-jupiter-1786648792553.jpg"
+image: "https://img.rutadoradafilms.com/982024f59c15df34.jpg"
 category: "Artículos"
 fuente:
   nombre: "FICM"

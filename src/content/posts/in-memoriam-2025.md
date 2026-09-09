@@ -5,7 +5,7 @@ pubDate: 2026-03-03T00:26:13.842Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/in-memoriam-2025.jpg"
+image: "https://img.rutadoradafilms.com/485a7dcdfd26ad10.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

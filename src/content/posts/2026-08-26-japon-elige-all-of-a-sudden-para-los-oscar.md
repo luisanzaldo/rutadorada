@@ -5,7 +5,8 @@ pubDate: 2026-08-26T16:48:55.838Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/05/ALL-OF-A-SUDDEN_Courtesy-of-NEON-e1778778122990.jpg"
+image: "https://img.rutadoradafilms.com/5286738998e0a4a1.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/05/ALL-OF-A-SUDDEN_Courtesy-of-NEON-e1778778122990.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

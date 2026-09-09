@@ -4,7 +4,7 @@ description: "Descubre las películas que podrían dominar la temporada de premi
 pubDate: 2026-03-20T20:53:21.600Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/50-peliculas-que-pueden-competir-en-la-temporada-de-premios-2026---parte-2.jpg"
+image: "https://img.rutadoradafilms.com/218169d4aeb4925e.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

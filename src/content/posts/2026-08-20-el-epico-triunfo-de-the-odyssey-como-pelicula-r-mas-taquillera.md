@@ -5,7 +5,8 @@ pubDate: 2026-08-20T17:47:56.564Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/08/The-Odyssey.jpg"
+image: "https://img.rutadoradafilms.com/58d7140c3f23355a.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/08/The-Odyssey.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

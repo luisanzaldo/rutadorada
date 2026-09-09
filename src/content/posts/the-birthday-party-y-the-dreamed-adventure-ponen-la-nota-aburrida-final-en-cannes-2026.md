@@ -4,7 +4,7 @@ description: "Críticas de las últimas películas proyectadas en la selección 
 pubDate: 2026-05-23T00:24:22.898Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-05-23-dreamed-1779496232031.webp"
+image: "https://img.rutadoradafilms.com/e5962a8b38626ef6.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -28,7 +28,7 @@ La primera en presentarse fue **The Dreamed Adventure**, película dirigida por 
 
 [**Deadline**](https://deadline.com/2026/05/the-dreamed-adventure-review-valeska-grisebach-bulgaria-1236918989/)**: "Un drama criminal tremendo que disecciona con brutalidad el pasado búlgaro" (Positiva)** Define la película como un trabajo notable que imbuye a un pueblo fronterizo con el peligro paranoico de clásicos como *Touch of Evil*. Lo más destacable es la actuación de Yana Radeva y la capacidad de transformar un inicio mundano en una historia apasionante sobre control mafioso y crisis de identidad nacional. Alaba especialmente los momentos escalofriantes que capturan la economía violenta que reemplazó a la era comunista, calificando el resultado final como tremendo.
 
-![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-05-23-dreamed-1779494886663.webp)A la segunda del día, le fue aún peor. **The Birthday Party**, dirigida por **Léa Mysius**, la crítica la tacha de tener un guion  **predecible y falto de originalidad**, con un ritmo que decae en el tercer acto y una resolución de la trama que para algunos resulta en **un final poco impactante**. De manera positivan solo destacan las interpretaciones de **Benoît Magimel y Monica Bellucci** (esta última calificada como su mejor actuación en años) y la cinematografía de Paul Guilhaume, que utiliza tonos azules y negros para crear una tensión constante. La película es un thriller francés de invasión doméstica ambientado en una aislada granja lechera de la campiña francesa.
+![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/publichttps://img.rutadoradafilms.com/body/e5962a8b38626ef6.webp)A la segunda del día, le fue aún peor. **The Birthday Party**, dirigida por **Léa Mysius**, la crítica la tacha de tener un guion  **predecible y falto de originalidad**, con un ritmo que decae en el tercer acto y una resolución de la trama que para algunos resulta en **un final poco impactante**. De manera positivan solo destacan las interpretaciones de **Benoît Magimel y Monica Bellucci** (esta última calificada como su mejor actuación en años) y la cinematografía de Paul Guilhaume, que utiliza tonos azules y negros para crear una tensión constante. La película es un thriller francés de invasión doméstica ambientado en una aislada granja lechera de la campiña francesa.
 
 [**Deadline**](https://deadline.com/2026/05/the-birthday-party-review-monica-bellucci-benoit-magimel-1236918406/)**: "Un thriller tenso de invasión doméstica que brilla por sus actuaciones"" (Positiva)** Esta fuente destaca que la película mantiene un suspenso de alto voltaje y elogia la producción, que se desarrolla casi por completo en dos localizaciones. Lo más destacable es la actuación de Benoît Magimel y la presencia de Monica Bellucci.
 
@@ -40,5 +40,5 @@ La primera en presentarse fue **The Dreamed Adventure**, película dirigida por 
 
 [**The Guardian**](https://www.theguardian.com/film/2026/may/22/the-birthday-party-review-grimly-compulsive-unhappy-occasion-in-deepest-france)**: "Un drama rural siniestro y compulsivo que pierde fuelle en su resolución" (Regular)** Valora la película como un cambio de ritmo interesante para la competencia de Cannes, destacando su extrañeza rural siniestra. El punto más fuerte es Magimel, descrito como una gárgola de amenaza que domina sus escenas. El punto débil principal es el ritmo del tercer acto, donde la narrativa parece quedarse sin vapor y un giro de guion clave termina resultando confuso o mal ejecutado.
 
-![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-05-23-party-1779495553717.webp)
+![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/publichttps://img.rutadoradafilms.com/body/32d2d03c5485a478.webp)
 

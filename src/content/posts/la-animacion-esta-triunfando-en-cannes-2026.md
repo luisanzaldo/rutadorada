@@ -4,7 +4,7 @@ description: "In Waves y Tangles, dos películas animadas que están conquistand
 pubDate: 2026-05-14T22:34:08.010Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-05-14-inwaves-tangles-1778798045742.png"
+image: "https://img.rutadoradafilms.com/9ef8c36880b28797.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

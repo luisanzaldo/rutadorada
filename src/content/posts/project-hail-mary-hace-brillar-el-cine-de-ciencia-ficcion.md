@@ -4,7 +4,7 @@ description: "Project Hail Mary es un emocionante y conmovedor viaje espacial co
 pubDate: 2026-03-19T05:53:24.783Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/project-hail-mary-hace-brillar-el-cine-de-ciencia-ficcion.jpg"
+image: "https://img.rutadoradafilms.com/4ed8c56384ba1c98.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

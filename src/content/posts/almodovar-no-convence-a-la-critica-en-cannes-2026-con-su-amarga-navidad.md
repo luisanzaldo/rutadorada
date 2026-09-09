@@ -4,7 +4,7 @@ description: "Críticas de la prensa internacional en Cannes 2026 para lo últim
 pubDate: 2026-05-19T20:29:00.516Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/almodovar-no-convence-a-la-critica-en-cannes-2026-con-su-amarga-navidad.jpg"
+image: "https://img.rutadoradafilms.com/debd09610f4b1055.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

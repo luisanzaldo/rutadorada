@@ -4,7 +4,8 @@ description: "Belgica, Corea del Sur y Alemania ya anunciaron sus candidaturas a
 pubDate: 2026-08-25T21:42:34.646Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://m.media-amazon.com/images/M/MV5BZDcyMGQwNmMtMjdjZi00YTI2LWFiNWItODJiYWIwNjNkNThhXkEyXkFqcGc@._V1_.jpg"
+image: "https://img.rutadoradafilms.com/f91f64e79a4b55d9.jpg"
+imageSource: "https://m.media-amazon.com/images/M/MV5BZDcyMGQwNmMtMjdjZi00YTI2LWFiNWItODJiYWIwNjNkNThhXkEyXkFqcGc@._V1_.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Playlist"

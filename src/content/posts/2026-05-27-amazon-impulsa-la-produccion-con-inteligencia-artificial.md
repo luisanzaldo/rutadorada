@@ -4,7 +4,7 @@ description: "Amazon lanza el Fondo de Creadores GenAI y anuncia tres series ani
 pubDate: 2026-05-27T18:36:45.938Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-05-27-amazon-impulsa-la-produccion-con-inteligencia-artificial.jpg"
+image: "https://img.rutadoradafilms.com/0d1675a733dcb9dd.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

@@ -4,7 +4,7 @@ description: "El segundo largometraje de Rodrigo García Saiz, *Morro*, compite 
 pubDate: 2026-08-06T18:00:38.363Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-08-07-morro2-1786096634347.jpg"
+image: "https://img.rutadoradafilms.com/00606f59a0d68b9d.jpg"
 category: "Premios"
 fuente:
   nombre: "FICM"

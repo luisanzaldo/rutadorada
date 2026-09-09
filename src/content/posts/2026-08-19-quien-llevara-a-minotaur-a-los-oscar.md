@@ -5,7 +5,8 @@ pubDate: 2026-08-19T15:57:12.877Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/05/200498.jpg"
+image: "https://img.rutadoradafilms.com/b914667fe8c834bb.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/05/200498.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

@@ -5,7 +5,8 @@ pubDate: 2026-08-17T15:06:06.011Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://cdn.forbes.com.mx/2026/08/Spider-Man-Brand-New-Day-taquilla.webp"
+image: "https://img.rutadoradafilms.com/fe5f9145828a6c2e.jpg"
+imageSource: "https://cdn.forbes.com.mx/2026/08/Spider-Man-Brand-New-Day-taquilla.webp"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

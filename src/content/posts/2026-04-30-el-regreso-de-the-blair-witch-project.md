@@ -5,7 +5,7 @@ pubDate: 2026-04-30T17:49:25.011Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-04-30-el-regreso-de-the-blair-witch-project.jpg"
+image: "https://img.rutadoradafilms.com/5383f6eda3fa474b.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

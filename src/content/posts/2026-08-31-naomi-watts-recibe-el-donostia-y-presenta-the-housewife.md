@@ -4,7 +4,8 @@ description: "Naomi Watts será galardonada con el Donostia en San Sebastián y 
 pubDate: 2026-08-31T21:35:39.479Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://deadline.com/wp-content/uploads/2026/04/Naomi-Watts-Credit-JuanKR-for-PC-e1776866928764.jpg"
+image: "https://img.rutadoradafilms.com/d1531e60447de66c.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/04/Naomi-Watts-Credit-JuanKR-for-PC-e1776866928764.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

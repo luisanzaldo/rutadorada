@@ -4,7 +4,8 @@ description: "El héroe arácnido *Spider-Man: Brand New Day* supera a *Star War
 pubDate: 2026-08-13T19:03:38.898Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/08/MCDSPMA_SP140.jpg"
+image: "https://img.rutadoradafilms.com/9146e17821d1ce0b.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/08/MCDSPMA_SP140.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

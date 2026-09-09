@@ -4,7 +4,8 @@ description: "Tenemos a la primera favorita para el León de Oro, y una seria ca
 pubDate: 2026-09-03T18:04:06.704Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/06/Wild-Horse-Nine.jpg?w=1000&h=563&crop=1"
+image: "https://img.rutadoradafilms.com/25282a1952e4c5e8.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/06/Wild-Horse-Nine.jpg?w=1000&h=563&crop=1"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

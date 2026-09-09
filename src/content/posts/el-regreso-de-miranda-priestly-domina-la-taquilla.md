@@ -4,7 +4,7 @@ description: "The Devil Wears Prada 2 recauda $233 millones en su estreno mundia
 pubDate: 2026-05-04T14:34:50.446Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/el-regreso-de-miranda-priestly-domina-la-taquilla.jpg"
+image: "https://img.rutadoradafilms.com/4427743fbda8a53f.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

@@ -5,7 +5,7 @@ pubDate: 2026-06-23T14:31:38.289Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-06-23-trailer-the-debut.jpg"
+image: "https://img.rutadoradafilms.com/9838b4616e938885.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

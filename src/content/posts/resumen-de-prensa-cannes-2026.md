@@ -4,7 +4,7 @@ description: "Análisis de las declaraciones de Thierry Frémaux"
 pubDate: 2026-05-12T14:10:48.606Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/resumen-de-prensa-cannes-2026.jpg"
+image: "https://img.rutadoradafilms.com/2ba537806dd21a13.jpg"
 category: "Premios"
 fuente:
   nombre: "Deadline"

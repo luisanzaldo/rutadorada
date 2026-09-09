@@ -5,7 +5,8 @@ pubDate: 2026-08-11T16:23:28.514Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/Godzilla-Minus-Zero-scaled.jpg"
+image: "https://img.rutadoradafilms.com/e685e2f761161800.jpg"
+imageSource: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/08/Godzilla-Minus-Zero-scaled.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

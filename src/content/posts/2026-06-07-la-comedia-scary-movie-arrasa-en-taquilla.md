@@ -5,7 +5,7 @@ pubDate: 2026-06-07T15:16:53.614Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-06-07-la-comedia-scary-movie-arrasa-en-taquilla.jpg"
+image: "https://img.rutadoradafilms.com/8dcb6e7a5b2bfd1f.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

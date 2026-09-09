@@ -4,7 +4,7 @@ description: "Críticas de Minotaur de Andrey Zvyagintsev proyectada en la selec
 pubDate: 2026-05-19T17:23:14.863Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/minotaur-de-andrey-zvyagintsev-conquista-a-la-critica-en-cannes.jpg"
+image: "https://img.rutadoradafilms.com/91a847eabcd7cf22.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

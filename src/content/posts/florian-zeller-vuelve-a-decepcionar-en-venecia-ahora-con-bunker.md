@@ -4,7 +4,8 @@ description: "Reacciones de la crítica de la película *Bunker* en Venecia 2026
 pubDate: 2026-09-08T17:53:55.983Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/Bunker-con-Penelope-Cruz-y-Javier-Bardem-se-proyectara-en-TIFF-2026.jpg"
+image: "https://img.rutadoradafilms.com/6ab58574068e9be2.jpg"
+imageSource: "https://es.hollywoodreporter.com/wp-content/uploads/2026/07/Bunker-con-Penelope-Cruz-y-Javier-Bardem-se-proyectara-en-TIFF-2026.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

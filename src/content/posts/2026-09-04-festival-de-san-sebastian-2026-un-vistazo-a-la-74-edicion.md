@@ -4,7 +4,8 @@ description: "Descubre la programación, premios y la constelación de cineastas
 pubDate: 2026-09-04T21:48:54.182Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://images.ecestaticos.com/8ck_NhaBK2TumdOHQSyAd2_fJsE=/27x0:1683x1242/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F883%2Fd80%2Fa1c%2F883d80a1cbb50af3175ea3f156b08d3e.jpg"
+image: "https://img.rutadoradafilms.com/82ebdf0bec8b3f76.jpg"
+imageSource: "https://images.ecestaticos.com/8ck_NhaBK2TumdOHQSyAd2_fJsE=/27x0:1683x1242/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F883%2Fd80%2Fa1c%2F883d80a1cbb50af3175ea3f156b08d3e.jpg"
 category: "Artículos"
 fuente:
   nombre: "sansebastianfestival"

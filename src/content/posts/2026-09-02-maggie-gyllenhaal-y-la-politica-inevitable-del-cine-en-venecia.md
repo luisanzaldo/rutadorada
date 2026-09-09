@@ -4,7 +4,8 @@ description: "Maggie Gyllenhaal afirma que el cine es inevitablemente político 
 pubDate: 2026-09-02T15:24:24.737Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/09/GettyImages-2293134821.jpg"
+image: "https://img.rutadoradafilms.com/19ec609676e500db.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/09/GettyImages-2293134821.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

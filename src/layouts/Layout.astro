@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { portada, estaEnR2 } from "../lib/images";
 import VideoModal from "../components/VideoModal.astro";
 import RssModal from "../components/RssModal.astro";
 
@@ -15,10 +16,16 @@ const {
 	image = "/images/RutaDorada-web.png",
 } = Astro.props;
 
-// Ensure absolute URL for social images
-const socialImageURL = image.startsWith('http')
-	? image
-	: new URL(image, Astro.site || Astro.url).href;
+// Portada social. La variante -og de R2 mide 1200x630 exactos, que es lo que
+// declaran og:image:width/height. Cuando la imagen no está en R2 no declaramos
+// medidas, porque no las sabemos: la portada por defecto mide 798x218 y
+// anunciarla como 1200x630 hacía que algunas redes maquetaran mal la tarjeta
+// antes de descargarla.
+const { social } = portada(image);
+const socialImageURL = social.startsWith('http')
+	? social
+	: new URL(social, Astro.site || Astro.url).href;
+const socialConMedidas = estaEnR2(image);
 
 // Analytics — solo se cargan en producción y si los IDs están definidos
 const GA4_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
@@ -63,8 +70,12 @@ const analyticsEnabled = import.meta.env.PROD;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
+		{socialConMedidas && (
+			<Fragment>
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+			</Fragment>
+		)}
 		<meta property="og:image:alt" content={title} />
 		<meta property="og:site_name" content="RutaDorada Films" />
 

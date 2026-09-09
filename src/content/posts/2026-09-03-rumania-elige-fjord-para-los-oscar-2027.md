@@ -4,7 +4,8 @@ description: "*Fjord* de Cristian Mungiu, ganador de la Palma de Oro, representa
 pubDate: 2026-09-03T15:41:20.180Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/09/Fjord.jpg"
+image: "https://img.rutadoradafilms.com/e3aef4b2736f40e9.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/09/Fjord.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

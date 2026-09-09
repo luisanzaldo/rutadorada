@@ -5,7 +5,7 @@ pubDate: 2026-05-07T19:56:39.325Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-07-la-fecha-de-los-golden-globes.jpg"
+image: "https://img.rutadoradafilms.com/5b81a0ba9b26ed5f.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

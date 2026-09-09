@@ -5,7 +5,7 @@ pubDate: 2026-05-28T00:02:50.302Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-28-primeras-reacciones-a-disclosure-day.jpg"
+image: "https://img.rutadoradafilms.com/f5dc3b7450177eb7.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

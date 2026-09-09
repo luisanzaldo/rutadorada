@@ -4,7 +4,8 @@ description: "Danny Boyle presenta *Ink*, película sobre Rupert Murdoch y el au
 pubDate: 2026-08-10T23:06:08.016Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/INK_02437_R.jpg?w=1296&h=730&crop=1"
+image: "https://img.rutadoradafilms.com/5774d864ebefc5b5.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/INK_02437_R.jpg?w=1296&h=730&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"

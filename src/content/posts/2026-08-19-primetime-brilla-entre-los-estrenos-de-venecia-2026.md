@@ -5,7 +5,8 @@ pubDate: 2026-08-19T03:25:00.000Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://d6isf1yxni2j5.cloudfront.net/large_Robert_Pattinson_f069e6ca5f.jpg"
+image: "https://img.rutadoradafilms.com/4dcc60410c6c42d3.jpg"
+imageSource: "https://d6isf1yxni2j5.cloudfront.net/large_Robert_Pattinson_f069e6ca5f.jpg"
 category: "Premios"
 fuente:
   nombre: "Escribiendocine"

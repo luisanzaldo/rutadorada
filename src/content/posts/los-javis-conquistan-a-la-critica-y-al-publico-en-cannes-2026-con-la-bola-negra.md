@@ -4,7 +4,7 @@ description: "Críticas de La bola negra, película de Los Javis que ha deslumbr
 pubDate: 2026-05-21T17:43:52.953Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/los-javis-conquistan-a-la-critica-y-al-publico-en-cannes-2026-con-la-bola-negra.jpg"
+image: "https://img.rutadoradafilms.com/cfa35d7371d58f4a.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"
@@ -15,7 +15,7 @@ tags: ["Cannes"]
 
 La película **La Bola Negra (The Black Ball)**, dirigida por **Javier Ambrossi y Javier Calvo** (Los Javis), ha sido recibida en el Festival de Cannes 2026 con un sentimiento ferviente que la apunta directo al palmarés de este sábado 23 de mayo. La curva inicial en Letterboxd tiene uno de los mejores arranques del festival de este año, lo cual deja ver en claro que la tendencia de la película es que ha gustado, y mucho.
 
-![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-05-21-1000059455-1779384906745.jpg)La película narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca.
+![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/publichttps://img.rutadoradafilms.com/body/e72181b851e1f30b.jpg)La película narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca.
 
 La crítica coincide en que se trata de una **obra extremadamente ambiciosa** que entrelaza tres líneas temporales (1932, 1937 y 2017) para explorar la identidad queer en España. Sus puntos fuertes residen en su **maestría técnica, una banda sonora deslumbrante** de Raül Refree, y **las destacadas actuaciones de su reparto**, incluyendo cameos estelares de **Penélope Cruz y Glenn Close**. Por el contrario, sus debilidades más señaladas son su **excesiva duración** (cerca de 160 minutos), una **tendencia al melodrama desmedido** que algunos tachan de "*kitsch*" o tedioso, y una estructura que, para ciertos críticos, **carece de disciplina narrativa**.
 

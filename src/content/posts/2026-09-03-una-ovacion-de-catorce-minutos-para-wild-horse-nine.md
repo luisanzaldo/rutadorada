@@ -4,7 +4,8 @@ description: "El estreno de *Wild Horse Nine* en Venecia desató una ovación de
 pubDate: 2026-09-03T21:05:43.162Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/03/Wild-Horse-Nine.jpg"
+image: "https://img.rutadoradafilms.com/2326a7df7d311c9a.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/03/Wild-Horse-Nine.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

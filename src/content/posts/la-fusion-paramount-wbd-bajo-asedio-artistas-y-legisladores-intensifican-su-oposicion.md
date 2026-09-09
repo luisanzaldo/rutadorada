@@ -4,7 +4,7 @@ description: "El acuerdo de 111 mil millones de dólares entre Paramount Skydanc
 pubDate: 2026-04-23T19:38:04.254Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-04-23-fusion-1776973083348.jpg"
+image: "https://img.rutadoradafilms.com/0a6e2a423b9782e0.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
@@ -17,7 +17,7 @@ El polémico acuerdo de 111 mil millones de dólares mediante el cual Paramount 
 
 La oposición no solo persiste, sino que se ha articulado a través de una poderosa coalición encabezada por figuras prominentes de la industria del entretenimiento. Actores de la talla de Robert De Niro, Sofia Coppola, Holly Hunter, Pedro Pascal, Florence Pugh, Joaquin Phoenix y Mark Ruffalo, entre otros, han suscrito una carta abierta (disponible en [BlockTheMerger.com](http://BlockTheMerger.com)) para expresar su rechazo frontal a la fusión. Según los organizadores, la iniciativa cuenta ya con 4,194 firmantes, incluyendo a más de 75 ganadores y nominados al premio Oscar.
 
-![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/public/images/posts/2026-04-23-actores-vs-1776972847052.jpg)
+![](https://raw.githubusercontent.com/luisanzaldo/rutadorada/main/publichttps://img.rutadoradafilms.com/body/ab5ccee79f3be9cf.jpg)
 
 ### La fusión representa amenazas para la industria, asegura el colectivo
 

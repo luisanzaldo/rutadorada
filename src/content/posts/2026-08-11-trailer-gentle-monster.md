@@ -5,7 +5,8 @@ pubDate: 2026-08-11T16:09:26.678Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://images.mubicdn.net/images/film/461295/cache-1125343-1775794253/image-w1280.jpg?size=800x"
+image: "https://img.rutadoradafilms.com/7d911e17a6a064fa.jpg"
+imageSource: "https://images.mubicdn.net/images/film/461295/cache-1125343-1775794253/image-w1280.jpg?size=800x"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Netflix"]

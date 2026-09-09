@@ -4,7 +4,7 @@ description: "Descubre el regreso de la moda y el drama en 'The Devil Wears Prad
 pubDate: 2026-04-06T21:09:54.856Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/trailer-the-devil-wears-prada-2.jpg"
+image: "https://img.rutadoradafilms.com/eac728458cc6b3f4.jpg"
 category: "Tráilers"
 videoUrl: "https://youtu.be/2mha7C_mCRs?si=v_yTUcTWbcBHS4GF"
 readTime: "1 min read"

@@ -5,7 +5,7 @@ pubDate: 2026-05-29T06:39:27.710Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/2026-05-29-trailer-de-fatherland.jpg"
+image: "https://img.rutadoradafilms.com/45d4d6ff87d6b9a3.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

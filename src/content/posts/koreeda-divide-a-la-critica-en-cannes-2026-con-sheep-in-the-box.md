@@ -4,7 +4,7 @@ description: "Críticas de Sheep in the Box, último trabajo de Hirokazu Koreeda
 pubDate: 2026-05-16T17:19:17.177Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/koreeda-divide-a-la-critica-en-cannes-2026-con-sheep-in-the-box.jpg"
+image: "https://img.rutadoradafilms.com/88ebaa7332b0fe1a.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

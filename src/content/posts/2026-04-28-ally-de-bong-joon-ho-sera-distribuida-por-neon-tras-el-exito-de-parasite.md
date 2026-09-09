@@ -5,7 +5,7 @@ pubDate: 2026-04-28T20:20:11.648Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-04-28-ally-de-bong-joon-ho-sera-distribuida-por-neon-tras-el-exito-de-parasite.jpg"
+image: "https://img.rutadoradafilms.com/3cac91455b9543a7.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

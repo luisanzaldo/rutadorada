@@ -5,7 +5,7 @@ pubDate: 2026-04-07T15:41:53.211Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-the-invite.jpg"
+image: "https://img.rutadoradafilms.com/5b95e26c38ef5824.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

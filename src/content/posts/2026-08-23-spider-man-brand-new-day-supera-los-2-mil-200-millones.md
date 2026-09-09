@@ -5,7 +5,8 @@ pubDate: 2026-08-23T16:03:32.538Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/08/spider-man-brand-new-day-image.jpg"
+image: "https://img.rutadoradafilms.com/2bfa58c67ed9d9d6.jpg"
+imageSource: "https://www.thewrap.com/wp-content/uploads/2026/08/spider-man-brand-new-day-image.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

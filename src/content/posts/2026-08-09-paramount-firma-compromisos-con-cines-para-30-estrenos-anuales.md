@@ -5,7 +5,8 @@ pubDate: 2026-08-09T19:55:26.930Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://elceo.com/wp-content/uploads/2026/02/warner_paramount_adquisicion.jpg"
+image: "https://img.rutadoradafilms.com/0a6e2a423b9782e0.jpg"
+imageSource: "https://elceo.com/wp-content/uploads/2026/02/warner_paramount_adquisicion.jpg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"

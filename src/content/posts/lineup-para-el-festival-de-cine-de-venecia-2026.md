@@ -4,7 +4,7 @@ description: "El Festival Internacional de Cine de Venecia ha anunciado oficialm
 pubDate: 2026-07-23T15:08:39.802Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/lineup-para-el-festival-de-cine-de-venecia-2026.jpg"
+image: "https://img.rutadoradafilms.com/ed5588d7a0f63b6b.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"

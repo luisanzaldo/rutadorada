@@ -5,7 +5,7 @@ pubDate: 2026-04-29T23:28:22.709Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-04-29-la-hija-de-val-kilmer-defiende-el-uso-de-inteligencia-artificial.jpg"
+image: "https://img.rutadoradafilms.com/0499e076efa7c219.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

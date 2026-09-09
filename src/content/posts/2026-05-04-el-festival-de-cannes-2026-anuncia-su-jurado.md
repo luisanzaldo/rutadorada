@@ -4,7 +4,7 @@ description: "El festival de Cannes 2026 presenta a su jurado, encabezado por Pa
 pubDate: 2026-05-04T21:43:16.034Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-05-04-el-festival-de-cannes-2026-anuncia-su-jurado.jpg"
+image: "https://img.rutadoradafilms.com/ec089cc3954c6641.jpg"
 category: "Premios"
 fuente:
   nombre: "The Playlist"

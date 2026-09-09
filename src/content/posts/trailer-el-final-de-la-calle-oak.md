@@ -5,7 +5,7 @@ pubDate: 2026-03-27T15:52:50.683Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/trailer-el-final-de-la-calle-oak.jpg"
+image: "https://img.rutadoradafilms.com/84daeb0ff4315293.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

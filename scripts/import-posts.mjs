@@ -83,7 +83,10 @@ for (const file of files) {
     image_credit: null,
     // Si la imagen sigue siendo remota, esa URL es su procedencia. Si ya es local,
     // el prebuild la reescribió en su día y el origen se perdió.
-    image_source: img.startsWith('http') ? img : null,
+    // `imageSource` es explícito desde la fase 4. La heurística de abajo solo
+    // cubre las notas anteriores a la migración: en cuanto la imagen vive en R2
+    // su URL empieza por http sin ser su procedencia.
+    image_source: vacio(fm.imageSource) ?? (img.startsWith('http') ? img : null),
     ficha_tecnica: fm.fichaTecnica ?? null,
     fuente: fm.fuente ?? null,
   };

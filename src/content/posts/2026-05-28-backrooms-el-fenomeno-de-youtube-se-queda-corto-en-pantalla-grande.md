@@ -4,7 +4,7 @@ description: "Backrooms, la película de Kane Parsons, tiene un diseño de produ
 pubDate: 2026-05-28T06:17:11.428Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-05-28-backrooms-el-fenomeno-de-youtube-se-queda-corto-en-pantalla-grande.jpg"
+image: "https://img.rutadoradafilms.com/042421acfb3c8b2e.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

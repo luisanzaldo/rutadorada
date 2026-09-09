@@ -4,7 +4,8 @@ description: "Probablemente sean las peores críticas del italiano Nanni Moretti
 pubDate: 2026-09-05T21:03:48.504Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://static.labiennale.org/files/styles/full_screen_slide/public/cinema/2026/Schede_film/970x647/Venezia_83/succedera_questa_notte.jpg?itok=gzpWM45Z"
+image: "https://img.rutadoradafilms.com/cd7c9d40c13b3083.jpg"
+imageSource: "https://static.labiennale.org/files/styles/full_screen_slide/public/cinema/2026/Schede_film/970x647/Venezia_83/succedera_questa_notte.jpg?itok=gzpWM45Z"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

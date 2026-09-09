@@ -5,7 +5,7 @@ pubDate: 2026-05-28T16:37:25.809Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "/images/posts/2026-05-28-trailer-el-dia-de-la-revelacion.jpg"
+image: "https://img.rutadoradafilms.com/3c635dc7fbe417d5.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

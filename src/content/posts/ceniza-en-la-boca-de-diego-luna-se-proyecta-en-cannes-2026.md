@@ -4,7 +4,7 @@ description: "Reacciones de la nueva película de Diego Luna como director que s
 pubDate: 2026-05-13T17:00:53.865Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/ceniza-en-la-boca-de-diego-luna-se-proyecta-en-cannes-2026.jpg"
+image: "https://img.rutadoradafilms.com/a67d6808de3f6fd8.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

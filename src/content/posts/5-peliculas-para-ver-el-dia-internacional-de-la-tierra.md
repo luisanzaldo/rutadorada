@@ -4,7 +4,7 @@ description: "El Futuro en Nuestras Manos: Cine para el Día de la Tierra"
 pubDate: 2026-04-20T16:12:56.828Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/5-peliculas-para-ver-el-dia-internacional-de-la-tierra.jpg"
+image: "https://img.rutadoradafilms.com/2997900ea61b3d96.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

@@ -4,7 +4,7 @@ description: "Descubre las 17 cintas elegibles que la AMACC propone para represe
 pubDate: 2026-07-22T18:50:46.138Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-07-22-peliculas-mexicanas-que-aspiran-a-oscar-y-goya-2027.jpg"
+image: "https://img.rutadoradafilms.com/e0f526986a875230.jpg"
 category: "Premios"
 fuente:
   nombre: "FICM"

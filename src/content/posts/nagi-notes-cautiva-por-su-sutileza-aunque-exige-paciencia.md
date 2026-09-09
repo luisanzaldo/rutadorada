@@ -4,7 +4,7 @@ description: "Críticas de Nagi Notes de la selección oficial por la Palma de O
 pubDate: 2026-05-13T15:19:52.955Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/nagi-notes-cautiva-por-su-sutileza-aunque-exige-paciencia.jpg"
+image: "https://img.rutadoradafilms.com/f54d11a50e3d63f9.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

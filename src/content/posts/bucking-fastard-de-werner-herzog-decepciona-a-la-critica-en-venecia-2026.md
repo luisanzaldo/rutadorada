@@ -4,7 +4,8 @@ description: "Críticas de la última película de Werner Herzog proyectada en l
 pubDate: 2026-09-03T17:30:23.400Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://lastmovieoutpost.com/wp-content/uploads/2025/02/bucking_fastard_kate_rooney_mara.jpg"
+image: "https://img.rutadoradafilms.com/eb2ee2a8882d2363.jpg"
+imageSource: "https://lastmovieoutpost.com/wp-content/uploads/2025/02/bucking_fastard_kate_rooney_mara.jpg"
 category: "Artículos"
 fuente:
   nombre: "Redacción"

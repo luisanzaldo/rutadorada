@@ -4,7 +4,7 @@ description: "La leyenda del rey del pop rescata su biopic del olvido. Te compar
 pubDate: 2026-04-25T06:01:27.665Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-04-25-michael-cuando-la-leyenda-esta-mas-alla-de-un-mal-guion.jpg"
+image: "https://img.rutadoradafilms.com/7ff329ae443e4f15.jpg"
 category: "Críticas"
 fuente:
   nombre: "Redacción"

@@ -5,7 +5,8 @@ pubDate: 2026-08-07T18:14:53.534Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/07/The-Odyssey-2026.jpg"
+image: "https://img.rutadoradafilms.com/299d4f0bc67c8eb5.jpg"
+imageSource: "https://www.thewrap.com/wp-content/uploads/2026/07/The-Odyssey-2026.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"

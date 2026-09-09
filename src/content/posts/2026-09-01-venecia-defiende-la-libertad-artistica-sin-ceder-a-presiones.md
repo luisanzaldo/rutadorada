@@ -4,7 +4,7 @@ description: "El director Alberto Barbera asegura que el Festival de Venecia pro
 pubDate: 2026-09-01T19:01:56.116Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-09-02-barbera-1788318379018.jpg"
+image: "https://img.rutadoradafilms.com/826cc919b902c0b6.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:29:58.376Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/trailer-mother-mary.jpg"
+image: "https://img.rutadoradafilms.com/7877390ecca9d19c.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

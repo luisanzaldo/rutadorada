@@ -1,6 +1,7 @@
 ---
 import { renderRichText, stripRichText } from "../lib/richText";
 import { getTrailerUrl } from "../lib/trailers";
+import { portada } from "../lib/images";
 
 interface RelatedPost {
     title: string;
@@ -25,6 +26,12 @@ interface Props {
 }
 
 const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
+
+// La miniatura ocupa el ancho de la tarjeta del aside: casi toda la pantalla en
+// móvil y una columna estrecha en escritorio.
+const MINIATURA_SIZES = "(max-width: 640px) 90vw, 320px";
 ---
 
 <aside class="hidden lg:block lg:col-span-3 sticky top-24 self-start space-y-8">
@@ -109,6 +116,7 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                                 const isTrailer = post.category === "Tráilers" && post.videoUrl;
                                 const url = isTrailer ? getTrailerUrl(post.slug) : `/posts/${post.slug}`;
                                 const triggerClass = isTrailer ? "video-trigger" : "";
+                                const img = portada(post.image, baseUrl);
                                 return (
                                     <a
                                         href={url}
@@ -118,9 +126,13 @@ const { headings, relatedPosts, category, fichaTecnica } = Astro.props;
                                         <div class="mb-3 overflow-hidden rounded-lg h-32 w-full bg-slate-200 dark:bg-[#102023] relative">
                                             <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 to-transparent opacity-60" />
                                             <picture>
-                                                <source srcset={(post.image.startsWith('/') ? `${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}${post.image}` : post.image).replace('.jpg', '-mobile.jpg')} media="(max-width: 640px)" />
+                                                {img.srcsetWebp && (
+                                                    <source type="image/webp" srcset={img.srcsetWebp} sizes={MINIATURA_SIZES} />
+                                                )}
                                                 <img
-                                                    src={post.image.startsWith('/') ? `${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}${post.image}` : post.image}
+                                                    src={img.src}
+                                                    srcset={img.srcset}
+                                                    sizes={img.srcset ? MINIATURA_SIZES : undefined}
                                                     alt={stripRichText(post.title)}
                                                     class="h-full w-full object-cover transition-transform group-hover:scale-105"
                                                     loading="lazy"

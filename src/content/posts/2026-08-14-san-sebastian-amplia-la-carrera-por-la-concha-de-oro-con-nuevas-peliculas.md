@@ -4,7 +4,8 @@ description: "El Festival de San Sebastián incorpora seis estrenos, entre *The 
 pubDate: 2026-08-14T17:53:24.209Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://nextbestpicture.com/wp-content/uploads/2026/06/The-Debut-scaled.jpg"
+image: "https://img.rutadoradafilms.com/a0c63940cc4fbf17.jpg"
+imageSource: "https://nextbestpicture.com/wp-content/uploads/2026/06/The-Debut-scaled.jpg"
 category: "Premios"
 fuente:
   nombre: "Variety"

@@ -4,7 +4,7 @@ description: "Cristian Mungiu se une al selecto grupo de directores con dos Palm
 pubDate: 2026-05-23T20:07:21.409Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/fjord-se-alza-con-la-palma-de-oro.jpg"
+image: "https://img.rutadoradafilms.com/e529be9f32c3235b.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

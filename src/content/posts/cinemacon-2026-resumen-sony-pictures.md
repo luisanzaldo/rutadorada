@@ -4,7 +4,7 @@ description: "Sony sacó los \"pesos pesados\" en Las Vegas, confirmando que son
 pubDate: 2026-04-15T14:39:53.609Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/cinemacon-2026-resumen-sony-pictures.jpg"
+image: "https://img.rutadoradafilms.com/a74e2ab0a37f021c.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

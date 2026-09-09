@@ -30,3 +30,6 @@ test_*.js
 test_*.css
 pnpm-dist/
 tmp/
+
+# Fase 4: variantes de imagen antes de subirlas a R2. No se versionan.
+.r2-staging/

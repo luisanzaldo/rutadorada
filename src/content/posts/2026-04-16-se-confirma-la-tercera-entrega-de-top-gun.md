@@ -5,7 +5,7 @@ pubDate: 2026-04-16T17:53:16.725Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-04-16-se-confirma-la-tercera-entrega-de-top-gun.jpg"
+image: "https://img.rutadoradafilms.com/6d6bdf7ae3ff05bd.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

@@ -4,7 +4,7 @@ description: "Se ha revelado la lista oficial de la 79ª edición del Festival d
 pubDate: 2026-04-09T14:26:13.921Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/2026-04-09-gemini-generated-image-jzyygwjzyygwjzyy-1775745199887.png"
+image: "https://img.rutadoradafilms.com/30f6a7f1851ff920.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

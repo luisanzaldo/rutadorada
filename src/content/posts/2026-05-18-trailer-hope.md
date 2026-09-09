@@ -5,7 +5,7 @@ pubDate: 2026-05-18T02:13:51.628Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-05-18-trailer-hope.jpg"
+image: "https://img.rutadoradafilms.com/ce709e7bf84c7433.jpg"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Cines"]

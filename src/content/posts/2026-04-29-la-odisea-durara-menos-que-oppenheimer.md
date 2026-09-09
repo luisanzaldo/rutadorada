@@ -5,7 +5,7 @@ pubDate: 2026-04-29T19:17:15.240Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/2026-04-29-la-odisea-durara-menos-que-oppenheimer.jpg"
+image: "https://img.rutadoradafilms.com/65bdd4cb293b1643.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"

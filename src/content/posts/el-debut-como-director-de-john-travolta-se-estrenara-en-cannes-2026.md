@@ -5,7 +5,7 @@ pubDate: 2026-04-02T17:38:44.972Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "/images/posts/el-debut-como-director-de-john-travolta-se-estrenara-en-cannes-2026.jpg"
+image: "https://img.rutadoradafilms.com/915585b853ddaa42.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"

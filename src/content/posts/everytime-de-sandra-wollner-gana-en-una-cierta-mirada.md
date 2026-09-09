@@ -4,7 +4,7 @@ description: "Ganadores de Una Cierta Mirada Cannes 2026"
 pubDate: 2026-05-23T00:38:29.508Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/everytime-de-sandra-wollner-gana-en-una-cierta-mirada.jpg"
+image: "https://img.rutadoradafilms.com/0fae7627facbea7d.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"

@@ -4,7 +4,7 @@ description: "Primera parte de las 50 películas con mayores posibilidades de co
 pubDate: 2026-03-19T14:00:00.000Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "/images/posts/50-peliculas-temporada-premios-parte1.jpg"
+image: "https://img.rutadoradafilms.com/c0b6b2ef972c802b.jpg"
 category: "Premios"
 fuente:
   nombre: "Redacción"
