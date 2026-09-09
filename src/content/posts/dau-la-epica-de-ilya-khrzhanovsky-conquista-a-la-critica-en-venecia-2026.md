@@ -4,7 +4,8 @@ description: "Reacciones de la crítica de DAU, película que se perfila para es
 pubDate: 2026-09-09T17:52:21.326Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/113571-DAU_-_Official_still__Credits_Phenomen_Berlin_-H-2026.jpg?w=1296"
+image: "https://img.rutadoradafilms.com/f45a7119c4469301.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/113571-DAU_-_Official_still__Credits_Phenomen_Berlin_-H-2026.jpg?w=1296"
 category: "Artículos"
 fuente:
   nombre: "Redacción"
