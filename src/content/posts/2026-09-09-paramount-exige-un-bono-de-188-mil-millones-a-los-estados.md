@@ -1,12 +1,10 @@
 ---
-title: "Paramount exige un bono de 1.88 mil millones a los estados"
+title: "Paramount pide un bono de 1.88 mil millones a los estados"
 description: "Paramount presiona a California y a la WGA para que cubran con un bono de *$1.88 mil millones* los daños del retraso del mega‑merger con Warner Bros."
 pubDate: 2026-09-09T02:57:56.162Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
 image: "https://img.rutadoradafilms.com/f00e44957fb3bed1.jpg"
-imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/08/ellisoncinemacon.jpg?w=1440&h=810&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"
@@ -14,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["Industria"]
 ---
+
 
 ## Contexto del conflicto
 
