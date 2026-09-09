@@ -4,7 +4,8 @@ description: "El 24° Festival Internacional de Cine de Morelia presenta ocho la
 pubDate: 2026-09-08T21:32:08.593Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://m.media-amazon.com/images/M/MV5BMmEzYWMxNTgtMDQxYy00ZTk2LTk0MzYtMjEyNmQ4ZDdkYmNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+image: "https://img.rutadoradafilms.com/2bdad3352619fbad.jpg"
+imageSource: "https://m.media-amazon.com/images/M/MV5BMmEzYWMxNTgtMDQxYy00ZTk2LTk0MzYtMjEyNmQ4ZDdkYmNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
 category: "Artículos"
 fuente:
   nombre: "Moreliafilmfest"
