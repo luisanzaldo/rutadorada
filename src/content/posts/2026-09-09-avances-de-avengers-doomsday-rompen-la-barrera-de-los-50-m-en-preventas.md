@@ -5,7 +5,8 @@ pubDate: 2026-09-09T20:52:55.968Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/09/avengers-doomsday-marvel-russo-brothers.jpg"
+image: "https://img.rutadoradafilms.com/4fce7176307a65f5.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/09/avengers-doomsday-marvel-russo-brothers.jpg"
 category: "Artículo"
 fuente:
   nombre: "Deadline"
