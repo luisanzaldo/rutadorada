@@ -176,6 +176,29 @@ export async function consultarPublicadas<T>(columnas: string, env?: Entorno): P
 }
 
 /**
+ * Al construir, el catálogo se lee una sola vez y se conserva.
+ *
+ * Deduplicar solo lo que está en vuelo —lo que hace `enVuelo` más abajo— es lo
+ * correcto al servir: el ámbito de módulo de un Worker sobrevive entre
+ * peticiones, así que cachear ahí serviría contenido viejo. Un build no tiene
+ * ese problema: es una foto de un instante y nada de lo que lea puede quedarse
+ * obsoleto dentro de él.
+ *
+ * Sin esta foto cada página se descargaba el catálogo entero. Medido sobre las
+ * 249 páginas: 243 consultas y 34,7 MB para entregar 0,9 MB de contenido, 77 de
+ * los 114 segundos que tardaba el build. Y el coste crecía con el cuadrado del
+ * número de notas, porque crecen a la vez las páginas y el tamaño de cada
+ * consulta.
+ *
+ * Se activa solo con SNAPSHOT_BUILD, que pone el script `build` de
+ * package.json. `astro dev` no la lleva, y en el Worker `process.env` es un
+ * objeto vacío, así que al servir esto es siempre falso.
+ */
+const FOTO_DE_BUILD = typeof process !== 'undefined' && !!process.env?.SNAPSHOT_BUILD;
+
+let fotoCatalogo: Promise<EntradaPost[]> | null = null;
+
+/**
  * Deduplica solo las peticiones en vuelo, no entre peticiones distintas.
  *
  * Una sola página llama a esto desde una docena de sitios —el header, el hero,
@@ -188,6 +211,19 @@ export async function consultarPublicadas<T>(columnas: string, env?: Entorno): P
 let enVuelo: Promise<EntradaPost[]> | null = null;
 
 export function getPosts(env?: Entorno): Promise<EntradaPost[]> {
+  if (FOTO_DE_BUILD) {
+    fotoCatalogo ??= consultarPublicadas<FilaPost>(COLUMNAS, env).then((filas) =>
+      filas.map(filaAEntrada),
+    );
+    // Una copia por llamada, no la foto misma. `index.astro` y `archive.astro`
+    // ordenan el resultado in situ con .sort(), así que sin copia la primera
+    // página en construirse reordenaría el array de todas las demás. Hoy no se
+    // notaría —ordenan por pub_date desc, que es el orden en que ya llegan—
+    // pero cambiar cualquiera de esos criterios corrompería el resto del sitio
+    // en silencio y según el orden del build.
+    return fotoCatalogo.then((posts) => posts.slice());
+  }
+
   if (enVuelo) return enVuelo;
   enVuelo = consultarPublicadas<FilaPost>(COLUMNAS, env)
     .then((filas) => filas.map(filaAEntrada))
@@ -198,12 +234,34 @@ export function getPosts(env?: Entorno): Promise<EntradaPost[]> {
 }
 
 /**
+ * Al construir, los cuerpos se piden todos de una vez.
+ *
+ * Pedir una fila sola es lo acertado al servir, que es para lo que se escribió:
+ * se muestra una nota y solo hace falta esa. Al construir se generan las 198, y
+ * entonces la cuenta se invierte — 198 viajes de ida y vuelta costaban 27 s
+ * medidos para traer los mismos 0,9 MB que una sola consulta de 1,6 s.
+ *
+ * El mapa se queda con las publicadas, igual que `consultarPublicadas`, así que
+ * un borrador sigue devolviendo `undefined` como en la ruta de una sola fila.
+ */
+let fotoCuerpos: Promise<Map<string, EntradaPostCompleta>> | null = null;
+
+function catalogoConCuerpos(env?: Entorno): Promise<Map<string, EntradaPostCompleta>> {
+  fotoCuerpos ??= consultarPublicadas<FilaPost>(COLUMNAS_CON_CUERPO, env).then(
+    (filas) => new Map(filas.map((fila) => [fila.slug, filaAEntradaCompleta(fila)])),
+  );
+  return fotoCuerpos;
+}
+
+/**
  * Una nota con su cuerpo, o `undefined` si no existe o no está publicada.
  *
  * Consulta esa fila y solo esa. La versión anterior se traía las 198 para
  * quedarse con una, que es justo el derroche que esta capa viene a evitar.
  */
 export async function getPost(slug: string, env?: Entorno): Promise<EntradaPostCompleta | undefined> {
+  if (FOTO_DE_BUILD) return (await catalogoConCuerpos(env)).get(slug);
+
   const { url, key } = credenciales(env);
 
   const q = new URL(`${url}/rest/v1/posts`);
