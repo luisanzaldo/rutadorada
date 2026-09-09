@@ -30,7 +30,29 @@ type FilaBusqueda = {
   body: string;
 };
 
-export const GET: APIRoute = async () => {
+/**
+ * Cinco minutos de caché de navegador y de borde, y media hora sirviendo la
+ * copia vieja mientras se revalida. Una nota recién publicada tarda como mucho
+ * ese rato en ser buscable.
+ *
+ * `max-age` importa tanto como `s-maxage`: sin él el navegador vuelve a pedir
+ * los 850 KB en cada página que visita el lector, porque el índice solo vive en
+ * memoria mientras dura la página.
+ */
+const CACHE = 'public, max-age=300, s-maxage=300, stale-while-revalidate=1800';
+
+export const GET: APIRoute = async ({ request, locals }) => {
+  // Cloudflare trata las respuestas de Function como dinámicas y se salta el
+  // s-maxage por su cuenta —se comprobó: cf-cache-status venía DYNAMIC—, así
+  // que el borde se gestiona a mano con la Cache API. Va con guarda: si el
+  // runtime no la expone, simplemente no se cachea y todo lo demás funciona.
+  const cache = (globalThis as any).caches?.default;
+
+  if (cache) {
+    const guardada = await cache.match(request);
+    if (guardada) return guardada;
+  }
+
   try {
     const filas = await consultarPublicadas<FilaBusqueda>(
       'slug,title,description,category,tags,body',
@@ -50,19 +72,22 @@ export const GET: APIRoute = async () => {
       body: f.body ?? '',
     }));
 
-    return new Response(JSON.stringify(indice), {
-      headers: {
-        'Content-Type': 'application/json',
-        // La cabecera del endpoint manda sobre el comodín de public/_headers:
-        // se comprobó en producción con /api/cannes/latest, que conserva la
-        // suya. La acumulación de reglas solo afecta a assets estáticos.
-        //
-        // Cinco minutos en el borde y media hora sirviendo la copia vieja
-        // mientras se revalida: una nota recién publicada tarda como mucho ese
-        // rato en ser buscable, y a cambio ninguna visita paga la consulta.
-        'Cache-Control': 'public, max-age=0, s-maxage=300, stale-while-revalidate=1800',
-      },
+    // La cabecera del endpoint manda sobre el comodín de public/_headers: se
+    // comprobó en producción con /api/cannes/latest, que conserva la suya. La
+    // acumulación de reglas solo afecta a assets estáticos.
+    const respuesta = new Response(JSON.stringify(indice), {
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': CACHE },
     });
+
+    if (cache) {
+      const guardar = cache.put(request, respuesta.clone());
+      // waitUntil deja que la escritura termine después de responder. Si el
+      // runtime no lo ofrece, se espera: es preferible a perder la caché.
+      const ctx = (locals as any)?.runtime?.ctx;
+      ctx?.waitUntil ? ctx.waitUntil(guardar) : await guardar;
+    }
+
+    return respuesta;
   } catch (error: any) {
     // Que falle el índice no puede tumbar el header: el cliente muestra un
     // aviso y el resto del sitio sigue funcionando.
