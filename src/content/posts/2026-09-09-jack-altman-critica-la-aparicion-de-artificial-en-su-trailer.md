@@ -5,7 +5,8 @@ pubDate: 2026-09-09T03:44:28.646Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/09/artificial-neon.jpg"
+image: "https://img.rutadoradafilms.com/c8d0e280ec26a2b7.jpg"
+imageSource: "https://www.thewrap.com/wp-content/uploads/2026/09/artificial-neon.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"
