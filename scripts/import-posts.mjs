@@ -22,6 +22,7 @@ import matter from 'gray-matter';
 const COMMIT = process.argv.includes('--commit');
 const PRUNE  = process.argv.includes('--prune');
 const DIR = path.join(process.cwd(), 'src/content/posts');
+const R2_HOST = 'https://img.rutadoradafilms.com/';
 
 // --- credenciales ---------------------------------------------------------
 const env = {};
@@ -81,12 +82,14 @@ for (const file of files) {
     video_url: vacio(fm.videoUrl),
     image_url: img,
     image_credit: null,
-    // Si la imagen sigue siendo remota, esa URL es su procedencia. Si ya es local,
-    // el prebuild la reescribió en su día y el origen se perdió.
-    // `imageSource` es explícito desde la fase 4. La heurística de abajo solo
-    // cubre las notas anteriores a la migración: en cuanto la imagen vive en R2
-    // su URL empieza por http sin ser su procedencia.
-    image_source: vacio(fm.imageSource) ?? (img.startsWith('http') ? img : null),
+    // La procedencia es de dónde salió la imagen, no dónde vive ahora.
+    //
+    // `imageSource` es explícito desde la fase 4 y manda. La heurística solo
+    // cubre notas anteriores a la migración, y tiene que excluir R2: la URL de
+    // R2 también empieza por http, así que sin ese filtro cada nota acabaría
+    // declarándose a sí misma como su propia procedencia.
+    image_source: vacio(fm.imageSource)
+      ?? (img.startsWith('http') && !img.startsWith(R2_HOST) ? img : null),
     ficha_tecnica: fm.fichaTecnica ?? null,
     fuente: fm.fuente ?? null,
   };
@@ -132,7 +135,7 @@ let huerfanas = [];
 // --- informe --------------------------------------------------------------
 console.log(`\nNotas leídas: ${rows.length}`);
 console.log(`  con cuerpo vacío:      ${rows.filter(r => !r.body).length}`);
-console.log(`  con imagen remota:     ${rows.filter(r => r.image_source).length}`);
+console.log(`  con procedencia ajena: ${rows.filter(r => r.image_source).length}`);
 console.log(`  con ficha técnica:     ${rows.filter(r => r.ficha_tecnica).length}`);
 console.log(`  con fuente:            ${rows.filter(r => r.fuente).length}`);
 console.log(`  con video:             ${rows.filter(r => r.video_url).length}`);
