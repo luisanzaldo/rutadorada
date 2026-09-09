@@ -4,25 +4,8 @@ import cloudflare from '@astrojs/cloudflare';
 
 import mdx from '@astrojs/mdx';
 
-/**
- * Los enlaces que se agregan desde el editor del panel admin se guardan en el
- * Markdown del post como [texto](url), formato que no admite atributos. Este
- * plugin los marca al renderizar para que abran en una pestaña nueva; los
- * enlaces internos (relativos) y las anclas (#seccion) se quedan como están.
- */
-function rehypeExternalLinksInNewTab() {
-  const isExternal = (href) => typeof href === 'string' && /^(https?:)?\/\//i.test(href.trim());
-
-  const visit = (node) => {
-    if (node.type === 'element' && node.tagName === 'a' && isExternal(node.properties?.href)) {
-      node.properties.target = '_blank';
-      node.properties.rel = 'noopener noreferrer';
-    }
-    node.children?.forEach(visit);
-  };
-
-  return (tree) => visit(tree);
-}
+// El plugin vive en src/lib para que el renderizado en runtime use el mismo.
+import { rehypeExternalLinksInNewTab } from './src/lib/markdown-plugins.mjs';
 
 export default defineConfig({
   site: 'https://www.rutadoradafilms.com',
