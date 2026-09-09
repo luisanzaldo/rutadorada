@@ -78,6 +78,28 @@ function hashDeUrl(valor) {
   }
 }
 
+/**
+ * Toda URL de R2 que aparezca en un texto, venga del frontmatter o del cuerpo.
+ *
+ * Vive aquí y no dentro de hashesEnGit porque la base necesita exactamente la
+ * misma lectura: si las dos fuentes no buscan lo mismo, la que busque de menos
+ * da por huérfana una imagen que sí se usa. Ya pasó — el escaneo de Supabase
+ * miraba solo image_url y se dejaba las imágenes incrustadas en el cuerpo.
+ */
+const RE_URL_R2 = new RegExp(
+  `https://${HOST.replace(/\./g, '\\.')}/(?:body/)?[0-9a-f]{16}(?:-sm|-og)?\\.(?:jpg|png|webp)`,
+  'g',
+);
+
+function hashesEnTexto(texto) {
+  const encontrados = new Set();
+  for (const m of String(texto ?? '').matchAll(RE_URL_R2)) {
+    const h = hashDeUrl(m[0]);
+    if (h) encontrados.add(h);
+  }
+  return encontrados;
+}
+
 // --- referencias en git ---------------------------------------------------
 async function hashesEnGit() {
   const usados = new Set();
@@ -92,13 +114,10 @@ async function hashesEnGit() {
     }
     for (const f of archivos) {
       const texto = await fs.readFile(path.join(dir, f), 'utf-8');
-      // Se escanea el archivo ENTERO, no solo el frontmatter: cuatro notas
+      // Se escanea el archivo ENTERO, no solo el frontmatter: varias notas
       // incrustan imágenes dentro del texto, y mirar solo `image:` las daría
       // por huérfanas y las borraría.
-      for (const m of texto.matchAll(new RegExp(`https://${HOST.replace(/\./g, '\\.')}/(?:body/)?[0-9a-f]{16}(?:-sm|-og)?\\.(?:jpg|png|webp)`, 'g'))) {
-        const h = hashDeUrl(m[0]);
-        if (h) usados.add(h);
-      }
+      for (const h of hashesEnTexto(texto)) usados.add(h);
     }
   }
   return usados;
@@ -115,7 +134,11 @@ async function hashesEnSupabase() {
   }
 
   const usados = new Set();
-  const res = await fetch(`${url}/rest/v1/posts?select=image_url,status`, {
+  // El cuerpo va en el select, no solo la portada: una nota que viva unicamente
+  // en la base —un borrador— puede llevar imagenes incrustadas en su texto, y
+  // sin leerlas se darian por huerfanas y se borrarian. Es el mismo escaneo del
+  // archivo entero que hace hashesEnGit, sobre el texto que guarda la fila.
+  const res = await fetch(`${url}/rest/v1/posts?select=image_url,body,status`, {
     headers: { apikey: key, Authorization: `Bearer ${key}` },
   });
   if (!res.ok) throw new Error(`Supabase ${res.status}: ${await res.text()}`);
@@ -123,6 +146,7 @@ async function hashesEnSupabase() {
   for (const fila of await res.json()) {
     const h = hashDeUrl(fila.image_url);
     if (h) usados.add(h);
+    for (const hb of hashesEnTexto(fila.body)) usados.add(hb);
   }
   return usados;
 }
