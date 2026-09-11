@@ -5,7 +5,7 @@ pubDate: 2026-09-11T16:25:27.822Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/05/de-gaulle.jpg"
+image: "https://img.rutadoradafilms.com/b550181c1da2bc83.jpg"
 imageSource: "https://imagenes.elpais.com/resizer/v2/5OIFTFPAVRCWBKJIZSVA3DGTFM.jpg?auth=4dff02ac21e7c99d3bc2fbee6f80ed010d35c5a0e7821d779913bf0029c464cc&width=414"
 category: "Artículos"
 fuente:
