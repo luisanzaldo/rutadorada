@@ -1,7 +1,7 @@
 ---
 title: "Los triunfos de *Woman Unknown* y otras joyas venecianas"
 description: "El festival de Venecia 2026 premió a *Woman Unknown* con el León de Oro y destacó a *DAU*, *The Children of the Monkey* y nuevos talentos."
-pubDate: 2026-09-12T19:01:51.428Z
+pubDate: 2026-09-12T19:03:19.590Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -28,5 +28,16 @@ El premio especial del jurado a *NAZA* (Yuval Abraham & Rachel Szor) y el recono
 
 ## Otras categorías y miradas internacionales  
 El público eligió *I Matter* de Alina Şerban como ganadora del Armani Beauty Audience Award, señalando la resonancia emocional del documental. En la sección Venice Classics, *Long Night of 1943* fue restaurado y aplaudido como la mejor película restaurada. Finalmente, la sección Immersive otorgó el Gran Premio del Jurado a *The Pigeon Ring* y un premio especial a *Out of the Ashes*, mientras que *Empire at Sea* recibió el Achievement Prize por su innovador enfoque documental.  
+
+## Competition  
+- *Woman Unknown* – León de Oro  
+- *DAU* – León de Plata a Mejor Director  
+- *The Children of the Monkey* – Mejor Guion y Mejor Actor  
+- *Diane in the Loop* – Mejor Película Horizons  
+- *A Day in the Life of Jo: Chapter Phaedra* – Mejor Directora Horizons  
+- *Falling House* – Mejor Actriz Horizons  
+- *NAZA* – Premio Especial del Jurado  
+- *House of the Wind* – Mejor Debut (Lion of the Future)  
+- *A Few Moments of Happiness* – Mejor Cortometraje  
 
 En conjunto, el panorama veneciano de 2026 muestra una mezcla de veteranía y audacia, y varios de sus galardonados, como *Woman Unknown* y *The Children of the Monkey*, ya se perfilan como fuertes candidatos en la carrera hacia los Oscar.
