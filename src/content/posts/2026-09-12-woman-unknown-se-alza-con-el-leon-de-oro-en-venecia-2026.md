@@ -16,7 +16,7 @@ tags: ["Venecia"]
 ---
 
 ## León de oro y la película ganadora  
-El jurado del 83.º Festival de Venecia entregó su máximo galardón al drama de May el‑Toukhy, *Woman Unknown*. La cinta, que explora la identidad fragmentada de una mujer sin nombre, se alzó como la obra más audaz y emotiva del certamen, superando a propuestas como *Possible Love* de Lee Chang‑dong, la cual se quedó con el León de Plata al Gran Jurado.  
+El jurado del 83.º Festival de Venecia entregó su máximo galardón al drama de May el‑Toukhy, *Woman Unknown*. La cinta, que explora la identidad fragmentada de una mujer sin nombre, se alzó como la obra más audaz y emotiva del certamen, superando a propuestas como *Possible Love* de Lee Chang‑dong, la cual se quedó con el León de Plata del Gran Premio del Jurado.  
 
 ## Premios de actuación y dirección  
 En la categoría de actuación, Mathilde Arcel se llevó la Coppa Volpi por su interpretación en *Woman Unknown*, mientras que John Malkovich fue reconocido como mejor actor por *Wild Horse Nine*, una pieza que combina western clásico con una reflexión sobre la violencia contemporánea. Ilya Khrzhanovsky recibió el León de Plata a Mejor Director por *DAU*, un experimento cinematográfico que desafía la narrativa tradicional con una inmersión total en la vida del siglo XVIII.  
