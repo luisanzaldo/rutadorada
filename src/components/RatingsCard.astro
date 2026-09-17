@@ -1,0 +1,68 @@
+---
+import RatingsModal from "./RatingsModal.astro";
+
+type Source = { name: string; url?: string };
+
+interface Props {
+    festival: string;
+    eyebrow: string;
+    titleLead: string;
+    titleAccent: string;
+    description: string;
+    buttonLabel: string;
+    kicker: string;
+    footer: string;
+    sources: Source[];
+    hash: string;
+    highlightColumn: number;
+}
+
+const {
+    festival,
+    eyebrow,
+    titleLead,
+    titleAccent,
+    description,
+    buttonLabel,
+    kicker,
+    footer,
+    sources,
+    hash,
+    highlightColumn,
+} = Astro.props;
+---
+
+<div
+    class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-white/5 shadow-sm"
+>
+    <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-black dark:text-gold mb-2">
+        {eyebrow}
+    </span>
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+        {titleLead} <span class="text-gold">{titleAccent}</span>
+    </h3>
+    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+        {description}
+    </p>
+    <button
+        data-ratings-trigger={festival}
+        type="button"
+        class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 px-4 rounded text-sm transition-colors"
+    >
+        {buttonLabel}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+</div>
+
+<RatingsModal
+    festival={festival}
+    kicker={kicker}
+    titleLead={titleLead}
+    titleAccent={titleAccent}
+    footer={footer}
+    sources={sources}
+    hash={hash}
+    highlightColumn={highlightColumn}
+/>

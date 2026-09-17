@@ -1,8 +1,29 @@
 ---
+// Modal de calificaciones de un festival. Se instancia una vez por festival:
+// el script se emite una sola vez y recorre todos los diálogos de la página,
+// así que la configuración viaja en data-attributes y no en ids fijos.
+type Source = { name: string; url?: string };
+
+interface Props {
+    festival: string;
+    kicker: string;
+    titleLead: string;
+    titleAccent: string;
+    footer: string;
+    sources: Source[];
+    hash: string;
+    /** Columna del promedio: se pinta en dorado. */
+    highlightColumn: number;
+}
+
+const { festival, kicker, titleLead, titleAccent, footer, sources, hash, highlightColumn } = Astro.props;
 ---
 
 <dialog
-    id="cannes-modal"
+    data-ratings-modal
+    data-festival={festival}
+    data-hash={hash}
+    data-highlight={String(highlightColumn)}
     class="bg-transparent m-auto p-0 backdrop:backdrop-blur-md backdrop:bg-black/80 w-full max-w-5xl rounded-2xl shadow-2xl border border-white/10 outline-none"
 >
     <div class="bg-background-dark text-white max-h-[90vh] flex flex-col rounded-2xl overflow-hidden relative">
@@ -11,12 +32,12 @@
             <!-- Title block -->
             <div class="flex-1 min-w-0">
                 <span class="inline-block text-[10px] font-bold uppercase tracking-[0.25em] text-primary mb-2">
-                    79 Festival de Cannes
+                    {kicker}
                 </span>
                 <h2 class="font-display font-bold text-2xl sm:text-3xl leading-tight">
-                    Calificaciones <span class="text-primary">Cannes 2026</span>
+                    {titleLead} <span class="text-primary">{titleAccent}</span>
                 </h2>
-                <p id="cannes-modal-updated" class="text-xs text-slate-400 mt-2 uppercase tracking-widest">
+                <p data-role="updated" class="text-xs text-slate-400 mt-2 uppercase tracking-widest">
                     Cargando…
                 </p>
             </div>
@@ -25,7 +46,7 @@
             <div class="flex flex-col items-end gap-3 flex-shrink-0">
                 <div class="flex items-center gap-2">
                     <button
-                        id="cannes-modal-share"
+                        data-role="share"
                         type="button"
                         class="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors border border-white/10"
                         aria-label="Copiar link"
@@ -40,7 +61,7 @@
                         </svg>
                     </button>
                     <button
-                        id="cannes-modal-close"
+                        data-role="close"
                         type="button"
                         class="bg-white/5 hover:bg-white/10 text-white rounded-full p-2 transition-colors border border-white/10"
                         aria-label="Cerrar"
@@ -56,26 +77,21 @@
                         Fuentes
                     </p>
                     <p class="text-xs text-slate-400 leading-tight">
-                        <a
-                            href="https://icsfilm.org/festivals/cannes/2026-cannes/cannes-2026-ics-press-industry-panel/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:text-primary transition-colors underline-offset-2 hover:underline"
-                        >ICS</a>
-                        <span class="text-slate-600 mx-1">·</span>
-                        <a
-                            href="https://www.screendaily.com/cannes-jury-grid"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:text-primary transition-colors underline-offset-2 hover:underline"
-                        >ScreenDaily</a>
-                        <span class="text-slate-600 mx-1">·</span>
-                        <a
-                            href="https://www.caimanediciones.es/wp-content/uploads/2026/05/cuadro-critico_CANNES-2026.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:text-primary transition-colors underline-offset-2 hover:underline"
-                        >Caiman</a>
+                        {sources.map((source, i) => (
+                            <>
+                                {i > 0 && <span class="text-slate-600 mx-1">·</span>}
+                                {source.url ? (
+                                    <a
+                                        href={source.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="hover:text-primary transition-colors underline-offset-2 hover:underline"
+                                    >{source.name}</a>
+                                ) : (
+                                    <span>{source.name}</span>
+                                )}
+                            </>
+                        ))}
                     </p>
                 </div>
             </div>
@@ -83,7 +99,7 @@
 
         <!-- Toast for share feedback -->
         <div
-            id="cannes-share-toast"
+            data-role="toast"
             class="hidden absolute top-5 left-1/2 -translate-x-1/2 z-50 bg-primary text-background-dark text-xs font-bold py-2 px-4 rounded-full shadow-lg pointer-events-none"
         >
             Link copiado
@@ -91,48 +107,52 @@
 
         <!-- Body -->
         <div class="flex-1 overflow-y-auto px-4 sm:px-8 py-6">
-            <div id="cannes-modal-loading" class="text-center py-12 text-slate-400 text-sm">
+            <div data-role="loading" class="text-center py-12 text-slate-400 text-sm">
                 Cargando calificaciones…
             </div>
-            <div id="cannes-modal-error" class="hidden text-center py-12 text-red-400 text-sm"></div>
-            <div id="cannes-modal-empty" class="hidden text-center py-12 text-slate-400 text-sm">
+            <div data-role="error" class="hidden text-center py-12 text-red-400 text-sm"></div>
+            <div data-role="empty" class="hidden text-center py-12 text-slate-400 text-sm">
                 Aún no hay calificaciones cargadas.
             </div>
-            <div id="cannes-modal-table-wrap" class="hidden overflow-x-auto rounded-xl border border-white/10">
+            <div data-role="table-wrap" class="hidden overflow-x-auto rounded-xl border border-white/10">
                 <table class="w-full text-sm">
                     <thead class="bg-card-dark">
-                        <tr id="cannes-modal-thead" class="text-[10px] font-bold uppercase tracking-[0.18em] text-primary"></tr>
+                        <tr data-role="thead" class="text-[10px] font-bold uppercase tracking-[0.18em] text-primary"></tr>
                     </thead>
-                    <tbody id="cannes-modal-tbody" class="bg-background-dark"></tbody>
+                    <tbody data-role="tbody" class="bg-background-dark"></tbody>
                 </table>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="px-6 sm:px-8 py-4 border-t border-white/10 text-[11px] text-slate-500 uppercase tracking-widest text-center">
-            Ruta Dorada Films · Promedio de las críticas
+            {footer}
         </div>
     </div>
 </dialog>
 
 <script>
-    const CANNES_HASH = '#calificaciones-cannes-2026';
+    function setupRatingsModal(modal: HTMLDialogElement) {
+        if (modal.dataset.ready === '1') return;
+        modal.dataset.ready = '1';
 
-    function setupCannesModal() {
-        const modal = document.getElementById('cannes-modal') as HTMLDialogElement | null;
-        const trigger = document.getElementById('cannes-card-trigger');
-        const closeBtn = document.getElementById('cannes-modal-close');
-        const shareBtn = document.getElementById('cannes-modal-share');
-        const shareToast = document.getElementById('cannes-share-toast');
-        const loadingEl = document.getElementById('cannes-modal-loading');
-        const errorEl = document.getElementById('cannes-modal-error');
-        const emptyEl = document.getElementById('cannes-modal-empty');
-        const tableWrap = document.getElementById('cannes-modal-table-wrap');
-        const thead = document.getElementById('cannes-modal-thead');
-        const tbody = document.getElementById('cannes-modal-tbody');
-        const updatedEl = document.getElementById('cannes-modal-updated');
+        const festival = modal.dataset.festival || 'cannes';
+        const hash = modal.dataset.hash || '';
+        const highlight = Number(modal.dataset.highlight ?? '1');
 
-        if (!modal || !closeBtn) return;
+        const trigger = document.querySelector('[data-ratings-trigger="' + festival + '"]');
+        const closeBtn = modal.querySelector('[data-role="close"]');
+        const shareBtn = modal.querySelector('[data-role="share"]');
+        const shareToast = modal.querySelector('[data-role="toast"]');
+        const loadingEl = modal.querySelector('[data-role="loading"]');
+        const errorEl = modal.querySelector('[data-role="error"]');
+        const emptyEl = modal.querySelector('[data-role="empty"]');
+        const tableWrap = modal.querySelector('[data-role="table-wrap"]');
+        const thead = modal.querySelector('[data-role="thead"]');
+        const tbody = modal.querySelector('[data-role="tbody"]');
+        const updatedEl = modal.querySelector('[data-role="updated"]');
+
+        if (!closeBtn) return;
 
         let loaded = false;
         let loading = false;
@@ -159,7 +179,9 @@
             loading = true;
             showState('loading');
             try {
-                const res = await fetch('/api/cannes/latest', { headers: { 'Accept': 'application/json' } });
+                const res = await fetch('/api/cannes/latest?festival=' + encodeURIComponent(festival), {
+                    headers: { 'Accept': 'application/json' },
+                });
                 const data = await res.json().catch(() => ({}));
                 if (!res.ok || !data.ok) {
                     showState('error', data.error || 'No se pudieron cargar las calificaciones.');
@@ -201,7 +223,7 @@
                     thead.innerHTML = snapshot.headers.map((h, i) => {
                         const headerCls = i === 0
                             ? 'text-left'
-                            : i === 1
+                            : i === highlight
                                 ? 'text-center text-primary bg-primary/8'
                                 : 'text-center';
                         return '<th class="' + headerCls + ' py-3 px-3 sm:px-4 font-bold whitespace-nowrap">' + escapeHtml(h) + '</th>';
@@ -214,7 +236,7 @@
                             row.map((cell: any, i: number) => {
                                 const cls = i === 0
                                     ? 'text-white font-normal'
-                                    : i === 1
+                                    : i === highlight
                                         ? 'text-center text-primary font-bold tabular-nums bg-primary/5'
                                         : 'text-center text-slate-200 tabular-nums font-medium';
                                 return '<td class="py-3 px-3 sm:px-4 ' + cls + '">' + cellToHtml(cell) + '</td>';
@@ -231,9 +253,6 @@
             }
         }
 
-        // Arrow function (y no declaración) para conservar el narrowing de `modal`
-        // que hace el guard de arriba: una función declarada se hoistea y TS la
-        // analiza como si pudiera llamarse antes de ese guard.
         const openModal = () => {
             if (!modal.open) {
                 modal.showModal();
@@ -257,7 +276,7 @@
 
         // Share button: Web Share API on mobile, clipboard fallback on desktop
         function getShareUrl() {
-            return window.location.origin + window.location.pathname + CANNES_HASH;
+            return window.location.origin + window.location.pathname + hash;
         }
 
         function showToast(text: string) {
@@ -291,7 +310,7 @@
 
         // Auto-abrir si el hash lo solicita
         function checkHashAutoOpen() {
-            if (window.location.hash === CANNES_HASH) {
+            if (hash && window.location.hash === hash) {
                 openModal();
             }
         }
@@ -299,6 +318,10 @@
         window.addEventListener('hashchange', checkHashAutoOpen);
     }
 
-    document.addEventListener('DOMContentLoaded', setupCannesModal);
-    document.addEventListener('astro:page-load', setupCannesModal);
+    function setupRatingsModals() {
+        document.querySelectorAll<HTMLDialogElement>('dialog[data-ratings-modal]').forEach(setupRatingsModal);
+    }
+
+    document.addEventListener('DOMContentLoaded', setupRatingsModals);
+    document.addEventListener('astro:page-load', setupRatingsModals);
 </script>

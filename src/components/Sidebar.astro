@@ -1,6 +1,7 @@
 ---
 import { getPosts } from "../lib/posts";
-import CannesCard from "./CannesCard.astro";
+import RatingsCard from "./RatingsCard.astro";
+import { FESTIVALS } from "../lib/cannes";
 import { renderRichText } from "../lib/richText";
 import { getTagUrl } from "../lib/tags";
 const allPosts = await getPosts();
@@ -106,7 +107,42 @@ const trendingTags = Array.from(tagCounts.entries())
     </div>
 
     <!-- Calificaciones Cannes 2026 -->
-    <CannesCard />
+    <RatingsCard
+        festival="cannes"
+        eyebrow="Festival de Cannes"
+        titleLead="Calificaciones"
+        titleAccent="Cannes 2026"
+        description="Conoce el promedio de las críticas de las películas en competencia del Festival de Cannes 2026."
+        buttonLabel="Ver calificaciones"
+        kicker="79 Festival de Cannes"
+        footer="Ruta Dorada Films · Promedio de las críticas"
+        hash="#calificaciones-cannes-2026"
+        highlightColumn={FESTIVALS.cannes.highlightColumn}
+        sources={[
+            { name: "ICS", url: "https://icsfilm.org/festivals/cannes/2026-cannes/cannes-2026-ics-press-industry-panel/" },
+            { name: "ScreenDaily", url: "https://www.screendaily.com/cannes-jury-grid" },
+            { name: "Caiman", url: "https://www.caimanediciones.es/wp-content/uploads/2026/05/cuadro-critico_CANNES-2026.pdf" },
+        ]}
+    />
+
+    <!-- Calificaciones Festivales de Otoño 2026 -->
+    <RatingsCard
+        festival="fall"
+        eyebrow="Festivales de Otoño"
+        titleLead="Calificaciones"
+        titleAccent="Festivales de Otoño 2026"
+        description="Conoce el promedio de las críticas."
+        buttonLabel="Ver calificaciones"
+        kicker="Festivales de Otoño 2026"
+        footer="RutaDorada Films · Promedio de las críticas"
+        hash="#calificaciones-festivales-otono-2026"
+        highlightColumn={FESTIVALS.fall.highlightColumn}
+        sources={[
+            { name: "Letterboxd" },
+            { name: "Metacritic" },
+            { name: "RottenTomatoes" },
+        ]}
+    />
 
     <!-- Weekly Tech Digest -->
     <div

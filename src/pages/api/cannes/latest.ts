@@ -1,12 +1,16 @@
 import type { APIRoute } from "astro";
-import { getSnapshot } from "../../../lib/cannes";
+import { getSnapshot, isFestivalKey } from "../../../lib/cannes";
 
 export const prerender = false;
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ url }) => {
+    const requested = url.searchParams.get("festival");
+    // Sin parámetro responde Cannes: era la única tabla cuando nació el endpoint.
+    const festival = isFestivalKey(requested) ? requested : "cannes";
+
     try {
-        const snapshot = await getSnapshot();
-        return new Response(JSON.stringify({ ok: true, snapshot }), {
+        const snapshot = await getSnapshot(festival);
+        return new Response(JSON.stringify({ ok: true, festival, snapshot }), {
             status: 200,
             headers: {
                 "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { getSession } from "../../../../lib/auth";
-import { fetchSheetValues, saveSnapshot } from "../../../../lib/cannes";
+import { fetchSheetValues, saveSnapshots, FESTIVAL_KEYS, type Cell, type FestivalKey } from "../../../../lib/cannes";
 
 export const prerender = false;
 
@@ -14,9 +14,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     try {
-        const sheetData = await fetchSheetValues();
-        const snapshot = await saveSnapshot(sheetData);
-        return new Response(JSON.stringify({ ok: true, snapshot }), {
+        // Se traen todos los festivales antes de escribir: si Google falla en uno,
+        // la fila guardada se queda como estaba en vez de perder media tabla.
+        const fetched = await Promise.all(
+            FESTIVAL_KEYS.map(async (key) => [key, await fetchSheetValues(key)] as const)
+        );
+        const fresh = Object.fromEntries(fetched) as Record<FestivalKey, { headers: string[]; rows: Cell[][] }>;
+        const snapshots = await saveSnapshots(fresh);
+        return new Response(JSON.stringify({ ok: true, snapshots }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });

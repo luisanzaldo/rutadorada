@@ -80,6 +80,7 @@ Ver `.env.example`. En producción viven como *secrets* de GitHub Actions, donde
 | `PUBLIC_GA4_MEASUREMENT_ID`, `PUBLIC_CLARITY_PROJECT_ID`, `PUBLIC_COOKIEYES_ID` | Analytics (solo producción, condicionados a consentimiento) |
 | `GROQ_API_KEY`, `NOTION_TOKEN`, `NOTION_CALENDAR_DATA_SOURCE_ID` | Asistente de calendario editorial (`/api/calendar/chat`) |
 | `GOOGLE_API_KEY`, `CANNES_SHEET_ID`, `CANNES_SHEET_RANGE` | Calificaciones de festivales desde Google Sheets |
+| `FALL_SHEET_RANGE` | Rango de la tabla de Festivales de Otoño; opcional, tiene valor por defecto en `src/lib/cannes.ts` |
 
 Solo en el CI: `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`, para desplegar.
 

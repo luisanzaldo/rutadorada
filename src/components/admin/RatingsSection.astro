@@ -1,0 +1,457 @@
+---
+// Sección del panel con la tabla de calificaciones de un festival: tabla en
+// pantalla, botón de actualización (que refresca TODOS los festivales de una
+// vez) y descarga del póster en PNG.
+//
+// Solo se renderiza la sección activa, así que el script inline puede asumir un
+// único bloque en la página y buscar sus piezas por data-role.
+import type { Cell, RatingsSnapshot } from "../../lib/cannes";
+
+interface Props {
+    festival: string;
+    heading: string;
+    emoji: string;
+    snapshot: RatingsSnapshot;
+    /** Columna del promedio: se pinta en dorado. */
+    highlightColumn: number;
+    posterTitleLead: string;
+    posterTitleAccent: string;
+    posterSubtitleLead: string;
+    posterSubtitleAccent?: string;
+    /** Prefijo del PNG: el archivo queda como <prefijo>-AAAA-MM-DD.png */
+    posterFilePrefix: string;
+}
+
+const {
+    festival,
+    heading,
+    emoji,
+    snapshot,
+    highlightColumn,
+    posterTitleLead,
+    posterTitleAccent,
+    posterSubtitleLead,
+    posterSubtitleAccent,
+    posterFilePrefix,
+} = Astro.props;
+
+const escapeHtml = (s: string): string => s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+// Renderiza una celda preservando las negritas del Google Sheet
+const cellToHtml = (cell: Cell): string => {
+    if (!cell?.runs?.length) return "—";
+    if (cell.runs.every((r) => (r.text ?? "").trim() === "")) return "—";
+    return cell.runs.map((r) => {
+        const t = escapeHtml(r.text ?? "");
+        return r.bold ? `<strong>${t}</strong>` : t;
+    }).join("");
+};
+
+const formatUpdated = (iso: string): string => {
+    if (!iso) return "Sin datos aún";
+    try {
+        return new Date(iso).toLocaleString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    } catch {
+        return iso;
+    }
+};
+---
+
+<div
+    data-ratings-admin
+    data-festival={festival}
+    data-highlight={String(highlightColumn)}
+    data-file-prefix={posterFilePrefix}
+>
+    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+        <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="text-2xl">{emoji}</span> {heading}
+        </h2>
+        <span class="text-xs font-medium text-slate-500 dark:text-[#a0a0a0] uppercase tracking-widest">
+            Sincronizado con Google Sheets
+        </span>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 dark:border-[#224249] bg-white/80 dark:bg-background-dark p-5 sm:p-6 shadow-sm mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-5">
+            <div>
+                <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">Última actualización</p>
+                <p data-role="updated-at" class="text-sm font-medium text-slate-900 dark:text-white">{formatUpdated(snapshot.updatedAt)}</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <button
+                    data-role="refresh-btn"
+                    type="button"
+                    class="bg-primary text-[#0b1618] px-5 py-2.5 rounded-xl font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_15px_rgba(242,175,13,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <span data-role="refresh-label">Actualización de calificaciones</span>
+                </button>
+                <button
+                    data-role="download-btn"
+                    type="button"
+                    class="bg-white/5 dark:bg-card-dark/60 border border-primary/40 text-primary px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-primary/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+                    </svg>
+                    <span data-role="download-label">Descarga la imagen actualizada</span>
+                </button>
+            </div>
+        </div>
+
+        <div data-role="feedback" class="hidden mb-4 rounded-xl px-4 py-3 text-sm border"></div>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-[#224249]">
+            <table class="w-full text-sm">
+                <thead class="bg-slate-50 dark:bg-card-dark">
+                    <tr data-role="thead-row" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        {snapshot.headers.length === 0 ? (
+                            <th class="text-left py-3 px-4 font-bold">Sin datos. Haz clic en "Actualización de calificaciones".</th>
+                        ) : (
+                            snapshot.headers.map((h, i) => (
+                                <th class={`py-3 px-4 font-bold ${
+                                    i === 0
+                                        ? "text-left"
+                                        : i === highlightColumn
+                                            ? "text-center text-primary bg-primary/5"
+                                            : "text-center"
+                                }`}>{h}</th>
+                            ))
+                        )}
+                    </tr>
+                </thead>
+                <tbody data-role="tbody">
+                    {snapshot.rows.map((row) => (
+                        <tr class="border-t border-slate-100 dark:border-[#224249]/50 hover:bg-primary/5 transition-colors">
+                            {row.map((cell, i) => (
+                                <td
+                                    class={`py-3 px-4 ${
+                                        i === 0
+                                            ? "text-slate-900 dark:text-white"
+                                            : i === highlightColumn
+                                                ? "text-center text-primary font-bold bg-primary/5 tabular-nums"
+                                                : "text-center text-slate-700 dark:text-slate-300 tabular-nums"
+                                    }`}
+                                    set:html={cellToHtml(cell)}
+                                ></td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {/* Snapshot serializado para JS (refresh + render del poster) */}
+    <script
+        type="application/json"
+        data-role="snapshot-data"
+        set:html={JSON.stringify(snapshot)}
+    />
+
+    {/* Poster oculto para captura PNG (opacity:0 para no estorbar pero visible al renderer).
+        La altura es mínima, no fija: con muchas filas el PNG crece en vez de recortarse. */}
+    <div
+        data-role="poster"
+        aria-hidden="true"
+        style="position:fixed;top:0;left:0;width:1080px;min-height:1080px;background:#0c0a09;padding:56px 56px 72px 56px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#f5f5f4;box-sizing:border-box;opacity:0;pointer-events:none;z-index:-9999;display:flex;flex-direction:column;"
+    >
+        <div style="margin-bottom:28px;">
+            <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.32em;color:#f5f5f4;margin:0 0 12px 0;text-transform:uppercase;font-weight:700;">Ruta<span style="color:#F2AF0D;">Dorada</span> Films</p>
+            <h1 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:800;margin:0;line-height:1.05;color:#ffffff;letter-spacing:-0.01em;">{posterTitleLead} <span style="color:#F2AF0D;">{posterTitleAccent}</span></h1>
+            <p style="font-size:18px;color:#d6d3d1;margin:14px 0 0 0;font-weight:500;line-height:1.35;">
+                {posterSubtitleLead}{posterSubtitleAccent && <> · <span style="color:#F2AF0D;font-weight:700;">{posterSubtitleAccent}</span></>}
+            </p>
+        </div>
+        <table data-role="poster-table" style="width:100%;border-collapse:collapse;table-layout:fixed;">
+        </table>
+        <div style="flex:1;min-height:24px;"></div>
+        <p data-role="poster-footer" style="text-align:right;font-size:12px;color:#a8a29e;margin:0;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;"></p>
+    </div>
+</div>
+
+<script is:inline>
+    (function () {
+        const root = document.querySelector('[data-ratings-admin]');
+        if (!root) return;
+
+        const festival = root.getAttribute('data-festival') || 'cannes';
+        const highlight = Number(root.getAttribute('data-highlight') || '1');
+        const filePrefix = root.getAttribute('data-file-prefix') || 'calificaciones';
+
+        const pick = (role) => root.querySelector('[data-role="' + role + '"]');
+
+        const refreshBtn = pick('refresh-btn');
+        const refreshLabel = pick('refresh-label');
+        const downloadBtn = pick('download-btn');
+        const downloadLabel = pick('download-label');
+        const feedback = pick('feedback');
+        const updatedAtEl = pick('updated-at');
+        const theadRow = pick('thead-row');
+        const tbody = pick('tbody');
+        const dataNode = pick('snapshot-data');
+        const posterTable = pick('poster-table');
+        const posterFooter = pick('poster-footer');
+
+        if (!refreshBtn || !downloadBtn || !feedback || !dataNode || !posterTable) return;
+
+        let snapshot;
+        try {
+            snapshot = JSON.parse(dataNode.textContent || '{"headers":[],"rows":[],"updatedAt":""}');
+        } catch (e) {
+            snapshot = { headers: [], rows: [], updatedAt: '' };
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function formatUpdated(iso) {
+            if (!iso) return 'Sin datos aún';
+            try {
+                return new Date(iso).toLocaleString('es-ES', {
+                    year: 'numeric', month: 'long', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit',
+                });
+            } catch (e) {
+                return iso;
+            }
+        }
+
+        function cellToHtml(cell) {
+            if (!cell || !cell.runs || cell.runs.length === 0) return '—';
+            const hasContent = cell.runs.some((r) => (r.text || '').trim() !== '');
+            if (!hasContent) return '—';
+            return cell.runs.map((r) => {
+                const t = escapeHtml(r.text || '');
+                return r.bold ? '<strong>' + t + '</strong>' : t;
+            }).join('');
+        }
+
+        function renderVisibleTable() {
+            if (!theadRow || !tbody) return;
+            if (snapshot.headers.length === 0) {
+                theadRow.innerHTML = '<th class="text-left py-3 px-4 font-bold">Sin datos. Haz clic en "Actualización de calificaciones".</th>';
+                tbody.innerHTML = '';
+                return;
+            }
+            theadRow.innerHTML = snapshot.headers.map((h, i) => {
+                const headerCls = i === 0
+                    ? 'text-left'
+                    : i === highlight
+                        ? 'text-center text-primary bg-primary/5'
+                        : 'text-center';
+                return '<th class="py-3 px-4 font-bold ' + headerCls + '">' + escapeHtml(h) + '</th>';
+            }).join('');
+            tbody.innerHTML = snapshot.rows.map((row) =>
+                '<tr class="border-t border-slate-100 dark:border-[#224249]/50 hover:bg-primary/5 transition-colors">' +
+                row.map((cell, i) => {
+                    const cls = i === 0
+                        ? 'text-slate-900 dark:text-white'
+                        : i === highlight
+                            ? 'text-center text-primary font-bold bg-primary/5 tabular-nums'
+                            : 'text-center text-slate-700 dark:text-slate-300 tabular-nums';
+                    return '<td class="py-3 px-4 ' + cls + '">' + cellToHtml(cell) + '</td>';
+                }).join('') +
+                '</tr>'
+            ).join('');
+        }
+
+        function renderPoster() {
+            if (snapshot.headers.length === 0) {
+                posterTable.innerHTML = '';
+                if (posterFooter) posterFooter.textContent = '';
+                return;
+            }
+            // Anchos: la primera columna (Película) más ancha; las restantes uniformes.
+            const colCount = snapshot.headers.length;
+            const ratingsCount = Math.max(1, colCount - 1);
+            const firstColPct = 40;
+            const otherColPct = (100 - firstColPct) / ratingsCount;
+            const colgroup = '<colgroup>' +
+                snapshot.headers.map((_, i) =>
+                    '<col style="width:' + (i === 0 ? firstColPct : otherColPct) + '%;">'
+                ).join('') +
+                '</colgroup>';
+
+            // Renderiza el header con label y escala (/5, /100) en líneas separadas
+            function renderPosterHeader(h) {
+                const text = (h || '').toString();
+                const m = text.match(/^(.+?)\s+(\/\S+)\s*$/);
+                if (m) {
+                    return '<span style="display:block;line-height:1.15;">' + escapeHtml(m[1]) + '</span>' +
+                           '<span style="display:block;font-size:10px;letter-spacing:0.1em;opacity:0.7;line-height:1.2;margin-top:4px;">' + escapeHtml(m[2]) + '</span>';
+                }
+                return '<span style="display:block;line-height:1.15;">' + escapeHtml(text) + '</span>';
+            }
+
+            // Renderiza una celda preservando los runs en negrita (blanco, peso más grueso)
+            function cellToInlineHtml(cell) {
+                if (!cell || !cell.runs || cell.runs.length === 0) return '—';
+                const hasContent = cell.runs.some((r) => (r.text || '').trim() !== '');
+                if (!hasContent) return '—';
+                return cell.runs.map((r) => {
+                    const t = escapeHtml(r.text || '');
+                    return r.bold ? '<span style="font-weight:800;">' + t + '</span>' : t;
+                }).join('');
+            }
+
+            const thead =
+                '<thead><tr style="border-bottom:2px solid #F2AF0D;background:#0c0a09;">' +
+                snapshot.headers.map((h, i) => {
+                    const align = i === 0 ? 'left' : 'center';
+                    const isPromedio = i === highlight;
+                    const headerBg = isPromedio ? 'background:rgba(242,175,13,0.08);' : '';
+                    return '<th style="text-align:' + align + ';padding:10px 6px;font-family:\'Cinzel\',serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#F2AF0D;font-weight:700;vertical-align:bottom;' + headerBg + '">' +
+                        renderPosterHeader(h) + '</th>';
+                }).join('') +
+                '</tr></thead>';
+
+            const tbodyHtml =
+                '<tbody>' +
+                snapshot.rows.map((row, idx) => {
+                    const bg = idx % 2 === 0 ? '#1c1917' : '#11100f';
+                    return '<tr style="background:' + bg + ';">' +
+                        row.map((cell, i) => {
+                            const align = i === 0 ? 'left' : 'center';
+                            const isTitle = i === 0;
+                            const isPromedio = i === highlight;
+                            const hasContent = cell && cell.runs && cell.runs.some((r) => (r.text || '').trim() !== '');
+                            const color = isTitle
+                                ? '#ffffff'
+                                : isPromedio
+                                    ? '#F2AF0D'
+                                    : (hasContent ? '#fafaf9' : '#78716c');
+                            const weight = isTitle ? '500' : (isPromedio ? '800' : '600');
+                            const fontSize = isTitle ? '16px' : '17px';
+                            const cellBg = isPromedio ? 'background:rgba(242,175,13,0.05);' : '';
+                            return '<td style="text-align:' + align + ';padding:6px 8px;color:' + color + ';font-weight:' + weight + ';font-family:\'Plus Jakarta Sans\',system-ui,sans-serif;font-style:normal;font-size:' + fontSize + ';border-bottom:1px solid #292524;line-height:1.25;vertical-align:middle;' + cellBg + '">' +
+                                cellToInlineHtml(cell) + '</td>';
+                        }).join('') +
+                        '</tr>';
+                }).join('') +
+                '</tbody>';
+            posterTable.innerHTML = colgroup + thead + tbodyHtml;
+            if (posterFooter) {
+                const date = snapshot.updatedAt
+                    ? new Date(snapshot.updatedAt).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
+                    : '';
+                posterFooter.textContent = date ? 'Actualizado · ' + date : '';
+            }
+        }
+
+        function showFeedback(message, kind) {
+            feedback.textContent = message;
+            feedback.classList.remove('hidden', 'bg-red-500/10', 'border-red-500/30', 'text-red-500', 'bg-emerald-500/10', 'border-emerald-500/30', 'text-emerald-600', 'dark:text-emerald-400');
+            if (kind === 'error') {
+                feedback.classList.add('bg-red-500/10', 'border-red-500/30', 'text-red-500');
+            } else {
+                feedback.classList.add('bg-emerald-500/10', 'border-emerald-500/30', 'text-emerald-600', 'dark:text-emerald-400');
+            }
+        }
+
+        function setRefreshBusy(busy) {
+            refreshBtn.disabled = busy;
+            if (refreshLabel) refreshLabel.textContent = busy ? 'Actualizando…' : 'Actualización de calificaciones';
+        }
+
+        function setDownloadBusy(busy) {
+            downloadBtn.disabled = busy;
+            if (downloadLabel) downloadLabel.textContent = busy ? 'Generando PNG…' : 'Descarga la imagen actualizada';
+        }
+
+        refreshBtn.addEventListener('click', async () => {
+            setRefreshBusy(true);
+            feedback.classList.add('hidden');
+            try {
+                // Un solo click refresca todas las tablas; aquí solo se repinta la visible.
+                const res = await fetch('/api/admin/cannes/refresh', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.ok) {
+                    showFeedback(data.error || 'No se pudo actualizar.', 'error');
+                    return;
+                }
+                snapshot = (data.snapshots && data.snapshots[festival]) || snapshot;
+                if (updatedAtEl) updatedAtEl.textContent = formatUpdated(snapshot.updatedAt);
+                renderVisibleTable();
+                renderPoster();
+                showFeedback('Calificaciones actualizadas correctamente (Cannes y Festivales de Otoño).', 'success');
+            } catch (err) {
+                showFeedback('No pude conectar con el servidor.', 'error');
+            } finally {
+                setRefreshBusy(false);
+            }
+        });
+
+        downloadBtn.addEventListener('click', async () => {
+            if (snapshot.headers.length === 0) {
+                showFeedback('Primero actualiza las calificaciones.', 'error');
+                return;
+            }
+            setDownloadBusy(true);
+            feedback.classList.add('hidden');
+            try {
+                renderPoster();
+                const poster = pick('poster');
+                if (!poster) throw new Error('Poster no encontrado.');
+
+                // Esperar a que las fuentes estén disponibles antes de capturar
+                if (document.fonts && document.fonts.ready) {
+                    try { await document.fonts.ready; } catch (e) {}
+                }
+                // Dejar dos frames para que el browser layout el poster recién poblado
+                await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+                const mod = await import('https://esm.sh/html-to-image@1.11.13');
+                const dataUrl = await mod.toPng(poster, {
+                    pixelRatio: 2,
+                    backgroundColor: '#0c0a09',
+                    cacheBust: true,
+                    // Aplica al clon usado para la captura — el original sigue invisible
+                    style: { opacity: '1', zIndex: '0', position: 'static', pointerEvents: 'auto' },
+                });
+
+                if (!dataUrl || dataUrl.length < 5000) {
+                    throw new Error('PNG vacío. Reintenta en un momento.');
+                }
+
+                const today = new Date().toISOString().slice(0, 10);
+                const a = document.createElement('a');
+                a.href = dataUrl;
+                a.download = filePrefix + '-' + today + '.png';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                showFeedback('Imagen descargada.', 'success');
+            } catch (err) {
+                showFeedback('No se pudo generar el PNG: ' + (err && err.message ? err.message : 'error desconocido'), 'error');
+            } finally {
+                setDownloadBusy(false);
+            }
+        });
+
+        renderPoster();
+    })();
+</script>
