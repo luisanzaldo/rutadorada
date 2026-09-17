@@ -4,9 +4,7 @@ description: "En TIFF 2026, *Babies* explora la duda parental, *Bad Lieutenant: 
 pubDate: 2026-09-17T18:09:09.816Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-authorImage: ""
-image: "https://img.rutadoradafilms.com/88a97c69cf32b138.jpg"
-imageSource: "https://i0.wp.com/awardswatch.com/wp-content/uploads/2026/09/2026-tiff-capsules-trace.png?fit=1200%2C874&ssl=1"
+image: "https://www.semainedelacritique.com/uploads/filmdiaporama/image_big_4b8d6c3f5977a866e216ad3f5bbd455a.png"
 category: "Artículos"
 fuente:
   nombre: "AwardsWatch"
@@ -14,6 +12,7 @@ fuente:
 readTime: "3 min read"
 tags: ["TIFF"]
 ---
+
 
 ## Un vistazo a *Babies*
 *Babies* llega a la 51ª edición del Festival de Toronto como una comedia‑drama que se sumerge en la incertidumbre de convertirse en padres. Dirigida por Lauren Miller Rogen, la película sigue a Annie (interpretada por Anna Kendrick), una ceramista que lleva casi dos décadas casada con Aaron (Seth Rogen). La trama se despliega a través de varios escenarios familiares que sirven de espejo a la pareja: una familia acomodada con niños revoltosos, y el divorcio de una amiga que trae a su hija pequeña al hogar de los protagonistas. En lugar de buscar la risa escandalosa de *Knocked Up* o *Neighbors*, la película opta por un tono más mesurado, parecido al estilo mumblecore de Joe Swanberg, donde los diálogos y los silencios revelan la presión de la responsabilidad. La presencia de Seth Rogen como esposo añade una capa meta, pues él interpreta a su propio cónyuge, reforzando la reflexión sobre la decisión de vivir sin hijos. Aunque los monólogos en off de Kendrick pueden resultar excesivos, la química del elenco y la honestidad de los momentos cotidianos hacen de *Babies* una pieza agradable, aunque no revolucionaria, que invita a la audiencia a cuestionar sus propias expectativas de la adultez.
