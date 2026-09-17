@@ -279,12 +279,21 @@
     font-weight: 800;
   }
 
+  /* Manrope no tiene cursiva: de esa familia sólo se cargan los archivos
+     `normal`, así que al pedirle itálica el navegador la falsifica inclinando
+     la letra recta. La inclinación no ensancha la letra, de modo que su parte
+     alta invade el espacio que sigue y un título como
+     "Descubre *Babies*, *Bad Lieutenant: Tokyo* e *In Waves*" se lee pegado.
+     Plus Jakarta Sans —la fuente del cuerpo, ya cargada en cualquier página—
+     sí trae cursiva dibujada, con sus propias formas y su propio espaciado, y
+     su rango 200-800 cubre tanto el bold de h1/h2 como el 800 de <strong>. */
   h1 em,
   h2 em,
   h3 em,
   h4 em,
   h5 em,
   h6 em {
+    font-family: var(--font-body);
     font-style: italic;
   }
 
