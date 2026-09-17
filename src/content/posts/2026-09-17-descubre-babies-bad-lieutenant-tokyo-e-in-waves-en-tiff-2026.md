@@ -5,7 +5,8 @@ pubDate: 2026-09-17T18:09:09.816Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://i0.wp.com/awardswatch.com/wp-content/uploads/2026/09/2026-tiff-capsules-trace.png?fit=1200%2C874&ssl=1"
+image: "https://img.rutadoradafilms.com/88a97c69cf32b138.jpg"
+imageSource: "https://i0.wp.com/awardswatch.com/wp-content/uploads/2026/09/2026-tiff-capsules-trace.png?fit=1200%2C874&ssl=1"
 category: "Artículos"
 fuente:
   nombre: "AwardsWatch"
