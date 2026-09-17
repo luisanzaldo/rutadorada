@@ -4,7 +4,8 @@ description: "En TIFF 2026, *Babies* explora la duda parental, *Bad Lieutenant: 
 pubDate: 2026-09-17T18:09:09.816Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "https://www.semainedelacritique.com/uploads/filmdiaporama/image_big_4b8d6c3f5977a866e216ad3f5bbd455a.png"
+image: "https://img.rutadoradafilms.com/80cad6efe511628d.jpg"
+imageSource: "https://www.semainedelacritique.com/uploads/filmdiaporama/image_big_4b8d6c3f5977a866e216ad3f5bbd455a.png"
 category: "Artículos"
 fuente:
   nombre: "AwardsWatch"
