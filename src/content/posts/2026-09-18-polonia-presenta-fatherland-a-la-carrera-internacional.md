@@ -1,5 +1,5 @@
 ---
-title: "Polonia presenta *Fatherland* como su candidata a Mejor Película Internacional en los Oscar."
+title: "Polonia presenta *Fatherland* como su candidata a Mejor Película Internacional en los Oscar"
 description: "Polonia elige *Fatherland*, drama en blanco y negro de Paweł Pawlikowski, como su candidato a Mejor Película Internacional en los Oscar."
 pubDate: 2026-09-18T15:21:39.593Z
 author: "Moncho"
@@ -12,7 +12,6 @@ fuente:
 readTime: "3 min read"
 tags: ["Oscar"]
 ---
-
 
 ## Un regreso al pasado con mirada contemporánea
 
