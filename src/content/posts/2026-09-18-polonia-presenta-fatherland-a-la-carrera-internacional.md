@@ -5,7 +5,8 @@ pubDate: 2026-09-18T15:21:39.593Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/05/Fatherland_d757e3.jpg"
+image: "https://img.rutadoradafilms.com/0538301af742a2d1.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/05/Fatherland_d757e3.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
