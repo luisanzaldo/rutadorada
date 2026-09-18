@@ -4,7 +4,8 @@ description: "La nueva película de *Resident Evil* dirigida por Zach Cregger, d
 pubDate: 2026-09-18T14:31:29.545Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.thewrap.com/wp-content/uploads/2026/09/Resident-Evil-Austin-Abrams-2026.jpg?width=990&height=557&fit=bounds"
+image: "https://img.rutadoradafilms.com/58115c8398f909e1.jpg"
+imageSource: "https://www.thewrap.com/wp-content/uploads/2026/09/Resident-Evil-Austin-Abrams-2026.jpg?width=990&height=557&fit=bounds"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"
