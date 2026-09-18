@@ -1,5 +1,5 @@
 ---
-title: "Predicción de la *shorlist* del Oscar a Mejor Película Internacional"
+title: "Predicción de la *shortlist* del Oscar a Mejor Película Internacional"
 description: "Las favoritas para pasar el corte en Mejor Película Internacional"
 pubDate: 2026-09-18T19:52:56.893Z
 author: "Moncho"
@@ -37,9 +37,9 @@ De la reciente edición de Venecia también emergieron cartas potentes que apunt
 
 Desde la Berlinale de este año llega *Rose*, dirigida por **Markus Schleinzer** (director de casting de **Michael Haneke** en algunas de sus películas). Presentada por **Austria**, la cinta cuenta con amplias posibilidades de superar el corte y le da opciones reales a su protagonista, **Sandra Hüller**, de pelear por una nominación a Mejor Actriz.
 
-![](https://static01.nyt.com/images/2026/09/14/multimedia/14int-israel-NAAZ-01-hctj/14int-israel-NAAZ-01-hctj-articleLarge.jpg?quality=75&auto=webp&disable=upscale)Completan mis predicciones para la *shortlist* tres apuestas continentales muy diversas: de **Brasil** *Gugu’s World* de **Allan Deberton**, que ratifica el excelente estado de salud del cine de ese país; *Elephants in the Fog* de **Abinash Bikram Shah**, enviada por **Nepal**; y *Growth of the Soil* de **Hans Petter Moland**, la propuesta de **Noruega**, un drama de corte épico que encaja perfectamente en las preferencias históricas de los académicos.
+![](https://static01.nyt.com/images/2026/09/14/multimedia/14int-israel-NAAZ-01-hctj/14int-israel-NAAZ-01-hctj-articleLarge.jpg?quality=75&auto=webp&disable=upscale)Completan mis predicciones para la *shortlist* tres apuestas continentales muy diversas: de **Brasil** *Gugu’s World* de **Allan Deberton**, que ratifica el excelente estado de salud del cine de ese país; *Elephants in the Fog* de **Abinash Bikram Shah**, enviada por **Nepal**; y *Growth of the Soil* de **Hans Petter Moland**, la propuesta de **Noruega**, un drama romántico de corte historico que encaja perfectamente en las preferencias históricas de los académicos.
 
-### **Predicción de la shorlist**
+### **Predicción de la shortlist**
 
 Alemania - Everytime
 
