@@ -5,7 +5,8 @@ pubDate: 2026-09-19T05:45:17.888Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/09/tiff.jpg"
+image: "https://img.rutadoradafilms.com/0f337a55da052ee0.jpg"
+imageSource: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2026/09/tiff.jpg"
 category: "Artículos"
 fuente:
   nombre: "Next Best Picture"
