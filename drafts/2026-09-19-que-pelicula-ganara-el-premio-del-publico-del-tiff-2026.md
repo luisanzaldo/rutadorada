@@ -1,7 +1,7 @@
 ---
 title: "¿Qué película ganará el premio del público del TIFF 2026?"
 description: "Descubre los seis favoritos del People's Choice del TIFF 2026, desde *La Bola Negra* hasta *Your Mother Your Mother Your Mother*."
-pubDate: 2026-09-19T05:39:46.668Z
+pubDate: 2026-09-19T05:41:22.935Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -16,7 +16,7 @@ tags: ["TIFF"]
 
 ## Un panorama de los candidatos
 
-La temporada de festivales de otoño ha llegado cargada de propuestas que compiten por el codiciado People's Choice Award del Festival de Cine de Toronto. Este año, el jurado popular tiene seis contendientes que presentan argumentos sólidos para alzarse con la victoria. Entre ellos destacan tanto estrenos internacionales como producciones que han encontrado una segunda vida después de Cannes.
+La temporada de festivales de otoño ha llegado cargada de propuestas que compiten por el codiciado People's Choice Award del Festival de Cine de Toronto. Este año, el jurado popular tiene seis contendientes que presentan argumentos sólidos para alzarse con la victoria. Entre ellos destacan tanto estrenos internacionales como producciones que han encontrado una segunda vida después de Cannes. *La Bola Negra* se perfila como la bola negra del certamen, una aspirante a ganar que ha despertado gran expectación entre el público.
 
 ## El favorito inesperado: *Club Kid*
 
