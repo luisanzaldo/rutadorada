@@ -5,7 +5,8 @@ pubDate: 2026-09-20T16:14:19.722Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.thewrap.com/wp-content/uploads/2026/09/La-Bola-Negra-1.jpg"
+image: "https://img.rutadoradafilms.com/b103628569ae0cdb.jpg"
+imageSource: "https://www.thewrap.com/wp-content/uploads/2026/09/La-Bola-Negra-1.jpg"
 category: "Artículos"
 fuente:
   nombre: "The Wrap"
