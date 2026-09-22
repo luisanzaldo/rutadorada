@@ -5,7 +5,8 @@ pubDate: 2026-09-22T21:51:47.874Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/09/MCDDIGG_WB016.jpg"
+image: "https://img.rutadoradafilms.com/eeb4d270e18423de.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/09/MCDDIGG_WB016.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
