@@ -5,7 +5,8 @@ pubDate: 2026-09-22T17:54:17.521Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2025/05/Im-Still-Here-Credit-Alile-Dara-Onawale-Globoplay2-2.jpg"
+image: "https://img.rutadoradafilms.com/0a68138140b8d158.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2025/05/Im-Still-Here-Credit-Alile-Dara-Onawale-Globoplay2-2.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
