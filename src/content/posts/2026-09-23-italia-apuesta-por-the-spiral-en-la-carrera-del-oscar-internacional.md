@@ -5,7 +5,8 @@ pubDate: 2026-09-23T14:28:13.570Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/09/117864-L_ESTRANEA__THE_SPIRAL__-_Actress_Valeria_Bruni_Tedeschi__Credits_Paolo_Ciriello_-1.jpg"
+image: "https://img.rutadoradafilms.com/472dd9aeb3dbfe8b.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/09/117864-L_ESTRANEA__THE_SPIRAL__-_Actress_Valeria_Bruni_Tedeschi__Credits_Paolo_Ciriello_-1.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
