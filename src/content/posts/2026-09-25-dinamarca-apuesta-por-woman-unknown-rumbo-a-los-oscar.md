@@ -5,7 +5,8 @@ pubDate: 2026-09-25T17:28:01.204Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://deadline.com/wp-content/uploads/2026/09/Woman-Unknown.jpeg"
+image: "https://img.rutadoradafilms.com/04363614e5254a8a.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/09/Woman-Unknown.jpeg"
 category: "Artículos"
 fuente:
   nombre: "Deadline"
