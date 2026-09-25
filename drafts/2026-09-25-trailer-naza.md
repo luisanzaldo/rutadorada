@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *NAZA*"
-description: "Descubre el impactante trailer oficial de *NAZA*, una aventura visual que promete revolucionar el género con su innovadora narrativa y efectos sorprendentes."
-pubDate: 2026-09-25T17:34:03.848Z
+description: "Descubre el impactante trailer oficial de *NAZA*"
+pubDate: 2026-09-25T17:34:45.170Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
