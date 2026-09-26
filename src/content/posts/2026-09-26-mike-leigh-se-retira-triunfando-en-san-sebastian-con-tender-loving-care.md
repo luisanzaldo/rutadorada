@@ -5,7 +5,8 @@ pubDate: 2026-09-26T20:41:12.937Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://variety.com/wp-content/uploads/2026/08/Still-1-_-Kate-OFlynn-Marion-Bailey-and-Alice-Bailey-Johnson-in-TENDER-LOVING-CARE-courtesy-Joseph-Lynn-_-️-Thin-Man-Films-Ltd-and-Bleecker-Street-.jpg"
+image: "https://img.rutadoradafilms.com/de43c5c47cd96816.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/08/Still-1-_-Kate-OFlynn-Marion-Bailey-and-Alice-Bailey-Johnson-in-TENDER-LOVING-CARE-courtesy-Joseph-Lynn-_-️-Thin-Man-Films-Ltd-and-Bleecker-Street-.jpg"
 category: "Artículos"
 fuente:
   nombre: "Variety"
