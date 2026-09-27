@@ -5,7 +5,8 @@ pubDate: 2026-09-27T20:49:05.730Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
 authorImage: ""
-image: "https://es.hollywoodreporter.com/wp-content/uploads/2026/08/Tatiana-Huezo-presentara-Galerna-en-San-Sebastian.jpg"
+image: "https://img.rutadoradafilms.com/c3cd9c7d3085654e.jpg"
+imageSource: "https://es.hollywoodreporter.com/wp-content/uploads/2026/08/Tatiana-Huezo-presentara-Galerna-en-San-Sebastian.jpg"
 category: "Premios"
 fuente:
   nombre: "FICM"
