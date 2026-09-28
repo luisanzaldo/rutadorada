@@ -1,7 +1,7 @@
 ---
 title: "Tráiler: *ELSINORE*"
-description: "Descubre el impactante tráiler oficial de *ELSINORE*, la nueva apuesta cinematográfica que llega a los cines en noviembre y promete sorprender al público."
-pubDate: 2026-09-28T18:25:35.821Z
+description: "Descubre el impactante tráiler oficial de *ELSINORE*"
+pubDate: 2026-09-28T18:26:16.011Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
