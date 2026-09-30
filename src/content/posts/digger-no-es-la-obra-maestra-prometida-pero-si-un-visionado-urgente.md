@@ -16,8 +16,9 @@ fichaTecnica:
   cast: "Tom Cruise, Riz Ahmed, John Goodman, Sandra Hüller, Michael Stuhlbarg, Jesse Plemons"
   duracion: "128"
 readTime: "3 min read"
-tags: ["Cines"]
+tags: ["Sátira"]
 ---
+
 
 
 Pocas películas en el panorama reciente han provocado una polarización tan inmediata y visceral como *Digger*, el esperado regreso de Alejandro González Iñárritu con Tom Cruise al frente. Mientras un sector de la crítica se ha precipitado a calificarla de pretenciosa o desbordada, la lectura de fondo revela una obra con intenciones mucho más urgentes e interesantes de lo que sugiere ese rechazo inicial.
@@ -31,4 +32,5 @@ Sin embargo, las virtudes de la cinta se ven obstaculizadas por sus propios exce
 #### Veredicto
 
 *Digger* no es el desastre catastrófico que algunos sectores han querido etiquetar, pero tampoco alcanza la categoría de obra maestra redonda que su premisa prometía. Es una propuesta ambiciosa, imperfecta y por momentos carece de buen ritmo, pero profundamente necesaria en el cine contemporáneo. Vale la pena el visionado por la valentía de lo que cuenta, y por cómo lo cuenta, así como por la solidez de sus interpretaciones.
+
 
