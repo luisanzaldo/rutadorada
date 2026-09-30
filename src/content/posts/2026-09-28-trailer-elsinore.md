@@ -1,16 +1,15 @@
 ---
-title: "Tráiler: *ELSINORE*"
-description: "Descubre el impactante tráiler oficial de *ELSINORE*"
+title: "Tráiler: *Elsinore*"
+description: "Descubre el impactante tráiler oficial de *Elsinore*"
 pubDate: 2026-09-28T18:26:25.880Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://img.rutadoradafilms.com/6bab464ecd579c75.jpg"
-imageSource: "https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/09/andrew-scott-elsinore.jpg?w=1200&h=675&fit=crop"
 category: "Tráilers"
-readTime: "2 min"
-tags: ["Próximamente"]
 videoUrl: "https://youtu.be/SzopCeFAWF0?si=EY6j0uGeNiOmeIk9"
+readTime: "1 min read"
+tags: ["Próximamente"]
 ---
+
 
 Disfruta del tráiler de *ELSINORE*.
