@@ -4,7 +4,8 @@ description: "Crítica de Digger, la última película del mexicano Alejandro Go
 pubDate: 2026-09-30T18:15:58.357Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/09/MCDDIGG_WB016.jpg?w=1000&h=667&crop=1"
+image: "https://img.rutadoradafilms.com/4884015526c4dc96.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/09/MCDDIGG_WB016.jpg?w=1000&h=667&crop=1"
 category: "Críticas"
 fuente:
   nombre: "Redacción"
