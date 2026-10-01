@@ -5,7 +5,8 @@ pubDate: 2026-10-01T17:47:51.393Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/03/The-Best-Peacock-Subscription-Deals-and-Free-Trial-Hacks-MAIN.jpg?w=1296&h=730&crop=1"
+image: "https://img.rutadoradafilms.com/93898d21c3b16f92.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/03/The-Best-Peacock-Subscription-Deals-and-Free-Trial-Hacks-MAIN.jpg?w=1296&h=730&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"
