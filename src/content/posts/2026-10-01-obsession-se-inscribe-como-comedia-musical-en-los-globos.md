@@ -1,12 +1,10 @@
 ---
-title: "*Obsession* se inscribe como comedia musical en los Globos"
+title: "*Obsession* se inscribe como comedia musical en los Globos de Oro"
 description: "*Obsession* apuesta por la categoría de comedia musical en los *Golden Globes*, una jugada que podría cambiar su ruta de premios."
 pubDate: 2026-10-01T17:47:51.393Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://img.rutadoradafilms.com/93898d21c3b16f92.jpg"
-imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/03/The-Best-Peacock-Subscription-Deals-and-Free-Trial-Hacks-MAIN.jpg?w=1296&h=730&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"
@@ -17,7 +15,7 @@ tags: ["Golden Globe"]
 
 ## La estrategia de categoría
 
-El éxito colosal de *Obsession*, la producción de Curry Barker que superó los 500 millones de dólares, ha despertado una discusión inesperada en los círculos de premios: ¿debería presentarse como drama o como comedia musical? El distribuidor estadounidense, Focus Features, ha optado por la segunda vía, argumentando que el tono del film, a pesar de sus momentos oscuros, genera risas a través de la exageración de la protagonista, Inde Navarrette, en su versión de Nikki Freeman. La decisión no es mera casualidad; los votantes del *Golden Globes* ya la perciben como una comedia, y la categoría elegida podría abrirle una senda más accesible que el saturado bloque de dramas.
+El éxito colosal de *Obsession*, la producción de Curry Barker que superó los 500 millones de dólares, ha despertado una discusión inesperada en los círculos de premios: ¿debería presentarse como drama o como comedia musical? El distribuidor estadounidense, Focus Features, ha optado por la segunda vía, argumentando que el tono del film, a pesar de sus momentos oscuros, genera risas a través de la exageración de la protagonista, Inde Navarrette, en su versión de Nikki Freeman. La decisión no es mera casualidad, los votantes del *Golden Globes* ya la perciben como una comedia, y la categoría elegida podría abrirle una senda más accesible que el saturado bloque de dramas.
 
 ## Precedentes que allanan el camino
 
