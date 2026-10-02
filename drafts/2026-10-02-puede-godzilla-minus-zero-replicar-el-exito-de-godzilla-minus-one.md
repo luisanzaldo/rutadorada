@@ -1,7 +1,7 @@
 ---
 title: "¿Puede *Godzilla Minus Zero* replicar el éxito de *Godzilla Minus One*?"
 description: "*Godzilla Minus Zero* intenta repetir la magia de *Godzilla Minus One* y pelear por el Oscar a Mejores Efectos Visuales contra *Dune: Part Three*."
-pubDate: 2026-10-02T00:16:00.435Z
+pubDate: 2026-10-02T00:17:48.518Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
@@ -16,7 +16,7 @@ tags: ["Oscar"]
 
 ## Un vistazo al legado de *Godzilla Minus One*
 
-Cuando Takashi Yamazaki lanzó *Godzilla Minus One* en 2023, el mundo quedó sorprendido: con menos de 15 millones de dólares de presupuesto, el director entregó una obra intensa, inmersiva y apasionada que alcanzó un 99 % en Rotten Tomatoes. Ese nivel de aclamación, inusual para una producción japonesa de monstruos, le valió el histórico Oscar a Mejores Efectos Visuales, rompiendo la racha de gigantes de Hollywood como *Dune* y *Avatar: The Way of Water*. La película demostró que la creatividad y el detalle pueden superar al dinero.
+Cuando Takashi Yamazaki lanzó *Godzilla Minus One* en 2023, el mundo quedó sorprendido: con menos de 15 millones de dólares de presupuesto, el director entregó una obra intensa, inmersiva y apasionada que alcanzó un 99 % en Rotten Tomatoes. Ese nivel de aclamación, inusual para una producción japonesa de monstruos, le valió el histórico Oscar a Mejores Efectos Visuales. La película demostró que la creatividad y el detalle pueden superar al dinero.
 
 ## La apuesta visual de *Godzilla Minus Zero*
 
