@@ -4,7 +4,8 @@ description: "Andrew Garfield se ha convertido de la noche a la mañana en el gr
 pubDate: 2026-10-06T21:11:06.920Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/Andrew-Garfield-as-Sam-Altman-and-Yura-Borisov-as-Ilya-Sutskever-in-ARTIFICIAL.Courtesy-of-NEON.-H-2026-.jpg?w=1296&h=730&crop=1"
+image: "https://img.rutadoradafilms.com/7cc313034c27c76f.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/Andrew-Garfield-as-Sam-Altman-and-Yura-Borisov-as-Ilya-Sutskever-in-ARTIFICIAL.Courtesy-of-NEON.-H-2026-.jpg?w=1296&h=730&crop=1"
 imageCredit: "Andrew Garfield como Sam Altman y Yura Borisov como Ilya Sutskever in Artificial. Fotografía: Cortesía de Neon"
 category: "Artículos"
 fuente:
