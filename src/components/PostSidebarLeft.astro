@@ -129,8 +129,11 @@ const { slug } = Astro.props;
 </aside>
 
 <!-- Mobile Bottom Bar -->
+<!-- pb con safe-area: cubre la zona del indicador de inicio en iOS (requiere viewport-fit=cover).
+     El ::after extiende el fondo hacia abajo para que, mientras la barra del navegador
+     (Safari, navegador in-app de X) se oculta/aparece o hay rebote, no se vea contenido debajo. -->
 <div
-    class="fixed bottom-0 left-0 z-50 w-full border-t border-slate-200 dark:border-[#224249] bg-white dark:bg-[#162a2f] p-4 lg:hidden"
+    class="fixed bottom-0 left-0 z-50 w-full border-t border-slate-200 dark:border-[#224249] bg-white dark:bg-[#162a2f] px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] lg:hidden transform-gpu after:content-[''] after:absolute after:inset-x-0 after:top-full after:h-[50vh] after:bg-inherit"
 >
     <div class="flex items-center justify-around">
         <button

@@ -380,6 +380,8 @@ const plainDescription = stripRichText(post.data.description);
     </main>
 
     <Footer />
+    <!-- Espacio para que la barra fija móvil no tape el final del footer -->
+    <div class="h-[calc(4.75rem+env(safe-area-inset-bottom))] lg:hidden bg-card-light dark:bg-card-dark" aria-hidden="true"></div>
     <ShareModal />
 
     <script>
