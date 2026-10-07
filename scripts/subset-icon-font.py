@@ -27,6 +27,10 @@ import argparse, hashlib, pathlib, re, subprocess, sys, tempfile
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 FUENTE_ORIGINAL = 'public/fonts/material-symbols-outlined-variable.woff2'
 PATRON = re.compile(r'material-symbols-outlined[^>]*>\s*([a-z0-9_]+)\s*<')
+# Iconos que llegan por variable —<span ...>{s.icono}</span>— no tienen el nombre
+# dentro del span y PATRON no los ve: se declaran con la clave `icono:` en los datos
+# que alimentan el span (como las secciones de 404.astro) y se recogen aqui.
+PATRON_DINAMICO = re.compile(r'\bicono:\s*["\']([a-z0-9_]+)["\']')
 
 
 def iconos_en_el_codigo() -> set[str]:
@@ -39,7 +43,8 @@ def iconos_en_el_codigo() -> set[str]:
     for carpeta in ['src/components', 'src/layouts', 'src/pages', 'src/lib', 'src/content/posts']:
         for f in (RAIZ / carpeta).rglob('*'):
             if f.is_file():
-                encontrados |= set(PATRON.findall(f.read_text(errors='ignore')))
+                texto = f.read_text(errors='ignore')
+                encontrados |= set(PATRON.findall(texto)) | set(PATRON_DINAMICO.findall(texto))
     return encontrados
 
 
