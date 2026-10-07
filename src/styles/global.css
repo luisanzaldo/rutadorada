@@ -134,7 +134,10 @@
   font-style: normal;
   font-weight: 100 700;
   /* El eje de variable de Material Symbols se define por default como variable o font-variation-settings */
-  font-display: swap;
+  /* block y no swap: cada icono es una palabra (chevron_right) que la fuente
+     convierte en dibujo. Con swap, mientras la fuente carga se ve la palabra;
+     con block el hueco queda vacio. Va precargada en Layout.astro. */
+  font-display: block;
   /* Subconjunto: solo los 23 iconos que el sitio usa, de los ~4.200 que trae la
      fuente completa. 3,7 MB -> 17 KB. El hash va en el nombre porque /fonts/* se
      sirve con immutable a un ano: si cambiara el contenido sin cambiar la URL,

@@ -188,6 +188,18 @@ def apuntar_css_a(nombre: str) -> None:
     css.write_text(nuevo)
     print(f'src/styles/global.css apuntando a {nombre}')
 
+    # El <link rel="preload"> del layout pide el mismo archivo. Si se quedara
+    # con el nombre viejo, cada pagina descargaria un 404 de mas.
+    layout = RAIZ / 'src/layouts/Layout.astro'
+    t = layout.read_text()
+    patron = re.compile(r'(href=")/fonts/material-symbols-subset-[0-9a-f]+\.woff2(")')
+    nuevo, n = patron.subn(rf'\g<1>/fonts/{nombre}\g<2>', t)
+    if n != 1:
+        sys.exit(f'*** No pude actualizar el preload en {layout} ({n} coincidencias). '
+                 f'Ponlo a mano: href="/fonts/{nombre}"')
+    layout.write_text(nuevo)
+    print(f'src/layouts/Layout.astro precargando {nombre}')
+
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
