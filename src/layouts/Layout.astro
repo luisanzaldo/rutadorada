@@ -4,6 +4,9 @@ import { portada, estaEnR2 } from "../lib/images";
 import VideoModal from "../components/VideoModal.astro";
 import RssModal from "../components/RssModal.astro";
 
+// Logo del header (logo-RutaDorada-v002.svg) sobre negro, a 1200x630.
+const PORTADA_POR_DEFECTO = "/images/RutaDorada-social.png";
+
 interface Props {
 	title: string;
 	description?: string;
@@ -13,19 +16,19 @@ interface Props {
 const {
 	title,
 	description = "Sigue la carrera de premios del séptimo arte y lee los análisis que tenemos para ti.",
-	image = "/images/RutaDorada-web.png",
+	image = PORTADA_POR_DEFECTO,
 } = Astro.props;
 
 // Portada social. La variante -og de R2 mide 1200x630 exactos, que es lo que
-// declaran og:image:width/height. Cuando la imagen no está en R2 no declaramos
-// medidas, porque no las sabemos: la portada por defecto mide 798x218 y
-// anunciarla como 1200x630 hacía que algunas redes maquetaran mal la tarjeta
-// antes de descargarla.
+// declaran og:image:width/height, igual que la portada por defecto. Para
+// cualquier otra imagen fuera de R2 no declaramos medidas, porque no las
+// sabemos, y anunciar unas falsas hace que algunas redes maqueten mal la
+// tarjeta antes de descargarla.
 const { social } = portada(image);
 const socialImageURL = social.startsWith('http')
 	? social
 	: new URL(social, Astro.site || Astro.url).href;
-const socialConMedidas = estaEnR2(image);
+const socialConMedidas = estaEnR2(image) || image === PORTADA_POR_DEFECTO;
 
 // Analytics — solo se cargan en producción y si los IDs están definidos
 const GA4_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
