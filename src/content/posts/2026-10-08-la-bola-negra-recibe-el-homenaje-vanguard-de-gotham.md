@@ -1,12 +1,10 @@
 ---
-title: "La *Bola Negra* recibe el homenaje Vanguard de Gotham"
+title: "La *Bola Negra* recibirá el Gotham Vanguard Tribute"
 description: "La *Bola Negra* de Los Javis será honrada con el Gotham Vanguard Tribute en la 36ª edición de los Gotham Film Awards."
 pubDate: 2026-10-08T19:04:49.688Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-authorImage: ""
 image: "https://img.rutadoradafilms.com/14bfd4eff2dac240.jpg"
-imageSource: "https://media.gq.com.mx/photos/6a997bac3f036e04a75a68c3/16:9/w_2560%2Cc_limit/La%2520bola%2520negra.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"
@@ -17,7 +15,7 @@ tags: ["Gotham"]
 
 ## Contexto del homenaje
 
-El Gotham Film & Media Institute ha anunciado que *La Bola Negra* será la protagonista del Gotham Vanguard Tribute durante la 36ª ceremonia de los Gotham Film Awards, que se celebrará el 30 de noviembre en Cipriani Wall Street, Nueva York. Este galardón está destinado a reconocer obras que rompen esquemas y amplían los límites del cine con decisiones artísticas audaces. El reconocimiento llega en un momento en que la producción española está cobrando mayor visibilidad en circuitos internacionales.
+El Gotham Film & Media Institute ha anunciado que *La Bola Negra* será reconocida con el Gotham Vanguard Tribute durante la 36ª ceremonia de los Gotham Film Awards, que se celebrará el 30 de noviembre en Cipriani Wall Street, Nueva York. Este galardón está destinado a reconocer obras que rompen esquemas y amplían los límites del cine con decisiones artísticas audaces. El reconocimiento llega en un momento en que la producción española está cobrando mayor visibilidad en circuitos internacionales.
 
 ## La película y su relevancia
 
