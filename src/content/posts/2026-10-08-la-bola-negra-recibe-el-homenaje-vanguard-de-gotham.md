@@ -5,7 +5,8 @@ pubDate: 2026-10-08T19:04:49.688Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://media.gq.com.mx/photos/6a997bac3f036e04a75a68c3/16:9/w_2560%2Cc_limit/La%2520bola%2520negra.jpg"
+image: "https://img.rutadoradafilms.com/14bfd4eff2dac240.jpg"
+imageSource: "https://media.gq.com.mx/photos/6a997bac3f036e04a75a68c3/16:9/w_2560%2Cc_limit/La%2520bola%2520negra.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"
