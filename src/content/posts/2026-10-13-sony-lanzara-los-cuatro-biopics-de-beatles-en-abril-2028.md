@@ -5,7 +5,8 @@ pubDate: 2026-10-13T16:18:12.103Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://www.hollywoodreporter.com/wp-content/uploads/2026/01/FotoJet-2026-01-30T142418.127.jpg?w=1440&h=810&crop=1"
+image: "https://img.rutadoradafilms.com/298c8e28c933fbca.jpg"
+imageSource: "https://www.hollywoodreporter.com/wp-content/uploads/2026/01/FotoJet-2026-01-30T142418.127.jpg?w=1440&h=810&crop=1"
 category: "Artículos"
 fuente:
   nombre: "The Hollywood Reporter"
