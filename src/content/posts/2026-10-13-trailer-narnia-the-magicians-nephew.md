@@ -5,7 +5,8 @@ pubDate: 2026-10-13T19:18:38.333Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 authorImage: ""
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIfPZ-OQQ6PZWx_NKWGhq0ikaJpv7RglFF8L_xcwh19UG5OsfZjVyVjB8&s=10"
+image: "https://img.rutadoradafilms.com/d213f8f31a4b9c88.jpg"
+imageSource: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIfPZ-OQQ6PZWx_NKWGhq0ikaJpv7RglFF8L_xcwh19UG5OsfZjVyVjB8&s=10"
 category: "Tráilers"
 readTime: "2 min"
 tags: ["Próximamente"]
