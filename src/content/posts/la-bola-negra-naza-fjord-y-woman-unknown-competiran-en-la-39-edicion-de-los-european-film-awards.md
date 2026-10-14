@@ -4,7 +4,8 @@ description: "La European Film Academy revela la preselección para la 39ª edic
 pubDate: 2026-10-14T17:15:50.474Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/08/Unknown-8.jpeg?w=681&h=383&crop=1"
+image: "https://img.rutadoradafilms.com/f47a8c30ece590c7.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/08/Unknown-8.jpeg?w=681&h=383&crop=1"
 imageCredit: "'Woman Unknown' TrustNordisk"
 category: "Premios"
 fuente:
