@@ -1,11 +1,10 @@
 ---
-title: "*La bola negra, NAZA, Fjord* y *Woman Unknown* competirán en la 39ª edición de los European Film Awards"
+title: "*La bola negra, NAZA, Fjord* y *Woman Unknown* han sido preseleccionados para la 39ª edición de los European Film Awards"
 description: "La European Film Academy revela la preselección para la 39ª edición de los European Film Awards"
 pubDate: 2026-10-14T17:15:50.474Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/f47a8c30ece590c7.jpg"
-imageSource: "https://deadline.com/wp-content/uploads/2026/08/Unknown-8.jpeg?w=681&h=383&crop=1"
 imageCredit: "'Woman Unknown' TrustNordisk"
 category: "Premios"
 fuente:
@@ -18,8 +17,6 @@ tags: ["EFA"]
 La **Academia del Cine Europeo (European Film Academy)** ha hecho oficial la lista de largometrajes preseleccionados para disputar las nominaciones de la 39ª edición de los **European Film Awards**. Un total de 68 producciones procedentes de 40 países han sido elegidas en esta fase inicial, abarcando ficción, cine documental y animación.
 
 Los miembros de la Academia votarán próximamente para determinar a los nominados oficiales que competirán en la gran gala de premiación, la cual tendrá lugar el 16 de enero de 2027 en Atenas. Las nominaciones a los European Film Awards en las categorías de mejor película, documental, animación, dirección, actriz, actor, guion, dirección de casting, fotografía, música original, diseño de vestuario, montaje, maquillaje y peluquería, diseño de producción y sonido, así como para el premio *Discovery – Prix FIPRESCI*, se anunciarán el 14 de noviembre de 2026 durante el Festival Internacional de Cine de Tesalónica.
-
-En la 38ª edición celebrada a principios de este año en Berlín, la gran triunfadora fue la película *Sentimental Value* del director noruego Joachim Trier. La película arrasó con los premios de mejor película, dirección, guion (para Eskil Vogt y Trier), así como mejor actor y actriz para Stellan Skarsgård y Renate Reinsve respectivamente. Posteriormente la cinta continuó su trayectoria hasta ganar el Oscar a la Mejor Película Internacional.
 
 A continuación el listado completo de los títulos seleccionados en cada una de las tres categorías principales:
 
@@ -164,3 +161,7 @@ A continuación el listado completo de los títulos seleccionados en cada una de
 - **Yellow Letters** – Dir. İlker Çatak (Alemania, Francia, Turquía)
 
 - **You Don't Belong Here** – Dir. Florin Şerban (Rumania)
+
+## Precedentes
+
+En la 38ª edición celebrada a principios de este año en Berlín, la gran triunfadora fue la película *Sentimental Value* del director noruego Joachim Trier. La película arrasó con los premios de mejor película, dirección, guion (para Eskil Vogt y Trier), así como mejor actor y actriz para Stellan Skarsgård y Renate Reinsve respectivamente. Posteriormente la cinta continuó su trayectoria hasta ganar el Oscar a la Mejor Película Internacional.
