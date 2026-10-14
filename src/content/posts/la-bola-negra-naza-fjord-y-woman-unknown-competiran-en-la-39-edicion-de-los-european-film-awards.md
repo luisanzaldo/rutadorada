@@ -14,7 +14,7 @@ readTime: "5 min read"
 tags: ["EFA"]
 ---
 
-La **Academia del Cine Europeo (European Film Academy)** ha hecho oficial la lista de largometrajes preseleccionados para disputar las nominaciones de la 39ª edición de los **European Film Awards**. Un total de 68 producciones procedentes de 40 países han sido elegidas en esta fase inicial, abarcando ficción, cine documental y animación.
+La **Academia de Cine Europeo (European Film Academy)** ha hecho oficial la lista de largometrajes preseleccionados para disputar las nominaciones de la 39ª edición de los **European Film Awards**. Un total de 68 producciones procedentes de 40 países han sido elegidas en esta fase inicial, abarcando ficción, cine documental y animación.
 
 Los miembros de la Academia votarán próximamente para determinar a los nominados oficiales que competirán en la gran gala de premiación, la cual tendrá lugar el 16 de enero de 2027 en Atenas. Las nominaciones a los European Film Awards en las categorías de mejor película, documental, animación, dirección, actriz, actor, guion, dirección de casting, fotografía, música original, diseño de vestuario, montaje, maquillaje y peluquería, diseño de producción y sonido, así como para el premio *Discovery – Prix FIPRESCI*, se anunciarán el 14 de noviembre de 2026 durante el Festival Internacional de Cine de Tesalónica.
 
