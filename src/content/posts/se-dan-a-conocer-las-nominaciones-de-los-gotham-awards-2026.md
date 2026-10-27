@@ -4,7 +4,7 @@ description: "\"All of a Sudden\", \"Clarissa\", \"La Gradiva\", \"The Invite\" 
 pubDate: 2026-10-27T19:22:07.921Z
 author: "Luis Anzaldo"
 letterboxd: "https://boxd.it/82ej9"
-image: "/images/posts/2026-10-27-all-1793128925936.webp"
+image: "https://img.rutadoradafilms.com/c70a353a55235d50.jpg"
 category: "Premios"
 fuente:
   nombre: "Next Best Picture"
