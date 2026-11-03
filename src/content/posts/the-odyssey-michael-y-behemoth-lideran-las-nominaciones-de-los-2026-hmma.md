@@ -19,11 +19,11 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR CANCIÓN - LARGOMETRAJE**
 
-***Draw You Out***  de *The Hunger Games: Sunrise on the Reaping -* Escrita por Noah Kahan y Aaron Dessner. Interpretada por Noah Kahan.
+***Draw You Out*** de *The Hunger Games: Sunrise on the Reaping -* Escrita por Noah Kahan y Aaron Dessner. Interpretada por Noah Kahan.
 
 ***House Featuring John Cale*** de *Wuthering Heights -* Escrita por Charlotte Aitchison, John Cale, Finn Keane y Nathan Klein. Interpretada por Charli XCX.
 
-***Light Over The Hill*** de *Reminders of him*  - Escrita por Noah Cyrus, Justin Franks y PJ Harding. Interpretada por Noah Cyrus.
+***Light Over The Hill*** de *Reminders of him* - Escrita por Noah Cyrus, Justin Franks y PJ Harding. Interpretada por Noah Cyrus.
 
 ***One Right Here*** de *Maserati: The Brothers* - Escrita por Diane Warren. Interpretada por Andrea Bocelli y Jennifer Hudson.
 
@@ -33,9 +33,9 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR CANCIÓN - PELÍCULA INDEPENDIENTE**
 
-***Brothers Keep Goin' Anyway*** de *Brother verses Brother*  - Escrita e interpretada por Ethan Gold.
+***Brothers Keep Goin' Anyway*** de *Brother verses Brother* - Escrita e interpretada por Ethan Gold.
 
-***Hollywood Man*** de *Billy Knight*  - Escrita e interpretada por Beck.
+***Hollywood Man*** de *Billy Knight* - Escrita e interpretada por Beck.
 
 ***How Could You Leave*** de *Bloom* - Escrita por Brandon Jarrett y Amber Frank. Interpretada por Amber Frank.
 
@@ -49,13 +49,13 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ***Let Me Sell You a Dream*** de "Musk" - Escrita por David Byrne y Daniel Pemberton. Interpretada por David Byrne.
 
-***Light Up*** de *Kylie*  - Escrita por Kylie Minogue, Richard Stannard, Duck Blackwell, Luke Fitton y Chris Martin. Interpretada por Kylie Minogue.
+***Light Up*** de *Kylie* - Escrita por Kylie Minogue, Richard Stannard, Duck Blackwell, Luke Fitton y Chris Martin. Interpretada por Kylie Minogue.
 
-***Stay True*** de *Nothing to See Here: Watts*  - Escrita por Brandon “Stix” Salaam-Bailey, Marcus Hodge, Christopher Black, Johnny McKenzie, Rosemarie Peralta y Daysha Morgan. Interpretada por Rosemarie featuring Jay Rock.
+***Stay True*** de *Nothing to See Here: Watts* - Escrita por Brandon “Stix” Salaam-Bailey, Marcus Hodge, Christopher Black, Johnny McKenzie, Rosemarie Peralta y Daysha Morgan. Interpretada por Rosemarie featuring Jay Rock.
 
-***What Lies With You*** de *Linda Perry: Let It Die Here*  - Escrita e interpretada por Linda Perry.
+***What Lies With You*** de *Linda Perry: Let It Die Here* - Escrita e interpretada por Linda Perry.
 
-***Younger You*** de *Hannah Montana 20th Anniversary Special*  - Escrita por Miley Cyrus, Michael Pollack, Stefan Johnson, Jordan K. Johnson, Gregory "Aldae" Hein y Jon Bellion. Interpretada por Miley Cyrus.
+***Younger You*** de *Hannah Montana 20th Anniversary Special* - Escrita por Miley Cyrus, Michael Pollack, Stefan Johnson, Jordan K. Johnson, Gregory "Aldae" Hein y Jon Bellion. Interpretada por Miley Cyrus.
 
 ## **MEJOR CANCIÓN - PELÍCULA ANIMADA**
 
@@ -83,7 +83,7 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR BANDA SONORA - PELÍCULA ANIMADA**
 
-***Coyote vs ACME *** - Steven Price
+***Coyote vs ACME*** - Steven Price
 
 ***Hexed*** - Kris Bowers
 
@@ -131,7 +131,7 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR BANDA SONORA - PELÍCULA DE HORROR / THRILLER**
 
-***Backrooms***  - Edo Van Breemen y Kane Parsons
+***Backrooms*** - Edo Van Breemen y Kane Parsons
 
 ***Clayface*** - Volker Bertelmann
 
@@ -161,9 +161,9 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR BANDA SONORA - DOCUMENTAL**
 
-***Avedon***  - David Fleming
+***Avedon*** - David Fleming
 
-***Running Wild: Return to the River *** - Alex Heffes
+***Running Wild: Return to the River***  - Alex Heffes
 
 ***The Cycle of Love*** - Patrick Jonsson
 
@@ -179,7 +179,7 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ***Brother verses Brother*** - Ari Gold (Director)
 
-***Descendants: Wicked Wonderland***  - Kimmy Gatewood (Director)
+***Descendants: Wicked Wonderland*** - Kimmy Gatewood (Director)
 
 ***Michael*** - Antoine Fuqua (Director)
 
@@ -187,11 +187,11 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **MEJOR BANDA SONORA - PELÍCULA INDEPENDIENTE EN IDIOMA EXTRANJERO**
 
-***Ezma***  - Mina Samy
+***Ezma*** - Mina Samy
 
 ***Fadia*** - Daniel Markovich
 
-***Girl and Wolf***  - Arturo Cardelús
+***Girl and Wolf*** - Arturo Cardelús
 
 ***Ha-Chan, Shake Your Booty!*** - Nathan Halpern
 
@@ -201,7 +201,7 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ## **SUPERVISIÓN MUSICAL EN PELÍCULA**
 
-***40 Watts from Nowhere***  - Mara Kuge
+***40 Watts from Nowhere*** - Mara Kuge
 
 ***Michael*** - John Warhurst
 
@@ -211,4 +211,4 @@ Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y *
 
 ***Tony*** - Mandy Malmet
 
-***Wuthering Heights***  - Nicolette Di Dia
+***Wuthering Heights*** - Nicolette Di Dia
