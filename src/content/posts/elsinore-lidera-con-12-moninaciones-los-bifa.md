@@ -4,7 +4,8 @@ description: "Nominaciones de los British Independent Film Awards (BIFA)"
 pubDate: 2026-11-03T18:42:08.809Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://variety.com/wp-content/uploads/2026/07/elsinore.jpg?w=1000&h=667&crop=1"
+image: "https://img.rutadoradafilms.com/99ff42b8ea007a17.jpg"
+imageSource: "https://variety.com/wp-content/uploads/2026/07/elsinore.jpg?w=1000&h=667&crop=1"
 category: "Premios"
 fuente:
   nombre: "BIFA"
