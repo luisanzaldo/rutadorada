@@ -4,7 +4,8 @@ description: "Nominaciones de los 2026 Hollywood Music in Media Awards"
 pubDate: 2026-11-03T18:01:37.639Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://cdn.flickeringmyth.com/wp-content/uploads/2026/07/behemoth.jpg"
+image: "https://img.rutadoradafilms.com/770e278acdc5df44.jpg"
+imageSource: "https://cdn.flickeringmyth.com/wp-content/uploads/2026/07/behemoth.jpg"
 category: "Premios"
 fuente:
   nombre: "HMMA"
