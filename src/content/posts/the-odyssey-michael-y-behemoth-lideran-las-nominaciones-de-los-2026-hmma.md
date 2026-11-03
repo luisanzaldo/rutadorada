@@ -1,6 +1,6 @@
 ---
-title: "The Odyssey, Michael y Behemoth! lideran las nominaciones de los 2026 HMMA"
-description: "Nominaciones de los 2026 Hollywood Music in Media Awards"
+title: "*La Odisea*, *Michael* y *Behemoth!* lideran las nominaciones de los HMMA 2026"
+description: "Estas son las nominaciones de los Hollywood Music in Media Awards 2026."
 pubDate: 2026-11-03T18:01:37.639Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
@@ -13,228 +13,202 @@ readTime: "6 min read"
 tags: ["HMMA"]
 ---
 
-Los **HMMA (Hollywood Music in Media Awards)** son unos premios otorgados anualmente por la **Hollywood Music in Media Academy** que honra y reconoce la música original (bandas sonoras, canciones y supervisión musical) creada específicamente para medios visuales, incluyendo cine, televisión, videojuegos, tráileres, documentales y comerciales. En sus nominaciones de 2026 destacan Michael, Behemoth! y The Odyssey como las más nominadas, en 3 categorías cada una. A continuación, los nominados en todas las categorías de películas:
+Los **HMMA (Hollywood Music in Media Awards)** presentaron sus nominaciones de 2026. Estos premios son otorgados anualmente por la **Hollywood Music in Media Academy** para honrar y reconocer a la música original (bandas sonoras, canciones y supervisión musical). Esta institución fue creada específicamente para medios audiovisuales, incluyendo cine, televisión, videojuegos, tráilers, documentales y comerciales.
 
-## **SONG - FEATURE FILM**
+Este año, las películas más destacadas son ***Michael***, ***Behemoth!*** y ***La Odisea***, ya que son las más nominadas (en 3 categorías cada una). A continuación te presentamos todas las nominaciones de cine:
 
-**"Draw You Out"** from THE HUNGER GAMES: SUNRISE ON THE REAPING - Written by Noah Kahan and Aaron Dessner. Performed by Noah Kahan.
+## **MEJOR CANCIÓN - LARGOMETRAJE**
 
-**“House Featuring John Cale”** from WUTHERING HEIGHTS - Written by Charlotte Aitchison, John Cale, Finn Keane, and Nathan Klein. Performed by Charli XCX.
+***Draw You Out***  de *The Hunger Games: Sunrise on the Reaping -* Escrita por Noah Kahan y Aaron Dessner. Interpretada por Noah Kahan.
 
-**"Light Over The Hill"** from REMINDERS OF HIM - Written by Noah Cyrus, Justin Franks, and PJ Harding. Performed by Noah Cyrus.
+***House Featuring John Cale*** de *Wuthering Heights -* Escrita por Charlotte Aitchison, John Cale, Finn Keane y Nathan Klein. Interpretada por Charli XCX.
 
-**"One Right Here"** from MASERATI: THE BROTHERS - Written by Diane Warren. Performed by Andrea Bocelli and Jennifer Hudson.
+***Light Over The Hill*** de *Reminders of him*  - Escrita por Noah Cyrus, Justin Franks y PJ Harding. Interpretada por Noah Cyrus.
 
-**"When I'm Home"** from THE ODYSSEY - Written by James Blake, Travis Scott, Ludwig Göransson, and Christopher Nolan. Performed by James Blake, Travis Scott, and Ludwig Göransson.
+***One Right Here*** de *Maserati: The Brothers* - Escrita por Diane Warren. Interpretada por Andrea Bocelli y Jennifer Hudson.
 
-**"Your God Is Sleeping"** from BEHEMOTH! - Written by Lukas Frank. Performed by Loren Kramar, Pascal Stevenson, Lukas Frank, and Gregory Uhlmann.
+***When I'm Home*** de *La Odisea* - Escrita por James Blake, Travis Scott, Ludwig Göransson y Christopher Nolan. Interpretada por James Blake, Travis Scott y Ludwig Göransson.
 
-## **SONG - INDEPENDENT FILM**
+***Your God Is Sleeping*** de *Behemoth!* - Escrita por Lukas Frank. Interpretada por Loren Kramar, Pascal Stevenson, Lukas Frank y Gregory Uhlmann.
 
-**"Brothers Keep Goin' Anyway"** from BROTHER VERSES BROTHER - Written and performed by Ethan Gold.
+## **MEJOR CANCIÓN - PELÍCULA INDEPENDIENTE**
 
-**"Hollywood Man"** from BILLY KNIGHT - Written and performed by Beck. 
+***Brothers Keep Goin' Anyway*** de *Brother verses Brother*  - Escrita e interpretada por Ethan Gold.
 
-**"How Could You Leave"** from BLOOM - Written by Brandon Jarrett and Amber Frank. Performed by Amber Frank.
+***Hollywood Man*** de *Billy Knight*  - Escrita e interpretada por Beck.
 
-**"La Nieve"** from LA BOLA NEGRA - Written by Guitarricadelafuente, Raül Refree, and Lucas Duran. Performed by Guitarricadelafuente.
+***How Could You Leave*** de *Bloom* - Escrita por Brandon Jarrett y Amber Frank. Interpretada por Amber Frank.
 
-**"On Video"** from PRIMETIME - Written by Phoebe Bridgers, Jack Antonoff and Christian Lee Hutson. Performed by Phoebe Bridgers.
+***La Nieve*** de *La Bola Negra* - Escrita por Guitarricadelafuente, Raül Refree y Lucas Duran. Interpretada por Guitarricadelafuente.
 
-**"This City May Have Chewed Me Up (But It Hasn't Spit Me Out)"** from THE DEBUT - Written by Jesse Eisenberg. Performed by Julianne Moore.
+***On Video*** de *Primetime* - Escrita por Phoebe Bridgers, Jack Antonoff y Christian Lee Hutson. Interpretada por Phoebe Bridgers.
 
-## **SONG - DOCUMENTARY FILM**
+***This City May Have Chewed Me Up (But It Hasn't Spit Me Out)*** de *The Debut* - Escrita por Jesse Eisenberg. Interpretada por Julianne Moore.
 
-**“Let Me Sell You a Dream”** from MUSK - Written by David Byrne and Daniel Pemberton. Performed by David Byrne.
+## **MEJOR CANCIÓN - DOCUMENTAL**
 
-**"Light Up"** from KYLIE - Written by Kylie Minogue, Richard Stannard, Duck Blackwell, Luke Fitton, Chris Martin. Performed by Kylie Minogue.
+***Let Me Sell You a Dream*** de "Musk" - Escrita por David Byrne y Daniel Pemberton. Interpretada por David Byrne.
 
-**"Stay True"** from NOTHING TO SEE HERE: WATTS - Written by Brandon “Stix” Salaam-Bailey, Marcus Hodge, Christopher Black, Johnny McKenzie, Rosemarie Peralta, and Daysha Morgan. Performed by Rosemarie featuring Jay Rock.
+***Light Up*** de *Kylie*  - Escrita por Kylie Minogue, Richard Stannard, Duck Blackwell, Luke Fitton y Chris Martin. Interpretada por Kylie Minogue.
 
-**"What Lies With You"** from LINDA PERRY: LET IT DIE HERE - Written and performed by Linda Perry.
+***Stay True*** de *Nothing to See Here: Watts*  - Escrita por Brandon “Stix” Salaam-Bailey, Marcus Hodge, Christopher Black, Johnny McKenzie, Rosemarie Peralta y Daysha Morgan. Interpretada por Rosemarie featuring Jay Rock.
 
-**"Younger You"** from HANNAH MONTANA 20TH ANNIVERSARY SPECIAL - Written by Miley Cyrus, Michael Pollack, Stefan Johnson, Jordan K. Johnson, Gregory "Aldae" Hein, and Jon Bellion. Performed by Miley Cyrus.
+***What Lies With You*** de *Linda Perry: Let It Die Here*  - Escrita e interpretada por Linda Perry.
 
-## **SONG - ANIMATED FILM**
+***Younger You*** de *Hannah Montana 20th Anniversary Special*  - Escrita por Miley Cyrus, Michael Pollack, Stefan Johnson, Jordan K. Johnson, Gregory "Aldae" Hein y Jon Bellion. Interpretada por Miley Cyrus.
 
-**"Bottle Up"** from PAW PATROL: THE DINO MOVIE - Written by Ed Sheeran, Savan Kotecha, Johnny McDaid, Ilya Salmanzadeh. Performed by The Backstreet Boys.
+## **MEJOR CANCIÓN - PELÍCULA ANIMADA**
 
-**"BRB"** from FORGOTTEN ISLAND - Written by Ryan Tedder and Gabriella Wilson. Performed by H.E.R. and Liza Soberano.
+***Bottle Up*** de *Paw Patrol: The Dino Movie* - Escrita por Ed Sheeran, Savan Kotecha, Johnny McDaid e Ilya Salmanzadeh. Interpretada por The Backstreet Boys.
 
-**"I Knew It, I Knew You"** from TOY STORY 5 - Written by Taylor Swift and Jack Antonoff. Performed by Taylor Swift.
+***BRB*** de *Forgotten Island* - Escrita por Ryan Tedder y Gabriella Wilson. Interpretada por H.E.R. and Liza Soberano.
 
-**"Someone to Hold"** from STEPS - Written by Justin Tranter, Julia Michaels, and Jason Gill. Performed by JENNIE.
+***I Knew It, I Knew You*** de *Toy Story 5* - Escrita por Taylor Swift y Jack Antonoff. Interpretada por Taylor Swift.
 
-**"The Better Part of Bravery"** from WILDWOOD - Written by Colin Meloy. Performed by The Decemberists.
+***Someone to Hold*** de *Steps* - Escrita por Justin Tranter, Julia Michaels y Jason Gill. Interpretada por JENNIE.
 
-## **SONG - ONSCREEN PERFORMANCE (FILM)**
+***The Better Part of Bravery*** de *Wildwood* - Escrita por Colin Meloy. Interpretada por The Decemberists.
 
-**Ethan Gold** - "Brothers Keep Goin' Anyway" from BROTHER VERSES BROTHER.
+## **MEJOR INTERPRETACIÓN EN PANTALLA**
 
-**Jaafar Jackson** - "Bad" from MICHAEL.
+**Ethan Gold** - *Brothers Keep Goin' Anyway* de *Brother verses Brother*.
 
-**Julianne Moore** - "This City May Have Chewed Me Up (But It Hasn't Spit Me Out)" from THE DEBUT.
+**Jaafar Jackson** - *Bad* de *Michael*.
 
-**Linda Perry** - "What Lies With You" from LINDA PERRY: LET IT DIE HERE.
+**Julianne Moore** - *This City May Have Chewed Me Up (But It Hasn't Spit Me Out)* de *The Debut.*
 
-**Nick Jonas** - "How To Write A Song Without You" from POWER BALLAD.
+**Linda Perry** - *What Lies With You* de *Linda Perry: Let It Die Here*
 
-## **SCORE - ANIMATED FILM**
+**Nick Jonas** - *How To Write A Song Without You* de *Power Ballad*.
 
-**COYOTE VS. ACME** - Steven Price
+## **MEJOR BANDA SONORA - PELÍCULA ANIMADA**
 
-**HEXED** - Kris Bowers
+***Coyote vs ACME *** - Steven Price
 
-**RAY GUNN** - Michael Giacchino
+***Hexed*** - Kris Bowers
 
-**THE SUPER MARIO GALAXY MOVIE** - Brian Tyler
+***Ray Gunn*** - Michael Giacchino
 
-**TOY STORY 5** - Randy Newman
+***The Super Mario Galaxy Movie*** - Brian Tyler
 
-**THE VIOLINIST** - Ricky Ho and Isabel Latorre
+***Toy Story 5*** - Randy Newman
 
-**WILDWOOD** - Dario Marianelli
+***The Violinist*** - Ricky Ho e Isabel Latorre
 
-## **SCORE - FEATURE FILM**
+***Wildwood*** - Dario Marianelli
 
-**ARTIFICIAL** - Damon Albarn
+## **MEJOR BANDA SONORA - LARGOMETRAJE**
 
-**BEHEMOTH!** - The Behemoth! Collective
+***Artificial*** - Damon Albarn
 
-**HEART OF THE BEAST** - Jared Michael Fry
+***Behemoth!*** - The Behemoth! Collective
 
-**TENZING** - Rebekka Karijord
+***Heart of the Beast*** - Jared Michael Fry
 
-**THE ODYSSEY** - Ludwig Göransson
+***Tenzing*** - Rebekka Karijord
 
-**WILD HORSE NINE** - Carter Burwell
+***La Odisea*** - Ludwig Göransson
 
-**YOUR MOTHER YOUR MOTHER YOUR MOTHER** - Son Lux
+***Wild Horse Nine*** - Carter Burwell
 
-## **SCORE - SCIFI/FANTASY FILM**
+***Your Mother Your Mother Your Mother*** - Son Lux
 
-**DISCLOSURE DAY** - John Williams
+## **MEJOR BANDA SONORA - PELÍCULA CIENCIA FICCIÓN / FANTASÍA**
 
-**DUNE: PART THREE** - Hans Zimmer
+***Disclosure Day***- John Williams
 
-**HOPE** - Michael Abels
+***Dune: Part Three*** - Hans Zimmer
 
-**PROJECT HAIL MARY** - Daniel Pemberton
+***HOPE*** - Michael Abels
 
-**SPIDER-MAN: BRAND NEW DAY** - Michael Giacchino
+***Project Hail Mary*** - Daniel Pemberton
 
-**THE HUNGER GAMES: SUNRISE ON THE REAPING** - James Newton Howard
+***Spider-Man: Brand New Day*** - Michael Giacchino
 
-**WHALEFALL** - Joseph Trapanese
+***The Hunger Games: Sunrise on the Reaping*** - James Newton Howard
 
-## **SCORE - HORROR/THRILLER FILM**
+***Whalefall*** - Joseph Trapanese
 
-**BACKROOMS** - Edo Van Breemen and Kane Parsons
+## **MEJOR BANDA SONORA - PELÍCULA DE HORROR / THRILLER**
 
-**CLAYFACE** - Volker Bertelmann
+***Backrooms***  - Edo Van Breemen y Kane Parsons
 
-**OBSESSION** - Rock Burwell
+***Clayface*** - Volker Bertelmann
 
-**RESIDENT EVIL** - Ryan Holladay and Hays Holladay
+***Obsession*** - Rock Burwell
 
-**SCREAM 7** - Marco Beltrami
+***Resident Evil*** - Ryan Holladay y Hays Holladay
 
-**SEND HELP** - Danny Elfman
+***Scream 7*** - Marco Beltrami
 
-## **SCORE - INDEPENDENT FILM**
+***Send Help*** - Danny Elfman
 
-**BILLY KNIGHT** - Lesley Barber
+## **MEJOR BANDA SONORA - PELÍCULA INDEPENDIENTE**
 
-**LA BOLA NEGRA** - Raül Refree
+***Billy Knight*** - Lesley Barber
 
-**PRIMETIME** - Ari Balouzian
+***La Bola Negra*** - Raül Refree
 
-**THE DRAMA** - Daniel Pemberton
+***Primetime*** - Ari Balouzian
 
-**THE INCOMER** - Tom Kingston, composer
+***The Drama*** - Daniel Pemberton
 
-**THE INVITE** - Devonté Hynes
+***The Incomer*** - Tom Kingston, compositor
 
-**WICKER** - Anna Meredith
+**The Invite**- Devonté Hynes
 
-## **SCORE - DOCUMENTARY**
+**Wicker** - Anna Meredith
 
-**AVEDON** - David Fleming
+## **MEJOR BANDA SONORA - DOCUMENTAL**
 
-**RUNNING WILD: RETURN TO THE RIVER** - Alex Heffes
+***Avedon***  - David Fleming
 
-**THE CYCLE OF LOVE** - Patrick Jonsson
+***Running Wild: Return to the River *** - Alex Heffes
 
-**THE EYES OF GHANA** - Kris Bowers
+***The Cycle of Love*** - Patrick Jonsson
 
-**THE TRUTH AND TRAGEDY OF MORIAH WILSON** - Marco Beltrami
+***The Eyes of Ghana*** - Kris Bowers
 
-**YOU CAN SEE EVERYTHING** - Ari Balouzian
+***The Truth and Tragedy of Moriah Wilson*** - Marco Beltrami
 
-## **MUSIC-THEMED FILM, BIOPIC OR MUSICAL**
+***You Can See Everything*** - Ari Balouzian
 
-**BEHEMOTH!** - Tony Gilroy (Director)
+## **MEJOR PELÍCULA MUSICAL, BIOGRÁFICA O DE TEMÁTICA MUSICAL**
 
-**BROTHER VERSES BROTHER** - Ari Gold (Director)
+***Behemoth!*** - Tony Gilroy (Director)
 
-**DESCENDANTS: WICKED WONDERLAND** - Kimmy Gatewood (Director)
+***Brother verses Brother*** - Ari Gold (Director)
 
-**MICHAEL** - Antoine Fuqua (Director)
+***Descendants: Wicked Wonderland***  - Kimmy Gatewood (Director)
 
-**THE MUPPET SHOW** - Alex Timbers (Director)
+***Michael*** - Antoine Fuqua (Director)
 
-## **SCORE - INDEPENDENT FILM (FOREIGN LANGUAGE)**
+**The Muppet Show** - Alex Timbers (Director)
 
-**EZMA** - Mina Samy
+## **MEJOR BANDA SONORA - PELÍCULA INDEPENDIENTE EN IDIOMA EXTRANJERO**
 
-**FADIA** - Daniel Markovich
+***Ezma***  - Mina Samy
 
-**GIRL AND WOLF** - Arturo Cardelús
+***Fadia*** - Daniel Markovich
 
-**HA-CHAN, SHAKE YOUR BOOTY!** - Nathan Halpern
+***Girl and Wolf***  - Arturo Cardelús
 
-**HEADS UP** - Florian Simon Krefting
+***Ha-Chan, Shake Your Booty!*** - Nathan Halpern
 
-**THE CAULIFLOWER OF DESTINY** - Magdalena Sowul
+***Heads Ud*** - Florian Simon Krefting
 
-## **MUSIC SUPERVISION - FILM**
+***The Cauliflower of Destiny*** - Magdalena Sowul
 
-**40 WATTS FROM NOWHERE** - Mara Kuge
+## **SUPERVISIÓN MUSICAL EN PELÍCULA**
 
-**MICHAEL** - John Warhurst
+***40 Watts from Nowhere***  - Mara Kuge
 
-**MR. IRRELEVANT** - Gabe Hilfer
+***Michael*** - John Warhurst
 
-**THE DEVIL WEARS PRADA 2** - Julia Michels
+***Mr. Irrelevant*** - Gabe Hilfer
 
-**TONY** - Mandy Malmet
+***The Devil Wears Prada 2*** - Julia Michels
 
-**WUTHERING HEIGHTS** - Nicolette Di Dia
+***Tony*** - Mandy Malmet
 
-## **SOUNDTRACK ALBUM**
-
-**ASSASSIN'S CREED BLACK FLAG RESYNCED** - Ubisoft Music
-
-**MOON: NATURE'S SECRET FORCE** - Sky Music
-
-**PREHISTORIC PLANET: ICE AGE** - Milan Records
-
-**TED LASSO Season 4** - WaterTower Music
-
-**STAR WARS: GALACTIC RACER** - Walt Disney Records
-
-## **MUSIC VIDEO**
-
-**"Beautiful"** from BEAUTIFUL - Directed by Sara Gilbert.
-
-**"BRB"** from FORGOTTEN ISLAND - Directed by Bianca Catbagan and H.E.R.
-
-**"By Any Means"** from BY ANY MEANS - Directed by Fran Strine.
-
-**"Curva Grande"** from CURVA GRANDE: PICTURES AT THE EXHIBITION. THE PAINTINGS OF BOB PEAK - Directed by Ihab Darwish and Hani Shebani
-
-**“I'm So In Love With You”** from I'M SO IN LOVE WITH YOU - Directed by William D. Murrell Jr.
-
-**"Tunapaa (We Rise)"** from TUNAPAA (WE RISE) - Directed by Jeremiah Mzungu and Ileni Joseph.
-
-**"When I'm Home"** from THE ODYSSEY - Directed by Travis Scott.
+***Wuthering Heights***  - Nicolette Di Dia
