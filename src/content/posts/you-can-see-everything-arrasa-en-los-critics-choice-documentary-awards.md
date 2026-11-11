@@ -4,7 +4,8 @@ description: "El documental  se llevó cada uno de los premios a los que estaba 
 pubDate: 2026-11-11T17:34:11.620Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://www.goldderby.com/wp-content/uploads/2026/10/You-Can-See-Everything-1.jpg?w=1920&h=1080&crop=1"
+image: "https://img.rutadoradafilms.com/267a6940af917625.jpg"
+imageSource: "https://www.goldderby.com/wp-content/uploads/2026/10/You-Can-See-Everything-1.jpg?w=1920&h=1080&crop=1"
 imageCredit: "Nathan Fielder and Elizabeth Holmes in You Can See Everything A24"
 category: "Premios"
 fuente:
