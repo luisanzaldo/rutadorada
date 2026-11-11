@@ -1,11 +1,10 @@
 ---
 title: "*You Can See Everything* arrasa en los Critics Choice Documentary Awards"
-description: "El documental  se llevó cada uno de los premios a los que estaba nominado"
+description: "El documental se llevó cada uno de los premios a los que estaba nominado"
 pubDate: 2026-11-11T17:34:11.620Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/267a6940af917625.jpg"
-imageSource: "https://www.goldderby.com/wp-content/uploads/2026/10/You-Can-See-Everything-1.jpg?w=1920&h=1080&crop=1"
 imageCredit: "Nathan Fielder and Elizabeth Holmes in You Can See Everything A24"
 category: "Premios"
 fuente:
@@ -17,7 +16,7 @@ tags: ["CCDA"]
 
 ***You Can See Everything***, de Nathan Fielder y Lance Oppenheim, arrasó en la 11ª edición de los Critics Choice Documentary Awards, ganando las cinco nominaciones a las que optaba, entre ellas Mejor Largometraje Documental y Mejor Dirección. La película de A24 también se llevó los premios a Mejor Fotografía (David Bolen), Mejor Edición (Adam Locke-Norton) y Mejor Música / Banda Sonora (Ari Balouzian).
 
-Este rotundo triunfo llega mientras A24 realiza la campaña de *You Can See Everything* tanto para Mejor Largometraje Documental como para Mejor Película en los Oscar, categoría esta última en la que ningún documental ha sido nominado jamás. Sin embargo, una victoria en los Critics Choice no garantiza un Oscar. **Solo dos de los ganadores a Mejor Largometraje Documental de la CCDA en sus primeros 10 años (*O.J.: Made in America* y *Summer of Soul*) terminaron ganando el Premio de la Academia**, y la rama documental de la Academia no siempre ha acogido con entusiasmo las películas impulsadas por celebridades.
+Este rotundo triunfo llega mientras A24 realiza la campaña de *You Can See Everything* tanto para Mejor Largometraje Documental como para Mejor Película en los Oscar, categoría esta última en la que ningún documental ha sido nominado jamás. Sin embargo, una victoria en los Critics Choice no garantiza un Oscar. **Solo dos de los ganadores a Mejor Largometraje Documental de los CCDA en sus primeros 10 años (*O.J.: Made in America* y *Summer of Soul*) terminaron ganando el Premio de la Academia**, y la rama documental de la Academia no siempre ha acogido con entusiasmo las películas impulsadas por celebridades.
 
 A continuación, la lista completa de ganadores y nominados:
 
