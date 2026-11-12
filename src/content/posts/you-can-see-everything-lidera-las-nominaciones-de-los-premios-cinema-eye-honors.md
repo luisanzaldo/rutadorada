@@ -4,7 +4,8 @@ description: "*Cinema Eye Honors* anuncia sus nominaciones para la 20.ª edició
 pubDate: 2026-11-12T21:25:04.036Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://cinemaeyehonors.com/wp-content/uploads/2026/11/ceh-2027-feature-nominations-announcement.jpg"
+image: "https://img.rutadoradafilms.com/f21d20e9b2181b23.jpg"
+imageSource: "https://cinemaeyehonors.com/wp-content/uploads/2026/11/ceh-2027-feature-nominations-announcement.jpg"
 imageCredit: "Cinema Eye Honors"
 category: "Premios"
 fuente:
