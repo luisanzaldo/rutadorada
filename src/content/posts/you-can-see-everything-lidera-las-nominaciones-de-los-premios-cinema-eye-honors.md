@@ -1,5 +1,5 @@
 ---
-title: "*You Can See Everything* lidera las nominaciones de los premios *Cinema Eye Honors*"
+title: "*You Can See Everything* y *American Doctor* lideran las nominaciones de los Premios *Cinema Eye Honors*"
 description: "*Cinema Eye Honors* anuncia sus nominaciones para la 20.ª edición de sus premios"
 pubDate: 2026-11-12T21:25:04.036Z
 author: "Moncho"
