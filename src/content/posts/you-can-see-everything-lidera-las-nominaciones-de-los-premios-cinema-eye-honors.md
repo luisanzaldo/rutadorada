@@ -93,7 +93,7 @@ Las películas *American Doctor*, de Poh Si Teng, y *You Can See Everything*, de
 
 - **David Bolen** — *You Can See Everything*
 
-### Mejor Música OriginaL
+### Mejor Música original
 
 - **Suad Bushnaq** — *American Doctor*
 
