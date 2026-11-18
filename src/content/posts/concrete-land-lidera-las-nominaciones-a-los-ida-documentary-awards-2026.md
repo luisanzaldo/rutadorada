@@ -5,7 +5,6 @@ pubDate: 2026-11-18T22:14:50.437Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/1ad63f2caa0e1e24.jpg"
-imageSource: "https://filmuforia.com/wp-content/uploads/2026/08/image.jpeg"
 category: "Premios"
 fuente:
   nombre: "IDA"
@@ -22,27 +21,27 @@ En segundo lugar se encuentra *To Hold a Mountain*, de Biljana Tutorov y Petar G
 
 ### **Mejor Largometraje Documental**
 
-- **Concrete Land** — Jordania y Palestina. Dirección: Asmahan Bkerat. Producción: Ban Maraqa y Asmahan Bkerat.
+- ***Concrete Land*** — Jordania y Palestina. Dirección: Asmahan Bkerat. Producción: Ban Maraqa y Asmahan Bkerat.
 
-- **A Fox Under a Pink Moon** — Irán, Türkiye y Grecia. Distribuidora: Kino Lorber. Dirección: Mehrdad Oskouei y Soraya Akhlaghi. Producción: Mehrdad Oskouei y Siavash Jamali.
+- ***A Fox Under a Pink Moon*** — Irán, Türkiye y Grecia. Distribuidora: Kino Lorber. Dirección: Mehrdad Oskouei y Soraya Akhlaghi. Producción: Mehrdad Oskouei y Siavash Jamali.
 
-- **Rehearsals for a Revolution** — República Checa y España. Distribuidora: Sony Pictures Classics. Dirección: Pegah Ahangarani. Producción: Parnian Farnam, Pegah Ahangarani y Arash Ashtiani.
+- ***Rehearsals for a Revolution*** — República Checa y España. Distribuidora: Sony Pictures Classics. Dirección: Pegah Ahangarani. Producción: Parnian Farnam, Pegah Ahangarani y Arash Ashtiani.
 
-- **To Hold a Mountain** — Serbia, Montenegro y Francia. Distribuidora: Submarine. Dirección: Biljana Tutorov y Petar Glomazić. Producción: Biljana Tutorov, Petar Glomazić, Quentin Laurent y Rok Biček.
+- ***To Hold a Mountain*** — Serbia, Montenegro y Francia. Distribuidora: Submarine. Dirección: Biljana Tutorov y Petar Glomazić. Producción: Biljana Tutorov, Petar Glomazić, Quentin Laurent y Rok Biček.
 
-- **You Can See Everything** — Estados Unidos. Distribuidora: A24. Dirección: Nathan Fielder y Lance Oppenheim. Producción: Nathan Fielder, Lance Oppenheim, Tatiana Bears, Maggie Ambrose y Jack Davis.
+- ***You Can See Everything*** — Estados Unidos. Distribuidora: A24. Dirección: Nathan Fielder y Lance Oppenheim. Producción: Nathan Fielder, Lance Oppenheim, Tatiana Bears, Maggie Ambrose y Jack Davis.
 
 ### **Mejor Cortometraje Documental**
 
-- **Fruits of Despair** — Irán. Distribución: Raina Film Festival Distribution. Dirección: Nima Nassaj. Producción: Nima Nassaj, Mahshid Afzali, Faezeh Davoodi y Asghar Torabi.
+- ***Fruits of Despair*** — Irán. Distribución: Raina Film Festival Distribution. Dirección: Nima Nassaj. Producción: Nima Nassaj, Mahshid Afzali, Faezeh Davoodi y Asghar Torabi.
 
-- **Maybe Tomorrow** — Reino Unido, Siria y Alemania. Distribución: Channel 4. Dirección: Waad Al-Kateab y Wafa Mustafa. Producción: Waad Al-Kateab, Joanna Natasegara y Abigail Anketell-Jones.
+- ***Maybe Tomorrow*** — Reino Unido, Siria y Alemania. Distribución: Channel 4. Dirección: Waad Al-Kateab y Wafa Mustafa. Producción: Waad Al-Kateab, Joanna Natasegara y Abigail Anketell-Jones.
 
-- **Sawyer Avenue, Sunday Afternoon** — Estados Unidos. Distribución: The New Yorker. Dirección: Bill Morrison. Producción: Bill Morrison, Jamie Kalven y María Inés Zamudio.
+- ***Sawyer Avenue, Sunday Afternoon*** — Estados Unidos. Distribución: The New Yorker. Dirección: Bill Morrison. Producción: Bill Morrison, Jamie Kalven y María Inés Zamudio.
 
-- **Son** — Suecia. Distribución: The New York Times Op-Docs. Dirección: Leona Cauklija. Producción: Balder Ljunggren y Joel Viksten Abrahamsson.
+- ***Son*** — Suecia. Distribución: The New York Times Op-Docs. Dirección: Leona Cauklija. Producción: Balder Ljunggren y Joel Viksten Abrahamsson.
 
-- **They’re Here** — Estados Unidos. Dirección: Laura Poitras y Rachel Lauren Mueller. Producción: Rachel Lauren Mueller, Laura Poitras y Yoni Golijov.
+- ***They’re Here*** — Estados Unidos. Dirección: Laura Poitras y Rachel Lauren Mueller. Producción: Rachel Lauren Mueller, Laura Poitras y Yoni Golijov.
 
 ### **Mejor Dirección**
 
@@ -130,27 +129,27 @@ En segundo lugar se encuentra *To Hold a Mountain*, de Biljana Tutorov y Petar G
 
 ### **Mejor Documental en Lengua No Inglesa**
 
-- **Birds of War** — Reino Unido, Siria y Líbano. Distribución: Dogwoof. Dirección: Janay Boulos y Abd Alkader Habak. Producción: Sonja Henrici, Janay Boulos y Abd Alkader Habak.
+- ***Birds of War*** — Reino Unido, Siria y Líbano. Distribución: Dogwoof. Dirección: Janay Boulos y Abd Alkader Habak. Producción: Sonja Henrici, Janay Boulos y Abd Alkader Habak.
 
-- **Concrete Land** — Jordania y Palestina. Dirección: Asmahan Bkerat. Producción: Ban Maraqa y Asmahan Bkerat.
+- ***Concrete Land*** — Jordania y Palestina. Dirección: Asmahan Bkerat. Producción: Ban Maraqa y Asmahan Bkerat.
 
-- **A Fox Under a Pink Moon** — Irán, Türkiye y Grecia. Distribución: Kino Lorber. Dirección: Mehrdad Oskouei y Soraya Akhlaghi. Producción: Mehrdad Oskouei y Siavash Jamali.
+- ***A Fox Under a Pink Moon*** — Irán, Türkiye y Grecia. Distribución: Kino Lorber. Dirección: Mehrdad Oskouei y Soraya Akhlaghi. Producción: Mehrdad Oskouei y Siavash Jamali.
 
-- **Rehearsals for a Revolution** — República Checa y España. Distribución: Sony Pictures Classics. Dirección: Pegah Ahangarani. Producción: Parnian Farnam, Pegah Ahangarani y Arash Ashtiani.
+- ***Rehearsals for a Revolution*** — República Checa y España. Distribución: Sony Pictures Classics. Dirección: Pegah Ahangarani. Producción: Parnian Farnam, Pegah Ahangarani y Arash Ashtiani.
 
-- **Who Is Still Alive** — Suiza, Palestina, Francia y Reino Unido. Distribución: Watermelon Pictures. Dirección: Nicolas Wadimoff. Producción: Nicolas Wadimoff y Ketsia Stocker.
+- ***Who Is Still Alive*** — Suiza, Palestina, Francia y Reino Unido. Distribución: Watermelon Pictures. Dirección: Nicolas Wadimoff. Producción: Nicolas Wadimoff y Ketsia Stocker.
 
 ### **Mejor Documental Musical**
 
-- **Billy Preston: That’s The Way God Planned It** — Estados Unidos. Distribución: Abramorama. Dirección: Paris Barclay. Producción: Stephanie Allain, Jeanne Elfant Festa, Nigel Sinclair y Cheo Hodari Coker.
+- ***Billy Preston: That’s The Way God Planned It*** — Estados Unidos. Distribución: Abramorama. Dirección: Paris Barclay. Producción: Stephanie Allain, Jeanne Elfant Festa, Nigel Sinclair y Cheo Hodari Coker.
 
-- **Earth, Wind & Fire (To Be Celestial vs. That’s the Weight of the World)** — Estados Unidos. Distribución: HBO Max. Dirección: Ahmir “Questlove” Thompson. Producción: Dave Sirulnick, Samantha Grogin, KB White, Arron Saxe y Ahmir “Questlove” Thompson.
+- ***Earth, Wind & Fire (To Be Celestial vs. That’s the Weight of the World)*** — Estados Unidos. Distribución: HBO Max. Dirección: Ahmir “Questlove” Thompson. Producción: Dave Sirulnick, Samantha Grogin, KB White, Arron Saxe y Ahmir “Questlove” Thompson.
 
-- **EPiC: Elvis Presley in Concert** — Estados Unidos. Distribución: NEON. Dirección: Baz Luhrmann. Producción: Baz Luhrmann, Colin Smeeton, Schuyler Weiss, Jeremy Castro y Matthew Gross.
+- ***EPiC: Elvis Presley in Concert*** — Estados Unidos. Distribución: NEON. Dirección: Baz Luhrmann. Producción: Baz Luhrmann, Colin Smeeton, Schuyler Weiss, Jeremy Castro y Matthew Gross.
 
-- **Lilith Fair: Building a Mystery** — Estados Unidos y Canadá. Distribución: Hulu. Dirección: Ally Pankiw. Producción: Dan Levy y Christina Piovesan.
+- ***Lilith Fair: Building a Mystery*** — Estados Unidos y Canadá. Distribución: Hulu. Dirección: Ally Pankiw. Producción: Dan Levy y Christina Piovesan.
 
-- **Man on the Run** — Estados Unidos. Distribución: Amazon MGM Studios. Dirección: Morgan Neville. Producción: Morgan Neville, Chloe Simmons, Meghan Walsh, Scott Rodger, Ben Chappell, Michele Anthony y David Blackman.
+- ***Man on the Run*** — Estados Unidos. Distribución: Amazon MGM Studios. Dirección: Morgan Neville. Producción: Morgan Neville, Chloe Simmons, Meghan Walsh, Scott Rodger, Ben Chappell, Michele Anthony y David Blackman.
 
 Además de las categorías competitivas, la International Documentary Association anunció cuatro reconocimientos especiales para esta edición:
 
