@@ -1,11 +1,10 @@
 ---
-title: "*Fatherland* domina las nominaciones de los European Film Awards y Sandra Hüller consigue doble nominación"
-description: "11 nominaciones para la película de Paweł Pawlikowski y 10 para La bola negra"
+title: "*Fatherland* domina las nominaciones de los European Film Awards"
+description: "11 nominaciones para la película de Paweł Pawlikowski. Sandra Hüller consigue doble nominación"
 pubDate: 2026-11-18T21:56:30.187Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
 image: "https://img.rutadoradafilms.com/c25d36cfdc2ad6d1.jpg"
-imageSource: "https://m.media-amazon.com/images/M/MV5BYjFhMzMwNTMtMWJhYS00ZmMzLWI5MWMtNzJmYTA5ZTliOTMwXkEyXkFqcGdeQVRoaXJkUGFydHlJbmdlc3Rpb25Xb3JrZmxvdw@@._V1_.jpg"
 category: "Premios"
 fuente:
   nombre: "EFA"
@@ -13,6 +12,7 @@ fuente:
 readTime: "4 min read"
 tags: ["EFA"]
 ---
+
 
 La Academia de Cine Europeo anunció las nominaciones para la 39.ª edición de los European Film Awards, con *Fatherland*, de Paweł Pawlikowski, como **la gran favorita de este año al conseguir 11 candidaturas**, la cifra más alta de la edición. Le sigue de cerca *La bola negra*, de Javier Calvo y Javier Ambrossi, **con 10 nominaciones**, consolidando el importante reconocimiento europeo que ha recibido la película española.
 
@@ -217,3 +217,4 @@ Flesh & Fuel (Du fioul dans les artères), de Pierre Le Gall
 The Guest (Gæsten), de Mads Mengel
 
 Thirteen in Gaza, de Hosam Abu Dan
+
