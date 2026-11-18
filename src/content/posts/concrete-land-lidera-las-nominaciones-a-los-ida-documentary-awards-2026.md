@@ -4,7 +4,8 @@ description: "*To Hold a Mountain* y *You Can See Everything* consiguen varias n
 pubDate: 2026-11-18T22:14:50.437Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://filmuforia.com/wp-content/uploads/2026/08/image.jpeg"
+image: "https://img.rutadoradafilms.com/1ad63f2caa0e1e24.jpg"
+imageSource: "https://filmuforia.com/wp-content/uploads/2026/08/image.jpeg"
 category: "Premios"
 fuente:
   nombre: "IDA"
