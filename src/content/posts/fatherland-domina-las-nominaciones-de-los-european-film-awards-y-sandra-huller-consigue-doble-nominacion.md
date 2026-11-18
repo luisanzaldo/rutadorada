@@ -4,7 +4,8 @@ description: "11 nominaciones para la película de Paweł Pawlikowski y 10 para 
 pubDate: 2026-11-18T21:56:30.187Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://m.media-amazon.com/images/M/MV5BYjFhMzMwNTMtMWJhYS00ZmMzLWI5MWMtNzJmYTA5ZTliOTMwXkEyXkFqcGdeQVRoaXJkUGFydHlJbmdlc3Rpb25Xb3JrZmxvdw@@._V1_.jpg"
+image: "https://img.rutadoradafilms.com/c25d36cfdc2ad6d1.jpg"
+imageSource: "https://m.media-amazon.com/images/M/MV5BYjFhMzMwNTMtMWJhYS00ZmMzLWI5MWMtNzJmYTA5ZTliOTMwXkEyXkFqcGdeQVRoaXJkUGFydHlJbmdlc3Rpb25Xb3JrZmxvdw@@._V1_.jpg"
 category: "Premios"
 fuente:
   nombre: "EFA"
