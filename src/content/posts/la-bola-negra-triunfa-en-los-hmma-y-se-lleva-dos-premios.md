@@ -4,7 +4,8 @@ description: "Ganadores de los *Hollywood Music in Media Awards*"
 pubDate: 2026-11-19T15:11:30.637Z
 author: "Moncho"
 letterboxd: "https://boxd.it/8jjEl"
-image: "https://deadline.com/wp-content/uploads/2026/05/200723.webp"
+image: "https://img.rutadoradafilms.com/c7762cbb9b193f01.jpg"
+imageSource: "https://deadline.com/wp-content/uploads/2026/05/200723.webp"
 category: "Premios"
 fuente:
   nombre: "HMMA"
